@@ -1,6 +1,6 @@
-=============
-IDEES EN VRAC
-=============
+====================
+IDEES PRELIMINAIRES
+====================
 
 Utilisateurs
 ============
@@ -15,11 +15,13 @@ Les utilisateurs pourront :
 
 Groupes D'utilisateurs
 ======================
+
 # Administrateurs
 # Utilisateurs
 
 Droits
 ======
+
 # Administration
 # Utilisation
 # Modération
@@ -35,10 +37,10 @@ Un utilisateur désirant y souscrire effectuera une requête d'inscription, qui 
 
 Messagerie
 ============
-+. Messages type E-mail :
++ Messages type E-mail :
      Un utilisateur peut envoyer un mail à 1..N utilisateurs quelconques.
 
-+. Messages type IM :
++ Messages type IM :
      Un utilisateur peut envoyer un message à une personne de son agenda.
      Les relations sont automatiquement ajoutées à l'agenda utilisateur.
  
