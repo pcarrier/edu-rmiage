@@ -8,7 +8,7 @@
 % Title Page
 \title{Projet PPO : Cahier des Charges}
 \author{
-	Badre Baba, GeoffroyCarrier, J-Ch Saad-Dupuy,Mickael Scher
+	Badre Baba, Geoffroy Carrier, J-Ch Saad-Dupuy,Mickael Scheer
 }
 
 
@@ -16,18 +16,40 @@
 \maketitle
 
 \section{Introduction}
+
+Ce document répond à 
 \section{Présentation du projet}
-\subsection{Contexte}
-\subsection{Intervenants}
-\subsection{Équipe projet}
-\subsection{Organisation du travail}
+ \subsection{Contexte}
+  \subsubsection{Intervenants}
+  \subsubsection{Équipe projet}
+Notre équipe se compose de 4 membres
+  %\subsubsection{Organisation du travail et répartition des tâches}
+  \subsection{Objectifs}
+L'objectif de cette réalisation est de proposer au client un outil lui permettant la réalisation de d'outils de type ``réseaux sociaux''.
+Nous metterons l'accent sur sa généricité et son interopérabilité, afin de laisser à notre client la plus grande liberté dans son utilisation.
 
 \section{Description du produit}
-\subsection{Fonctionnalités}
-\subsection{Technologies utilisées}
-\subsection{Configuration}
-\subsection{Logicielle}
-\subsection{Matérielle}
+ \subsection{Fonctionnalités}
+  \subsubsection{Serveur}
+  \subsubsection{Client de démonstration}
+ \subsection{Technologies utilisées}
+Nos contraintes de réalisation nous imposent le langage Java, ainsi que la techologie
+Remote Method Invocation (RMI).
+
+Dans un soucis d'interopérabilité et de liberté pour le client, nous comptons utiliser le framework Hibernate en interface avec la base de données. Cet outil lui permettera une indépendance vis à vis du systeme de gestion de base de Données relationnel (SGBDR) en background.
+
+% \subsection{Environnement de développement}
+%Nous utiliserons principalement l'Environnement de Développement Intégré Eclipse, %avec le plugin Maven pour permettre l'interopérabilité avec d'autres outils, tel que %Netbeans.
+%
+ \subsection{Environnement de déploiement}
+
+Notre framework se composeras d'une librairie, utilisée par un serveur. L'application témoin feras office de client.
+
+L'utilisation de la technologie Java assure une compléte indépendance du ou des systèmes d'exploitations hôtes.
+
+Le applications serveur et cliente pourrons être lancée depuis le même poste, en local, ou sur des machines distantes.
+  \subsubsection{Logicielle}
+  \subsubsection{Matérielle}
 
 
 \end{document}
