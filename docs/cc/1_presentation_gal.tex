@@ -20,12 +20,12 @@ générique) pour répondre rapidement à des diffuseurs de contenus qui voudrai
 
 Bien que notre équipe soit compétente et performante en développement, notemment dans les technologies Java, il s'agit ici de notre première réalisation commerciale.
 
-\subsubsection{Études déjà effectuées}
+%\subsubsection{Études déjà effectuées}
 % TODO : Bluff ?
-\subsubsection{Études menées sur des sujets voisins}
+%\subsubsection{Études menées sur des sujets voisins}
 % TODO : Bluff ?
-\subsubsection{Suites prévues}
-\subsubsection{Nature des prestations demandées}
+%\subsubsection{Suites prévues}
+%\subsubsection{Nature des prestations demandées}
 
 % Heu...cf Finalités....assez identique finalement.
 
@@ -61,22 +61,24 @@ Le produit livré se composera de trois parties :
 % pour chaque élément de l’environnement
 \begin{enumerate}
  \item Framework
-%TODO description framework
-TODO description framework
+
+Le framework permettera une organisation hiérarchique des données.
+Il mettera à disposition des méthodes permettera des fonctions d' ajout/suppression/modification de celles-ci.
+
+Il permettera également de générer des objets d'interfaces que l'application serveur pourra transmettre à l'application cliente.
+
+L'apsect social seras réalisé en intégrant au framework la possibilité à chaque utilisateur de créer des groupes de contacts et d'échanger des messages avec plusieurs personnes.
+
  \item Application témoin serveur
-% TODO description serveur
- TODO description serveur
-L'application témoin serveur seras basée sur notre framework ainsi que la technologie RMI. Il implémentera des spécialisations des objets génériques du framework, permettant une gestion d'utilisateurs, par groupes et permissions.
 
-L'apsect social seras réalisé en rendant possible à chaque utilisateur de créer des groupes de contacts et d'échanger des messages.
-%Différentes actions seronts possibles, telle que l'envois de messages, le partage de fichier.
-%Les utilisateurs pourront joindres des groupes, privés ou publics.
-
-Les groupes auront chacun un utilisateur administrateur.
+L'application témoin serveur seras basée sur notre framework.
+Il intégrera un protocole d''échange avec les applications clientes, basées sur RMI.
+Il assurera de même la gestion de la persistance des données.
 
  \item Application témoin cliente
-%TODO description client
 
-TODO description client
+L'application témoin cliente communiquera avec l'application serveur.
+Il s'agira d'une application générique, utilisant le protocole RMI pour obtenir les objets
+d'interface graphique permettant l'affichage et la saisie des données.
 
 \end{enumerate}
