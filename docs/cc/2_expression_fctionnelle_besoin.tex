@@ -1,0 +1,42 @@
+\section{Expression fonctionnelle du besoin}
+
+\subsection{Fonctions de service et de contrainte}
+\subsubsection{Fonctions de service principales}
+% (qui sont la raison d’être du produit)
+\input{2_1_Fonctions_de_service_principales}
+\subsubsection{Fonctions de service complémentaires}
+% (qui améliorent, facilitent ou complètent le service rendu)
+Deux programmes de démonstration exploitant les fonctionnalités du framework serons également
+fournis:
+\begin{itemize}
+ \item un programme serveur, basé sur notre produit ainsi que la technologie RMI, mettant à disposition des ressources ;
+ \item un programme client, exploitant les ressources fournies par le serveur. 
+\end{itemize}
+
+De plus, nous fournirons une batterie de tests unitaire garantissant la qualité de chaque fonctionnalité du framework.
+\subsubsection{Contraintes}
+% (limitations à la liberté du concepteur-réalisateur)
+\begin{enumerate}
+ \item Développement
+
+Le framework doit être au maximum indépendant, notemment au niveau de l'acces au données.
+Le client doit avoir la possibilité d'utiliser le systeme de gestion de base de données relationnelle (SGBDR) de son choix.
+
+ \item Environnement
+
+Notre framework se composeras d'une librairie, utilisée par les applications témoins livrées.
+
+L'utilisation de la technologie Java assure une complète indépendance du ou des systèmes d'exploitations hôtes.
+
+Les applications serveur et cliente pourrons être lancée depuis le même poste, en local, ou sur des machines distantes.
+
+Les machines hôtes et serveur devrons évidement chacune disposer d'une Java Virtual Machine (JVM) afin de pouvoir executer ces applications.
+
+\end{enumerate}
+
+\subsection{Critères d’appréciation}
+%(en soulignant ceux qui sont déterminants pour l’évaluation des réponses)
+
+\subsection{Niveaux des critères d’appréciation et ce qui les caractérise}
+\subsubsection{Niveaux dont l’obtention est imposée}
+\subsubsection{Niveaux souhaités mais révisables}

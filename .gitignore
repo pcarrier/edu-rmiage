@@ -1,2 +1,7 @@
 *~
 .DS_Store
+*.aux
+*.swp
+*.log
+*.out
+*.backup
