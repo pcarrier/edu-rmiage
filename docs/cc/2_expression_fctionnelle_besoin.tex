@@ -12,6 +12,7 @@ fournis:
  \item un programme client, exploitant les ressources fournies par le serveur. 
 \end{itemize}
 
+De plus, nous fournirons une batterie de tests unitaire garantissant la qualité de chaque fonctionnalité du framework.
 \subsubsection{Contraintes}
 % (limitations à la liberté du concepteur-réalisateur)
 \begin{enumerate}
@@ -19,11 +20,15 @@ fournis:
 
 Le framework doit être au maximum indépendant, notemment au niveau de l'acces au données.
 Le client doit avoir la possibilité d'utiliser le systeme de gestion de base de données relationnelle (SGBDR) de son choix.
- \item Environnement
 
-Les machines hôtes devront disposer d'une Java Virtual Machine.
-Le produit bénéficie de la portabilité de Java et sera compatible avec tous les systèmes
-d'exploitation pouvant disposer d'une JVM.
+ \item Environnement
+Notre framework se composeras d'une librairie, utilisée les applications témoins livrées.
+
+L'utilisation de la technologie Java assure une compléte indépendance du ou des systèmes d'exploitations hôtes.
+
+Le applications serveur et cliente pourrons être lancée depuis le même poste, en local, ou sur des machines distantes.
+
+Les machines hôtes et serveur devrons éviement chacune disposer d'une Java Virtual Machine (JVM) afin de pouvoir executer ces applications.
 
 \end{enumerate}
 
