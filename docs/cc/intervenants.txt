@@ -1,0 +1,27 @@
+Cahier des charges 
+
+partie intervenants
+	
+	a) Prestataire de services
+	    L'équipe est composée de 5 membres :
+		
+		Badre Baba, 
+		Georoy Carrier
+		J-Ch Saad-Dupuy
+		Mickael Scheer
+		
+	Le chef de projet est J-Ch Saad-Dupuy. 
+	
+	b) Comité de pilotage
+	
+		Le maître d'oeuvre est X il contrôle l’avancement du projet.
+		Le maître d'ouvrage est X.
+		Le consultant développement est Mr Morat Philippe.
+		
+		
+partie contexte
+
+	Actuellement les nouvelles technologie sont de plus en plus utilisé et diversifié dans la communication et l'echange de données,
+        en effet Ils sont de natures très diverses : forums, messageries instantanées, cependant les frameworks sont des
+	outils permettant le développement d'applications diverse.   
+   	  	
