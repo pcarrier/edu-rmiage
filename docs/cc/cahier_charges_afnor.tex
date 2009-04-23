@@ -3,6 +3,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[francais]{babel}
 \usepackage{graphicx}
+\usepackage[absolute]{textpos} 
+
 
 % Title Page
 \title{Projet RMIAGE : Cahier des Charges}
@@ -11,8 +13,15 @@
 }
 
 \begin{document}
+
+\begin{center}
+\begin{textblock*}{35cm}(2mm,3mm)
+\includegraphics[scale=0.8]{imag_logo.png}
+\end{textblock*}
+\end{center}
+ 
 \maketitle
-\includegraphics{imag_logo.png}
+%\includegraphics{imag_logo.png}
 %%NORME AFNOR
 \input{1_presentation_gal}
 \input{2_expression_fctionnelle_besoin}
