@@ -2,85 +2,84 @@
 \subsection{Projet}
 \subsubsection{Finalités}
 
-La réalisation a effectuer par notre équipe porte sur le développement logiciel d'une bibliothèque (framework) permettant des échanges de données au sein de structures logicielles développées par le client, de type ``réseau social`` 
+La réalisation qu'effectuera notre équipe est un \textit{framework} accélérant le développement d'architectures de «~réseaux sociaux~» basés sur des clients lourds.
 
 %\subsubsection{Espérance de retour sur investissement}
 
 \subsection{Contexte}
 
-Le développement des réseaux et des moyens de communication offrent désormais beaucoup
-de facilité pour communiquer et échanger du contenu de nature très diverse et ceci de manière aussi très variée. Quelque soit le contenu et la manière d’organiser ces espaces de communication où l’on partage, échange des informations, leurs objectifs sont très proches.
-On le voit très nettement dans l’avènement des « réseaux sociaux » qui les déclinent sous des formes très variées.
+Le développement des réseaux et des moyens de communication offrent désormais beaucoup de facilité pour communiquer et échanger du contenu de nature très diverse et ceci de manière aussi très variée. Quelque soit le contenu et la manière d’organiser ces espaces de communication où l’on partage, échange des informations, leurs objectifs sont très proches.
+On le voit très nettement dans l’avènement des «~réseaux sociaux~» qui les déclinent sous des formes très variées.
 
-Notre client souhaite se placer sur ce créneau des logiciels d’échange et pour cela
-envisage de développer un « framework » suffisamment adaptable (système d’échange
-générique) pour répondre rapidement à des diffuseurs de contenus qui voudraient proposer à leurs propres clients une zone d’échange bien spécifique. Ces clients, très exigeants en ce qui concerne l’ergonomie des progiciels qu’ils proposent nous imposent des critères de réutilisabilité, d'interopérabilité et de généricité qui seront respectées lors de la réalisation.
+Notre client souhaite se placer sur ce créneau des logiciels d’échange et pour cela envisage de faire développer un «~framework~» suffisamment adaptable (système d’échange générique) pour répondre rapidement à des diffuseurs de contenu qui voudraient proposer à leurs propres clients une zone d’échange bien spécifique. Ces clients, très exigeants en ce qui concerne l’ergonomie des progiciels qu’ils proposent nous imposent des critères de réutilisabilité, d'interopérabilité et de généricité qui seront respectées lors de la réalisation.
 
 \subsubsection{Situation du projet par rapport aux autres projets de l’entreprise}
 
-Bien que notre équipe soit compétente et performante en développement, notemment dans les technologies Java, il s'agit ici de notre première réalisation commerciale.
+Bien que notre équipe soit compétente et performante en développement, notamment dans les technologies Java, il s'agit ici de notre première réalisation commerciale.
 
-%\subsubsection{Études déjà effectuées}
-% TODO : Bluff ?
+\subsubsection{Études effectuées}
+
+L'équipe a développé au cours des années précédentes une connaissance approfondie du marché des réseaux sociaux à travers une veille technologique. Dans ce cadre, les produits facebook, MySpace, twitter, identi.ca, LinkedIn, viadeo, youtube, flickr, meetic ont été testées en profondeur.
+
 %\subsubsection{Études menées sur des sujets voisins}
 % TODO : Bluff ?
 %\subsubsection{Suites prévues}
-%\subsubsection{Nature des prestations demandées}
+\subsubsection{Nature des prestations demandées}
 
 % Heu...cf Finalités....assez identique finalement.
 
 \subsubsection{Parties concernées par le déroulement du projet et ses résultats}
 % (demandeurs, utilisateurs)
 
-Durant toute la durée du projet, nous serons en contact avec le représentant du comité de
-pilotage, M. François Puitg.
+Durant toute la durée du projet, nous serons en contact avec le maître d'œuvre, M. François Puitg.
 
-Les utilisateurs finaux seront les clients utilisateurs des produits développés par notre client,
-diffuseurs de contenus, auprès de qui nous n'interviendrons pas.
+Les utilisateurs finaux seront les clients exploitant des produits développés par notre client, diffuseurs de contenu, auprès de qui nous n'interviendrons pas.
 
-\subsection{Enoncé du besoin}
+\subsection{Énoncé du besoin}
 %(finalités du produit pour le futur utilisateur tel que prévu par le demandeur)
-Les utilisateurs finaux, diffuseurs de contenus, souhaitent proposer à leurs propres clients
-des zones d'échanges bien spécifiques et nécéssitent une architecture logicielle
-réutilisable leur mettant à disposition les fonctionalités de bases pouvant être
-spécialisées suivant leurs besoins.
+Les utilisateurs finaux, diffuseurs de contenu, souhaitent proposer à leurs propres clients des zones d'échange bien spécifiques et nécéssitent une architecture logicielle réutilisable leur mettant à disposition les fonctionalités de bases pouvant être spécialisées suivant leurs besoins.
 
 \subsection{Environnement du produit recherché}
 
-Le framework doit être réalisé en Java, en utilisant la technologie Remote Method Invocation (RMI).
+Le \textit{framework} doit être réalisé en Java, et utiliser la technologie RMI (Remote Method Invocation) pour la communication entre client lourd et serveur applicatif.
 
-\subsubsection{Listes exhaustives des éléments} 
+\subsubsection{Listes exhaustives des éléments}
+
 %(personnes, équipements, matières…) et contraintes (environnement)
 Le produit livré se composera de trois parties :
 \begin{enumerate}
- \item le framework ;
+ \item Le \textit{framework} ;
  \item un programme témoin d'application serveur ;
  \item un programme témoin d'application cliente.
-% \item une batterie de test unitaire sur les fonctionnalités du framework et de l'application serveur.
+% \item une batterie de tests unitaires sur les fonctionnalités du framework et de l'application serveur.
 \end{enumerate}
 
 \subsubsection{Caractéristiques}
 % pour chaque élément de l’environnement
-\begin{enumerate}
- \item Framework
 
-Le framework permettera une organisation hiérarchique des données.
-Il mettera à disposition des méthodes permettant des fonctions d' ajout-suppression-modification de celles-ci.
-Il permettera également de générer des objets d'interfaces que l'application serveur pourra transmettre à l'application cliente.
-L'apsect social sera réalisé en intégrant au framework la possibilité à chaque utilisateur de créer des groupes de contacts et d'échanger des messages avec plusieurs personnes.
+\begin{enumerate}
+
+ \item \textit{Framework}
+
+Le \textit{framework} permettra une présentation hiérarchique des données côté client, et reposera sur la technologie de persistence JPA permettant de stocker les données sur un serveur SQL, assurant leur cohérence, la fiabilité de stockage et la rapidité des recherche en leur sein.
+Il permettra l'ajout, la suppression, la modification de celles-ci à travers une couche de sécurité adaptable aux besoins métier.
+
+Il fournira une application lourde adaptable aux besoins et dont composants éléments métier pourront être fournis à la volée par le serveur applicatif.
+
+Les arborescences d'informations des utilisateurs pourront partager des branches grâce à une gestion en graphe des données.
+
+Des modules de gestion de contacts et de discussion seront fournis, proposant en standard des fonctionnalités fréquemment proposées sur les réseaux sociaux.
 
  \item Application témoin serveur
 
-L'application témoin serveur sera basée sur notre framework.
-Il intégrera un protocole d'échange avec les applications clientes, basées sur RMI.
-Il implémentera des spécialisations des objets génériques du framework, permettant une gestion d'utilisateurs, par groupes et permissions.
-Il assurera de même la gestion de la persistance des données.
+L'application témoin serveur sera un simple \emph{package} configuré pour utiliser le serveur SQL embarqué dans la machine virtuelle Java de Sun et ne nécessitant aucune configuration, auquel sera adjoint un système de forums (fils de discussion publics), et un modèle de sécurité minimal.
 
  \item Application témoin cliente
 
-L'application témoin cliente communiquera avec l'application serveur.
-Il s'agira d'une application générique, utilisant le protocole RMI pour obtenir les objets d'interface graphique permettant l'affichage et la saisie des données.
+Il s'agira de l'application déployable directement par les clients, et capable \emph{via} la diffusion des éléments graphiques métier par le serveur de s'adapter aux différents réseaux proposés.
 
-L'interface attendue pour cette application témoin est donnée en annexe
-\ref{screen_client}.
+Elle sera néanmoins adaptable à volonté par le client au cas par cas (ajouts de fonctionnalités, d'une documentation ad hoc, thèmes visuels, retrait du choix du serveur, etc.).
+
+Un prototype de l'interface permettant d'en percevoir la conception générale est proposé en annexe \ref{screen_client}.
+
 \end{enumerate}
