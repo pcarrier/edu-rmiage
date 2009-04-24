@@ -40,6 +40,9 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
+        messageViewerPanel3 = new rmiage.framework.client.MessageViewerPanel();
+        messageViewerPanel2 = new rmiage.framework.client.MessageViewerPanel();
+        messageViewerPanel1 = new rmiage.framework.client.MessageViewerPanel();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -68,11 +71,15 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.PAGE_AXIS));
+        jPanel2.add(messageViewerPanel3);
+        jPanel2.add(messageViewerPanel2);
+        jPanel2.add(messageViewerPanel1);
+
         jScrollPane3.setViewportView(jPanel2);
 
         jPanel1.add(jScrollPane3, java.awt.BorderLayout.CENTER);
 
-        jButton1.setText("envoyer");
+        jButton1.setText("send");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -84,7 +91,7 @@ public class MainWindow extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addContainerGap())
@@ -166,6 +173,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTree jTree1;
+    private rmiage.framework.client.MessageViewerPanel messageViewerPanel1;
+    private rmiage.framework.client.MessageViewerPanel messageViewerPanel2;
+    private rmiage.framework.client.MessageViewerPanel messageViewerPanel3;
     // End of variables declaration//GEN-END:variables
 
 }
