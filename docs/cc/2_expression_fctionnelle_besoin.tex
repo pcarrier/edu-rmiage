@@ -6,22 +6,23 @@
 \input{2_1_Fonctions_de_service_principales}
 \subsubsection{Fonctions de service complémentaires}
 % (qui améliorent, facilitent ou complètent le service rendu)
-Deux programmes de démonstration exploitant les fonctionnalités du framework doivent également être fournis:
+
+Deux programmes de démonstration exploitant les fonctionnalités du framework doivent également être fournis :
+
 \begin{itemize}
- \item un programme serveur, basé sur notre produit ainsi que la technologie RMI,
-mettant à disposition des ressources ;
+ \item un programme serveur basé sur notre produit proposant un système de forums ;
  \item un programme client, exploitant les ressources fournies par le serveur.
 %L'interface attendue pour cette application témoin est donnée en \ref{screen_client}
 \end{itemize}
 
-De plus, nous fournirons une batterie de tests unitaire garantissant la qualité de chaque fonctionnalité du framework.
+De plus, nous fournirons une batterie de tests unitaires garantissant la qualité de chaque fonctionnalité du \emph{framework}.
+
 \subsubsection{Contraintes}
 % (limitations à la liberté du concepteur-réalisateur)
 \begin{enumerate}
  \item Développement
 
-Le framework doit être au maximum indépendant, notemment au niveau de l'acces au données.
-Le client doit avoir la possibilité d'utiliser le systeme de gestion de base de données relationnelle (SGBDR) de son choix.
+Le framework sera aussi indépendant que possible, notamment de tout éditeur de serveur SQL grâce à la technologie Hibernate.
 
  \item Environnement
 
@@ -42,18 +43,17 @@ Les machines hôtes et serveur devrons chacune disposer d'une Java Virtual Machi
 Les principaux critères d'appréciation seront : 
 
 \begin{itemize}
- \item du coté Framework :
+ \item du coté \emph{framework} :
  \begin{itemize} 
-  \item son indépendance
-  \item sa qualité
-  \item sa flexibilité
+  \item son indépendance ;
+  \item sa qualité ;
+  \item sa flexibilité ;
  \end{itemize} 
  
- \item du coté applications témoin
+ \item du coté applications témoin :
  \begin{itemize}
-  \item leur pertinence
-  \item leur exhaustivité par rapport aux fonctionnalités offertes
-  \item leur facilité de mise en place
+  \item leur pertinence vis-à-vis des fonctionnalités principales du \emph{framework} ;
+  \item la facilité de leur utilisation pour des tests.
  \end{itemize}
 \end{itemize}
 
