@@ -1,19 +1,31 @@
 %!TEX root = cahier_charges_afnor.tex
+
 \section{Expression fonctionnelle du besoin}
 
-\subsection{Fonctions de service et contrainte}
-\subsubsection{Fonctions de service principales}
-% (qui sont la raison d’être du produit)
-\input{2_1_Fonctions_de_service_principales}
-\subsubsection{Fonctions de service complémentaires}
-% (qui améliorent, facilitent ou complètent le service rendu)
+\subsection{Fonctions de service et contraintes}
 
-Deux programmes de démonstration exploitant les fonctionnalités du framework doivent également être fournis :
+\subsubsection{Fonctions de service principales}
+
+\emph{Framework} accélérant le développement de serveurs applicatifs et clients lourds et proposant~:
+
+\begin{enumerate}
+	\item La gestion d'utilisateurs~;
+	\item Le stockage de contenus~;
+	\item La création, modification, suppression de ces contenus~;
+	\item Le partage de ces contenus entre utilisateurs~;
+	\item Un accès aisé à ces contenus~;
+	\item Une architecture pour intégrer une politique de permissions~;
+	\item Des outils de communication entre les utilisateurs.
+\end{enumerate}
+
+\subsubsection{Fonctions de service complémentaires}
+
+Deux programmes de démonstration exploitant les fonctionnalités du \emph{framework} seront fournies~:
 
 \begin{itemize}
- \item un programme serveur basé sur notre produit proposant un système de forums ;
- \item un programme client, exploitant les ressources fournies par le serveur.
-%L'interface attendue pour cette application témoin est donnée en \ref{screen_client}
+ \item Un programme serveur proposant un système de forums~;
+ \item un programme client exposant les fonctionnalités du serveur.
+
 \end{itemize}
 
 De plus, nous fournirons une batterie de tests unitaires garantissant la qualité de chaque fonctionnalité du \emph{framework}.
@@ -21,11 +33,12 @@ De plus, nous fournirons une batterie de tests unitaires garantissant la qualit�
 \subsubsection{Contraintes}
 % (limitations à la liberté du concepteur-réalisateur)
 \begin{enumerate}
- \item Développement
 
-Le framework sera aussi indépendant que possible, notamment de tout éditeur de serveur SQL grâce à la technologie Hibernate.
+	\item Développement
 
- \item Environnement
+Le framework sera aussi indépendant de choix techniques que possible, notamment de tout éditeur de serveur SQL grâce à la technologie Hibernate.
+
+	\item Environnement
 
 Notre framework se composera d'une librairie, utilisée par les applications témoins livrées.
 
@@ -38,24 +51,21 @@ Les machines hôtes et serveur devrons chacune disposer d'une Java Virtual Machi
 \end{enumerate}
 
 \subsection{Critères d’appréciation}
-%(en soulignant ceux qui sont déterminants pour l’évaluation des réponses)
-%TODO revoir un peu les critères
 
-Les principaux critères d'appréciation seront : 
+Les principaux critères d'appréciation sont~:
 
 \begin{itemize}
- \item du coté \emph{framework} :
- \begin{itemize} 
-  \item son indépendance ;
-  \item sa qualité ;
-  \item sa flexibilité ;
- \end{itemize} 
- 
- \item du coté applications témoin :
- \begin{itemize}
-  \item leur pertinence vis-à-vis des fonctionnalités principales du \emph{framework} ;
-  \item la facilité de leur utilisation pour des tests.
- \end{itemize}
+	\item Du coté \emph{framework} :
+	\begin{itemize} 
+		\item Sa qualité ;
+		\item Son indépendance ;
+		\item Sa flexibilité ;
+	\end{itemize} 
+	\item du coté applications témoin :
+	\begin{itemize}
+		\item Leur pertinence vis-à-vis des fonctionnalités principales du \emph{framework} ;
+		\item La facilité de leur utilisation pour des tests.
+	\end{itemize}
 \end{itemize}
 
 
