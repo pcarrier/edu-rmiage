@@ -11,16 +11,23 @@
 %\subsection{Pour l’ensemble du produit}
 
 %%\subsubsection{Prix de la réalisation de la version de base}
-%\subsubsection{Options et variantes proposées non retenues au cahier des charges}
-%
-%\subsubsection{Mesures prises pour respecter les contraintes}
+%\sub
+\subsection{Options et variantes proposées non retenues au cahier des charges}
+
+La persistance des données était, au début, plus orientée sur une serialisation, mais nous avons choisi un autre moyen de persistance des données.
+Il nous a aussi fallu abandonner la messagerie et la messagerie instantanée.
+
+%\sub
+\subsection{Mesures prises pour respecter les contraintes}
 % et leurs conséquences économiques}
 % Hibernate ? sql? 
 
-\subsubsection{Outils d’installation, de maintenance}
+Dans un soucis de respect des contraintes nous avons optés pour une persistance des données via l'api Hibernate. Ce choix a été fait pour permettre à notre client de facilement pouvoir gérer sa base de donnée.
+
+%\sub
+\subsection{Outils d’installation, de maintenance}
 
 Le produit sera livré sous forme d'archives JAR contenant la librairie et les programmes témoins.
-
 Les instructions concernant la configuration d'Hibernate seront également fournies.
 
 %\subsubsection{Décomposition en modules, sous-ensembles}
