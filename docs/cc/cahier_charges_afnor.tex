@@ -1,30 +1,30 @@
-\documentclass[10pt,a4paper]{article}
+\documentclass[a4paper,10pt,twoside]{article}
 
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[francais]{babel}
+
+\usepackage{hyperref}
+
+\usepackage{textcomp}
+
+\usepackage{a4wide}
+\usepackage{xcolor}
 \usepackage{graphicx}
-\usepackage[absolute]{textpos} 
-\usepackage{pdfpages}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 
-\begin{figure}[!h]
-\includegraphics{../diagrammes/architecture.pdf}
-\caption{Architecture}
-\label{fig:archi}
-\end{figure}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
 
-\begin{figure}[!h]
-\includegraphics{../diagrammes/architecture.pdf}
-\caption{Interface du client}
-\label{fig:client}
-\end{figure}
+\usepackage[absolute]{textpos}
 
 % Title Page
 \title{Projet RMIAGE : Cahier des Charges}
 \author{
 	Badre Baba, Geoffroy Carrier, J-Ch Saad-Dupuy, Mickael Scheer
 }
-
-\begin{document}
 
 \begin{center}
 \begin{textblock*}{35cm}(2mm,3mm)
@@ -33,10 +33,22 @@
 \end{center}
  
 \maketitle
-%\includegraphics{imag_logo.png}
-%%NORME AFNOR
+
+\begin{document}
+
+	\begin{figure}[!h]
+	\includegraphics{../diagrammes/architecture.pdf}
+	\caption{Architecture}
+	\label{fig:archi}
+	\end{figure}
+
+	\begin{figure}[!h]
+	\includegraphics{../diagrammes/architecture.pdf}
+	\caption{Interface du client}
+	\label{fig:client}
+	\end{figure}
+
 \input{1_presentation_gal}
 \input{2_expression_fctionnelle_besoin}
 \input{3_cadre_de_reponse}
-\input{4_annexes}
 \end{document}
