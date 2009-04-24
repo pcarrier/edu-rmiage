@@ -51,7 +51,14 @@ Les clients, diffuseurs de contenu, souhaitent proposer à leurs utilisateurs de
 
 \subsection{Environnement du produit recherché}
 
-Le produit doit reposer sur la technologie Java, et utiliser pour la couche réseau la technologie RMI (Remote Method Invocation).
+\begin{figure}[thbp]
+	\centering
+		\includegraphics[scale=1]{../diagrammes/architecture.pdf}
+	\caption{Architecture}
+	\label{fig:archi}
+\end{figure}
+
+Le produit doit reposer sur la technologie Java, et utiliser pour la couche réseau la technologie RMI (Remote Method Invocation). L'aspect client lourd interopérable oriente vers l'utilisation de Swing. Voir figure~\ref{fig:archi}.
 
 \subsubsection{Listes exhaustives des éléments}
 
@@ -89,7 +96,5 @@ L'application témoin serveur sera un simple \emph{package} configuré pour util
 Il s'agira de l'application déployable directement par l'entreprise, et capable \emph{via} la diffusion des éléments graphiques métier par le serveur de s'adapter aux différents réseaux proposés.
 
 Elle sera néanmoins adaptable à volonté par l'entreprise au cas par cas (ajouts de fonctionnalités, d'une documentation ad hoc, thèmes visuels, retrait du choix du serveur, etc.).
-
-Les clients pourront utiliser la technologie Java Web Start pour distribuer l'application à tous leurs utilisateurs sans intervention des administrateurs.
 
 \end{enumerate}

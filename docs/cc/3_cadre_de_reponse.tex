@@ -1,44 +1,33 @@
 %!TEX root = cahier_charges_afnor.tex
 \section{Cadre de réponse}
 
-%\subsection{Pour chaque fonction}
-
-%\subsubsection{Solution proposée}
-%%\subsubsection{Niveau atteint pour chaque critère d’appréciation de cette fonction et modalités de contrôle}
-%%\subsubsection{Part du prix attribué à chaque fonction}
-
-
-%\subsection{Pour l’ensemble du produit}
-
-%%\subsubsection{Prix de la réalisation de la version de base}
-%\sub
 \subsection{Options et variantes proposées non retenues au cahier des charges}
 
-La persistance des données était, au début, plus orientée sur une serialisation, mais nous avons choisi un autre moyen de persistance des données.
-Il nous a aussi fallu abandonner la messagerie et la messagerie instantanée.
+Nous souhaitions au départ proposer une architecture modulaire pour le stockage des données afin d'implanter la sérialisation.
 
-%\sub
+Nous souhaitions proposer messagerie instantanée et courriers type E-mail, puis un regroupement de ces fonctionnalités nous a semblé favorable.
+
+L'utilisation du \emph{framework} Qt Jambi pour l'interface graphique a été rapidement écarté pour permettre l'utilisation de JWS.
+
 \subsection{Mesures prises pour respecter les contraintes}
-% et leurs conséquences économiques}
-% Hibernate ? sql? 
 
-Dans un soucis de respect des contraintes nous avons optés pour une persistance des données via l'api Hibernate. Ce choix a été fait pour permettre à notre client de facilement pouvoir gérer sa base de donnée.
-
-%\sub
-\subsection{Outils d’installation, de maintenance}
-Un prototype de l'interface permettant d'en percevoir la conception générale est proposé figure~\ref{fig:archi}.
-
-\begin{figure}[htbp]
+\begin{figure}[thbp]
 	\centering
-		\includegraphics[scale=1]{../diagrammes/architecture.pdf}
-	\caption{Architecture}
-	\label{fig:archi}
+		\includegraphics[width=15cm]{proto_client.png}
+	\caption{Prototype d'interface}
+	\label{fig:proto}
 \end{figure}
+
+Le choix d'un client lourd a rapidement écarté l'utilisation de thèmes CSS puisque JWebPanel est encore instable. Un prototype de l'interface permettant d'en percevoir la conception générale est proposé figure~\ref{fig:proto}.
+
+\subsection{Outils d’installation, de maintenance}
 
 Le produit sera livré sous forme d'archives JAR contenant la librairie et les programmes témoins.
 
-%\subsubsection{Décomposition en modules, sous-ensembles}
-%\subsubsection{Prévisions de fiabilité}
+Les clients pourront utiliser la technologie Java Web Start pour distribuer l'application à tous leurs utilisateurs sans l'intervention des administrateurs.
+
+La documentation sera distribuée sous forme d'archive (utilisation de javadoc) ainsi que d'une vidéo de démonstration du produit (\emph{screencast}).
+
 \subsection{Perspectives d’évolution technologique}
 
-Le produit pourra, plus tard, évoluer vers une version plus complète en ajoutant, par exemple, une gestion des évenements.
+Le produit pourra, plus tard, évoluer vers une version plus complète en ajoutant, par exemple, une gestion des événements ou le versionnage des modèles.
