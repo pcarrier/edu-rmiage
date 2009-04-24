@@ -3,51 +3,59 @@
 \subsection{Projet}
 \subsubsection{Finalités}
 
-La réalisation qu'effectuera notre équipe est un \textit{framework} accélérant le développement d'architectures de «~réseaux sociaux~» basés sur des clients lourds.
+Nous intervenons auprès d'une entreprise de développement souhaitant met\-tre à la disposition de ses clients des architectures complètes de réseaux sociaux, incluant serveur applicatif et client lourd.
 
-%\subsubsection{Espérance de retour sur investissement}
+\subsubsection{Espérance de retour sur investissement}
+
+L'entreprise souhaite prendre place sur ce marché avec pour principal avantage concurrentiel de fournir des produits adaptés aux besoins précis et variés de leurs clients diffuseurs de contenu avec des délais de développement minimaux. Ces derniers attendent des progiciels fournissant des zones d'échange bien spécifiques, et expriment une forte exigence d'ergonomie.
 
 \subsection{Contexte}
 
 Le développement des réseaux et des moyens de communication offrent désormais beaucoup de facilité pour communiquer et échanger du contenu de nature très diverse et ceci de manière aussi très variée. Quelque soit le contenu et la manière d’organiser ces espaces de communication où l’on partage, échange des informations, leurs objectifs sont très proches.
 On le voit très nettement dans l’avènement des «~réseaux sociaux~» qui les déclinent sous des formes très variées.
 
-Notre client souhaite se placer sur ce créneau des logiciels d’échange et pour cela envisage de faire développer un «~framework~» suffisamment adaptable (système d’échange générique) pour répondre rapidement à des diffuseurs de contenu qui voudraient proposer à leurs propres clients une zone d’échange bien spécifique. Ces clients, très exigeants en ce qui concerne l’ergonomie des progiciels qu’ils proposent nous imposent des critères de réutilisabilité, d'interopérabilité et de généricité qui seront respectées lors de la réalisation.
-
 \subsubsection{Situation du projet par rapport aux autres projets de l’entreprise}
 
-Bien que notre équipe soit compétente et performante en développement, notamment dans les technologies Java, il s'agit ici de notre première réalisation commerciale.
+Notre équipe est compétente et performante en développement, notamment dans les technologies Java, et nous avons mené à bien plusieurs projets dans le cadre universitaire. Il s'agit ici de notre première réalisation commerciale.
 
-\subsubsection{Études effectuées}
+\subsubsection{Études déjà effectuées}
 
-L'équipe a développé au cours des années précédentes une connaissance approfondie du marché des réseaux sociaux à travers une veille technologique. Dans ce cadre, les produits facebook, MySpace, twitter, identi.ca, LinkedIn, viadeo, youtube, flickr, meetic ont été testées en profondeur.
+L'équipe a développé au cours des années précédentes une connaissance approfondie du marché des réseaux sociaux à travers une veille technologique. Dans ce cadre, les produits facebook, MySpace, twitter, identi.ca, LinkedIn, viadeo, youtube, flickr, meetic ont été testés en profondeur.
 
-%\subsubsection{Études menées sur des sujets voisins}
-% TODO : Bluff ?
-%\subsubsection{Suites prévues}
+\subsubsection{Études menées sur des sujets voisins}
+
+Nous avons eu l'occasion de concevoir une architecture bas-niveau client-serveur pour un logiciel de gestion bibliothécaire, et de nous pencher sur le traitement et la diffusion d'informations XML à travers un serveur applicatif.
+
+% \subsubsection{Suites prévues}
+
 \subsubsection{Nature des prestations demandées}
 
-% Heu...cf Finalités....assez identique finalement.
+L'entreprise souhaite externaliser le développement de la couche commune aux différents réseaux sociaux.
+
+Afin de répondre au mieux aux attentes clients, l'entreprise souhaite faire développer un \emph{framework} complet et efficace, qui une fois pris en main allégera fortement les délais de développement. Pour couvrir l'ensemble des demandes et s'intégrer dans les infrastructures matérielles et logicielles hétérogènes des clients, la réutilisabilité, l'interopérabilité et la généricité de ce dernier sont fondamentales.
 
 \subsubsection{Parties concernées par le déroulement du projet et ses résultats}
-% (demandeurs, utilisateurs)
 
 Durant toute la durée du projet, nous serons en contact avec le maître d'œuvre, M. François Puitg.
 
 Les utilisateurs finaux seront les clients exploitant des produits développés par notre client, diffuseurs de contenu, auprès de qui nous n'interviendrons pas.
 
 \subsection{Énoncé du besoin}
-%(finalités du produit pour le futur utilisateur tel que prévu par le demandeur)
-Les utilisateurs finaux, diffuseurs de contenu, souhaitent proposer à leurs propres clients des zones d'échange bien spécifiques et nécéssitent une architecture logicielle réutilisable leur mettant à disposition les fonctionalités de bases pouvant être spécialisées suivant leurs besoins.
+
+Les clients, diffuseurs de contenu, souhaitent proposer à leurs utilisateurs des zones d'échange organisées sur le modèle des réseaux sociaux~:
+
+\begin{itemize}
+	\item Gestion des relations entre les utilisateurs directement par ces derniers~;
+	\item Partage facile de contenus sans structuration préalable par les équipes déployant l'architecture logicielle.
+\end{itemize}
 
 \subsection{Environnement du produit recherché}
 
-Le \textit{framework} doit être réalisé en Java, et utiliser la technologie RMI (Remote Method Invocation) pour la communication entre client lourd et serveur applicatif.
+Le \textit{framework} doit être réalisé en Java, et utiliser la technologie RMI (Remote Method Invocation) pour la communication entre des clients lourds et le serveur applicatif.
 
 \subsubsection{Listes exhaustives des éléments}
 
-%(personnes, équipements, matières…) et contraintes (environnement)
-Le produit livré se composera de trois parties :
+Le produit se compose de trois livrables :
 \begin{enumerate}
  \item Le \textit{framework} ;
  \item un programme témoin d'application serveur ;
@@ -62,12 +70,13 @@ Le produit livré se composera de trois parties :
 
  \item \textit{Framework}
 
-Le \textit{framework} permettra une présentation hiérarchique des données côté client, et reposera sur la technologie de persistence JPA permettant de stocker les données sur un serveur SQL, assurant leur cohérence, la fiabilité de stockage et la rapidité des recherche en leur sein.
-Il permettra l'ajout, la suppression, la modification de celles-ci à travers une couche de sécurité adaptable aux besoins métier.
+Le \textit{framework} permettra une présentation hiérarchique des données côté client, et reposera sur la technologie de persistence JPA permettant de stocker les données sur un serveur SQL. Cette solution assure leur cohérence, la fiabilité du stockage et la rapidité des recherches.
 
-Il fournira une application lourde adaptable aux besoins et dont composants éléments métier pourront être fournis à la volée par le serveur applicatif.
+Il permettra l'ajout, la suppression, la modification de celles-ci à travers une couche de sécurité conçue sur mesure pour répondre aux attentes métier.
 
-Les arborescences d'informations des utilisateurs pourront partager des branches grâce à une gestion en graphe des données.
+Il fournira une application lourde très largement adaptable aux besoins et dont les composants éléments métier pourront être fournis à la volée par le serveur applicatif.
+
+Les arborescences de contenu construites pour chaque utilisateur pourront partager des branches grâce à une gestion en graphe des données.
 
 Des modules de gestion de contacts et de discussion seront fournis, proposant en standard des fonctionnalités fréquemment proposées sur les réseaux sociaux.
 
@@ -77,9 +86,11 @@ L'application témoin serveur sera un simple \emph{package} configuré pour util
 
  \item Application témoin cliente
 
-Il s'agira de l'application déployable directement par les clients, et capable \emph{via} la diffusion des éléments graphiques métier par le serveur de s'adapter aux différents réseaux proposés.
+Il s'agira de l'application déployable directement par l'entreprise, et capable \emph{via} la diffusion des éléments graphiques métier par le serveur de s'adapter aux différents réseaux proposés.
 
-Elle sera néanmoins adaptable à volonté par le client au cas par cas (ajouts de fonctionnalités, d'une documentation ad hoc, thèmes visuels, retrait du choix du serveur, etc.).
+Elle sera néanmoins adaptable à volonté par l'entreprise au cas par cas (ajouts de fonctionnalités, d'une documentation ad hoc, thèmes visuels, retrait du choix du serveur, etc.).
+
+Les clients pourront utiliser la technologie Java Web Start pour distribuer l'application à tous leurs utilisateurs sans intervention des administrateurs.
 
 Un prototype de l'interface permettant d'en percevoir la conception générale est proposé en annexe \ref{screen_client}.
 
