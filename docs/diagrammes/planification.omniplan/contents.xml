@@ -30,9 +30,9 @@
 			<key>GanttGroupShading</key>
 			<true/>
 			<key>GanttVisibleRect</key>
-			<string>{{-20, 0}, {799, 538}}</string>
+			<string>{{-20, 0}, {835, 538}}</string>
 			<key>OutlineVisibleRect</key>
-			<string>{{0, 0}, {445, 538}}</string>
+			<string>{{0, 0}, {409, 538}}</string>
 			<key>ScaleWidths</key>
 			<dict>
 				<key>Automatic</key>
@@ -72,7 +72,7 @@
 			<key>ShowConstraints</key>
 			<true/>
 			<key>ShowCriticalPath</key>
-			<true/>
+			<false/>
 			<key>ShowDependencyLines</key>
 			<true/>
 			<key>ShowGanttTimeOff</key>
@@ -112,12 +112,14 @@
 			<real>0.77362984418869019</real>
 			<key>columnWidths</key>
 			<dict>
+				<key>Dependencies</key>
+				<real>94</real>
 				<key>Effort</key>
-				<real>70</real>
+				<real>58</real>
 				<key>Notes</key>
 				<real>20</real>
 				<key>Title</key>
-				<real>271</real>
+				<real>253</real>
 				<key>Violations</key>
 				<real>20</real>
 			</dict>
@@ -155,7 +157,7 @@
 				<key>SelectedScale</key>
 				<string>Automatic</string>
 				<key>TimelineVisibleRect</key>
-				<string>{{-245, 0}, {913, 538}}</string>
+				<string>{{-217, 0}, {913, 538}}</string>
 				<key>activeColumnIdentifiers</key>
 				<array>
 					<string>IM</string>
@@ -179,7 +181,7 @@
 				</dict>
 			</dict>
 			<key>side</key>
-			<real>0.64654487371444702</real>
+			<real>0.67513900995254517</real>
 			<key>window</key>
 			<string>{{8, 34}, {1268, 706}}</string>
 		</dict>
@@ -469,9 +471,9 @@
 				<integer>2</integer>
 				<integer>3</integer>
 				<integer>5</integer>
-				<integer>6</integer>
 				<integer>7</integer>
 				<integer>18</integer>
+				<integer>6</integer>
 				<integer>8</integer>
 				<integer>9</integer>
 				<integer>4</integer>
@@ -520,7 +522,7 @@
 				</dict>
 			</array>
 			<key>task</key>
-			<string>Choix de l'architecture logicielle</string>
+			<string>Choix architecture logicielle</string>
 			<key>workSeconds</key>
 			<real>57600</real>
 			<key>workTime</key>
@@ -588,7 +590,7 @@
 				</dict>
 			</array>
 			<key>task</key>
-			<string>Rédaction du cahier des charges</string>
+			<string>Cahier des charges</string>
 			<key>workSeconds</key>
 			<real>57600</real>
 			<key>workTime</key>
@@ -596,7 +598,9 @@
 		</dict>
 		<dict>
 			<key>effort</key>
-			<real>57600</real>
+			<real>86400</real>
+			<key>forcedStart</key>
+			<string>20090421080000</string>
 			<key>objectId</key>
 			<integer>6</integer>
 			<key>prerequisites</key>
@@ -611,9 +615,9 @@
 			<key>task</key>
 			<string>Architecture UML</string>
 			<key>workSeconds</key>
-			<real>57600</real>
+			<real>86400</real>
 			<key>workTime</key>
-			<real>16</real>
+			<real>24</real>
 		</dict>
 		<dict>
 			<key>effort</key>
@@ -656,6 +660,15 @@
 			</array>
 			<key>objectId</key>
 			<integer>9</integer>
+			<key>prerequisites</key>
+			<array>
+				<dict>
+					<key>id</key>
+					<integer>6</integer>
+					<key>kind</key>
+					<integer>2</integer>
+				</dict>
+			</array>
 			<key>task</key>
 			<string>Développement</string>
 		</dict>
