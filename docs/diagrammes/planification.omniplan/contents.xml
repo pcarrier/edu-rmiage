@@ -36,7 +36,7 @@
 			<key>ScaleWidths</key>
 			<dict>
 				<key>Automatic</key>
-				<real>42.702060699462891</real>
+				<real>27.567153930664062</real>
 				<key>Day</key>
 				<real>405</real>
 				<key>Hour</key>
@@ -124,7 +124,7 @@
 				<real>20</real>
 			</dict>
 			<key>dayWidth</key>
-			<real>42.702060699462891</real>
+			<real>27.567153930664062</real>
 			<key>overviewView</key>
 			<string>YES</string>
 			<key>resourceSplit</key>
@@ -830,7 +830,7 @@
 		<integer>-1</integer>
 	</array>
 	<key>uuid</key>
-	<string>6FCEA581-D3D6-482D-944D-7D16738F9A12</string>
+	<string>EA068801-28AC-40BF-BC24-F1F6EC4002FF</string>
 	<key>version</key>
 	<integer>2</integer>
 </dict>
