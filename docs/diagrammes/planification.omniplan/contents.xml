@@ -208,6 +208,27 @@
 	<dict>
 		<key>font-weight</key>
 		<integer>9</integer>
+		<key>gantt-fill-color</key>
+		<dict>
+			<key>b</key>
+			<string>0.219608</string>
+			<key>g</key>
+			<string>0.796078</string>
+			<key>r</key>
+			<string>0.898039</string>
+		</dict>
+	</dict>
+	<key>milestoneTaskStyle</key>
+	<dict>
+		<key>gantt-fill-color</key>
+		<dict>
+			<key>b</key>
+			<string>0.227451</string>
+			<key>g</key>
+			<string>0.227451</string>
+			<key>r</key>
+			<string>0.898039</string>
+		</dict>
 	</dict>
 	<key>notEditableStyle</key>
 	<dict>
