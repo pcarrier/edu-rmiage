@@ -28,36 +28,19 @@ public class CoreTest
     {
         return new TestSuite( CoreTest.class );
     }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testNodeCtor_notnull()
-    {
-    	Node n = new Node("N1");
-    	assertNotNull(n);
-    }
     
+    ////////////////////////NODES///////////////////////////////////
     /**
      * Test if the constructor return a not null node object with 
      * a not null leafs list.
      */
-    public void testNodeCtor_leafs_notnull()
+    public void testNodeCtor_leafs_ReturnNotnull()
     {
     	Node n = new Node("N1");
     	assertNotNull(n.leafs());
     }
     
-    /**
-     * Test if the constructor return a not null node object with 
-     * a not null nodes list.
-     */
-    public void testNodeCtor_nodes_notnull()
-    {
-    	Node n = new Node("N1");
-    	assertNotNull(n.nodes());
-    }
- 
+    
     /**
      * Test if a null leaf is accepted in the tree.
      */
@@ -94,7 +77,7 @@ public class CoreTest
     	Node n = new Node("N1");
     	Leaf f=new Leaf("Feuille1");
     	n.addLeaf(f);
-    	int  nbDroped=n.dropLeaf("Feuille1");
+    	int  nbDroped=n.dropLeaf("Feuille1", true);
     	assertEquals(1,nbDroped);
     }
     
@@ -113,13 +96,13 @@ public class CoreTest
     	//Original size
     	int base=n.leafs().size();
     	//Size after deletion 
-    	int  nbDroped=n.dropLeaf("Feuille");
+    	int  nbDroped=n.dropLeaf("Feuille", true);
     	// Is it OK?
     	assertEquals(0,base-nbDroped);
     }
     
     
-    ///////////////////////////////////////////////////////////
+    ////////////////////////LEAFS///////////////////////////////////
     
     /**
      * Test if a null node is accepted in the tree.
@@ -151,13 +134,13 @@ public class CoreTest
     }
     
     /**
-     * Test if a Node is well dropped
+     * Test if a Node is well dropped, strict reseach
      */
-    public void testNode_DropNodeByRepr(){
+    public void testNode_DropNodeStrict(){
     	Node n = new Node("N1");
     	Node f=new Node("Node1");
     	n.addNode(f);
-    	int  nbDroped=n.dropFoNodes("Node1");
+    	int  nbDroped=n.dropFoNodes("Node1", true);
     	afficherArbre(n, "");
     	assertEquals(1,nbDroped);
     }
@@ -167,7 +150,7 @@ public class CoreTest
      * are well dropped
      */
     
-    public void testNode_DropRandomNode_firstOrder(){
+    public void testNode_DropfoNode_strict(){
     	int i;
     	int m= (int)(Math.random()*1000);
     	Node n = new Node("N1");
@@ -179,7 +162,7 @@ public class CoreTest
     	//Original size
     	int base=n.nodes().size();
     	//Size after deletion 
-    	int  nbDroped=n.dropFoNodes("Feuille");
+    	int  nbDroped=n.dropFoNodes("Feuille", true);
     	// Is it OK?
     	assertEquals(0,base-nbDroped);
     }
@@ -187,10 +170,10 @@ public class CoreTest
     
     /**
      * Test if a random number of first order nodes 
-     * are well dropped all well dropped
+     * are all well dropped, with not strict research
      */
     
-    public void testNode_DropRandomNode_NOrder(){
+    public void testNode_DropNode_Random_notstrict(){
     	int i;
     	int m= (int)(1000);
     	Node n = new Node("N1");
@@ -203,18 +186,17 @@ public class CoreTest
     	//afficherArbre(n, "");
     	//Original size
     	int base=m;
-    	//System.out.println(base);
     	//Size after deletion 
     	String todrop="Feuille";//+(int)((Math.random())*m);
-    	//System.out.println("TO DROP : "+todrop);
-    	int  nbDroped=n.dropSubNodes(todrop);
-    	//System.out.println(nbDroped);
+    	int  nbDroped=0;
+    	nbDroped=n.dropSubNodes(todrop, false);
     	// Is it OK?
     	//afficherArbre(n, "");
     	//System.out.println("Droped "+(nbDroped));
     	assertEquals(0,base-nbDroped);
     }
 
+    ////////////////////////UTILS///////////////////////////////////
     public static void afficherArbre(Node root, String prefix){
         System.out.println(prefix+root.getRepr());
         if (root.leafs().size()>0)
