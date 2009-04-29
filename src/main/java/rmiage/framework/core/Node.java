@@ -54,14 +54,39 @@ public class Node extends TreeElement {
 	        }
     	}
     }
-
+    
+//-------------------------------------------------------------------
+/**
+ * Delete a first order Node
+ * @param n the Node to delete.
+ */
+    public void dropNode(Node n){
+    	if (this.nodes().contains(n)){
+    		this.nodes().remove(n);
+    	}
+    }
+    
+    /**
+     * Delete all subnodes.
+     */
+    public void dropSubNodes(){
+    	ArrayList<Node> tmp = (ArrayList<Node>)this.nodes().clone();
+    	for (Node x : tmp) {
+    		x.dropLeafs();
+    		x.dropSubNodes();
+    		this.dropNode(x);
+    	}
+    }
+   //------------------------------------------------------------------------ 
+/*
     /**
      * Drop all subnodes which matches repr
      * @param repr
      * @param strict TODO
      * @return Number of droped nodes.
      */
-    public Integer dropSubNodes(String repr, boolean strict) {
+    /*
+    public int dropSubNodes(String repr, boolean strict) {
         int n = 0;
         ArrayList<Node> tmp = (ArrayList<Node>)this.nodes().clone();
         for (Node x : tmp) {
@@ -71,22 +96,20 @@ public class Node extends TreeElement {
         n+=this.dropFoNodes(repr, strict);
         return n;
     }
-
+    */
     /**
      * Drop first order subnodes which matches repr
      * @param searched
      * @param strict TODO
      * @return Number of droped nodes.
      */
-    //TODO : ajouter parametre boolean Strict
-    public Integer dropFoNodes(String searched, boolean strict) {
+    /*
+    public int dropFoNodes(String searched, boolean strict) {
         int n = 0;
         ArrayList<Node> tmp = (ArrayList<Node>) this.nodeChildren.clone();
 
         for (Node x : tmp) {
-            /*
-             * We hope that the garbage collector do he's job.
-             */
+      
         	if (!strict && x.contains(searched) || (strict && x.matches(searched)) )
             {
                 this.nodeChildren.remove(x);
@@ -95,7 +118,7 @@ public class Node extends TreeElement {
         }
         return n;
     }
-
+    */
     /**
      * Find all nodeChildren and subchildren which the representation matches the
      * string repr.
@@ -136,6 +159,21 @@ public class Node extends TreeElement {
     	}
     }
 
+    //-----------------------------------------------------------------
+    public void dropLeafs(){
+    	ArrayList<Leaf> tmp = (ArrayList<Leaf> ) this.leafs().clone();
+    	for(Leaf f:tmp){
+    		this.dropLeaf(f);
+    	}
+    }
+    
+    public void dropLeaf(Leaf f){
+    	if (this.leafs().contains(f)){
+    		this.leafs().remove(f);
+    	}
+    }
+    //------------------------------------------------------------------------
+    
     /**
      * Drop first order leafs.
      * @param searched 
@@ -143,6 +181,7 @@ public class Node extends TreeElement {
      * representation searched
      * @return number of droped leafs.
      */
+    /*
     @SuppressWarnings("unchecked")
 	public int dropLeaf(String searched, boolean strict) {
         int n = 0;
@@ -157,26 +196,31 @@ public class Node extends TreeElement {
         }
         return n;
     }
-
+*/
+    
     /**
      * Return all first order Leafs and subnodes leafs 
      * that matches the searched string
      * @param repr
+     * @param strict TODO
      * @return
      */
-    public ArrayList<Leaf> findLeaf(String repr){
+    //TODO unitest
+    public ArrayList<Leaf> findLeaf(String repr, boolean strict){
     	ArrayList<Leaf> ret = new ArrayList<Leaf>();
-    	ret.addAll(this.findFoLeaf(repr));
-    	ret.addAll(this.findSubsLeaf(repr));
+    	ret.addAll(this.findFoLeaf(repr, false));
+    	ret.addAll(this.findSubsLeaf(repr, false));
     	return ret;
     }
 
     /**
      * Return all first order Leafs that matches the searched string
      * @param repr
+     * @param strict
      * @return
      */
-    public ArrayList<Leaf> findFoLeaf(String repr){
+    //TODO unitest
+    public ArrayList<Leaf> findFoLeaf(String repr, boolean strict){
         ArrayList<Leaf> ret = new ArrayList<Leaf>();
         for(Leaf f : this.leafs()){
             if (f.contains(repr)){
@@ -189,18 +233,19 @@ public class Node extends TreeElement {
     /**
      * Return subnodes leafs that matches the searched string
      * @param repr
+     * @param strict TODO
      * @return
      */
     //TODO unitest
-    public ArrayList<Leaf> findSubsLeaf(String repr){
+    public ArrayList<Leaf> findSubsLeaf(String repr, boolean strict){
         ArrayList<Leaf> ret = new ArrayList<Leaf>();
         ArrayList<Leaf> tmp = new ArrayList<Leaf>();
 
-        ret.addAll(this.findFoLeaf(repr));
+        ret.addAll(this.findFoLeaf(repr, false));
 
         for(Node n : this.nodes()){
-            //TODO
-            tmp=n.findSubsLeaf(repr);
+            //TODO TEST
+            tmp=n.findSubsLeaf(repr, strict);
             if(tmp.size()>0){
                 ret.addAll(tmp);
             }

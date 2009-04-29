@@ -73,6 +73,7 @@ public class CoreTest
     /**
      * Test if a leaf is well dropped
      */
+    /*
     public void testNode_DropLeaf(){
     	Node n = new Node("N1");
     	Leaf f=new Leaf("Feuille1");
@@ -80,10 +81,12 @@ public class CoreTest
     	int  nbDroped=n.dropLeaf("Feuille1", true);
     	assertEquals(1,nbDroped);
     }
+    */
     
     /**
      * Test if a leaf a random number of leafs are well dropped
      */
+    /*
     public void testNode_DropRandomLeaf(){
     	int i;
     	int m= (int)(Math.random()*1000);
@@ -100,6 +103,7 @@ public class CoreTest
     	// Is it OK?
     	assertEquals(0,base-nbDroped);
     }
+    */
     
     
     ////////////////////////LEAFS///////////////////////////////////
@@ -136,20 +140,22 @@ public class CoreTest
     /**
      * Test if a Node is well dropped, strict reseach
      */
+    /*
     public void testNode_DropNodeStrict(){
     	Node n = new Node("N1");
     	Node f=new Node("Node1");
     	n.addNode(f);
     	int  nbDroped=n.dropFoNodes("Node1", true);
-    	afficherArbre(n, "");
+    	//afficherArbre(n, "");
     	assertEquals(1,nbDroped);
     }
+    */
     
     /**
      * Test if a leaf a random number of first order nodes 
      * are well dropped
      */
-    
+    /*
     public void testNode_DropfoNode_strict(){
     	int i;
     	int m= (int)(Math.random()*1000);
@@ -166,13 +172,13 @@ public class CoreTest
     	// Is it OK?
     	assertEquals(0,base-nbDroped);
     }
-    
+    */
     
     /**
      * Test if a random number of first order nodes 
      * are all well dropped, with not strict research
      */
-    
+    /*
     public void testNode_DropNode_Random_notstrict(){
     	int i;
     	int m= (int)(1000);
@@ -195,6 +201,7 @@ public class CoreTest
     	//System.out.println("Droped "+(nbDroped));
     	assertEquals(0,base-nbDroped);
     }
+    */
 
     ////////////////////////UTILS///////////////////////////////////
     public static void afficherArbre(Node root, String prefix){
