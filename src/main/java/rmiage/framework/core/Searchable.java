@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package Framework.core;
+package rmiage.framework.core;
 
 /**
  *
@@ -11,6 +11,8 @@ package Framework.core;
  */
 public interface Searchable {
 
-    public boolean match(String searched);
+	public boolean contains(String searched);
 
+    //TODO : Trouver un meilleur nom, plus explicite :)
+    public boolean matches(String searched); 
 }

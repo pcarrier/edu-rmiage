@@ -11,3 +11,4 @@ target/
 *.backup
 *.synctex.gz
 *.pdf
+*.class

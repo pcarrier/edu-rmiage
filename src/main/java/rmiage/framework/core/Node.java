@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Framework.core;
+package rmiage.framework.core;
 
 import java.util.ArrayList;
 
@@ -21,6 +21,7 @@ public class Node extends TreeElement {
      * Build a Node with he's string representation
      * @param repr
      */
+    //test ok
     public Node(String repr) {
         super(repr);
         this.nodeChildren = new ArrayList<Node>();
@@ -31,6 +32,7 @@ public class Node extends TreeElement {
      *
      * @return an ArrayList<Node> containing all first order nodeChildren
      */
+    //test ok
     public ArrayList<Node> nodes() {
         return this.nodeChildren;
     }
@@ -39,6 +41,7 @@ public class Node extends TreeElement {
      *
      * @return an ArrayList<Leaf> containing all first order Leaf Children
      */
+    //tested ok
     public ArrayList<Leaf> leafs() {
         return this.leafChildren;
     }
@@ -47,67 +50,63 @@ public class Node extends TreeElement {
      * Add a child to first order nodeChildren,  if it isn't already present
      * @param child
      */
+    //test ok
     public void addNode(Node child) {
-        if (!this.nodes().contains(child)) {
-            this.nodeChildren.add(child);
-        }
+    	if (child !=null){
+	        if (!this.nodes().contains(child)) {
+	            this.nodeChildren.add(child);
+	        }
+    	}
     }
-
+    
+//-------------------------------------------------------------------
+/**
+ * Delete a first order Node
+ * @param n the Node to delete.
+ */
+    //test ok
+    public void dropNode(Node n){
+    	if (this.nodes().contains(n)){
+    		n.dropSubNodes();
+    		this.nodes().remove(n);
+    	}
+    }
+    
     /**
-     * Drop all subnodes which matches repr
-     * @param repr
-     * @return Number of droped nodes.
+     * Delete all subnodes.
      */
-    public Integer dropNodesByRepr(String repr) {
-        int n = 0;
-
-        for (Node x : this.nodes()) {
-            x.dropNodeByRepr(repr);
-            x.dropNodesByRepr(repr);
-        }
-
-        return n;
+    //test ok
+    public void dropSubNodes(){
+    	ArrayList<Node> tmp = (ArrayList<Node>)this.nodes().clone();
+    	for (Node x : tmp) {
+    		x.dropLeafs();
+    		x.dropSubNodes();
+    		this.dropNode(x);
+    	}
     }
-
-    /**
-     * Drop first order subnodes which matches repr
-     * @param repr
-     * @return Number of droped nodes.
-     */
-    public Integer dropNodeByRepr(String repr) {
-        int n = 0;
-        ArrayList<Node> tmp = (ArrayList<Node>) this.nodeChildren.clone();
-
-        for (Node x : tmp) {
-            /*
-             * We hope that the garbage collector do he's job.
-             */
-            if (x.match(repr)) {
-                this.nodeChildren.remove(x);
-                n++;
-            }
-        }
-        return n;
-    }
+   //------------------------------------------------------------------------ 
 
     /**
      * Find all nodeChildren and subchildren which the representation matches the
      * string repr.
-     * @param repr The representation to match.
+     * @param searched The representation to match.
+     * @param strict TODO
      * @return an ArrayList<Node> containing results.
      */
-    public ArrayList<Node> findSubNodes(String repr) {
+    //tested ok
+    public ArrayList<Node> findSubNodes(String searched, boolean strict ) {
         ArrayList<Node> ret = new ArrayList<Node>();
         ArrayList<Node> tmp = new ArrayList<Node>();
 
         for (Node x : this.nodes()) {
 
             if (x != null) {
-                if (x.match(repr)) {
+            	if (!strict && x.contains(searched) || (strict && x.matches(searched)) )
+            	{
                     ret.add(x);
                 }
 
-                tmp = x.findSubNodes(repr);
+                tmp = x.findSubNodes(searched, strict);
                 if (tmp.size() > 0) {
                     ret.addAll(tmp);
                 }
@@ -120,50 +119,87 @@ public class Node extends TreeElement {
      * Add a leaf to the node.
      * @param f the leaf to add
      */
+   //tested ok
     public void addLeaf(Leaf f) {
+    	if(f!=null){
         if (!this.leafs().contains(f)) {
             this.leafs().add(f);
         }
+    	}
+    }
+
+    //-----------------------------------------------------------------
+    /**
+     * Drop all first order leafs.
+     */
+    //tested ok
+    public void dropLeafs(){
+    	ArrayList<Leaf> tmp = (ArrayList<Leaf> ) this.leafs().clone();
+    	for(Leaf f:tmp){
+    		this.dropLeaf(f);
+    	}
+    }
+    /**
+     * Drop the leaf given in parameter
+     * @param f the leaf to drop.
+     */
+    //tested ok
+    public void dropLeaf(Leaf f){
+    	if (this.leafs().contains(f)){
+    		this.leafs().remove(f);
+    	}
+    }
+    //------------------------------------------------------------------------
+    
+        
+    /**
+     * Return all first order Leafs and subnodes leafs 
+     * that matches the searched string
+     * @param repr
+     * @param strict TODO
+     * @return
+     */
+    //Test OK
+    public ArrayList<Leaf> findLeaf(String repr, boolean strict){
+    	ArrayList<Leaf> ret = new ArrayList<Leaf>();
+    	ret.addAll(this.findFoLeaf(repr, false));
+    	ret.addAll(this.findSubsLeaf(repr, false));
+    	return ret;
     }
 
     /**
-     *
+     * Return all first order Leafs that matches the searched string
      * @param repr
-     * @return number of droped leafs.
+     * @param strict
+     * @return
      */
-    public Integer dropLeaf(String repr) {
-        Integer n = 0;
-
-        ArrayList<Leaf> tmp = (ArrayList<Leaf>) this.leafs().clone();
-        for (Leaf f : tmp) {
-            if (f.match(repr)) {
-                this.leafs().remove(f);
-                n++;
-            }
-        }
-        return n;
-    }
-
-
-    public ArrayList<Leaf> findLeaf(String repr){
+    //tested ok
+    public ArrayList<Leaf> findFoLeaf(String repr, boolean strict){
         ArrayList<Leaf> ret = new ArrayList<Leaf>();
         for(Leaf f : this.leafs()){
-            if (f.match(repr)){
+        	
+            if ((!strict && f.contains(repr)) || (strict && f.matches(repr))){
                 ret.add(f);
             }
         }
         return ret;
     }
 
-    public ArrayList<Leaf> findSubsLeaf(String repr){
+    /**
+     * Return subnodes leafs that matches the searched string
+     * @param repr
+     * @param strict TODO
+     * @return
+     */
+    //Test OK
+    public ArrayList<Leaf> findSubsLeaf(String repr, boolean strict){
         ArrayList<Leaf> ret = new ArrayList<Leaf>();
         ArrayList<Leaf> tmp = new ArrayList<Leaf>();
 
-        ret.addAll(this.findLeaf(repr));
+        ret.addAll(this.findFoLeaf(repr, strict));
 
         for(Node n : this.nodes()){
-            //TODO
-            tmp=n.findSubsLeaf(repr);
+            tmp=n.findSubsLeaf(repr, strict);
             if(tmp.size()>0){
                 ret.addAll(tmp);
             }
@@ -171,3 +207,5 @@ public class Node extends TreeElement {
         return ret;
     }
 }
+
+	

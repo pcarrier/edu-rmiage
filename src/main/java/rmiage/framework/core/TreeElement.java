@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package Framework.core;
+package rmiage.framework.core;
 
 /**
  *
@@ -20,7 +20,7 @@ public class TreeElement extends Object implements Searchable{
 
      /**
      *
-     * @return representation of the node.
+     * @return Human readable representation of the node.
      */
     public String getRepr()
     {
@@ -28,11 +28,20 @@ public class TreeElement extends Object implements Searchable{
     }
 
     /**
-     * Return true if the element representation matches the string repr.
+     * Return true if the element representation contains the string repr.
      * @param repr the string to search
      * @return true if the element representation contains the string repr.
      */
-    public boolean match(String searched) {
+    public boolean contains(String searched) {
         return this.getRepr().toLowerCase().contains(searched.toLowerCase());
     }
+
+    /**
+     * Return true if the element representation equal the string repr.
+     * @param repr the string to search
+     * @return true if the element representation equal the string repr.
+     */
+	public boolean matches(String searched) {
+		return this.getRepr().toLowerCase().equals(searched.toLowerCase());
+	}
 }
