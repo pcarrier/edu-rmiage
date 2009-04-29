@@ -10,16 +10,13 @@ import java.util.ArrayList;
 /**
  *
  * @author jc
- * Tis interface describe an element for our Naire Tree.
+ * Tis interface describe an element for our Graphe.
  */
-public class Content extends Object implements Searchable{
-
-    private String repr;
+public class Content extends Object{	
     private ArrayList<Content> parents;
     
-    public Content(String repr){
+    public Content(){
         super();
-        this.repr=repr;
         this.parents = new ArrayList<Content>();
     }
     public void  addParent(Content parent){
@@ -37,43 +34,19 @@ public class Content extends Object implements Searchable{
    
     public void dropParent(Content t){
     	ArrayList<Content> tmp = (ArrayList<Content>)this.parents.clone();
-    	for(Content e:tmp){
-    		if (this.parents.contains(e)){
-    			this.parents.remove(e);
+    	for(Content ct:tmp){
+    		if (this.parents.contains(ct)){
+    			this.parents.remove(ct);
     		}
     	}
     }
-    
+    /**
+     * Delete all references to parents
+     */
     public void delete(){
-    	for(Content x:this.parents){
-    		this.dropParent(x);
+    	for(Content ct:this.parents){
+    		this.dropParent(ct);
     	}
     }
 
-     /**
-     *
-     * @return Human readable representation of the node.
-     */
-    public String getRepr()
-    {
-        return this.repr;
-    }
-
-    /**
-     * Return true if the element representation contains the string repr.
-     * @param repr the string to search
-     * @return true if the element representation contains the string repr.
-     */
-    public boolean contains(String searched) {
-        return this.getRepr().toLowerCase().contains(searched.toLowerCase());
-    }
-
-    /**
-     * Return true if the element representation equal the string repr.
-     * @param repr the string to search
-     * @return true if the element representation equal the string repr.
-     */
-	public boolean matches(String searched) {
-		return this.getRepr().toLowerCase().equals(searched.toLowerCase());
-	}
 }
