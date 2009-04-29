@@ -1,4 +1,6 @@
 package rmiage.test;
+import java.util.ArrayList;
+
 import rmiage.framework.core.Leaf;
 import rmiage.framework.core.Node;
 import junit.framework.Test;
@@ -60,7 +62,7 @@ public class CoreTest
     }
     
     /**
-     * Test if a a leaf is accepted in Twice in the same node.
+     * Test if the same leaf reference is accepted in the same node.
      */
     public void testNodeAddLeaf_AcceptTwice(){
     	Node n = new Node("N1");
@@ -69,45 +71,83 @@ public class CoreTest
     	n.addLeaf(f);
     	assertEquals(1, (n.leafs().size()));
     }
+
     
     /**
-     * Test if a leaf is well dropped
+     * Test if a leaf is well dropped.
      */
-    /*
-    public void testNode_DropLeaf(){
+    public void testDropLeaf(){
     	Node n = new Node("N1");
     	Leaf f=new Leaf("Feuille1");
     	n.addLeaf(f);
-    	int  nbDroped=n.dropLeaf("Feuille1", true);
-    	assertEquals(1,nbDroped);
+    	n.dropLeaf(f);
+    	assertEquals(0, n.leafs().size());
     }
-    */
     
     /**
-     * Test if a leaf a random number of leafs are well dropped
+     * Test if all first order leafs are well dropped.
      */
-    /*
-    public void testNode_DropRandomLeaf(){
-    	int i;
+    public void testDropLeafs(){
+    	Node n = new Node("N1");    	
     	int m= (int)(Math.random()*1000);
-    	Node n = new Node("N1");
-
-    	for (i=0; i<m; i++){
-    		Leaf f=new Leaf("Feuille");	
+    	for(int i=0;i<m;i++){
+    		Leaf f=new Leaf("Feuille"+i);
     		n.addLeaf(f);
     	}
-    	//Original size
-    	int base=n.leafs().size();
-    	//Size after deletion 
-    	int  nbDroped=n.dropLeaf("Feuille", true);
-    	// Is it OK?
-    	assertEquals(0,base-nbDroped);
+    	n.dropLeafs();
+    	assertEquals(0, n.leafs().size());
     }
-    */
     
     
-    ////////////////////////LEAFS///////////////////////////////////
+    /**
+     * Test if a node is well dropped.
+     */
+    public void testDropNode(){
+    	Node n = new Node("N1");
+    	Node f=new Node("Feuille1");
+    	n.addNode(f);
+    	n.dropNode(f);
+    	assertEquals(0, n.nodes().size());
+    }
     
+    /**
+     * Test if all subnodes are well dropped.
+     */
+    public void testDropSubNodes(){
+    	Node n = new Node("N1");    	
+    	int m= (int)(Math.random()*1000);
+    	for(int i=0;i<m;i++){
+    		Node f=new Node("N"+i);
+    		n.addNode(f);
+    	}
+    	n.dropSubNodes();
+    	assertEquals(0, n.nodes().size());
+    }
+    
+    
+    /**
+     * Test if all subnodes are well dropped.
+     */
+    public void testDropSubNodes_multipleOrder(){
+    	Node n = new Node("N");    	
+    	Node cur = n;
+    	ArrayList<Node> tmp = new ArrayList<Node>();
+    	int m= (int)(Math.random()*15);
+    	for(int i=0;i<m;i++){
+    		Node f=new Node("N"+i);
+    		cur.addNode(f);
+    		tmp.add(f);
+    		cur=f;
+    	}
+    	//afficherArbre(n, "");
+    	n.dropSubNodes();
+
+    	//Check if all subnodes are cleaned.
+    	for(Node node:tmp){
+    		assertEquals(0, node.nodes().size());
+    	}
+    }
+          
     /**
      * Test if a null node is accepted in the tree.
      */
@@ -122,7 +162,7 @@ public class CoreTest
      */
     public void testNodeAddNode_AcceptNotNull(){
     	Node n = new Node("N1");
-    	n.addNode(new Node("Feuille1"));
+    	n.addNode(new Node("N2"));
     	assertEquals(1, (n.nodes().size()));
     }
     
@@ -131,78 +171,78 @@ public class CoreTest
      */
     public void testNodeAddNode_AcceptTwice(){
     	Node n = new Node("N1");
-    	Node f=new Node("Feuille1");
+    	Node f=new Node("N2");
     	n.addNode(f);
     	n.addNode(f);
     	assertEquals(1, (n.nodes().size()));
     }
     
     /**
-     * Test if a Node is well dropped, strict reseach
+     * Test if nodes of first order are well retrieved in a not strict research
      */
-    /*
-    public void testNode_DropNodeStrict(){
+    public void testFindFOSubNodes_notstrict(){
     	Node n = new Node("N1");
-    	Node f=new Node("Node1");
-    	n.addNode(f);
-    	int  nbDroped=n.dropFoNodes("Node1", true);
-    	//afficherArbre(n, "");
-    	assertEquals(1,nbDroped);
-    }
-    */
-    
-    /**
-     * Test if a leaf a random number of first order nodes 
-     * are well dropped
-     */
-    /*
-    public void testNode_DropfoNode_strict(){
-    	int i;
-    	int m= (int)(Math.random()*1000);
-    	Node n = new Node("N1");
-
-    	for (i=0; i<m; i++){
-    		Node f=new Node("Feuille");	
-    		n.addNode(f);
+    	int m= (int)(Math.random()*15);
+    	for (int i=0;i<m;i++){
+    		n.addNode(new Node("F"+m));
     	}
-    	//Original size
-    	int base=n.nodes().size();
-    	//Size after deletion 
-    	int  nbDroped=n.dropFoNodes("Feuille", true);
-    	// Is it OK?
-    	assertEquals(0,base-nbDroped);
+    	assertEquals(m, (n.findSubNodes("F", false).size()));
     }
-    */
     
     /**
-     * Test if a random number of first order nodes 
-     * are all well dropped, with not strict research
+     * Test if nodes are well retrieved in a not strict research
      */
-    /*
-    public void testNode_DropNode_Random_notstrict(){
-    	int i;
-    	int m= (int)(1000);
-    	Node n = new Node("N1");
-    	Node cur =n;
-    	for (i=0; i<m; i++){
-    		Node f=new Node("Feuille"+i);	
+    public void testFindSubNodes_notstrict(){ 
+    	Node n = new Node("N");    	
+    	Node cur = n;
+    	ArrayList<Node> tmp = new ArrayList<Node>();
+    	int m= (int)(Math.random()*15);
+    	for(int i=0;i<m;i++){
+    		Node f=new Node("F"+i);
     		cur.addNode(f);
+    		tmp.add(f);
     		cur=f;
     	}
-    	//afficherArbre(n, "");
-    	//Original size
-    	int base=m;
-    	//Size after deletion 
-    	String todrop="Feuille";//+(int)((Math.random())*m);
-    	int  nbDroped=0;
-    	nbDroped=n.dropSubNodes(todrop, false);
-    	// Is it OK?
-    	//afficherArbre(n, "");
-    	//System.out.println("Droped "+(nbDroped));
-    	assertEquals(0,base-nbDroped);
+    	
+    	assertEquals(m, (n.findSubNodes("F", false).size()));
     }
-    */
+    
 
+    /**
+     * Test if nodes of first order are well retrieved in a strict research
+     */
+    public void testFindFOSubNodes_strict(){
+    	Node n = new Node("N1");
+    	int m= (int)(Math.random()*15);
+    	for (int i=0;i<m;i++){
+    		n.addNode(new Node("F"+i));
+    	}
+    	//Do we retrieve only one Node of each strict research
+    	for (int i=0;i<m;i++){
+    		assertEquals(1, (n.findSubNodes("F"+i, true).size()));
+    	}
+    }
+    
+    
+    /**
+     * Test if nodes are well retrieved in a strict research
+     */
+    public void testFindSubNodes_strict(){ 
+    	Node n = new Node("N");    	
+    	Node cur = n;
+    	ArrayList<Node> tmp = new ArrayList<Node>();
+    	int m= (int)(Math.random()*15);
+    	for(int i=0;i<m;i++){
+    		Node f=new Node("F"+i);
+    		cur.addNode(f);
+    		tmp.add(f);
+    		cur=f;
+    	}
+    	//Do we retrieve only one Node of each strict research ?
+    	for (int i=0;i<m;i++){
+    		assertEquals(1, (n.findSubNodes("F"+i, true).size()));
+    	}
+    }
     ////////////////////////UTILS///////////////////////////////////
     public static void afficherArbre(Node root, String prefix){
         System.out.println(prefix+root.getRepr());
