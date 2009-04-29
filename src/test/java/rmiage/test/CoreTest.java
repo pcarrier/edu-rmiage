@@ -182,7 +182,7 @@ public class CoreTest
      */
     public void testFindFOSubNodes_notstrict(){
     	Node n = new Node("N1");
-    	int m= (int)(Math.random()*15);
+    	int m= (int)(Math.random()*500);
     	for (int i=0;i<m;i++){
     		n.addNode(new Node("F"+m));
     	}
@@ -196,7 +196,7 @@ public class CoreTest
     	Node n = new Node("N");    	
     	Node cur = n;
     	ArrayList<Node> tmp = new ArrayList<Node>();
-    	int m= (int)(Math.random()*15);
+    	int m= (int)(Math.random()*500);
     	for(int i=0;i<m;i++){
     		Node f=new Node("F"+i);
     		cur.addNode(f);
@@ -213,7 +213,7 @@ public class CoreTest
      */
     public void testFindFOSubNodes_strict(){
     	Node n = new Node("N1");
-    	int m= (int)(Math.random()*15);
+    	int m= (int)(Math.random()*500);
     	for (int i=0;i<m;i++){
     		n.addNode(new Node("F"+i));
     	}
@@ -231,7 +231,7 @@ public class CoreTest
     	Node n = new Node("N");    	
     	Node cur = n;
     	ArrayList<Node> tmp = new ArrayList<Node>();
-    	int m= (int)(Math.random()*15);
+    	int m= (int)(Math.random()*500);
     	for(int i=0;i<m;i++){
     		Node f=new Node("F"+i);
     		cur.addNode(f);
@@ -243,9 +243,83 @@ public class CoreTest
     		assertEquals(1, (n.findSubNodes("F"+i, true).size()));
     	}
     }
+    
+   
+    /**
+     * Strict research of first order leafs
+     */
+    public void testFindFOLeafs_strict(){
+    	Node n = new Node("N1");
+    	int m= (int)(Math.random()*500);
+    	//int m= 10000;
+    	for (int i=0;i<m;i++){
+    		n.addLeaf(new Leaf("F"+i));
+    	}
+    	//Do we retrieve only one Node of each strict research
+    	for (int i=0;i<m;i++){
+    		assertEquals(1, (n.findFoLeaf("F"+i, true).size()));
+    	}
+    }
+    /**
+     * Not strict research of first order leafs
+     */
+    public void testFindFOLeafs_notstrict(){
+    	Node n = new Node("N1");
+    	int m= (int)(Math.random()*500);
+    	//int m= 10000;
+    	for (int i=0;i<m;i++){
+    		n.addLeaf(new Leaf("F"+i));
+    	}
+    	//Do we retrieve only one Node of each strict research
+    	for (int i=0;i<m;i++){
+    		assertEquals(m, (n.findFoLeaf("F", false).size()));
+    	}
+    }
+    
+    
+    /**
+     * Strict research of all leafs
+     */
+    public void testFindSubLeafs_strict(){ 
+    	Node n = new Node("N");    	
+    	Node cur = n;
+    	int m= (int)(Math.random()*500);
+    	for(int i=0;i<m;i++){
+    		Node f=new Node("N"+i);
+    		Leaf l=new Leaf("F"+i);
+    		cur.addNode(f);
+    		cur.addLeaf(l);
+    		cur=f;
+    	}
+    	//Do we retrieve only one leaf in subnodes with a strict research ?
+    	for (int i=0;i<m;i++){
+    		assertEquals(1, (n.findSubsLeaf("F"+i, true).size()));
+    	}
+    }
+    
+    /**
+     * Strict research of all leafs
+     */
+    public void testFindSubLeafs_notstrict(){ 
+    	Node n = new Node("N");    	
+    	Node cur = n;
+    	int m= (int)(Math.random()*500);
+    	for(int i=0;i<m;i++){
+    		Node f=new Node("N"+i);
+    		Leaf l=new Leaf("F"+i);
+    		cur.addNode(f);
+    		cur.addLeaf(l);
+    		cur=f;
+    	}
+    	//Do we retrieve only one leaf in subnodes with a strict research ?
+    	for (int i=0;i<m;i++){
+    		assertEquals(m, (n.findSubsLeaf("F", false).size()));
+    	}
+    	
+    }
     ////////////////////////UTILS///////////////////////////////////
     public static void afficherArbre(Node root, String prefix){
-        System.out.println(prefix+root.getRepr());
+        //System.out.println(prefix+root.getRepr());
         if (root.leafs().size()>0)
         {
             System.out.println("Feuilles de "+root.getRepr()+":");
@@ -256,7 +330,7 @@ public class CoreTest
 
         if (root.nodes().size()>0)
         {
-            System.out.println("Noeuds de "+root.getRepr()+":");
+            //System.out.println("Noeuds de "+root.getRepr()+":");
         for(Node x : root.nodes()){
                 afficherArbre((Node)x, prefix+"     ");
             }

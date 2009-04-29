@@ -159,7 +159,7 @@ public class Node extends TreeElement {
      * @param strict TODO
      * @return
      */
-    //TODO unitest
+    //Test OK
     public ArrayList<Leaf> findLeaf(String repr, boolean strict){
     	ArrayList<Leaf> ret = new ArrayList<Leaf>();
     	ret.addAll(this.findFoLeaf(repr, false));
@@ -173,11 +173,12 @@ public class Node extends TreeElement {
      * @param strict
      * @return
      */
-    //TODO unitest
+    //tested ok
     public ArrayList<Leaf> findFoLeaf(String repr, boolean strict){
         ArrayList<Leaf> ret = new ArrayList<Leaf>();
         for(Leaf f : this.leafs()){
-            if (f.contains(repr)){
+        	
+            if ((!strict && f.contains(repr)) || (strict && f.matches(repr))){
                 ret.add(f);
             }
         }
@@ -190,15 +191,14 @@ public class Node extends TreeElement {
      * @param strict TODO
      * @return
      */
-    //TODO unitest
+    //Test OK
     public ArrayList<Leaf> findSubsLeaf(String repr, boolean strict){
         ArrayList<Leaf> ret = new ArrayList<Leaf>();
         ArrayList<Leaf> tmp = new ArrayList<Leaf>();
 
-        ret.addAll(this.findFoLeaf(repr, false));
+        ret.addAll(this.findFoLeaf(repr, strict));
 
         for(Node n : this.nodes()){
-            //TODO TEST
             tmp=n.findSubsLeaf(repr, strict);
             if(tmp.size()>0){
                 ret.addAll(tmp);
