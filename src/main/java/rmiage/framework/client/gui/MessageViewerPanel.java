@@ -9,7 +9,7 @@
  * Created on 23 avr. 2009, 10:25:01
  */
 
-package rmiage.framework.client;
+package rmiage.framework.client.gui;
 
 /**
  *

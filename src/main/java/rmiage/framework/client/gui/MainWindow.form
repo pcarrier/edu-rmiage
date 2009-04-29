@@ -109,11 +109,11 @@
                     <Property name="axis" type="int" value="3"/>
                   </Layout>
                   <SubComponents>
-                    <Component class="rmiage.framework.client.MessageViewerPanel" name="messageViewerPanel3">
+                    <Component class="rmiage.framework.client.gui.MessageViewerPanel" name="messageViewerPanel3">
                     </Component>
-                    <Component class="rmiage.framework.client.MessageViewerPanel" name="messageViewerPanel2">
+                    <Component class="rmiage.framework.client.gui.MessageViewerPanel" name="messageViewerPanel2">
                     </Component>
-                    <Component class="rmiage.framework.client.MessageViewerPanel" name="messageViewerPanel1">
+                    <Component class="rmiage.framework.client.gui.MessageViewerPanel" name="messageViewerPanel1">
                     </Component>
                   </SubComponents>
                 </Container>

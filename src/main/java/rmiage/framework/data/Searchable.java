@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package rmiage.framework.core;
+package rmiage.framework.data;
 
 /**
  *

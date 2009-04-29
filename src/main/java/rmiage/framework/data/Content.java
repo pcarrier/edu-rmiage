@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package rmiage.framework.core;
+package rmiage.framework.data;
 
 import java.util.ArrayList;
 
@@ -12,17 +12,17 @@ import java.util.ArrayList;
  * @author jc
  * Tis interface describe an element for our Naire Tree.
  */
-public class TreeElement extends Object implements Searchable{
+public class Content extends Object implements Searchable{
 
     private String repr;
-    private ArrayList<TreeElement> parents;
+    private ArrayList<Content> parents;
     
-    public TreeElement(String repr){
+    public Content(String repr){
         super();
         this.repr=repr;
-        this.parents = new ArrayList<TreeElement>();
+        this.parents = new ArrayList<Content>();
     }
-    public void  addParent(TreeElement parent){
+    public void  addParent(Content parent){
     	if(parent != null){
     		if (!this.parents.contains(parent)){
     			this.parents.add(parent);
@@ -30,14 +30,14 @@ public class TreeElement extends Object implements Searchable{
     	}
     }
     
-    public ArrayList<TreeElement> getParents()
+    public ArrayList<Content> getParents()
     {
     	return this.parents;
     }
    
-    public void dropParent(TreeElement t){
-    	ArrayList<TreeElement> tmp = (ArrayList<TreeElement>)this.parents.clone();
-    	for(TreeElement e:tmp){
+    public void dropParent(Content t){
+    	ArrayList<Content> tmp = (ArrayList<Content>)this.parents.clone();
+    	for(Content e:tmp){
     		if (this.parents.contains(e)){
     			this.parents.remove(e);
     		}
@@ -45,7 +45,7 @@ public class TreeElement extends Object implements Searchable{
     }
     
     public void delete(){
-    	for(TreeElement x:this.parents){
+    	for(Content x:this.parents){
     		this.dropParent(x);
     	}
     }
