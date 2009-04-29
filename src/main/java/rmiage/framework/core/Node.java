@@ -21,6 +21,7 @@ public class Node extends TreeElement {
      * Build a Node with he's string representation
      * @param repr
      */
+    //test ok
     public Node(String repr) {
         super(repr);
         this.nodeChildren = new ArrayList<Node>();
@@ -31,6 +32,7 @@ public class Node extends TreeElement {
      *
      * @return an ArrayList<Node> containing all first order nodeChildren
      */
+    //test ok
     public ArrayList<Node> nodes() {
         return this.nodeChildren;
     }
@@ -39,6 +41,7 @@ public class Node extends TreeElement {
      *
      * @return an ArrayList<Leaf> containing all first order Leaf Children
      */
+    //tested ok
     public ArrayList<Leaf> leafs() {
         return this.leafChildren;
     }
@@ -47,6 +50,7 @@ public class Node extends TreeElement {
      * Add a child to first order nodeChildren,  if it isn't already present
      * @param child
      */
+    //test ok
     public void addNode(Node child) {
     	if (child !=null){
 	        if (!this.nodes().contains(child)) {
@@ -60,8 +64,10 @@ public class Node extends TreeElement {
  * Delete a first order Node
  * @param n the Node to delete.
  */
+    //test ok
     public void dropNode(Node n){
     	if (this.nodes().contains(n)){
+    		n.dropSubNodes();
     		this.nodes().remove(n);
     	}
     }
@@ -69,6 +75,7 @@ public class Node extends TreeElement {
     /**
      * Delete all subnodes.
      */
+    //test ok
     public void dropSubNodes(){
     	ArrayList<Node> tmp = (ArrayList<Node>)this.nodes().clone();
     	for (Node x : tmp) {
@@ -78,47 +85,7 @@ public class Node extends TreeElement {
     	}
     }
    //------------------------------------------------------------------------ 
-/*
-    /**
-     * Drop all subnodes which matches repr
-     * @param repr
-     * @param strict TODO
-     * @return Number of droped nodes.
-     */
-    /*
-    public int dropSubNodes(String repr, boolean strict) {
-        int n = 0;
-        ArrayList<Node> tmp = (ArrayList<Node>)this.nodes().clone();
-        for (Node x : tmp) {
-            n+=x.dropSubNodes(repr, strict);
-            n+=x.dropFoNodes(repr, strict);
-        }
-        n+=this.dropFoNodes(repr, strict);
-        return n;
-    }
-    */
-    /**
-     * Drop first order subnodes which matches repr
-     * @param searched
-     * @param strict TODO
-     * @return Number of droped nodes.
-     */
-    /*
-    public int dropFoNodes(String searched, boolean strict) {
-        int n = 0;
-        ArrayList<Node> tmp = (ArrayList<Node>) this.nodeChildren.clone();
 
-        for (Node x : tmp) {
-      
-        	if (!strict && x.contains(searched) || (strict && x.matches(searched)) )
-            {
-                this.nodeChildren.remove(x);
-                n++;
-            }
-        }
-        return n;
-    }
-    */
     /**
      * Find all nodeChildren and subchildren which the representation matches the
      * string repr.
@@ -126,6 +93,7 @@ public class Node extends TreeElement {
      * @param strict TODO
      * @return an ArrayList<Node> containing results.
      */
+    //tested ok
     public ArrayList<Node> findSubNodes(String searched, boolean strict ) {
         ArrayList<Node> ret = new ArrayList<Node>();
         ArrayList<Node> tmp = new ArrayList<Node>();
@@ -151,6 +119,7 @@ public class Node extends TreeElement {
      * Add a leaf to the node.
      * @param f the leaf to add
      */
+   //tested ok
     public void addLeaf(Leaf f) {
     	if(f!=null){
         if (!this.leafs().contains(f)) {
@@ -160,13 +129,21 @@ public class Node extends TreeElement {
     }
 
     //-----------------------------------------------------------------
+    /**
+     * Drop all first order leafs.
+     */
+    //tested ok
     public void dropLeafs(){
     	ArrayList<Leaf> tmp = (ArrayList<Leaf> ) this.leafs().clone();
     	for(Leaf f:tmp){
     		this.dropLeaf(f);
     	}
     }
-    
+    /**
+     * Drop the leaf given in parameter
+     * @param f the leaf to drop.
+     */
+    //tested ok
     public void dropLeaf(Leaf f){
     	if (this.leafs().contains(f)){
     		this.leafs().remove(f);
@@ -174,30 +151,7 @@ public class Node extends TreeElement {
     }
     //------------------------------------------------------------------------
     
-    /**
-     * Drop first order leafs.
-     * @param searched 
-     * @param strict If true, only element which match exactly the 
-     * representation searched
-     * @return number of droped leafs.
-     */
-    /*
-    @SuppressWarnings("unchecked")
-	public int dropLeaf(String searched, boolean strict) {
-        int n = 0;
-
-        ArrayList<Leaf> tmp = (ArrayList<Leaf>) this.leafs().clone();
-        for (Leaf f : tmp) {
-        	if (!strict && f.contains(searched) || (strict && f.matches(searched)) )
-        	{
-                this.leafs().remove(f);
-                n++;
-            }
-        }
-        return n;
-    }
-*/
-    
+        
     /**
      * Return all first order Leafs and subnodes leafs 
      * that matches the searched string
@@ -205,7 +159,7 @@ public class Node extends TreeElement {
      * @param strict TODO
      * @return
      */
-    //TODO unitest
+    //Test OK
     public ArrayList<Leaf> findLeaf(String repr, boolean strict){
     	ArrayList<Leaf> ret = new ArrayList<Leaf>();
     	ret.addAll(this.findFoLeaf(repr, false));
@@ -219,11 +173,12 @@ public class Node extends TreeElement {
      * @param strict
      * @return
      */
-    //TODO unitest
+    //tested ok
     public ArrayList<Leaf> findFoLeaf(String repr, boolean strict){
         ArrayList<Leaf> ret = new ArrayList<Leaf>();
         for(Leaf f : this.leafs()){
-            if (f.contains(repr)){
+        	
+            if ((!strict && f.contains(repr)) || (strict && f.matches(repr))){
                 ret.add(f);
             }
         }
@@ -236,15 +191,14 @@ public class Node extends TreeElement {
      * @param strict TODO
      * @return
      */
-    //TODO unitest
+    //Test OK
     public ArrayList<Leaf> findSubsLeaf(String repr, boolean strict){
         ArrayList<Leaf> ret = new ArrayList<Leaf>();
         ArrayList<Leaf> tmp = new ArrayList<Leaf>();
 
-        ret.addAll(this.findFoLeaf(repr, false));
+        ret.addAll(this.findFoLeaf(repr, strict));
 
         for(Node n : this.nodes()){
-            //TODO TEST
             tmp=n.findSubsLeaf(repr, strict);
             if(tmp.size()>0){
                 ret.addAll(tmp);
@@ -254,3 +208,4 @@ public class Node extends TreeElement {
     }
 }
 
+	
