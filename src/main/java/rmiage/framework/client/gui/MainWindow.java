@@ -9,7 +9,7 @@
  * Created on 23 avr. 2009, 09:49:58
  */
 
-package rmiage.framework.client;
+package rmiage.framework.client.gui;
 
 /**
  *
@@ -40,9 +40,9 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
-        messageViewerPanel3 = new rmiage.framework.client.MessageViewerPanel();
-        messageViewerPanel2 = new rmiage.framework.client.MessageViewerPanel();
-        messageViewerPanel1 = new rmiage.framework.client.MessageViewerPanel();
+        messageViewerPanel3 = new rmiage.framework.client.gui.MessageViewerPanel();
+        messageViewerPanel2 = new rmiage.framework.client.gui.MessageViewerPanel();
+        messageViewerPanel1 = new rmiage.framework.client.gui.MessageViewerPanel();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -173,9 +173,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTree jTree1;
-    private rmiage.framework.client.MessageViewerPanel messageViewerPanel1;
-    private rmiage.framework.client.MessageViewerPanel messageViewerPanel2;
-    private rmiage.framework.client.MessageViewerPanel messageViewerPanel3;
+    private rmiage.framework.client.gui.MessageViewerPanel messageViewerPanel1;
+    private rmiage.framework.client.gui.MessageViewerPanel messageViewerPanel2;
+    private rmiage.framework.client.gui.MessageViewerPanel messageViewerPanel3;
     // End of variables declaration//GEN-END:variables
 
 }
