@@ -5,6 +5,8 @@
 
 package rmiage.framework.core;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author jc
@@ -13,9 +15,39 @@ package rmiage.framework.core;
 public class TreeElement extends Object implements Searchable{
 
     private String repr;
+    private ArrayList<TreeElement> parents;
+    
     public TreeElement(String repr){
         super();
         this.repr=repr;
+        this.parents = new ArrayList<TreeElement>();
+    }
+    public void  addParent(TreeElement parent){
+    	if(parent != null){
+    		if (!this.parents.contains(parent)){
+    			this.parents.add(parent);
+    		}
+    	}
+    }
+    
+    public ArrayList<TreeElement> getParents()
+    {
+    	return this.parents;
+    }
+   
+    public void dropParent(TreeElement t){
+    	ArrayList<TreeElement> tmp = (ArrayList<TreeElement>)this.parents.clone();
+    	for(TreeElement e:tmp){
+    		if (this.parents.contains(e)){
+    			this.parents.remove(e);
+    		}
+    	}
+    }
+    
+    public void delete(){
+    	for(TreeElement x:this.parents){
+    		this.dropParent(x);
+    	}
     }
 
      /**
