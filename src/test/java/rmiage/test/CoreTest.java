@@ -126,9 +126,9 @@ public class CoreTest
     
     
     /**
-     * Test if all subnodes are well dropped.
+     * Test if all subnodes are well dropped and don't have any son
      */
-    public void testDropSubNodes_multipleOrder(){
+    public void testDropSubNodes_multipleOrder_son(){
     	Node n = new Node("N");    	
     	Node cur = n;
     	ArrayList<Node> tmp = new ArrayList<Node>();
@@ -143,17 +143,45 @@ public class CoreTest
     	n.dropSubNodes();
 
     	//Check if all subnodes are cleaned.
+    	//Each node should not have any son
     	for(Node node:tmp){
     		assertEquals(0, node.nodes().size());
     	}
     }
-          
+
+    /**
+     * Test if all subnodes are well dropped and don't have any leaf
+     */
+    public void testDropSubNodes_multipleOrder_leafs(){
+    	Node n = new Node("N");    	
+    	Node cur = n;
+    	ArrayList<Node> tmp = new ArrayList<Node>();
+    	int m= (int)(Math.random()*15);
+    	for(int i=0;i<m;i++){
+    		Node f=new Node("N"+i);
+    		cur.addNode(f);
+    		tmp.add(f);
+    		cur=f;
+    	}
+    	//afficherArbre(n, "");
+    	n.dropSubNodes();
+
+    	//Check if all subnodes are cleaned.
+    	//Each node should not have any leaf
+    	for(Node node:tmp){
+    		assertEquals(0, node.leafs().size());
+    	}
+    }
+
+    
+    
     /**
      * Test if a null node is accepted in the tree.
      */
     public void testNodeAddNode_rejectNull(){
     	Node n = new Node("Node1");
     	n.addNode(null);
+    	//We shouldn't have any node
     	assertEquals(0, (n.nodes().size()));
     }
     
@@ -163,6 +191,7 @@ public class CoreTest
     public void testNodeAddNode_AcceptNotNull(){
     	Node n = new Node("N1");
     	n.addNode(new Node("N2"));
+    	//We should have one node
     	assertEquals(1, (n.nodes().size()));
     }
     
@@ -174,6 +203,7 @@ public class CoreTest
     	Node f=new Node("N2");
     	n.addNode(f);
     	n.addNode(f);
+    	//We should just have one node
     	assertEquals(1, (n.nodes().size()));
     }
     
@@ -186,6 +216,7 @@ public class CoreTest
     	for (int i=0;i<m;i++){
     		n.addNode(new Node("F"+m));
     	}
+    	//We should find 'm' nodes
     	assertEquals(m, (n.findSubNodes("F", false).size()));
     }
     
@@ -217,7 +248,7 @@ public class CoreTest
     	for (int i=0;i<m;i++){
     		n.addNode(new Node("F"+i));
     	}
-    	//Do we retrieve only one Node of each strict research
+    	//We should find 'm' node
     	for (int i=0;i<m;i++){
     		assertEquals(1, (n.findSubNodes("F"+i, true).size()));
     	}
@@ -238,7 +269,7 @@ public class CoreTest
     		tmp.add(f);
     		cur=f;
     	}
-    	//Do we retrieve only one Node of each strict research ?
+    	//We should find 1 node each time
     	for (int i=0;i<m;i++){
     		assertEquals(1, (n.findSubNodes("F"+i, true).size()));
     	}
@@ -255,7 +286,7 @@ public class CoreTest
     	for (int i=0;i<m;i++){
     		n.addLeaf(new Leaf("F"+i));
     	}
-    	//Do we retrieve only one Node of each strict research
+    	//We should find 1 leaf each time
     	for (int i=0;i<m;i++){
     		assertEquals(1, (n.findFoLeaf("F"+i, true).size()));
     	}
@@ -270,7 +301,7 @@ public class CoreTest
     	for (int i=0;i<m;i++){
     		n.addLeaf(new Leaf("F"+i));
     	}
-    	//Do we retrieve only one Node of each strict research
+    	//We should find 'm' leaf
     	for (int i=0;i<m;i++){
     		assertEquals(m, (n.findFoLeaf("F", false).size()));
     	}
@@ -291,7 +322,7 @@ public class CoreTest
     		cur.addLeaf(l);
     		cur=f;
     	}
-    	//Do we retrieve only one leaf in subnodes with a strict research ?
+    	//We should find 1 leaf each time
     	for (int i=0;i<m;i++){
     		assertEquals(1, (n.findSubsLeaf("F"+i, true).size()));
     	}
@@ -311,7 +342,7 @@ public class CoreTest
     		cur.addLeaf(l);
     		cur=f;
     	}
-    	//Do we retrieve only one leaf in subnodes with a strict research ?
+    	//We should find 'm' leafs in the tree
     	for (int i=0;i<m;i++){
     		assertEquals(m, (n.findSubsLeaf("F", false).size()));
     	}
