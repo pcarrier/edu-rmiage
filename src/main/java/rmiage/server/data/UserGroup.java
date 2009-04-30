@@ -3,16 +3,19 @@ package rmiage.server.data;
 import rmiage.framework.data.Container;
 import rmiage.framework.data.Searchable;
 
-public class UserGroup extends Container implements Searchable{
+public class UserGroup extends Container<User>{
 
-	public boolean contains(String searched) {
-		// TODO Auto-generated method stub
-		return false;
+	private String name;
+	
+	public UserGroup(String name){
+		this.name=name;
 	}
-
-	public boolean matches(String searched) {
-		// TODO Auto-generated method stub
-		return false;
+	public String getName(){
+		return this.name;
 	}
-
+	
+	
+	public void addContent(User f){
+		super.addContent(f);
+	}
 }
