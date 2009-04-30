@@ -1,23 +1,26 @@
 package rmiage.server.data;
 
-import rmiage.framework.data.Content;
+
 import rmiage.framework.data.Searchable;
 
 public class User extends UserBasic implements Searchable{
 
+	@SuppressWarnings("unused")
 	private String pass;
 	
 	public User(String login, String pass){
 		super(login);
-		this.pass=pass;
+		this.setPass(pass);
 	}
-	public String getLogin(){
-		return this.login;
-	}
-	
+
 	public String getPass(){
 		return this.getPass();
 	}
+	
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+	
 	public boolean contains(String searched) {
 		// TODO Auto-generated method stub
 		return false;
@@ -27,5 +30,4 @@ public class User extends UserBasic implements Searchable{
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 }

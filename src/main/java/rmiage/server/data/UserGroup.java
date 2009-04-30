@@ -1,21 +1,10 @@
 package rmiage.server.data;
 
-import rmiage.framework.data.Container;
-import rmiage.framework.data.Searchable;
+public class UserGroup extends UserGroupBasic<User> {
 
-public class UserGroup extends Container<User>{
+	public UserGroup(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
 
-	private String name;
-	
-	public UserGroup(String name){
-		this.name=name;
-	}
-	public String getName(){
-		return this.name;
-	}
-	
-	
-	public void addContent(User f){
-		super.addContent(f);
-	}
 }
