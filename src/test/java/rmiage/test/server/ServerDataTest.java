@@ -1,5 +1,6 @@
 package rmiage.test.server;
 
+import rmiage.server.data.User;
 import rmiage.server.data.UserGroup;
 import rmiage.test.framework.FrameworkDataTest;
 import junit.framework.Test;
@@ -33,5 +34,11 @@ public class ServerDataTest extends TestCase {
     public void testUserGroupCtor_getName(){
     	UserGroup g = new UserGroup("base");
     	assertEquals("base", g.getName());
-    }	
+    }
+    
+    public void testUserGroup_AddContent(){
+    	UserGroup g = new UserGroup("base");
+    	User u = new UserBasic("jc");
+    	g.addContent(u);
+    }
 }
