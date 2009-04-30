@@ -27,6 +27,10 @@ public class Content extends Object{
     	}
     }
     
+    /**
+     * 
+     * @return An ArrayList of parents Contents
+     */
     public ArrayList<Content> getParents()
     {
     	return this.parents;

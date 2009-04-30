@@ -1,5 +1,5 @@
 package rmiage.server.storage;
 
-public interface BackendManager {
+public interface IBackendManager {
 
 }

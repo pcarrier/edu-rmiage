@@ -6,7 +6,7 @@ public class StorageManager {
 
     protected ArrayList<BackendAssociation> backAss;
 
-    public void associateBackend(String str, BackendManager bm) {
+    public void associateBackend(String str, IBackendManager bm) {
         //TODO
     }
 
@@ -21,13 +21,13 @@ public class StorageManager {
     public class BackendAssociation {
 
         protected String str;
-        protected BackendManager bm;
+        protected IBackendManager bm;
 
         public String getString() {
             return str;
         }
 
-        public BackendManager getBackendManager() {
+        public IBackendManager getBackendManager() {
             return bm;
         }
 
@@ -35,7 +35,7 @@ public class StorageManager {
             this.str = str;
         }
 
-        public void setBackendManager(BackendManager bm) {
+        public void setBackendManager(IBackendManager bm) {
             this.bm = bm;
         }
     }
