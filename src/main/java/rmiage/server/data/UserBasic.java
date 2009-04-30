@@ -3,21 +3,18 @@ package rmiage.server.data;
 import rmiage.framework.data.Content;
 import rmiage.framework.data.Searchable;
 
-public class User extends UserBasic implements Searchable{
+public class UserBasic extends Content implements Searchable{
 
-	private String pass;
+	protected String login;
 	
-	public User(String login, String pass){
-		super(login);
-		this.pass=pass;
+	public UserBasic(String log){
+		login = log;
 	}
+	
 	public String getLogin(){
-		return this.login;
+		return this.getLogin();
 	}
 	
-	public String getPass(){
-		return this.getPass();
-	}
 	public boolean contains(String searched) {
 		// TODO Auto-generated method stub
 		return false;
