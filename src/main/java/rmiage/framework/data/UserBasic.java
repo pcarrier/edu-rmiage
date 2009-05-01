@@ -1,7 +1,5 @@
-package rmiage.server.data;
+package rmiage.framework.data;
 
-import rmiage.framework.data.Content;
-import rmiage.framework.data.Searchable;
 
 public class UserBasic extends Content implements Searchable{
 

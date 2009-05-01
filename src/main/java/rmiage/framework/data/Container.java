@@ -10,63 +10,74 @@ import java.util.ArrayList;
  *
  * @author jc
  */
-public class Container<T extends Content> extends Content {
+public class Container<T extends IContent> extends Content implements IContainer<IContent>{
         
     //List of Contents Children
-    private ArrayList<T> ContentChildren;
-
+    private ArrayList<IContent> ContentChildren;
+    protected ArrayList<Class<IContent>> accepted;
+    
     /**
      * Build a Container with he's string representation
      */
     //test ok
     public Container() {
         super();
-        this.ContentChildren = new ArrayList<T>();
+        this.ContentChildren = new ArrayList<IContent>();
+        this.accepted= new ArrayList<Class<IContent>>();
+        this.addAcceptedClass(IContent.class);
     }
 
-    /**
-     *
-     * @return an ArrayList<Content> containing all first order Content Children
-     */
+    public void addAcceptedClass(Class<IContent> class1){
+    	if(!this.accepted.contains(class1)){
+    		this.accepted.add(class1);
+    	}
+    } 
+    
+    /* (non-Javadoc)
+	 * @see rmiage.framework.data.IContainer#Contents()
+	 */
     //tested ok
-    public ArrayList<T> Contents() {
+    public ArrayList<IContent> Contents() {
         return this.ContentChildren;
     }
 
   
-    /**
-     * Add a Content to the node.
-     * @param f the Content to add
-     */
+    /* (non-Javadoc)
+	 * @see rmiage.framework.data.IContainer#addContent(T)
+	 */
    //tested ok
-    public void addContent(T f) {
+    public boolean addContent(IContent f) {
     	if(f!=null){
-        if (!this.Contents().contains(f)) {
-        	f.addParent(this);
-            this.Contents().add((T)f);
-            
-        }
-    	}
+    			if (!this.Contents().contains(f)) {
+    	        	f.addParent(this);
+    	            this.Contents().add(f);
+    	            return true;
+    	        }else{
+    			return false;
+    	        }
+    		
+    		}else{
+    			return false;
+    		}
     }
 
     //-----------------------------------------------------------------
-    /**
-     * Drop all first order Contents.
-     */
+    /* (non-Javadoc)
+	 * @see rmiage.framework.data.IContainer#dropContents()
+	 */
     //tested ok
     @SuppressWarnings("unchecked")
 	public void dropContents(){
-    	ArrayList<T> tmp = (ArrayList<T> ) this.Contents().clone();
+    	ArrayList<T> tmp = (ArrayList<T>) this.Contents().clone();
     	for(T f:tmp){
     		this.dropContent(f);
     	}
     }
-    /**
-     * Drop the Content given in parameter, and clean the Content parent
-     * @param f the Content to drop.
-     */
+    /* (non-Javadoc)
+	 * @see rmiage.framework.data.IContainer#dropContent(T)
+	 */
     //tested ok
-    public void dropContent(T f){
+    public void dropContent(IContent f){
     	if (this.Contents().contains(f)){
     		this.Contents().remove(f);
     		f.dropParent(this);

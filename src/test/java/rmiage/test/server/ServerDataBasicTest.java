@@ -1,16 +1,16 @@
 package rmiage.test.server;
 
+
 import rmiage.framework.data.UserBasic;
 import rmiage.framework.data.UserGroupBasic;
 import rmiage.server.data.User;
-import rmiage.server.data.UserGroup;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-public class ServerDataTest extends TestCase {
-	
-	public ServerDataTest(String name) {
+public class ServerDataBasicTest extends TestCase {
+
+	public ServerDataBasicTest(String name) {
 		super(name);
 	}
     /**
@@ -18,16 +18,14 @@ public class ServerDataTest extends TestCase {
      */
     public static Test suite()
     {
-        return new TestSuite( ServerDataTest.class );
+        return new TestSuite( ServerDataBasicTest.class );
     }
     
     /**
-
-	/**
      * Test the userGroup Constructor
      */
     public void testUserGroupCtor(){
-    	UserGroup g = new UserGroup("base");
+    	UserGroupBasic<UserBasic> g = new UserGroupBasic<UserBasic>("base");
     	assertNotNull(g);
     }
     
@@ -36,35 +34,24 @@ public class ServerDataTest extends TestCase {
      * Test the userGroup Constructor getName
      */
     public void testUserGroupBasicCtor_getName(){
-    	UserGroup g = new UserGroup("base");
+    	UserGroupBasic<UserBasic> g = new UserGroupBasic<UserBasic>("base");
     	assertEquals("base", g.getName());
     }
     /**
      * Test if a UserGroupBasic accept a UserBasic
      */
     public void testUserGroupBasic_AddUserBasic(){
-    	
     	UserGroupBasic<UserBasic> g = new UserGroupBasic<UserBasic>("base");
     	UserBasic u = new UserBasic("jc");
-    	assertEquals(true, g.addContent(u));
-    	
+    	g.addContent(u);
+    	assertEquals(1, g.Contents().size());
     }
     /**
      *Test if a UserGroupBasic accept a subclass of UserBasic 
      */
-    public void testUserGroupBasic_AddUser(){
-    	UserGroupBasic<User> g = new UserGroupBasic<User>("base");
+    public void testUserGroupBasic_AddUserExtended(){
+    	UserGroupBasic<UserBasic> g = new UserGroupBasic<UserBasic>("base");
     	User u = new User("jc", "password");
-    	g.addContent(u);
-    	assertEquals(1, g.Contents().size());
-    }
-    
-    /**
-     *Test if a UserGroup accept a subclass of UserBasic 
-     */
-    public void testUserGroup_AddUser(){
-    	UserGroup g = new UserGroup("base");
-    	UserBasic u = new UserBasic("jc");
     	g.addContent(u);
     	assertEquals(1, g.Contents().size());
     }

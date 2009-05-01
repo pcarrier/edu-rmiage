@@ -2,6 +2,7 @@ package rmiage.server.data;
 
 
 import rmiage.framework.data.Searchable;
+import rmiage.framework.data.UserBasic;
 
 public class User extends UserBasic implements Searchable{
 
