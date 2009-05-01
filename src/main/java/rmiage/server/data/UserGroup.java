@@ -1,17 +1,20 @@
 package rmiage.server.data;
 
-import rmiage.framework.data.UserGroupBasic;
+import rmiage.framework.data.SearchablesContainer;
 
 
 
-public class UserGroup extends UserGroupBasic<User> {
+public class UserGroup extends SearchablesContainer<User> {
 
+	protected String name;
 	public UserGroup(String name) {
-		super(name);
+		this.name=name;
 	}
 	
-	public boolean addContent(User u){		  
-				return super.addContent(u);
-		  
+	public String getName(){
+		return this.name;
+	}
+	public void setName(String name){
+		this.name=name;
 	}
 }
