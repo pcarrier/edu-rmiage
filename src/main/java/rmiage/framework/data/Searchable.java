@@ -9,7 +9,7 @@ package rmiage.framework.data;
  *
  * @author jc
  */
-public interface Searchable {
+public interface Searchable extends IContent {
 
 	public boolean contains(String searched);
 
