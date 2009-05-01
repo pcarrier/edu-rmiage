@@ -11,10 +11,12 @@ public class SearchablesContainer<T extends Searchable> extends Container<Conten
 		Searchable s;
 		SearchablesContainer<Searchable> subc;
 		for(IContent c:this.Contents()){
+			//System.out.println(c);
 			s=(Searchable) c;
-			if((strict && s.equals(searched)) || (!strict && s.contains(searched))){
+			if((!strict && s.contains(searched)) || (strict && s.matches(searched))){
 				ret.addContent(c);
 			}
+			
 			try{
 				subc=(SearchablesContainer<Searchable>)c;
 				SearchablesContainer<Searchable> tmp = subc.find(searched, strict);
@@ -23,6 +25,7 @@ public class SearchablesContainer<T extends Searchable> extends Container<Conten
 				}
 			}catch (Exception e){
 			}
+			
 		}
 		return ret;
 	}

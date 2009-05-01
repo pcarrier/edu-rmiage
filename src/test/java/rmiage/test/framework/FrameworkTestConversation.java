@@ -2,6 +2,7 @@ package rmiage.test.framework;
 
 import rmiage.framework.data.Conversation;
 import rmiage.framework.data.Message;
+import rmiage.server.data.User;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -42,7 +43,21 @@ public class FrameworkTestConversation extends TestCase {
     	c.setName("HELLO");
     	Message m = new Message("First Message","Hello World !");
     	c.addContent(m);
-    	assertEquals(1,c.Contents());
+    	assertEquals(1,c.Contents().size());   
+    }
     
+    public void testUserAddConversation(){
+    	User u = new User("jc","pass");
+    	u.getConversations().addContent(new Conversation());
+    	assertEquals(1, u.getConversations().Contents().size());
+    }
+    
+    public void testUserAddNewMessage(){
+    	User u = new User("jc","pass");
+    	Conversation c = new Conversation();
+    	c.setName("HELLO");
+    	Message m = new Message("First Message","Hello World !");
+    	c.addContent(m);
+    	u.addConversation(c);
     }
 }

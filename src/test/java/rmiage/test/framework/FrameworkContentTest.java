@@ -128,4 +128,16 @@ public class FrameworkContentTest
     	assertEquals(0, (n2.getParents().size()));
     }
     
+
+    /**
+     * Test if a null node is accepted in the tree.
+     */
+    public void testFind(){
+    	Container<Content> n = new Container<Content>();
+    	Content c = new Content();
+    	n.addContent(null);
+    	//We shouldn't have any node
+    	assertEquals(0, (n.Contents().size()));
+    }
+    
 }

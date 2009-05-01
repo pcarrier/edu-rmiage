@@ -12,8 +12,11 @@ public class AllTests {
 		TestSuite suite = new TestSuite("Test for rmiage.framework.data");
 		//$JUnit-BEGIN$
 		suite.addTest(FrameworkContentTest.suite());
+		suite.addTest(FrameworkContentTest.suite());
+		
 		suite.addTest(ServerDataBasicTest.suite());
 		suite.addTest(ServerDataTest.suite());
+		
 		//$JUnit-END$
 		return suite;
 	}

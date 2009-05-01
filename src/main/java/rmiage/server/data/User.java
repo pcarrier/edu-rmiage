@@ -43,6 +43,7 @@ public class User extends UserBasic implements Searchable{
 	}
 
 	public boolean matches(String searched) {
-		return this.login.toLowerCase().equals(searched);
+//		System.out.println("Match"+ this.login.toLowerCase().contains(searched.toLowerCase()));
+		return this.login.toLowerCase().equals(searched.toLowerCase());
 	}
 }

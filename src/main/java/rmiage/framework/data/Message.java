@@ -1,11 +1,12 @@
 package rmiage.framework.data;
 
 
-public class Message extends Content {
+public class Message extends Content implements Searchable{
 
 	protected String subject;
 	protected String corpus;
 	protected UserBasic author;
+	protected Container<UserBasic> destinataires;
 	
 	public Message() {
 		super();
@@ -23,5 +24,15 @@ public class Message extends Content {
 	
 	public String getCorpus(){
 		return this.corpus;
+	}
+
+	public boolean contains(String searched) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean matches(String searched) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

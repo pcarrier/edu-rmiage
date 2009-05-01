@@ -84,5 +84,3 @@ public class Container<T extends IContent> extends Content implements IContainer
     	}
     }
 }
-
-	
