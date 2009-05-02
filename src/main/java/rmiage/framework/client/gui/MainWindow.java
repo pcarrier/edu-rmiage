@@ -31,36 +31,27 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jSplitPane1 = new javax.swing.JSplitPane();
+        splitPane = new javax.swing.JSplitPane();
         navigScrollPane = new javax.swing.JScrollPane();
         navigTree = new javax.swing.JTree();
-        jPanel1 = new javax.swing.JPanel();
+        mainPanel = new javax.swing.JPanel();
         topPanel = new javax.swing.JPanel();
         searchIcon = new javax.swing.JLabel();
         searchField = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        disconnectButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jSplitPane1.setDividerLocation(150);
+        splitPane.setDividerLocation(150);
 
         navigScrollPane.setViewportView(navigTree);
 
-        jSplitPane1.setLeftComponent(navigScrollPane);
+        splitPane.setLeftComponent(navigScrollPane);
 
-        jPanel1.setLayout(new java.awt.BorderLayout());
-        jSplitPane1.setRightComponent(jPanel1);
+        mainPanel.setLayout(new java.awt.BorderLayout());
+        splitPane.setRightComponent(mainPanel);
 
-        getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(splitPane, java.awt.BorderLayout.CENTER);
 
         topPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
@@ -75,9 +66,9 @@ public class MainWindow extends javax.swing.JFrame {
         });
         topPanel.add(searchField);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rmiage/framework/client/resources/disconnect.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        topPanel.add(jButton1);
+        disconnectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rmiage/framework/client/resources/disconnect.png"))); // NOI18N
+        disconnectButton.setBorderPainted(false);
+        topPanel.add(disconnectButton);
 
         getContentPane().add(topPanel, java.awt.BorderLayout.NORTH);
 
@@ -100,16 +91,13 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JButton disconnectButton;
+    private javax.swing.JPanel mainPanel;
     private javax.swing.JScrollPane navigScrollPane;
     private javax.swing.JTree navigTree;
     private javax.swing.JTextField searchField;
     private javax.swing.JLabel searchIcon;
+    private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 
