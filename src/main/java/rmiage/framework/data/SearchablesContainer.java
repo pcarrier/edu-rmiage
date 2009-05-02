@@ -1,6 +1,6 @@
 package rmiage.framework.data;
 
-public class SearchablesContainer<T extends Searchable> extends Container<Content> {
+public class SearchablesContainer<T extends ISearchable> extends Container<Content> {
 
 	/**
 	 * Create a new instance of a SearchablesContainer.
@@ -12,24 +12,24 @@ public class SearchablesContainer<T extends Searchable> extends Container<Conten
 	/**
 	 * Search contents corresponding to the string searched.  
 	 * @param searched The string to search
-	 * @param strict if true, the search will try to find content corresponding exactly to the string searched (Searchable.matches)
+	 * @param strict if true, the search will try to find content corresponding exactly to the string searched (ISearchable.matches)
 	 * If false, the method contains will be called. 
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public SearchablesContainer<Searchable> find(String searched, boolean strict) {
-		SearchablesContainer<Searchable> ret = new SearchablesContainer<Searchable>();
-		Searchable s;
-		SearchablesContainer<Searchable> subc;
+	public SearchablesContainer<ISearchable> find(String searched, boolean strict) {
+		SearchablesContainer<ISearchable> ret = new SearchablesContainer<ISearchable>();
+		ISearchable s;
+		SearchablesContainer<ISearchable> subc;
 		for(IContent c:this.Contents()){
-			s=(Searchable) c;
+			s=(ISearchable) c;
 			if((!strict && s.contains(searched)) || (strict && s.matches(searched))){
 				ret.addContent(c);
 			}
 			
 			try{
-				subc=(SearchablesContainer<Searchable>)c;
-				SearchablesContainer<Searchable> tmp = subc.find(searched, strict);
+				subc=(SearchablesContainer<ISearchable>)c;
+				SearchablesContainer<ISearchable> tmp = subc.find(searched, strict);
 				for(IContent res: tmp.Contents()){
 					ret.addContent(res);
 				}

@@ -35,24 +35,13 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jSplitPane1 = new javax.swing.JSplitPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        navigScrollPane = new javax.swing.JScrollPane();
+        navigTree = new javax.swing.JTree();
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jPanel2 = new javax.swing.JPanel();
-        messageViewerPanel3 = new rmiage.framework.client.gui.MessageViewerPanel();
-        messageViewerPanel2 = new rmiage.framework.client.gui.MessageViewerPanel();
-        messageViewerPanel1 = new rmiage.framework.client.gui.MessageViewerPanel();
-        jPanel3 = new javax.swing.JPanel();
+        topPanel = new javax.swing.JPanel();
+        searchIcon = new javax.swing.JLabel();
+        searchField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -64,83 +53,40 @@ public class MainWindow extends javax.swing.JFrame {
 
         jSplitPane1.setDividerLocation(150);
 
-        jScrollPane1.setViewportView(jTree1);
+        navigScrollPane.setViewportView(navigTree);
 
-        jSplitPane1.setLeftComponent(jScrollPane1);
+        jSplitPane1.setLeftComponent(navigScrollPane);
 
         jPanel1.setLayout(new java.awt.BorderLayout());
-
-        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.PAGE_AXIS));
-        jPanel2.add(messageViewerPanel3);
-        jPanel2.add(messageViewerPanel2);
-        jPanel2.add(messageViewerPanel1);
-
-        jScrollPane3.setViewportView(jPanel2);
-
-        jPanel1.add(jScrollPane3, java.awt.BorderLayout.CENTER);
-
-        jButton1.setText("send");
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addContainerGap())
-        );
-
-        jPanel1.add(jPanel3, java.awt.BorderLayout.SOUTH);
-
         jSplitPane1.setRightComponent(jPanel1);
 
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
-        jPanel4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+        topPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rmiage/framework/client/resources/search.png"))); // NOI18N
-        jPanel4.add(jLabel1);
+        searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rmiage/framework/client/resources/search.png"))); // NOI18N
+        topPanel.add(searchIcon);
 
-        jTextField1.setPreferredSize(new java.awt.Dimension(200, 28));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        searchField.setPreferredSize(new java.awt.Dimension(200, 28));
+        searchField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                searchFieldActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField1);
+        topPanel.add(searchField);
 
-        getContentPane().add(jPanel4, java.awt.BorderLayout.NORTH);
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rmiage/framework/client/resources/disconnect.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        topPanel.add(jButton1);
 
-        jMenu3.setText("File");
-        jMenuBar2.add(jMenu3);
-
-        jMenu4.setText("Edit");
-        jMenuBar2.add(jMenu4);
-
-        setJMenuBar(jMenuBar2);
+        getContentPane().add(topPanel, java.awt.BorderLayout.NORTH);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+}//GEN-LAST:event_searchFieldActionPerformed
 
     /**
     * @param args the command line arguments
@@ -155,27 +101,16 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTree jTree1;
-    private rmiage.framework.client.gui.MessageViewerPanel messageViewerPanel1;
-    private rmiage.framework.client.gui.MessageViewerPanel messageViewerPanel2;
-    private rmiage.framework.client.gui.MessageViewerPanel messageViewerPanel3;
+    private javax.swing.JScrollPane navigScrollPane;
+    private javax.swing.JTree navigTree;
+    private javax.swing.JTextField searchField;
+    private javax.swing.JLabel searchIcon;
+    private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 
 }

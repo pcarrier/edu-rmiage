@@ -1,11 +1,11 @@
 package rmiage.server.data;
 
-import rmiage.framework.data.Searchable;
+import rmiage.framework.data.ISearchable;
 import rmiage.framework.data.SearchablesContainer;
 
 
 
-public class UserGroup extends SearchablesContainer<User> implements Searchable{
+public class UserGroup extends SearchablesContainer<User> implements ISearchable{
 
 	protected String name;
 	public UserGroup(String name) {

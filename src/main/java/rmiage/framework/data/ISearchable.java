@@ -9,7 +9,7 @@ package rmiage.framework.data;
  * 
  * @author jc
  */
-public interface Searchable extends IContent {
+public interface ISearchable extends IContent {
 	/**
 	 * Used for non strict researches.
 	 * 

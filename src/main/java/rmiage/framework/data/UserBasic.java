@@ -1,7 +1,7 @@
 package rmiage.framework.data;
 
 
-public class UserBasic extends Content implements Searchable{
+public class UserBasic extends Content implements ISearchable{
 
 	protected String login;
 	

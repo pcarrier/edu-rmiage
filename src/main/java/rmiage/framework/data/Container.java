@@ -1,23 +1,15 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package rmiage.framework.data;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author jc
- */
 public class Container<T extends IContent> extends Content implements IContainer<IContent>{
-        
-    //List of Contents Children
+
+    // List of Contents Children
     private ArrayList<IContent> ContentChildren;
     protected ArrayList<Class<IContent>> accepted;
-    
+
     /**
-     * Build a Container with he's string representation
+     * Build a Container with its string representation
      */
     //test ok
     public Container() {

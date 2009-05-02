@@ -1,7 +1,7 @@
 package rmiage.framework.data;
 
 
-public class Message extends Content implements Searchable{
+public class Message extends Content implements ISearchable{
 
 	protected String subject;
 	protected String corpus;

@@ -1,7 +1,7 @@
 package rmiage.framework.data;
 
 public class Conversation extends SearchablesContainer<Message> implements
-		Searchable {
+		ISearchable {
 
 	protected String name;
 
