@@ -12,7 +12,6 @@ public class User extends UserBasic implements Searchable{
 	protected String password;
 	protected Container<Conversation> conversations;
 	
-	@SuppressWarnings("unchecked")
 	public User(String login, String pass){
 		super(login);
 		this.setPass(pass);
@@ -43,7 +42,6 @@ public class User extends UserBasic implements Searchable{
 	}
 
 	public boolean matches(String searched) {
-//		System.out.println("Match"+ this.login.toLowerCase().contains(searched.toLowerCase()));
 		return this.login.toLowerCase().equals(searched.toLowerCase());
 	}
 }

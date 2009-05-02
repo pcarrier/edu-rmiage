@@ -6,13 +6,25 @@
 package rmiage.framework.data;
 
 /**
- *
+ * 
  * @author jc
  */
 public interface Searchable extends IContent {
-
+	/**
+	 * Used for non strict researches.
+	 * 
+	 * @param searched
+	 *            the string to find
+	 * @return true if this element contains the string searched
+	 */
 	public boolean contains(String searched);
 
-    //TODO : Trouver un meilleur nom, plus explicite :)
-    public boolean matches(String searched); 
+	/**
+	 * Used for strict researches.
+	 * 
+	 * @param searched
+	 *            the string to find
+	 * @return true if this element matches exactly the string searched
+	 */
+	public boolean matches(String searched);
 }

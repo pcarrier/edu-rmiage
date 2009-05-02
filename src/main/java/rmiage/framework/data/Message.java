@@ -27,12 +27,12 @@ public class Message extends Content implements Searchable{
 	}
 
 	public boolean contains(String searched) {
-		// TODO Auto-generated method stub
-		return false;
+		return (this.corpus.toLowerCase().contains(searched.toLowerCase()) ||
+				this.subject.toLowerCase().contains(searched.toLowerCase()));
 	}
 
 	public boolean matches(String searched) {
-		// TODO Auto-generated method stub
-		return false;
+		return (this.corpus.toLowerCase().equals(searched.toLowerCase()) ||
+				this.subject.toLowerCase().equals(searched.toLowerCase()));
 	}
 }

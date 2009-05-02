@@ -1,28 +1,41 @@
 package rmiage.framework.data;
 
-public class Conversation extends Container<Message>  implements Searchable{
+public class Conversation extends SearchablesContainer<Message> implements
+		Searchable {
 
 	protected String name;
-	
-	public Conversation(){
-			super();
-		}
-	
-	public Conversation(String name){
-		this();
-		this.name=name;
+
+	/**
+	 * Build a new conversation
+	 */
+	public Conversation() {
+		super();
 	}
-	
-	public String getName(){return this.name;}
-	public void setName(String name){this.name = name;}
+	/**
+	 * Build a new conversation with a name
+	 */
+	public Conversation(String name) {
+		this();
+		this.name = name;
+	}
+	/**
+	 * Accessor get for the name
+	 */
+	public String getName() {
+		return this.name;
+	}
+	/**
+	 * Accessor set for the name
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public boolean contains(String searched) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.name.toLowerCase().contains(searched.toLowerCase());
 	}
 
 	public boolean matches(String searched) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.name.toLowerCase().equals(searched.toLowerCase());
 	}
 }

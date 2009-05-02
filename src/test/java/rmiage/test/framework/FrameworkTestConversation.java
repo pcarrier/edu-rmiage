@@ -59,5 +59,35 @@ public class FrameworkTestConversation extends TestCase {
     	Message m = new Message("First Message","Hello World !");
     	c.addContent(m);
     	u.addConversation(c);
+    	
+    }
+    
+    /**
+     * 
+     * Test the search on the message subject
+     */
+    public void testFind_subject(){
+    	User u = new User("jc","pass");
+    	Conversation c = new Conversation();
+    	c.setName("HELLO");
+    	Message m = new Message("First Message","Hello World !");
+    	c.addContent(m);
+    	u.addConversation(c);
+    	
+    	assertEquals(1,c.find("message", false).Contents().size());
+    }
+    /**
+     * Test the search on the message corpus
+     * 
+     */
+    public void testFind_corpus(){
+    	User u = new User("jc","pass");
+    	Conversation c = new Conversation();
+    	c.setName("HELLO");
+    	Message m = new Message("First Message","Hello World !");
+    	c.addContent(m);
+    	u.addConversation(c);
+    	
+    	assertEquals(1,c.find("world", false).Contents().size());
     }
 }

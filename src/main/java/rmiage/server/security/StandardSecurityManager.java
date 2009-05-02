@@ -8,10 +8,7 @@ import rmiage.framework.common.security.StandardCredential;
  */
 // TODO
 public class StandardSecurityManager  implements ISecurityManager{
-    Boolean checkCredentials(StandardCredential c) {
-        return true;
-    }
-
+    
 	public Boolean checkCredentials(ICredential c) {
 		// TODO Auto-generated method stub
 		return null;
