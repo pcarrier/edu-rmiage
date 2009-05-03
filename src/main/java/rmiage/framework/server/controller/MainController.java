@@ -2,9 +2,12 @@ package rmiage.framework.server.controller;
 
 import rmiage.server.settings.SettingsException;
 import rmiage.server.settings.ISettingsController;
+import java.rmi.RemoteException;
+import java.rmi.registry.Registry;
 
 public class MainController {
 
+	
     private ISettingsController getSettingsController() {
         ISettingsController res = null;
         try {
@@ -23,6 +26,15 @@ public class MainController {
 
     public void init(String[] cmdLineParams) {
         ISettingsController settingsController = getSettingsController();
+        int rmiport =settingsController.getRmiPort();
+        Registry registry = null;
+        
+        try {
+			registry=java.rmi.registry.LocateRegistry.createRegistry(rmiport);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     public static void main(String[] args) {
