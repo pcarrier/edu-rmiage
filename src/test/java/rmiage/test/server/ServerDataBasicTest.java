@@ -3,7 +3,7 @@ package rmiage.test.server;
 
 import rmiage.data.UserBasic;
 import rmiage.data.UserGroupBasic;
-import rmiage.server.data.User;
+import rmiage.data.User;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

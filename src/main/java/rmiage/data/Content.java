@@ -5,6 +5,7 @@
 
 package rmiage.data;
 
+import rmiage.server.storage.Content;
 import java.util.ArrayList;
 
 /**
@@ -12,17 +13,17 @@ import java.util.ArrayList;
  * @author jc
  * Tis interface describe an element for our Graphe.
  */
-public class Content extends Object implements IContent{	
-    private ArrayList<IContainer<IContent>> parents;
+public class Content extends Object implements Content{
+    private ArrayList<IContainer<Content>> parents;
     
     public Content(){
         super();
-        this.parents = new ArrayList<IContainer<IContent>>();
+        this.parents = new ArrayList<IContainer<Content>>();
     }
     /* (non-Javadoc)
-	 * @see rmiage.framework.data.IContent#addParent(rmiage.framework.data.Content)
+	 * @see rmiage.framework.data.Content#addParent(rmiage.framework.data.Content)
 	 */
-    public void  addParent(IContainer<IContent> parent){
+    public void  addParent(IContainer<Content> parent){
     	if(parent != null){
     		if (!this.parents.contains(parent)){
     			this.parents.add(parent);
@@ -31,35 +32,35 @@ public class Content extends Object implements IContent{
     }
     
     /* (non-Javadoc)
-	 * @see rmiage.framework.data.IContent#getParents()
+	 * @see rmiage.framework.data.Content#getParents()
 	 */
-    public ArrayList<IContainer<IContent>> getParents()
+    public ArrayList<IContainer<Content>> getParents()
     {
     	return this.parents;
     }
    
     /* (non-Javadoc)
-	 * @see rmiage.framework.data.IContent#dropParent(rmiage.framework.data.IContent)
+	 * @see rmiage.framework.data.Content#dropParent(rmiage.framework.data.Content)
 	 */
     @SuppressWarnings("unchecked")
-	public void dropParent(IContainer<IContent> t){
-    	ArrayList<IContainer<IContent>> tmp = (ArrayList<IContainer<IContent>>)this.parents.clone();
-    	for(IContainer<IContent> ct:tmp){
+	public void dropParent(IContainer<Content> t){
+    	ArrayList<IContainer<Content>> tmp = (ArrayList<IContainer<Content>>)this.parents.clone();
+    	for(IContainer<Content> ct:tmp){
     		if (this.parents.contains(ct)){
     			this.parents.remove(ct);
     		}
     	}
     }
     /* (non-Javadoc)
-	 * @see rmiage.framework.data.IContent#delete()
+	 * @see rmiage.framework.data.Content#delete()
 	 */
     public void delete(){
-    	for(IContainer<IContent> ct:this.parents){
+    	for(IContainer<Content> ct:this.parents){
     		this.dropParent(ct);
     	}
     }
     /* (non-Javadoc)
-	 * @see rmiage.framework.data.IContent#getUi()
+	 * @see rmiage.framework.data.Content#getUi()
 	 */
 	public void getUi() {
 		// TODO Auto-generated method stub

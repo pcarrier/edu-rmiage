@@ -1,4 +1,4 @@
-package rmiage.common.security;
+package rmiage.client.controller;
 
 public class ConnectionException extends RuntimeException {
 
@@ -10,10 +10,10 @@ public class ConnectionException extends RuntimeException {
 
     @Override
     public String toString() {
-        if(getMessage().isEmpty())
-            return("Connection error!");
-        else
-            return("Connection error: "+getMessage()+"!");
+        if (getMessage().isEmpty()) {
+            return ("Connection error!");
+        } else {
+            return ("Connection error: " + getMessage() + "!");
+        }
     }
-
 }

@@ -5,11 +5,13 @@
 
 package rmiage.data;
 
+import rmiage.server.storage.Content;
+
 /**
  * 
  * @author jc
  */
-public interface ISearchable extends IContent {
+public interface ISearchable extends Content {
 	/**
 	 * Used for non strict researches.
 	 * 

@@ -1,12 +1,13 @@
 package rmiage.data;
 
+import rmiage.server.storage.Content;
 import java.util.ArrayList;
 
-public class Container<T extends IContent> extends Content implements IContainer<IContent>{
+public class Container<T extends Content> extends Content implements IContainer<Content>{
 
     // List of Contents Children
-    private ArrayList<IContent> ContentChildren;
-    protected ArrayList<Class<IContent>> accepted;
+    private ArrayList<Content> ContentChildren;
+    protected ArrayList<Class<Content>> accepted;
 
     /**
      * Build a Container with its string representation
@@ -14,12 +15,12 @@ public class Container<T extends IContent> extends Content implements IContainer
     //test ok
     public Container() {
         super();
-        this.ContentChildren = new ArrayList<IContent>();
-        this.accepted= new ArrayList<Class<IContent>>();
-        this.addAcceptedClass(IContent.class);
+        this.ContentChildren = new ArrayList<Content>();
+        this.accepted= new ArrayList<Class<Content>>();
+        this.addAcceptedClass(Content.class);
     }
 
-    public void addAcceptedClass(Class<IContent> class1){
+    public void addAcceptedClass(Class<Content> class1){
     	if(!this.accepted.contains(class1)){
     		this.accepted.add(class1);
     	}
@@ -29,7 +30,7 @@ public class Container<T extends IContent> extends Content implements IContainer
 	 * @see rmiage.framework.data.IContainer#Contents()
 	 */
     //tested ok
-    public ArrayList<IContent> Contents() {
+    public ArrayList<Content> Contents() {
         return this.ContentChildren;
     }
 
@@ -38,7 +39,7 @@ public class Container<T extends IContent> extends Content implements IContainer
 	 * @see rmiage.framework.data.IContainer#addContent(T)
 	 */
    //tested ok
-    public boolean addContent(IContent f) {
+    public boolean addContent(Content f) {
     	if(f!=null){
     			if (!this.Contents().contains(f)) {
     	        	f.addParent(this);
@@ -69,7 +70,7 @@ public class Container<T extends IContent> extends Content implements IContainer
 	 * @see rmiage.framework.data.IContainer#dropContent(T)
 	 */
     //tested ok
-    public void dropContent(IContent f){
+    public void dropContent(Content f){
     	if (this.Contents().contains(f)){
     		this.Contents().remove(f);
     		f.dropParent(this);

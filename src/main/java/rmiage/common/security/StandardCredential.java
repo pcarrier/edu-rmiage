@@ -1,6 +1,5 @@
 package rmiage.common.security;
 
-
 /**
  * A standard credential based on a login and a password
  */
@@ -40,6 +39,6 @@ public class StandardCredential implements Credential {
     }
 
     public boolean checkValid() {
-        return(!login.isEmpty() && !password.isEmpty());
+        return (!login.isEmpty() && !password.isEmpty());
     }
 }

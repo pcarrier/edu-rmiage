@@ -1,8 +1,9 @@
 package rmiage.data;
 
+import rmiage.server.storage.Content;
 import java.util.ArrayList;
 
-public interface IContainer<T extends IContent> {
+public interface IContainer<T extends Content> {
 
 	/**
 	 *
