@@ -1,7 +1,7 @@
 package rmiage.server.security;
 
-import rmiage.framework.common.security.ISecurityManager;
-import rmiage.framework.common.security.ICredential;
+import rmiage.common.security.ISecurityManager;
+import rmiage.common.security.ICredential;
 
 /**
  * A security manager based on logins and passwords.

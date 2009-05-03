@@ -3,7 +3,7 @@ package rmiage.server.storage;
 import java.util.Hashtable;
 import java.util.UUID;
 
-import rmiage.framework.data.IContent;
+import rmiage.data.IContent;
 
 public class SimpleBackend implements IBackend {
 	private Hashtable<String, IContent> table;

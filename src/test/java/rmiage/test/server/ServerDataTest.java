@@ -1,9 +1,9 @@
 package rmiage.test.server;
 
-import rmiage.framework.data.Container;
-import rmiage.framework.data.Content;
-import rmiage.framework.data.UserBasic;
-import rmiage.framework.data.UserGroupBasic;
+import rmiage.data.Container;
+import rmiage.data.Content;
+import rmiage.data.UserBasic;
+import rmiage.data.UserGroupBasic;
 import rmiage.server.data.User;
 import rmiage.server.data.UserGroup;
 import junit.framework.Test;

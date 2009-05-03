@@ -1,6 +1,6 @@
 package rmiage.server.storage;
 
-import rmiage.framework.data.IContent;
+import rmiage.data.IContent;
 
 public interface IBackend {
 	/**

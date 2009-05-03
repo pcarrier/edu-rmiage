@@ -1,7 +1,7 @@
 package rmiage.server.data;
 
-import rmiage.framework.data.ISearchable;
-import rmiage.framework.data.SearchablesContainer;
+import rmiage.data.ISearchable;
+import rmiage.data.SearchablesContainer;
 
 
 

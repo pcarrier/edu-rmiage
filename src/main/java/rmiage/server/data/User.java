@@ -2,10 +2,10 @@ package rmiage.server.data;
 
 
 
-import rmiage.framework.data.Container;
-import rmiage.framework.data.Conversation;
-import rmiage.framework.data.ISearchable;
-import rmiage.framework.data.UserBasic;
+import rmiage.data.Container;
+import rmiage.data.Conversation;
+import rmiage.data.ISearchable;
+import rmiage.data.UserBasic;
 
 public class User extends UserBasic implements ISearchable{
 	

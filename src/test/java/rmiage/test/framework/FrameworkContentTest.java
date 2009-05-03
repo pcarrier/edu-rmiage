@@ -1,7 +1,7 @@
 package rmiage.test.framework;
 
-import rmiage.framework.data.Container;
-import rmiage.framework.data.Content;
+import rmiage.data.Container;
+import rmiage.data.Content;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

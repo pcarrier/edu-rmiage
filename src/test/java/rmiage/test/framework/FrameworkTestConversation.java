@@ -1,7 +1,7 @@
 package rmiage.test.framework;
 
-import rmiage.framework.data.Conversation;
-import rmiage.framework.data.Message;
+import rmiage.data.Conversation;
+import rmiage.data.Message;
 import rmiage.server.data.User;
 import junit.framework.Test;
 import junit.framework.TestCase;
