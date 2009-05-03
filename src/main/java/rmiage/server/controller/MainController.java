@@ -1,16 +1,18 @@
 package rmiage.server.controller;
 
+import java.rmi.RemoteException;
+
+import rmiage.server.connection.ConnectionManager;
 import rmiage.server.settings.SettingsException;
 import rmiage.server.settings.SettingsController;
 
-import java.rmi.RemoteException;
-import java.rmi.registry.Registry;
 
 public class MainController {
 
 	protected SettingsController settingsController;
-	protected Registry registry;
+	protected ConnectionManager connection;
 
+	@SuppressWarnings("unchecked")
 	private SettingsController getSettingsController() {
 		SettingsController res = null;
 		try {
@@ -29,6 +31,7 @@ public class MainController {
 			throw new SettingsException(
 					"Settings controller class cannot be found!");
 		}
+		
 		return res;
 	}
 
@@ -37,78 +40,43 @@ public class MainController {
 	 * 
 	 * @param cmdLineParams
 	 *            params from command line.
+	 * @throws RemoteException 
 	 */
-	public void init(String[] cmdLineParams) throws InterruptedException {
+	public void init(String[] cmdLineParams) throws InterruptedException, RemoteException {
+		
 		this.settingsController = getSettingsController();
 		int rmiport = this.settingsController.getRmiPort();
 
 		if (this.settingsController != null) {
-			this.registry = this.createRegistry(rmiport);
+			
+			this.connection = new ConnectionManager(rmiport);
+			this.connection.bind("rmi://127.0.0.1/login", new StandardLoginController());
 		}
-
 	}
 
-	/**
-	 * Create the rmiregistry
-	 * 
-	 * @param port
-	 *            the port to use.
-	 * @return the rmiregistry.
-	 */
-	private Registry createRegistry(int port) {
-		Registry reg = null;
+
+	public static void main(String[] args){
+		MainController controller = new MainController();
 		try {
-			registry = java.rmi.registry.LocateRegistry.createRegistry(port);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return reg;
-	}
-
-	/**
-	 * Launch the rmiregistry
-	 */
-	private void launchRegistry() {
-		if (this.registry != null) {
-			// this.registry.bind(name, obj);
-		}
-	}
-
-	protected void start() throws InterruptedException {
-		this.launchRegistry();
-		// Something else todo?
-		System.out.println("Server Started");
-	}
-
-	/**
-	 * Stop the server properly
-	 */
-	private void stop() {
-		if (this.registry != null) {
-			try {
-				//Unbind each bounded uri.
-				for (String bound : this.registry.list()) {
-						this.registry.unbind(bound);
-				}
-			} catch (Exception e) {
-				System.out.println("An error occured when stopping.");
-				e.printStackTrace();
-			}
-		}
-		System.out.println("Server Stoped");
-	}
-
-	public static void main(String[] args) {
-		MainController ctrl = new MainController(); 
-		try {
-			ctrl.init(args);
-			ctrl.start();
+			controller.init(args);
+			
 		} catch (InterruptedException e) {
 			System.out.println("Received ^C");
-			ctrl.stop();
+			controller.connection.stop();
 		} catch (SettingsException e) {
 			System.out.println(e.getMessage());
 			System.out.println("Server can't start.");
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}catch (Exception e){
+			e.printStackTrace();
 		}
+		
 	}
+	public void finalize(){
+		System.out.println("Server stopped");
+	}
+	
 }

@@ -27,7 +27,7 @@ public interface Backend {
 	 * Update an existing object in the backend.
 	 * @param identifier the identifier of the object to update.
 	 * @param object the new version of the object.
-	 * @throws ObjectNotFoundException
+	 * @throws ContentNotFoundException
 	 */
-	public void update(String identifier, Content object) throws ObjectNotFoundException;
+	public void update(String identifier, Content object) throws ContentNotFoundException;
 }
