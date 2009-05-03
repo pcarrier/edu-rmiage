@@ -1,9 +1,9 @@
 package rmiage.test.server;
 
 
-import rmiage.data.UserBasic;
-import rmiage.data.UserGroupBasic;
-import rmiage.data.User;
+import rmiage.data.bidonUserBasic;
+import rmiage.data.bidonUserGroupBasic;
+import rmiage.data.bidonUser;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -25,7 +25,7 @@ public class ServerDataBasicTest extends TestCase {
      * Test the userGroup Constructor
      */
     public void testUserGroupCtor(){
-    	UserGroupBasic<UserBasic> g = new UserGroupBasic<UserBasic>("base");
+    	bidonUserGroupBasic<bidonUserBasic> g = new bidonUserGroupBasic<bidonUserBasic>("base");
     	assertNotNull(g);
     }
     
@@ -34,24 +34,24 @@ public class ServerDataBasicTest extends TestCase {
      * Test the userGroup Constructor getName
      */
     public void testUserGroupBasicCtor_getName(){
-    	UserGroupBasic<UserBasic> g = new UserGroupBasic<UserBasic>("base");
+    	bidonUserGroupBasic<bidonUserBasic> g = new bidonUserGroupBasic<bidonUserBasic>("base");
     	assertEquals("base", g.getName());
     }
     /**
-     * Test if a UserGroupBasic accept a UserBasic
+     * Test if a bidonUserGroupBasic accept a bidonUserBasic
      */
     public void testUserGroupBasic_AddUserBasic(){
-    	UserGroupBasic<UserBasic> g = new UserGroupBasic<UserBasic>("base");
-    	UserBasic u = new UserBasic("jc");
+    	bidonUserGroupBasic<bidonUserBasic> g = new bidonUserGroupBasic<bidonUserBasic>("base");
+    	bidonUserBasic u = new bidonUserBasic("jc");
     	g.addContent(u);
     	assertEquals(1, g.Contents().size());
     }
     /**
-     *Test if a UserGroupBasic accept a subclass of UserBasic 
+     *Test if a bidonUserGroupBasic accept a subclass of bidonUserBasic
      */
     public void testUserGroupBasic_AddUserExtended(){
-    	UserGroupBasic<UserBasic> g = new UserGroupBasic<UserBasic>("base");
-    	User u = new User("jc", "password");
+    	bidonUserGroupBasic<bidonUserBasic> g = new bidonUserGroupBasic<bidonUserBasic>("base");
+    	bidonUser u = new bidonUser("jc", "password");
     	g.addContent(u);
     	assertEquals(1, g.Contents().size());
     }

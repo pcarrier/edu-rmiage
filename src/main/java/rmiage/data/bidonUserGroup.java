@@ -1,14 +1,14 @@
 package rmiage.data;
 
-import rmiage.data.ISearchable;
-import rmiage.data.SearchablesContainer;
+import rmiage.data.bidonISearchable;
+import rmiage.data.bidonSearchablesContainer;
 
 
 
-public class UserGroup extends SearchablesContainer<User> implements ISearchable{
+public class bidonUserGroup extends bidonSearchablesContainer<bidonUser> implements bidonISearchable{
 
 	protected String name;
-	public UserGroup(String name) {
+	public bidonUserGroup(String name) {
 		this.name=name;
 	}
 	

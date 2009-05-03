@@ -1,8 +1,8 @@
 package rmiage.test.framework;
 
-import rmiage.data.Conversation;
-import rmiage.data.Message;
-import rmiage.data.User;
+import rmiage.data.bidonConversation;
+import rmiage.data.bidonMessage;
+import rmiage.data.bidonUser;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -27,36 +27,36 @@ public class FrameworkTestConversation extends TestCase {
     }
 
     public void testConversationCtor(){
-    	Conversation c = new Conversation("HELLO");
+    	bidonConversation c = new bidonConversation("HELLO");
     	assertNotNull(c);
     
     }
     public void testConversationSetGetName(){
-    	Conversation c = new Conversation();
+    	bidonConversation c = new bidonConversation();
     	c.setName("HELLO");
     	assertEquals("HELLO",c.getName());
     
     }
     
     public void testConversationAddMessage(){
-    	Conversation c = new Conversation();
+    	bidonConversation c = new bidonConversation();
     	c.setName("HELLO");
-    	Message m = new Message("First Message","Hello World !");
+    	bidonMessage m = new bidonMessage("First Message","Hello World !");
     	c.addContent(m);
     	assertEquals(1,c.Contents().size());   
     }
     
     public void testUserAddConversation(){
-    	User u = new User("jc","pass");
-    	u.getConversations().addContent(new Conversation());
+    	bidonUser u = new bidonUser("jc","pass");
+    	u.getConversations().addContent(new bidonConversation());
     	assertEquals(1, u.getConversations().Contents().size());
     }
     
     public void testUserAddNewMessage(){
-    	User u = new User("jc","pass");
-    	Conversation c = new Conversation();
+    	bidonUser u = new bidonUser("jc","pass");
+    	bidonConversation c = new bidonConversation();
     	c.setName("HELLO");
-    	Message m = new Message("First Message","Hello World !");
+    	bidonMessage m = new bidonMessage("First Message","Hello World !");
     	c.addContent(m);
     	u.addConversation(c);
     	
@@ -67,10 +67,10 @@ public class FrameworkTestConversation extends TestCase {
      * Test the search on the message subject
      */
     public void testFind_subject(){
-    	User u = new User("jc","pass");
-    	Conversation c = new Conversation();
+    	bidonUser u = new bidonUser("jc","pass");
+    	bidonConversation c = new bidonConversation();
     	c.setName("HELLO");
-    	Message m = new Message("First Message","Hello World !");
+    	bidonMessage m = new bidonMessage("First Message","Hello World !");
     	c.addContent(m);
     	u.addConversation(c);
     	
@@ -81,10 +81,10 @@ public class FrameworkTestConversation extends TestCase {
      * 
      */
     public void testFind_corpus(){
-    	User u = new User("jc","pass");
-    	Conversation c = new Conversation();
+    	bidonUser u = new bidonUser("jc","pass");
+    	bidonConversation c = new bidonConversation();
     	c.setName("HELLO");
-    	Message m = new Message("First Message","Hello World !");
+    	bidonMessage m = new bidonMessage("First Message","Hello World !");
     	c.addContent(m);
     	u.addConversation(c);
     	

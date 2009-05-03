@@ -1,11 +1,11 @@
 package rmiage.test.server;
 
-import rmiage.data.Container;
-import rmiage.data.Content;
-import rmiage.data.UserBasic;
-import rmiage.data.UserGroupBasic;
-import rmiage.data.User;
-import rmiage.data.UserGroup;
+import rmiage.data.bidonContainer;
+import rmiage.data.bidonContent;
+import rmiage.data.bidonUserBasic;
+import rmiage.data.bidonUserGroupBasic;
+import rmiage.data.bidonUser;
+import rmiage.data.bidonUserGroup;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -28,7 +28,7 @@ public class ServerDataTest extends TestCase {
      * Test the userGroup Constructor
      */
     public void testUserGroupCtor(){
-    	UserGroup g = new UserGroup("base");
+    	bidonUserGroup g = new bidonUserGroup("base");
     	assertNotNull(g);
     }
     
@@ -37,55 +37,55 @@ public class ServerDataTest extends TestCase {
      * Test the userGroup Constructor getName
      */
     public void testUserGroupBasicCtor_getName(){
-    	UserGroup g = new UserGroup("base");
+    	bidonUserGroup g = new bidonUserGroup("base");
     	assertEquals("base", g.getName());
     }
     /**
-     * Test if a UserGroupBasic accept a UserBasic
+     * Test if a bidonUserGroupBasic accept a bidonUserBasic
      */
     public void testUserGroupBasic_AddUserBasic(){
     	
-    	UserGroupBasic<UserBasic> g = new UserGroupBasic<UserBasic>("base");
-    	UserBasic u = new UserBasic("jc");
+    	bidonUserGroupBasic<bidonUserBasic> g = new bidonUserGroupBasic<bidonUserBasic>("base");
+    	bidonUserBasic u = new bidonUserBasic("jc");
     	assertEquals(true, g.addContent(u));
     	
     }
     /**
-     *Test if a UserGroupBasic accept a subclass of UserBasic 
+     *Test if a bidonUserGroupBasic accept a subclass of bidonUserBasic
      */
     public void testUserGroupBasic_AddUser(){
-    	UserGroupBasic<User> g = new UserGroupBasic<User>("base");
-    	User u = new User("jc", "password");
+    	bidonUserGroupBasic<bidonUser> g = new bidonUserGroupBasic<bidonUser>("base");
+    	bidonUser u = new bidonUser("jc", "password");
     	g.addContent(u);
     	assertEquals(1, g.Contents().size());
     }
     
     /**
-     *Test if a UserGroup accept a subclass of UserBasic 
+     *Test if a bidonUserGroup accept a subclass of bidonUserBasic
      */
     public void testUserGroup_AddUser(){
-    	UserGroup g = new UserGroup("base");
-    	UserBasic u = new UserBasic("jc");
+    	bidonUserGroup g = new bidonUserGroup("base");
+    	bidonUserBasic u = new bidonUserBasic("jc");
     	g.addContent(u);
     	assertEquals(1, g.Contents().size());
     }
     
     
     public void testFind(){
-    	UserGroup g = new UserGroup("base");
-    	User u = new User("jc", "password");
+    	bidonUserGroup g = new bidonUserGroup("base");
+    	bidonUser u = new bidonUser("jc", "password");
     	g.addContent(u);
-    	Container<Content> result =g.find("jc", true);
+    	bidonContainer<bidonContent> result =g.find("jc", true);
     	assertEquals(1,result.Contents().size());
     }
     
     public void testFind_2(){
-    	UserGroup g = new UserGroup("base");
-    	User u1 = new User("jc", "password");
-    	User u2 = new User("JC2", "password");
+    	bidonUserGroup g = new bidonUserGroup("base");
+    	bidonUser u1 = new bidonUser("jc", "password");
+    	bidonUser u2 = new bidonUser("JC2", "password");
     	g.addContent(u1);
     	g.addContent(u2);
-    	Container<Content> result =g.find("jc", false);
+    	bidonContainer<bidonContent> result =g.find("jc", false);
     	assertEquals(2,result.Contents().size());
     }
     
@@ -95,28 +95,28 @@ public class ServerDataTest extends TestCase {
     	tofind = (tofind>0)?tofind-1:tofind;
     	
     	int i=0;
-    	UserGroup g = new UserGroup("base");
+    	bidonUserGroup g = new bidonUserGroup("base");
     	
     	for(i=0;i<m;i++){
-    		User u = new User("jc"+i, "password");
+    		bidonUser u = new bidonUser("jc"+i, "password");
         	g.addContent(u);
     	}
     	//System.out.println(m+" "+i);
-    	Container<Content> result =g.find("jc"+tofind, true);
+    	bidonContainer<bidonContent> result =g.find("jc"+tofind, true);
     	assertEquals(1,result.Contents().size());
     }
     
     public void testFind_4(){
     	int m = (int) (Math.random()*500); 
     	int i=0;
-    	UserGroup g = new UserGroup("base");
+    	bidonUserGroup g = new bidonUserGroup("base");
     	
     	for(i=0;i<m;i++){
-    		User u = new User("jc"+i, "password");
+    		bidonUser u = new bidonUser("jc"+i, "password");
         	g.addContent(u);
     	}
     	
-    	Container<Content> result =g.find("jc", false);
+    	bidonContainer<bidonContent> result =g.find("jc", false);
     	assertEquals(m,result.Contents().size());
     }
     
@@ -126,16 +126,16 @@ public class ServerDataTest extends TestCase {
     	tofind = (tofind>0)?tofind-1:tofind;
     	
     	int i=0;
-    	UserGroup g = new UserGroup("root");
-    	UserGroup cur=g;
+    	bidonUserGroup g = new bidonUserGroup("root");
+    	bidonUserGroup cur=g;
     	for(i=0;i<m;i++){
-    		UserGroup tmp=new UserGroup("group"+i);
-    		User u = new User("jc"+i, "password");
+    		bidonUserGroup tmp=new bidonUserGroup("group"+i);
+    		bidonUser u = new bidonUser("jc"+i, "password");
         	cur.addContent(u);
         	cur.addContent(tmp);
         	cur=tmp;
     	}
-    	Container<Content> result =g.find("jc"+tofind, true);
+    	bidonContainer<bidonContent> result =g.find("jc"+tofind, true);
     	assertEquals(1,result.Contents().size());
     }
     
@@ -145,16 +145,16 @@ public class ServerDataTest extends TestCase {
     	tofind = (tofind>0)?tofind-1:tofind;
     	
     	int i=0;
-    	UserGroup g = new UserGroup("root");
-    	UserGroup cur=g;
+    	bidonUserGroup g = new bidonUserGroup("root");
+    	bidonUserGroup cur=g;
     	for(i=0;i<m;i++){
-    		UserGroup tmp=new UserGroup("group"+i);
-    		User u = new User("jc"+i, "password");
+    		bidonUserGroup tmp=new bidonUserGroup("group"+i);
+    		bidonUser u = new bidonUser("jc"+i, "password");
         	cur.addContent(u);
         	cur.addContent(tmp);
         	cur=tmp;
     	}
-    	Container<Content> result =g.find("jc", false);
+    	bidonContainer<bidonContent> result =g.find("jc", false);
     	assertEquals(m,result.Contents().size());
     }
 

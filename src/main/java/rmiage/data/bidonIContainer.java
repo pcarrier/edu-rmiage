@@ -3,7 +3,7 @@ package rmiage.data;
 import rmiage.server.storage.Content;
 import java.util.ArrayList;
 
-public interface IContainer<T extends Content> {
+public interface bidonIContainer<T extends Content> {
 
 	/**
 	 *

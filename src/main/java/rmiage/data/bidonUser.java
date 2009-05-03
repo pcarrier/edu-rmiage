@@ -2,20 +2,20 @@ package rmiage.data;
 
 
 
-import rmiage.data.Container;
-import rmiage.data.Conversation;
-import rmiage.data.ISearchable;
-import rmiage.data.UserBasic;
+import rmiage.data.bidonContainer;
+import rmiage.data.bidonConversation;
+import rmiage.data.bidonISearchable;
+import rmiage.data.bidonUserBasic;
 
-public class User extends UserBasic implements ISearchable{
+public class bidonUser extends bidonUserBasic implements bidonISearchable{
 	
 	protected String password;
-	protected Container<Conversation> conversations;
+	protected bidonContainer<bidonConversation> conversations;
 	
-	public User(String login, String pass){
+	public bidonUser(String login, String pass){
 		super(login);
 		this.setPass(pass);
-		this.conversations=new Container<Conversation>();
+		this.conversations=new bidonContainer<bidonConversation>();
 	}
 
 	public void delete(){
@@ -30,11 +30,11 @@ public class User extends UserBasic implements ISearchable{
 		this.password = pass;
 	}
 	
-	public Container<Conversation> getConversations(){
+	public bidonContainer<bidonConversation> getConversations(){
 		return this.conversations;
 	}
 	
-	public boolean addConversation(Conversation c){
+	public boolean addConversation(bidonConversation c){
 		return this.conversations.addContent(c);
 	}
 	public boolean contains(String searched) {
