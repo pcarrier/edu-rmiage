@@ -11,11 +11,14 @@ public class  ConnectionManager {
 	protected Registry registry;
 	
 	
-	public ConnectionManager(int port) throws RemoteException{
+	public ConnectionManager(int port) throws ConnectionException{
 		if (port<=0) {
 			port = java.rmi.registry.Registry.REGISTRY_PORT;
+		}try {
+			registry = java.rmi.registry.LocateRegistry.createRegistry(port);
+		} catch (RemoteException e) {
+			throw new ConnectionException("Le serveur rmi n'as pas pu demmarer.");
 		}
-		registry = java.rmi.registry.LocateRegistry.createRegistry(port);
 	}
 	
 	public void stop(){
