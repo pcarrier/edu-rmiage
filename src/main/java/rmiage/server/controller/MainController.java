@@ -72,6 +72,7 @@ public class MainController {
 
 	protected void start() throws InterruptedException {
 		this.launchRegistry();
+		//Something else todo?
 		System.out.println("Server Started");
 	}
 
@@ -99,7 +100,7 @@ public class MainController {
 		MainController ctrl = new MainController();
 		try {
 			ctrl.init(args);
-			ctrl.launch();
+			ctrl.start();
 		} catch (InterruptedException e) {
 			ctrl.stop();
 		} catch (SettingsException e) {
