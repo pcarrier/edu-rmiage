@@ -1,4 +1,4 @@
-package rmiage.framework.server.controller;
+package rmiage.server.settings;
 
 public class SettingsException extends RuntimeException {
 

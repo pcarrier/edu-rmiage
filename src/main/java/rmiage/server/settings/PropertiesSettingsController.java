@@ -1,12 +1,14 @@
-package rmiage.framework.server.controller;
+package rmiage.server.settings;
 
+import rmiage.server.settings.SettingsException;
+import rmiage.server.settings.ISettingsController;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Properties;
-import rmiage.server.storage.BackAssDescription;
 
 public class PropertiesSettingsController implements ISettingsController {
 
@@ -34,30 +36,31 @@ public class PropertiesSettingsController implements ISettingsController {
     }
 
     public int getRmiPort() {
-        return new Integer(properties.getProperty("RMIport",
-                ""+Registry.REGISTRY_PORT));
+        int res = new Integer(getOption("RMIport"));
+        if (!(res > 0)) {
+            res = Registry.REGISTRY_PORT;
+        }
+        return res;
     }
 
-    public BackAssDescription[] getBackendAssociationsDescriptions() {
-        ArrayList<BackAssDescription> badArray =
-                new ArrayList<BackAssDescription>();
-        String badLstStr = properties.getProperty("Backends");
+    public Hashtable<String, String> getBackendAssociationsDescriptions() {
+        Hashtable<String, String> res = new Hashtable<String, String>();
+        String badLstStr = getOption("Backends");
         String[] badLst = badLstStr.split(";");
         for (String badString : badLst) {
             String[] badSplStr = badString.split(":");
-            BackAssDescription bad =
-                    new BackAssDescription();
-            bad.setIdentifier(badSplStr[0]);
-            bad.setIdentifier(badSplStr[1]);
-            bad.setParams(badSplStr[2]);
-            badArray.add(bad);
+            res.put(badSplStr[0], badSplStr[1]);
         }
-        return ((BackAssDescription[]) badArray.toArray());
+        return res;
     }
 
     public String[] getModulesDescriptions() {
         ArrayList<String> modsDescr = new ArrayList<String>();
         String modLstStr = properties.getProperty("Modules");
         return (modLstStr.split(";"));
+    }
+
+    public String getOption(String optionName) {
+        return(properties.getProperty(optionName));
     }
 }

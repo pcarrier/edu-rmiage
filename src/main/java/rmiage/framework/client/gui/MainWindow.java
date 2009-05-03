@@ -48,6 +48,7 @@ public class MainWindow extends javax.swing.JFrame {
         disconnectButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("RMIAGE");
 
         splitPane.setDividerLocation(150);
 
