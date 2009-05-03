@@ -31,4 +31,9 @@ public class DefaultSettingsController implements ISettingsController {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+	public String[] getModulesDescriptions() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
