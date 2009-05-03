@@ -12,6 +12,7 @@ public class MainController {
 	protected SettingsController settingsController;
 	protected ConnectionManager connection;
 
+	@SuppressWarnings("unchecked")
 	private SettingsController getSettingsController() {
 		SettingsController res = null;
 		try {
