@@ -31,6 +31,7 @@ public class MainController {
 			throw new SettingsException(
 					"Settings controller class cannot be found!");
 		}
+		
 		return res;
 	}
 
@@ -42,6 +43,7 @@ public class MainController {
 	 * @throws RemoteException 
 	 */
 	public void init(String[] cmdLineParams) throws InterruptedException, RemoteException {
+		
 		this.settingsController = getSettingsController();
 		int rmiport = this.settingsController.getRmiPort();
 
@@ -50,7 +52,6 @@ public class MainController {
 			this.connection = new ConnectionManager(rmiport);
 			this.connection.bind("rmi://127.0.0.1/login", new StandardLoginController());
 		}
-
 	}
 
 
@@ -58,6 +59,7 @@ public class MainController {
 		MainController controller = new MainController();
 		try {
 			controller.init(args);
+			
 		} catch (InterruptedException e) {
 			System.out.println("Received ^C");
 			controller.connection.stop();
@@ -67,6 +69,14 @@ public class MainController {
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
+		}catch (Exception e){
+			e.printStackTrace();
 		}
+		
 	}
+	public void finalize(){
+		System.out.println("Server stopped");
+	}
+	
 }

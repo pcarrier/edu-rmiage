@@ -12,6 +12,9 @@ public class  ConnectionManager {
 	
 	
 	public ConnectionManager(int port) throws RemoteException{
+		if (port<=0) {
+			port = java.rmi.registry.Registry.REGISTRY_PORT;
+		}
 		registry = java.rmi.registry.LocateRegistry.createRegistry(port);
 	}
 	
