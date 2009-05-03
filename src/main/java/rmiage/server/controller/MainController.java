@@ -2,6 +2,7 @@ package rmiage.server.controller;
 
 import java.rmi.RemoteException;
 
+import rmiage.server.connection.ConnectionException;
 import rmiage.server.connection.ConnectionManager;
 import rmiage.server.settings.SettingsException;
 import rmiage.server.settings.SettingsController;
@@ -11,7 +12,7 @@ public class MainController {
     protected SettingsController settingsController;
     protected ConnectionManager connectionManager;
 
-    public MainController(String[] args) throws RemoteException {
+    public MainController(String[] args) throws ConnectionException {
         init(args);
     }
 
@@ -26,7 +27,7 @@ public class MainController {
         settingsController = new SettingsController(cmdLineParams);
         int RMIPort = settingsController.getRmiPort();
         connectionManager = new ConnectionManager(RMIPort);
-        connectionManager.bind("rmi://127.0.0.1/login", new StandardLoginController());
+        connectionManager.bind("rmi://127.0.0.1/login", StandardLoginController.class);
     }
 
     public static void main(String[] args) {

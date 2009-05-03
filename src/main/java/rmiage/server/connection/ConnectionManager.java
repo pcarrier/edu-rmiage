@@ -36,19 +36,20 @@ public class  ConnectionManager {
 		System.out.println("Rmiregistry Stoped");
 	}
 	
-	public void bind(String uri, Remote obj){
+	public void bind(String uri, Class claz) throws ConnectionException{
 		if (this.registry != null) {
 			try {
-				this.registry.bind(uri, obj);
+				this.registry.bind(uri, (Remote) claz.newInstance());
 			} catch (AccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				throw new ConnectionException("Le serveur ne peut acceder au registre rmi.");
 			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				throw new ConnectionException("Le serveur ne peut acceder au registre rmi.");
 			} catch (AlreadyBoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				throw new ConnectionException("Le serveur a deja bind cette uri");
+			} catch (InstantiationException e) {
+				throw new ConnectionException("Le serveur ne peut pas s'instancier ");
+			} catch (IllegalAccessException e) {
+				throw new ConnectionException("Le serveur ne peut pas s'instancier");
 			}
 		}
 	}
