@@ -3,6 +3,7 @@
 .project
 .settings/
 target/
+src/main/java/rmiage/data/
 *~
 *.aux
 *.swp
