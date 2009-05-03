@@ -1,6 +1,6 @@
 package rmiage.server.storage;
 
-import rmiage.data.IContent;
+import rmiage.server.storage.Content;
 
 public interface Backend {
 	/**
@@ -8,7 +8,7 @@ public interface Backend {
 	 * @param obj the object to store.
 	 * @return an unique identifier to retrieve the object.
 	 */
-	public String store(IContent obj);
+	public String store(Content obj);
 
 	/**
 	 * Remove an object.
@@ -21,7 +21,7 @@ public interface Backend {
 	 * @param identifier the unique identifier of the object.
 	 * @return
 	 */
-	public IContent load(String identifier);
+	public Content load(String identifier);
 	
 	/**
 	 * Update an existing object in the backend.
@@ -29,5 +29,5 @@ public interface Backend {
 	 * @param object the new version of the object.
 	 * @throws ObjectNotFoundException
 	 */
-	public void update(String identifier, IContent object) throws ObjectNotFoundException;
+	public void update(String identifier, Content object) throws ObjectNotFoundException;
 }

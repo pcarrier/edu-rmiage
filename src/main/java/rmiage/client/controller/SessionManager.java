@@ -5,7 +5,7 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import rmiage.common.connection.LoginController;
-import rmiage.common.security.ConnectionException;
+import rmiage.client.controller.ConnectionException;
 import rmiage.common.security.Credential;
 import rmiage.common.security.InvalidCredentialException;
 

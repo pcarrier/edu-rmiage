@@ -1,14 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package rmiage.server.search;
 
-/**
- *
- * @author gcarrier
- */
-public interface SearchEngine {
+import java.util.Collection;
+import rmiage.server.storage.Content;
 
+public interface SearchEngine {
+    public <T extends Content, C extends Collection<T>> C search(Request R);
 }

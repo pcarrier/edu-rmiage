@@ -3,16 +3,16 @@ package rmiage.server.storage;
 import java.util.Hashtable;
 import java.util.UUID;
 
-import rmiage.data.IContent;
+import rmiage.server.storage.Content;
 
 public class SimpleBackend implements Backend {
-	private Hashtable<String, IContent> table;
+	private Hashtable<String, Content> table;
 
 	public SimpleBackend() {
-		this.table = new Hashtable<String, IContent>();
+		this.table = new Hashtable<String, Content>();
 	}
 
-	public IContent load(String identifier) {
+	public Content load(String identifier) {
 		return this.table.get(identifier);
 	}
 
@@ -20,13 +20,13 @@ public class SimpleBackend implements Backend {
 		this.table.remove(identifier);
 	}
 
-	public String store(IContent obj) {
+	public String store(Content obj) {
 		UUID id = UUID.randomUUID();
 		this.table.put(id.toString(), obj);
 		return id.toString();
 	}
 
-	public void update(String identifier, IContent object)
+	public void update(String identifier, Content object)
 			throws ObjectNotFoundException {
 		if (this.table.get(identifier) == null) {
 			throw new ObjectNotFoundException(identifier + " not found");

@@ -1,4 +1,4 @@
-package rmiage.server.data;
+package rmiage.data;
 
 
 

@@ -1,6 +1,5 @@
 package rmiage.common.security;
 
-
 /**
  * An interface for credentials information used to get
  * an access to the server based on the user's identity.

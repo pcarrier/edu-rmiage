@@ -1,5 +1,7 @@
 package rmiage.data;
 
+import rmiage.server.storage.Content;
+
 public class SearchablesContainer<T extends ISearchable> extends Container<Content> {
 
 	/**
@@ -21,7 +23,7 @@ public class SearchablesContainer<T extends ISearchable> extends Container<Conte
 		SearchablesContainer<ISearchable> ret = new SearchablesContainer<ISearchable>();
 		ISearchable s;
 		SearchablesContainer<ISearchable> subc;
-		for(IContent c:this.Contents()){
+		for(Content c:this.Contents()){
 			s=(ISearchable) c;
 			if((!strict && s.contains(searched)) || (strict && s.matches(searched))){
 				ret.addContent(c);
@@ -30,7 +32,7 @@ public class SearchablesContainer<T extends ISearchable> extends Container<Conte
 			try{
 				subc=(SearchablesContainer<ISearchable>)c;
 				SearchablesContainer<ISearchable> tmp = subc.find(searched, strict);
-				for(IContent res: tmp.Contents()){
+				for(Content res: tmp.Contents()){
 					ret.addContent(res);
 				}
 			}catch (Exception e){
