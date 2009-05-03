@@ -15,8 +15,8 @@ public class PropertiesSettingsController implements ISettingsController {
     public void giveCommandLine(String[] cmdlineParams) {
         String iniFileName = null;
         for (String param : cmdlineParams) {
-            if (param.startsWith("--config=")) {
-                iniFileName = param.substring(9);
+            if (param.startsWith("--config-file=")) {
+                iniFileName = param.substring(14);
             }
         }
         if (iniFileName == null) {
