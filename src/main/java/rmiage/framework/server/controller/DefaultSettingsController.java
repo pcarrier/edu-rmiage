@@ -6,7 +6,6 @@
 package rmiage.framework.server.controller;
 
 import java.rmi.registry.Registry;
-import rmiage.server.storage.BackendAssociation;
 import rmiage.server.storage.BackAssDescription;
 
 /**
