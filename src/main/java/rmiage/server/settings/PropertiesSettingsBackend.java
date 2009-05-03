@@ -13,19 +13,19 @@ public class PropertiesSettingsBackend implements SettingsBackend {
     protected Properties properties;
 
     public void giveCommandLine(String[] cmdlineParams) {
-        String iniFileName = null;
+        String fileName = null;
         for (String param : cmdlineParams) {
             if (param.startsWith("--config-file=")) {
-                iniFileName = param.substring(14);
+                fileName = param.substring(14);
             }
         }
-        if (iniFileName == null) {
-            throw new SettingsException("No config file specified!" +
+        if (fileName == null) {
+            throw new SettingsException("No config file specified! " +
                     "Please use --config=");
         }
         properties = new Properties();
         try {
-            properties.load(new FileInputStream(iniFileName));
+            properties.load(new FileInputStream(fileName));
         } catch (FileNotFoundException ex) {
             throw new SettingsException("Config file cannot be found!");
         } catch (IOException ex) {

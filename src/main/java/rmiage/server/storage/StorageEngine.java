@@ -19,7 +19,7 @@ public class StorageEngine {
             Backend backend;
             Class backendClass;
             try {
-                backendClass = Class.forName(backendDescrs.get(backId)).getClass();
+                backendClass = Class.forName(backendDescrs.get(backId));
                 backend = (Backend) backendClass.newInstance();
                 backAss.put(backId, backend);
             } catch (InstantiationException ex) {

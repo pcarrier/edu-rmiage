@@ -22,13 +22,13 @@ public class SettingsController {
 			String backendClassName = System.getProperty(
 					"rmiage.settingsloader",
                     "rmiage.server.settings.PropertiesSettingsBackend");
-			Class backendClass = Class.forName(
-					backendClassName).getClass();
+			Class backendClass = Class.forName(backendClassName);
 			backend = (SettingsBackend) backendClass.newInstance();
 		} catch (InstantiationException ex) {
 			throw new SettingsException(
 					"Cannot instantiate the settings backend");
 		} catch (IllegalAccessException ex) {
+            System.err.println(ex.getMessage());
 			throw new SettingsException(
 					"Illegal access around the settings backend");
 		} catch (ClassNotFoundException ex) {
