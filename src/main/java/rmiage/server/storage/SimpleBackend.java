@@ -27,9 +27,9 @@ public class SimpleBackend implements Backend {
 	}
 
 	public void update(String identifier, Content object)
-			throws ObjectNotFoundException {
+			throws ContentNotFoundException {
 		if (this.table.get(identifier) == null) {
-			throw new ObjectNotFoundException(identifier + " not found");
+			throw new ContentNotFoundException(identifier + " not found");
 		}
 		this.table.put(identifier, object);
 	}
