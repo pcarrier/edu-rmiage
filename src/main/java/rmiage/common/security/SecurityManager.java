@@ -7,5 +7,5 @@ import rmiage.common.security.Credential;
  */
 public interface SecurityManager {
 
-    boolean checkCredentials(Credential c);
+    boolean checkCredentials(Credential credential);
 }
