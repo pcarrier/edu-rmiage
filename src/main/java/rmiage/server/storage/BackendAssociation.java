@@ -3,13 +3,13 @@ package rmiage.server.storage;
 public class BackendAssociation {
 
     private String id;
-    private IBackendManager bm;
+    private IBackend bm;
 
     public String getIdentifier() {
         return id;
     }
 
-    public IBackendManager getBackendManager() {
+    public IBackend getBackendManager() {
         return bm;
     }
 
@@ -17,7 +17,7 @@ public class BackendAssociation {
         this.id = id;
     }
 
-    public void setBackendManager(IBackendManager bm) {
+    public void setBackendManager(IBackend bm) {
         this.bm = bm;
     }
 }

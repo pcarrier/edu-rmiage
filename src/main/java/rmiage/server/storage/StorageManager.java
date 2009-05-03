@@ -6,7 +6,7 @@ public class StorageManager {
 
     protected ArrayList<BackendAssociation> backAss;
 
-    public void associateBackend(String str, IBackendManager bm) {
+    public void associateBackend(String str, IBackend bm) {
         //TODO
     }
 
