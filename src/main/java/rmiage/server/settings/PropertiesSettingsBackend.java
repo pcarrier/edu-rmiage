@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Properties;
 
-public class PropertiesSettingsController implements SettingsBackend {
+public class PropertiesSettingsBackend implements SettingsBackend {
 
     protected Properties properties;
 

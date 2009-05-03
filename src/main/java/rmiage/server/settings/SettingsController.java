@@ -21,7 +21,7 @@ public class SettingsController {
 		try {
 			String backendClassName = System.getProperty(
 					"rmiage.settingsloader",
-                    "rmiage.server.settings.PropertiesSettingsController");
+                    "rmiage.server.settings.PropertiesSettingsBackend");
 			Class backendClass = Class.forName(
 					backendClassName).getClass();
 			backend = (SettingsBackend) backendClass.newInstance();
