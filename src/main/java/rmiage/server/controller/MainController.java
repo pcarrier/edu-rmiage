@@ -31,10 +31,13 @@ public class MainController {
 		}
 		return res;
 	}
-/**
- * Initialize the server with command line args.
- * @param cmdLineParams params from command line.
- */
+
+	/**
+	 * Initialize the server with command line args.
+	 * 
+	 * @param cmdLineParams
+	 *            params from command line.
+	 */
 	public void init(String[] cmdLineParams) throws InterruptedException {
 		this.settingsController = getSettingsController();
 		int rmiport = this.settingsController.getRmiPort();
@@ -48,7 +51,8 @@ public class MainController {
 	/**
 	 * Create the rmiregistry
 	 * 
-	 * @param port the port to use.
+	 * @param port
+	 *            the port to use.
 	 * @return the rmiregistry.
 	 */
 	private Registry createRegistry(int port) {
@@ -72,7 +76,7 @@ public class MainController {
 
 	protected void start() throws InterruptedException {
 		this.launchRegistry();
-		//Something else todo?
+		// Something else todo?
 		System.out.println("Server Started");
 	}
 
@@ -82,14 +86,12 @@ public class MainController {
 	private void stop() {
 		if (this.registry != null) {
 			try {
+				//Unbind each bounded uri.
 				for (String bound : this.registry.list()) {
-					try {
 						this.registry.unbind(bound);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
 				}
 			} catch (Exception e) {
+				System.out.println("An error occured when stopping.");
 				e.printStackTrace();
 			}
 		}
@@ -97,16 +99,16 @@ public class MainController {
 	}
 
 	public static void main(String[] args) {
-		MainController ctrl = new MainController();
+		MainController ctrl = new MainController(); 
 		try {
 			ctrl.init(args);
 			ctrl.start();
 		} catch (InterruptedException e) {
+			System.out.println("Received ^C");
 			ctrl.stop();
 		} catch (SettingsException e) {
 			System.out.println(e.getMessage());
 			System.out.println("Server can't start.");
 		}
 	}
-
 }
