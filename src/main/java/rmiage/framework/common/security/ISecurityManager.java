@@ -1,4 +1,4 @@
-package rmiage.server.security;
+package rmiage.framework.common.security;
 
 import rmiage.framework.common.security.ICredential;
 

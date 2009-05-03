@@ -9,6 +9,10 @@ public class StandardCredential implements ICredential {
     protected String login;
     protected String password;
 
+    public StandardCredential() {
+        throw new IllegalArgumentException();
+    }
+
     /**
      * Generate a credential based on a login and a password
      * @param login the user's login
@@ -33,5 +37,9 @@ public class StandardCredential implements ICredential {
      */
     public String getPassword() {
         return password;
+    }
+
+    public boolean checkValid() {
+        return(!login.isEmpty() && !password.isEmpty());
     }
 }

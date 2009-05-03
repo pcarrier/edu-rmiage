@@ -18,25 +18,5 @@ public class StorageManager {
         return (BackendAssociation[]) backAss.toArray();
     }
 
-    public class BackendAssociation {
-
-        protected String str;
-        protected IBackendManager bm;
-
-        public String getString() {
-            return str;
-        }
-
-        public IBackendManager getBackendManager() {
-            return bm;
-        }
-
-        public void setString(String str) {
-            this.str = str;
-        }
-
-        public void setBackendManager(IBackendManager bm) {
-            this.bm = bm;
-        }
-    }
+    
 }

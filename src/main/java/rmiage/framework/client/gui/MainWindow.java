@@ -11,6 +11,8 @@
 
 package rmiage.framework.client.gui;
 
+import rmiage.framework.client.controller.SessionManager;
+
 /**
  *
  * @author gcarrier
@@ -19,6 +21,11 @@ public class MainWindow extends javax.swing.JFrame {
 
     /** Creates new form MainWindow */
     public MainWindow() {
+        throw new IllegalArgumentException();
+    }
+
+    public MainWindow(SessionManager sm) {
+        this.sessionManager = sm;
         initComponents();
     }
 
@@ -67,7 +74,13 @@ public class MainWindow extends javax.swing.JFrame {
         topPanel.add(searchField);
 
         disconnectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rmiage/framework/client/resources/disconnect.png"))); // NOI18N
+        disconnectButton.setBorder(null);
         disconnectButton.setBorderPainted(false);
+        disconnectButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                disconnectButtonActionPerformed(evt);
+            }
+        });
         topPanel.add(disconnectButton);
 
         getContentPane().add(topPanel, java.awt.BorderLayout.NORTH);
@@ -78,6 +91,10 @@ public class MainWindow extends javax.swing.JFrame {
     private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
         // TODO add your handling code here:
 }//GEN-LAST:event_searchFieldActionPerformed
+
+    private void disconnectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disconnectButtonActionPerformed
+        sessionManager.close();
+    }//GEN-LAST:event_disconnectButtonActionPerformed
 
     /**
     * @param args the command line arguments
@@ -90,6 +107,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
     }
 
+    private SessionManager sessionManager;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton disconnectButton;
     private javax.swing.JPanel mainPanel;

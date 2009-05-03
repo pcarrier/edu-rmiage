@@ -11,6 +11,12 @@
 
 package rmiage.framework.client.gui;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import rmiage.framework.client.controller.SessionManager;
+import rmiage.framework.common.security.InvalidCredentialException;
+import rmiage.framework.common.security.StandardCredential;
+
 /**
  *
  * @author gcarrier
@@ -20,6 +26,14 @@ public class LoginWindow extends javax.swing.JFrame {
     /** Creates new form LoginWindow */
     public LoginWindow() {
         initComponents();
+    }
+
+    private void setErrorMessage(String msg) {
+        errorLabel.setText(msg);
+    }
+
+    private void removeErrorMessage() {
+        setErrorMessage("");
     }
 
     /** This method is called from within the constructor to
@@ -33,10 +47,10 @@ public class LoginWindow extends javax.swing.JFrame {
 
         loginField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
-        hostField = new javax.swing.JTextField();
+        uriField = new javax.swing.JTextField();
         loginLabel = new javax.swing.JLabel();
         passwordLabel = new javax.swing.JLabel();
-        hostLabel = new javax.swing.JLabel();
+        uriLabel = new javax.swing.JLabel();
         registerButton = new javax.swing.JButton();
         connectButton = new javax.swing.JButton();
         errorLabel = new javax.swing.JLabel();
@@ -51,13 +65,13 @@ public class LoginWindow extends javax.swing.JFrame {
             }
         });
 
-        hostField.setText("rmiagedemo");
+        uriField.setText("rmi://rmiagedemo/app");
 
         loginLabel.setText("Login:");
 
         passwordLabel.setText("Password:");
 
-        hostLabel.setText("Host:");
+        uriLabel.setText("URI:");
 
         registerButton.setText("register");
         registerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -83,19 +97,19 @@ public class LoginWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(errorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                    .addComponent(errorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(loginLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(loginField, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE))
+                        .addComponent(loginField, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(passwordLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(hostLabel)
+                        .addComponent(uriLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(hostField, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE))
+                        .addComponent(uriField, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(registerButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -115,8 +129,8 @@ public class LoginWindow extends javax.swing.JFrame {
                     .addComponent(passwordLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hostField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hostLabel))
+                    .addComponent(uriField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(uriLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(errorLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -134,7 +148,16 @@ public class LoginWindow extends javax.swing.JFrame {
 }//GEN-LAST:event_registerButtonActionPerformed
 
     private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectButtonActionPerformed
-        // TODO add your handling code here:
+        removeErrorMessage();
+        try {
+            SessionManager sm = new SessionManager(
+                    new StandardCredential(loginField.getText(),
+                    new String(passwordField.getPassword())),
+                    uriField.getText());
+            sm.connect();
+        } catch (Exception ex) {
+            setErrorMessage(ex.toString());
+        }
 }//GEN-LAST:event_connectButtonActionPerformed
 
     private void loginFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginFieldActionPerformed
@@ -155,13 +178,13 @@ public class LoginWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton connectButton;
     private javax.swing.JLabel errorLabel;
-    private javax.swing.JTextField hostField;
-    private javax.swing.JLabel hostLabel;
     private javax.swing.JTextField loginField;
     private javax.swing.JLabel loginLabel;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JButton registerButton;
+    private javax.swing.JTextField uriField;
+    private javax.swing.JLabel uriLabel;
     // End of variables declaration//GEN-END:variables
 
 }

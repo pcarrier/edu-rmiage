@@ -26,11 +26,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="errorLabel" alignment="0" pref="271" max="32767" attributes="0"/>
+                  <Component id="errorLabel" alignment="0" pref="276" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="loginLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="loginField" pref="214" max="32767" attributes="1"/>
+                      <Component id="loginField" pref="220" max="32767" attributes="1"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="passwordLabel" min="-2" max="-2" attributes="0"/>
@@ -38,9 +38,9 @@
                       <Component id="passwordField" pref="202" max="32767" attributes="1"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="hostLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="uriLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="hostField" pref="231" max="32767" attributes="1"/>
+                      <Component id="uriField" pref="240" max="32767" attributes="1"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="registerButton" min="-2" max="-2" attributes="0"/>
@@ -67,8 +67,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="hostField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="hostLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="uriField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="uriLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="errorLabel" min="-2" max="-2" attributes="0"/>
@@ -93,9 +93,9 @@
     </Component>
     <Component class="javax.swing.JPasswordField" name="passwordField">
     </Component>
-    <Component class="javax.swing.JTextField" name="hostField">
+    <Component class="javax.swing.JTextField" name="uriField">
       <Properties>
-        <Property name="text" type="java.lang.String" value="rmiagedemo"/>
+        <Property name="text" type="java.lang.String" value="rmi://rmiagedemo/app"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="loginLabel">
@@ -108,9 +108,9 @@
         <Property name="text" type="java.lang.String" value="Password:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="hostLabel">
+    <Component class="javax.swing.JLabel" name="uriLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Host:"/>
+        <Property name="text" type="java.lang.String" value="URI:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="registerButton">

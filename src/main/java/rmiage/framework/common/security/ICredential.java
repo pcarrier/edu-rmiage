@@ -7,4 +7,9 @@ package rmiage.framework.common.security;
  */
 public interface ICredential {
 
+    /**
+     * Check if the credential is valid
+     * @return whether it makes sense to send it to the server or not
+     */
+    public boolean checkValid();
 }
