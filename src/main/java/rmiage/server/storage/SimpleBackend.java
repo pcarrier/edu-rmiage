@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import rmiage.data.IContent;
 
-public class SimpleBackend implements IBackend {
+public class SimpleBackend implements Backend {
 	private Hashtable<String, IContent> table;
 
 	public SimpleBackend() {

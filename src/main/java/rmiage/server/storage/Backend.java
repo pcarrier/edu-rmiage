@@ -2,7 +2,7 @@ package rmiage.server.storage;
 
 import rmiage.data.IContent;
 
-public interface IBackend {
+public interface Backend {
 	/**
 	 * Store an object.
 	 * @param obj the object to store.

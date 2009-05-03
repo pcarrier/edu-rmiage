@@ -9,6 +9,6 @@ package rmiage.common.connection;
  *
  * @author gcarrier
  */
-public interface ILoginController {
+public interface LoginController {
 
 }

@@ -3,12 +3,12 @@
  * and open the template in the editor.
  */
 
-package rmiage.common.connection;
+package rmiage.server.search;
 
 /**
  *
  * @author gcarrier
  */
-public interface ISessionController {
+public interface SearchEngine {
 
 }

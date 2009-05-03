@@ -4,7 +4,7 @@ package rmiage.common.security;
 /**
  * A standard credential based on a login and a password
  */
-public class StandardCredential implements ICredential {
+public class StandardCredential implements Credential {
 
     protected String login;
     protected String password;

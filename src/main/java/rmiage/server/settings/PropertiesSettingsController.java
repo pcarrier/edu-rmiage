@@ -1,7 +1,7 @@
 package rmiage.server.settings;
 
 import rmiage.server.settings.SettingsException;
-import rmiage.server.settings.ISettingsController;
+import rmiage.server.settings.SettingsController;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Properties;
 
-public class PropertiesSettingsController implements ISettingsController {
+public class PropertiesSettingsController implements SettingsController {
 
     protected Properties properties;
 

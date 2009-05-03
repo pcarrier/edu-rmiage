@@ -2,11 +2,11 @@ package rmiage.server.storage;
 
 import java.util.Hashtable;
 
-public class StorageManager {
+public class StorageEngine {
 
-    protected Hashtable<String, IBackend> backAss = new Hashtable<String, IBackend>();
+    protected Hashtable<String, Backend> backAss = new Hashtable<String, Backend>();
 
-    public void associateBackend(String id, IBackend backend) {
+    public void associateBackend(String id, Backend backend) {
         backAss.put(id, backend);
     }
 
@@ -14,13 +14,13 @@ public class StorageManager {
         backAss.remove(id);
     }
 
-    public StorageManager(Hashtable<String, String> backendDescrs) {
+    public StorageEngine(Hashtable<String, String> backendDescrs) {
         for (String backId : backendDescrs.values()) {
-            IBackend backend;
+            Backend backend;
             Class backendClass;
             try {
                 backendClass = Class.forName(backendDescrs.get(backId)).getClass();
-                backend = (IBackend) backendClass.newInstance();
+                backend = (Backend) backendClass.newInstance();
                 backAss.put(backId, backend);
             } catch (InstantiationException ex) {
                 throw new StorageException("Cannot instantiate the backend: " + backId);
@@ -29,7 +29,6 @@ public class StorageManager {
             } catch (ClassNotFoundException ex) {
                 throw new StorageException("The class cannot be found for the backend: " + backId);
             }
-
         }
     }
 }

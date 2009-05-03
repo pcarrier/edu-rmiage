@@ -1,19 +1,19 @@
 package rmiage.server.controller;
 
 import rmiage.server.settings.SettingsException;
-import rmiage.server.settings.ISettingsController;
+import rmiage.server.settings.SettingsController;
 import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
 
 public class MainController {
 
 	
-    private ISettingsController getSettingsController() {
-        ISettingsController res = null;
+    private SettingsController getSettingsController() {
+        SettingsController res = null;
         try {
             String settingsControllerClassName = System.getProperty("rmiage.settingsloader", "rmiage.framework");
             Class SettingsControllerClass = Class.forName(settingsControllerClassName).getClass();
-            res = (ISettingsController) SettingsControllerClass.newInstance();
+            res = (SettingsController) SettingsControllerClass.newInstance();
         } catch (InstantiationException ex) {
             throw new SettingsException("Cannot instantiate the settings controller");
         } catch (IllegalAccessException ex) {
@@ -25,7 +25,7 @@ public class MainController {
     }
 
     public void init(String[] cmdLineParams) {
-        ISettingsController settingsController = getSettingsController();
+        SettingsController settingsController = getSettingsController();
         int rmiport =settingsController.getRmiPort();
         Registry registry = null;
         

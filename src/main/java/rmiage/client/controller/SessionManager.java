@@ -4,16 +4,16 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import rmiage.common.connection.ILoginController;
+import rmiage.common.connection.LoginController;
 import rmiage.common.security.ConnectionException;
-import rmiage.common.security.ICredential;
+import rmiage.common.security.Credential;
 import rmiage.common.security.InvalidCredentialException;
 
 public class SessionManager {
 
-    protected ICredential credentials;
+    protected Credential credentials;
     private String uri;
-    public SessionManager(ICredential credentials, String uri)
+    public SessionManager(Credential credentials, String uri)
             throws InvalidCredentialException {
         this.uri = uri;
         if (credentials.checkValid())
@@ -24,7 +24,7 @@ public class SessionManager {
 
     public void connect() throws ConnectionException {
         try {
-            ILoginController loginController = (ILoginController) Naming.lookup(uri);
+            LoginController loginController = (LoginController) Naming.lookup(uri);
         } catch (NotBoundException ex) {
             throw new ConnectionException("cannot bind");
         } catch (MalformedURLException ex) {
