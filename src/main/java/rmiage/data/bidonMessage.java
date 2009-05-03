@@ -1,18 +1,18 @@
 package rmiage.data;
 
 
-public class Message extends Content implements ISearchable{
+public class bidonMessage extends bidonContent implements bidonISearchable{
 
 	protected String subject;
 	protected String corpus;
-	protected UserBasic author;
-	protected Container<UserBasic> destinataires;
+	protected bidonUserBasic author;
+	protected bidonContainer<bidonUserBasic> destinataires;
 	
-	public Message() {
+	public bidonMessage() {
 		super();
 	}
 	
-	public Message(String subject, String corpus){
+	public bidonMessage(String subject, String corpus){
 		this();
 		this.subject=subject;
 		this.corpus=corpus;

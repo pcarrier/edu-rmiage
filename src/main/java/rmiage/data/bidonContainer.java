@@ -3,17 +3,17 @@ package rmiage.data;
 import rmiage.server.storage.Content;
 import java.util.ArrayList;
 
-public class Container<T extends Content> extends Content implements IContainer<Content>{
+public class bidonContainer<T extends Content> extends Content implements bidonIContainer<Content>{
 
     // List of Contents Children
     private ArrayList<Content> ContentChildren;
     protected ArrayList<Class<Content>> accepted;
 
     /**
-     * Build a Container with its string representation
+     * Build a bidonContainer with its string representation
      */
     //test ok
-    public Container() {
+    public bidonContainer() {
         super();
         this.ContentChildren = new ArrayList<Content>();
         this.accepted= new ArrayList<Class<Content>>();
@@ -27,7 +27,7 @@ public class Container<T extends Content> extends Content implements IContainer<
     } 
     
     /* (non-Javadoc)
-	 * @see rmiage.framework.data.IContainer#Contents()
+	 * @see rmiage.framework.data.bidonIContainer#Contents()
 	 */
     //tested ok
     public ArrayList<Content> Contents() {
@@ -36,7 +36,7 @@ public class Container<T extends Content> extends Content implements IContainer<
 
   
     /* (non-Javadoc)
-	 * @see rmiage.framework.data.IContainer#addContent(T)
+	 * @see rmiage.framework.data.bidonIContainer#addContent(T)
 	 */
    //tested ok
     public boolean addContent(Content f) {
@@ -56,7 +56,7 @@ public class Container<T extends Content> extends Content implements IContainer<
 
     //-----------------------------------------------------------------
     /* (non-Javadoc)
-	 * @see rmiage.framework.data.IContainer#dropContents()
+	 * @see rmiage.framework.data.bidonIContainer#dropContents()
 	 */
     //tested ok
     @SuppressWarnings("unchecked")
@@ -67,7 +67,7 @@ public class Container<T extends Content> extends Content implements IContainer<
     	}
     }
     /* (non-Javadoc)
-	 * @see rmiage.framework.data.IContainer#dropContent(T)
+	 * @see rmiage.framework.data.bidonIContainer#dropContent(T)
 	 */
     //tested ok
     public void dropContent(Content f){

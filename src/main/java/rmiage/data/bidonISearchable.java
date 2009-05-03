@@ -11,7 +11,7 @@ import rmiage.server.storage.Content;
  * 
  * @author jc
  */
-public interface ISearchable extends Content {
+public interface bidonISearchable extends Content {
 	/**
 	 * Used for non strict researches.
 	 * 

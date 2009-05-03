@@ -1,20 +1,20 @@
 package rmiage.data;
 
-public class Conversation extends SearchablesContainer<Message> implements
-		ISearchable {
+public class bidonConversation extends bidonSearchablesContainer<bidonMessage> implements
+		bidonISearchable {
 
 	protected String name;
 
 	/**
 	 * Build a new conversation
 	 */
-	public Conversation() {
+	public bidonConversation() {
 		super();
 	}
 	/**
 	 * Build a new conversation with a name
 	 */
-	public Conversation(String name) {
+	public bidonConversation(String name) {
 		this();
 		this.name = name;
 	}

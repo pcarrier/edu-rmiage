@@ -1,11 +1,11 @@
 package rmiage.data;
 
 
-public class UserBasic extends Content implements ISearchable{
+public class bidonUserBasic extends bidonContent implements bidonISearchable{
 
 	protected String login;
 	
-	public UserBasic(String log){
+	public bidonUserBasic(String log){
 		login = log;
 	}
 	
