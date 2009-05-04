@@ -6,6 +6,10 @@ import java.util.Hashtable;
 
 public class SettingsController {
 
+	/**
+	 * 
+	 */
+	
     protected SettingsBackend backend = null;
 
     public SettingsController(String[] cmdlineParams) {

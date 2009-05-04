@@ -30,7 +30,12 @@ public class SessionManager {
             throw new InvalidCredentialException();
         }
     }
-
+    
+    /**
+     * Starts the connection between the client and the server
+     * @throws ConnectionException
+     */
+    
     public void connect() throws ConnectionException {
         try {
             LoginController loginController = (LoginController) Naming.lookup(uri);
