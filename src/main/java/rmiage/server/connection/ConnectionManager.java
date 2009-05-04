@@ -6,6 +6,8 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
 
+import rmiage.common.login.LoginController;
+
 public class  ConnectionManager {
 
 	protected Registry registry;
@@ -34,21 +36,17 @@ public class  ConnectionManager {
 		System.out.println("Rmiregistry Stoped");
 	}
 	
-	public void bind(String uri, Class claz) throws ConnectionException{
+	public void bind(String uri, LoginController loginController) throws ConnectionException{
 		if (this.registry != null) {
 			try {
                 System.out.println(uri);
-				this.registry.bind(uri, (Remote) claz.newInstance());
+				this.registry.bind(uri, loginController);
 			} catch (AccessException e) {
 				throw new ConnectionException("Le serveur ne peut acceder au registre rmi.");
 			} catch (RemoteException e) {
 				throw new ConnectionException("Le serveur ne peut acceder au registre rmi.");
 			} catch (AlreadyBoundException e) {
 				throw new ConnectionException("Le serveur a deja bind cette uri");
-			} catch (InstantiationException e) {
-				throw new ConnectionException("Le serveur ne peut pas s'instancier ");
-			} catch (IllegalAccessException e) {
-				throw new ConnectionException("Le serveur ne peut pas s'instancier");
 			}
 		}
 	}

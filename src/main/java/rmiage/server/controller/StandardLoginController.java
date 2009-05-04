@@ -5,6 +5,7 @@ import java.rmi.server.UnicastRemoteObject;
 
 import rmiage.common.login.LoginController;
 import rmiage.common.security.Credential;
+import rmiage.server.connection.ConnectionException;
 
 public class StandardLoginController extends UnicastRemoteObject implements LoginController {
 
@@ -13,8 +14,13 @@ public class StandardLoginController extends UnicastRemoteObject implements Logi
 	 */
 	private static final long serialVersionUID = 5730233503923240706L;
 
-	public StandardLoginController() throws RemoteException {
-		super();
+	public StandardLoginController() throws ConnectionException{
+		try{
+			super();
+		}catch(Exception e){
+			throw ConnectionException("Le StandardLoginController ne peut s'instancier.");
+		}
+		
 		// TODO Auto-generated constructor stub
 	}
 
