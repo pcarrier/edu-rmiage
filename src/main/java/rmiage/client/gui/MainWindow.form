@@ -76,7 +76,7 @@
         <Component class="javax.swing.JLabel" name="searchIcon">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/rmiage/framework/client/resources/search.png"/>
+              <Image iconType="3" name="/rmiage/client/resources/search.png"/>
             </Property>
           </Properties>
         </Component>
@@ -93,7 +93,7 @@
         <Component class="javax.swing.JButton" name="disconnectButton">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/rmiage/framework/client/resources/disconnect.png"/>
+              <Image iconType="3" name="/rmiage/client/resources/disconnect.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>

@@ -63,7 +63,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         topPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
-        searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rmiage/framework/client/resources/search.png"))); // NOI18N
+        searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rmiage/client/resources/search.png"))); // NOI18N
         topPanel.add(searchIcon);
 
         searchField.setPreferredSize(new java.awt.Dimension(200, 28));
@@ -74,7 +74,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         topPanel.add(searchField);
 
-        disconnectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rmiage/framework/client/resources/disconnect.png"))); // NOI18N
+        disconnectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rmiage/client/resources/disconnect.png"))); // NOI18N
         disconnectButton.setBorder(null);
         disconnectButton.setBorderPainted(false);
         disconnectButton.addActionListener(new java.awt.event.ActionListener() {
