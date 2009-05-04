@@ -14,7 +14,7 @@ public class Message implements Serializable, Cloneable {
         }
     }
     public Type messageType;
-    public Object[] information;
+    public Serializable[] information;
 
     public enum Type {
 
