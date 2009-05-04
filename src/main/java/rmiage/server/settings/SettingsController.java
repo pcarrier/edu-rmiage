@@ -33,6 +33,10 @@ public class SettingsController {
         backend.giveCommandLine(cmdlineParams);
     }
 
+    /**
+     * get the Rmi port used by the server
+     * @return RmiPort
+     */
     public int getRmiPort() {
         int res = 0;
         try {
@@ -42,7 +46,7 @@ public class SettingsController {
         }
         return res;
     }
-
+    
     public String getURI() {
         return (backend.getOption("MainUri"));
     }
@@ -58,6 +62,11 @@ public class SettingsController {
         return res;
     }
 
+    /**
+     * get all 
+     * @return allModules
+     */
+    
     public String[] getModulesDescriptions() {
         ArrayList<String> modsDescr = new ArrayList<String>();
         String modLstStr = backend.getOption("Modules");

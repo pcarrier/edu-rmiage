@@ -6,14 +6,25 @@ public class StorageController {
 
     protected Hashtable<String, Backend> backAss = new Hashtable<String, Backend>();
 
+    /**
+     * Associates an id with a Backend in the Hashtable
+     * @param id
+     * @param backend
+     */
+    
     public void associateBackend(String id, Backend backend) {
         backAss.put(id, backend);
     }
 
+    /**
+     * Removes an id from the Hashtable
+     * @param id
+     */
+    
     public void detachBackend(String id) {
         backAss.remove(id);
     }
-
+    
     public StorageController(Hashtable<String, String> backendDescrs) {
         for (String backId : backendDescrs.values()) {
             Backend backend;
