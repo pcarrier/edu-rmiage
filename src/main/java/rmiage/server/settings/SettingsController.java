@@ -50,7 +50,7 @@ public class SettingsController {
 
     public String getURI(){
     	String ret;
-    	ret =backend.getOption("ServerUri");
+    	ret =backend.getOption("MainUri");
     	return ret;
     }
     public Hashtable<String, String> getBackendAssociationsDescriptions() {
