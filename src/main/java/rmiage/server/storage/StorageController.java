@@ -2,7 +2,7 @@ package rmiage.server.storage;
 
 import java.util.Hashtable;
 
-public class StorageEngine {
+public class StorageController {
 
     protected Hashtable<String, Backend> backAss = new Hashtable<String, Backend>();
 
@@ -14,7 +14,7 @@ public class StorageEngine {
         backAss.remove(id);
     }
 
-    public StorageEngine(Hashtable<String, String> backendDescrs) {
+    public StorageController(Hashtable<String, String> backendDescrs) {
         for (String backId : backendDescrs.values()) {
             Backend backend;
             Class backendClass;

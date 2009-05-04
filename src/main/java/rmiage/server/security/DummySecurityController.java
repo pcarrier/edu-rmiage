@@ -4,12 +4,14 @@ import rmiage.common.interfaces.SecurityController;
 import rmiage.common.security.Credential;
 
 /**
- * A security manager based on logins and passwords.
+ * A dummy security manager used for tests,
+ * it always allows you to log in.
  */
-public class StandardSecurityManager implements SecurityController {
+
+public class DummySecurityController implements SecurityController {
 
     public boolean checkCredentials(Credential c) {
-        // TODO Auto-generated method stub
-        return false;
+        return true;
     }
+
 }
