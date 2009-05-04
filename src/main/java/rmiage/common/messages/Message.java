@@ -17,11 +17,5 @@ public class Message implements Serializable, Cloneable {
             throw new InternalError(e.toString());
         }
     }
-    public Type messageType;
     public Serializable[] information;
-
-    public enum Type {
-
-        dummyMessage,
-    }
 }

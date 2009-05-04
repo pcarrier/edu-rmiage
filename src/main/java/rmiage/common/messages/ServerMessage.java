@@ -5,6 +5,7 @@ public class ServerMessage extends Message {
     public ServerMessage() {
         super();
     }
+    public Type messageType;
 
     public enum Type {
 
@@ -12,6 +13,7 @@ public class ServerMessage extends Message {
         updateTree,
         updateList,
         discardForm,
+        showSimplePopup,
         showPopup,
         custom,
     }

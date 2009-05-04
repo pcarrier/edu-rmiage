@@ -1,5 +1,6 @@
 package rmiage.server.controller;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -20,6 +21,24 @@ public class StandardSessionController extends UnicastRemoteObject
     public StandardSessionController() throws RemoteException {
         super();
         sessions.add(this);
+        new Thread() {
+            public void run() {
+                try {
+                    Thread.sleep(5000);
+                    sendStupidPopup();
+                } catch (Exception ex) {
+                    throw new InternalError();
+                }
+            }
+        }.start();
+    }
+
+    private void sendStupidPopup() throws RemoteException {
+        ServerMessage sm = new ServerMessage();
+        sm.messageType = ServerMessage.Type.showSimplePopup;
+        sm.information = new Serializable[1];
+        sm.information[0] = (Serializable) new String("Hello ugly World!");
+        sendMessageToClient(sm);
     }
 
     public static SessionController[] getCurrentSessions() {
@@ -39,7 +58,7 @@ public class StandardSessionController extends UnicastRemoteObject
         ret = (ServerMessage) serverMessage.clone();
         serverMessage = null;
         this.notifyAll();
-        return serverMessage;
+        return ret;
     }
 
     public synchronized ClientMessage getClientMessage()
@@ -55,7 +74,7 @@ public class StandardSessionController extends UnicastRemoteObject
         ret = (ClientMessage) clientMessage.clone();
         clientMessage = null;
         this.notifyAll();
-        return clientMessage;
+        return ret;
     }
 
     public synchronized void sendMessageToServer(ClientMessage msg)
