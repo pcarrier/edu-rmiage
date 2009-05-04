@@ -38,7 +38,7 @@ public class SettingsController {
      */
 
     }
-
+    
     public int getRmiPort() {
         int res = 0;
         try {
@@ -52,6 +52,7 @@ public class SettingsController {
     public String getURI() {
         return (backend.getOption("MainUri"));
     }
+
 
     public Hashtable<String, String> getBackendAssociationsDescriptions() {
         Hashtable<String, String> res = new Hashtable<String, String>();
