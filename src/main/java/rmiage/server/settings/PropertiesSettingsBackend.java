@@ -14,6 +14,10 @@ public class PropertiesSettingsBackend implements SettingsBackend {
 
     protected Properties properties;
 
+    /**
+     * Extracts informations (properties) from the server's configuration file.
+     */
+    
     public void giveCommandLine(String[] cmdlineParams) {
         String fileName = null;
         for (String param : cmdlineParams) {
@@ -35,6 +39,11 @@ public class PropertiesSettingsBackend implements SettingsBackend {
         }
     }
 
+    /**
+     * get the property which the name of it was given a parameter
+     * @return propertyChosen
+     */
+    
     public String getOption(String optionName) {
         return (properties.getProperty(optionName));
     }
