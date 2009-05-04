@@ -21,7 +21,7 @@ public class PropertiesSettingsBackend implements SettingsBackend {
         }
         if (fileName == null) {
             throw new SettingsException("No config file specified! " +
-                    "Please use --config=");
+                    "Please use --config-file=");
         }
         properties = new Properties();
         try {

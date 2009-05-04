@@ -39,8 +39,10 @@ public class SettingsController {
     }
 
     public int getRmiPort() {
-        int res = new Integer(backend.getOption("RMIport"));
-        if (!(res > 0)) {
+        int res = 0;
+        try {
+            res = new Integer(backend.getOption("RMIport"));
+        } catch (NumberFormatException ex) {
             res = Registry.REGISTRY_PORT;
         }
         return res;
