@@ -6,7 +6,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
 
-import rmiage.common.login.LoginController;
+import rmiage.common.interfaces.LoginController;
 
 public class  ConnectionManager {
 

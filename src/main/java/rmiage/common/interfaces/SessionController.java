@@ -1,4 +1,4 @@
-package rmiage.server.controller;
+package rmiage.common.interfaces;
 
 public interface SessionController {
 }

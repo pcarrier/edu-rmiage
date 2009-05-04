@@ -1,8 +1,7 @@
-package rmiage.common.login;
+package rmiage.common.interfaces;
 
 import rmiage.common.security.Credential;
 import rmiage.common.security.RefusedCredentialException;
-import rmiage.server.controller.SessionController;
 
 /**
  * An interface which controls the login used by the user.

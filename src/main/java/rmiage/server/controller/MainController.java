@@ -12,6 +12,7 @@ public class MainController {
     protected SettingsController settingsController;
     protected ConnectionManager connectionManager;
     protected StandardLoginController loginController;
+    protected SecurityManager securityController;
 
     public MainController(String[] args) throws ConnectionException {
         init(args);
@@ -28,7 +29,7 @@ public class MainController {
         try {
             settingsController = new SettingsController(cmdLineParams);
             connectionManager = new ConnectionManager(settingsController.getRmiPort());
-            loginController = new StandardLoginController();
+            loginController = new StandardLoginController(this);
         } catch (RemoteException ex) {
             throw new ConnectionException("Can't instanciate the StandardLoginController");
         }

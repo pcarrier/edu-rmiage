@@ -1,6 +1,6 @@
 package rmiage.server.security;
 
-import rmiage.common.security.SecurityManager;
+import rmiage.common.interfaces.SecurityController;
 import rmiage.common.security.Credential;
 
 /**
@@ -8,7 +8,7 @@ import rmiage.common.security.Credential;
  * it always allows you to log in.
  */
 
-public class DummySecurityManager implements SecurityManager {
+public class DummySecurityManager implements SecurityController {
 
     public boolean checkCredentials(Credential c) {
         return true;

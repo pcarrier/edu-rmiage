@@ -4,19 +4,22 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import rmiage.common.login.LoginController;
-import rmiage.client.controller.ConnectionException;
+import rmiage.client.gui.LoginWindow;
+import rmiage.common.interfaces.LoginController;
+import rmiage.client.gui.MainWindow;
 import rmiage.common.security.Credential;
 import rmiage.common.security.InvalidCredentialException;
+import rmiage.common.interfaces.SessionController;
 
 /**
- * The SessoinManager is used for managing (connecting and disconnecting) the user.
+ * The SessionManager is used for managing (connecting and disconnecting) the user.
  */
 
 public class SessionManager {
 
     protected Credential credentials;
     private String uri;
+    private SessionController sessionController;
 
     public SessionManager(Credential credentials, String uri)
             throws InvalidCredentialException {
@@ -31,7 +34,8 @@ public class SessionManager {
     public void connect() throws ConnectionException {
         try {
             LoginController loginController = (LoginController) Naming.lookup(uri);
-            loginController.launchSession(credentials);
+            sessionController = loginController.launchSession(credentials);
+            MainWindow main = new MainWindow(this);
         } catch (NotBoundException ex) {
             throw new ConnectionException("cannot bind");
         } catch (MalformedURLException ex) {
@@ -42,5 +46,10 @@ public class SessionManager {
     }
 
     public void close() {
+        new LoginWindow().setVisible(true);
+    }
+
+    public SessionController getSessionController() {
+        return sessionController;
     }
 }
