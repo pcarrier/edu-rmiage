@@ -27,8 +27,10 @@ public class MainController {
     public void init(String[] cmdLineParams) throws ConnectionException {
         try {
             settingsController = new SettingsController(cmdLineParams);
-            connectionManager = new ConnectionManager(settingsController.getRmiPort());
             loginController = new StandardLoginController();
+            connectionManager = new ConnectionManager(settingsController.getRmiPort(), settingsController.getURI(),loginController);
+            connectionManager.connect();
+            
         } catch (RemoteException ex) {
             throw new ConnectionException("Can't instanciate the StandardLoginController");
         }

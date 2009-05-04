@@ -33,7 +33,9 @@ public class SessionManager {
             LoginController loginController = (LoginController) Naming.lookup(uri);
             loginController.launchSession(credentials);
         } catch (NotBoundException ex) {
+        	System.out.println(ex);
             throw new ConnectionException("cannot bind");
+            
         } catch (MalformedURLException ex) {
             throw new ConnectionException("Invalid URI");
         } catch (RemoteException ex) {
