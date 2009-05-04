@@ -17,7 +17,7 @@ public class StandardSessionController extends UnicastRemoteObject implements Se
         super();
     }
 
-    public synchronized ServerMessage getServerMessage() {
+    public synchronized ServerMessage getServerMessage() throws RemoteException{
         ServerMessage ret;
         while (serverMessage == null) {
             try {
@@ -32,7 +32,7 @@ public class StandardSessionController extends UnicastRemoteObject implements Se
         return serverMessage;
     }
 
-    public synchronized ClientMessage getClientMessage() {
+    public synchronized ClientMessage getClientMessage() throws RemoteException{
         ClientMessage ret;
         while (clientMessage == null) {
             try {
@@ -47,7 +47,7 @@ public class StandardSessionController extends UnicastRemoteObject implements Se
         return clientMessage;
     }
 
-    public synchronized void sendMessageToServer(ClientMessage msg) {
+    public synchronized void sendMessageToServer(ClientMessage msg) throws RemoteException{
         while (clientMessage != null) {
             try {
                 this.wait();
@@ -59,7 +59,7 @@ public class StandardSessionController extends UnicastRemoteObject implements Se
         this.notifyAll();
     }
 
-    public synchronized void sendMessageToClient(ServerMessage msg) {
+    public synchronized void sendMessageToClient(ServerMessage msg) throws RemoteException{
         while (serverMessage != null) {
             try {
                 this.wait();

@@ -55,6 +55,7 @@ public class SessionManager {
             } catch (RefusedCredentialException ex1) {
                 throw new ConnectionException("Server refused credentials");
             } catch (Throwable ex1) {
+            	System.err.println(ex1);
                 throw new ConnectionException("Remote error");
             }
         }
