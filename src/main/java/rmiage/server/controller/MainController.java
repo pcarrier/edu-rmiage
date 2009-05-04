@@ -27,10 +27,10 @@ public class MainController {
         settingsController = new SettingsController(cmdLineParams);
         connectionManager = new ConnectionManager(settingsController.getRmiPort());
         try {
-			connectionManager.bind(settingsController.getURI(), new StandardLoginController());
-		} catch (RemoteException e) {
-			throw new ConnectionException("Can't instanciate the StandardLoginController");
-		}
+            connectionManager.bind(settingsController.getURI(), new StandardLoginController());
+        } catch (RemoteException e) {
+            throw new ConnectionException("Can't instanciate the StandardLoginController");
+        }
     }
 
     public static void main(String[] args) {

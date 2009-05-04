@@ -138,8 +138,8 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectButtonActionPerformed
         removeErrorMessage();
+        setButtonsEnabled(false);
         try {
-            setButtonsEnabled(false);
             SessionManager sm = new SessionManager(
                     new StandardCredential(loginField.getText(),
                     new String(passwordField.getPassword())),
