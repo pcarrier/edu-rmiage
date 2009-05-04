@@ -13,7 +13,7 @@ public class StandardLoginController extends UnicastRemoteObject implements Logi
 	 */
 	private static final long serialVersionUID = 5730233503923240706L;
 
-	protected StandardLoginController() throws RemoteException {
+	public StandardLoginController() throws RemoteException {
 		super();
 		// TODO Auto-generated constructor stub
 	}
