@@ -27,7 +27,8 @@ public class MainController {
         settingsController = new SettingsController(cmdLineParams);
         int RMIPort = settingsController.getRmiPort();
         connectionManager = new ConnectionManager(RMIPort);
-        connectionManager.bind("rmi://127.0.0.1/login", StandardLoginController.class);
+        connectionManager.bind("rmi://127.0.0.1/login", new StandardLoginController());
+		
     }
 
     public static void main(String[] args) {
