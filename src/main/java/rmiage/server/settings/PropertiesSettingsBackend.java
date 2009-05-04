@@ -1,5 +1,6 @@
 package rmiage.server.settings;
 
+import rmiage.server.exceptions.SettingsException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;

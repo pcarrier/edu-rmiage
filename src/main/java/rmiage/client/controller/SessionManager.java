@@ -4,12 +4,15 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import rmiage.client.gui.LoginWindow;
 import rmiage.common.interfaces.LoginController;
 import rmiage.client.gui.MainWindow;
 import rmiage.common.security.Credential;
 import rmiage.common.security.InvalidCredentialException;
 import rmiage.common.interfaces.SessionController;
+import rmiage.common.security.RefusedCredentialException;
 
 /**
  * The SessionManager is used for managing (connecting and disconnecting) the user.
@@ -39,24 +42,28 @@ public class SessionManager {
             LoginController loginController = (LoginController) Naming.lookup(uri);
             sessionController = loginController.launchSession(credentials);
             MainWindow main = new MainWindow(this);
+            main.setVisible(true);
         } catch (NotBoundException ex) {
             System.out.println(ex);
-            throw new ConnectionException("cannot bind");
+            throw new ConnectionException("Cannot bind");
         } catch (MalformedURLException ex) {
             System.out.println(ex);
             throw new ConnectionException("Invalid URI");
         } catch (RemoteException ex) {
-            System.out.println(ex);
-            throw new ConnectionException("remote error");
+            try {
+                throw ex.getCause();
+            } catch (RefusedCredentialException ex1) {
+                throw new ConnectionException("Server refused credentials");
+            } catch (Throwable ex1) {
+                throw new ConnectionException("Remote error");
+            }
         }
     }
 
     /**
      * Ends the connection between the client and the server
      */
-    
     public void close() {
-        new LoginWindow().setVisible(true);
     }
 
     public SessionController getSessionController() {

@@ -7,7 +7,8 @@ import rmiage.common.messages.ServerMessage;
 
 public interface SessionController extends Remote{
 
-    public ServerMessage getMessage();
-
-    public void sendMessage(ClientMessage msg);
+    public ServerMessage getServerMessage();
+    public ClientMessage getClientMessage();
+    public void sendMessageToServer(ClientMessage msg);
+    public void sendMessageToClient(ServerMessage msg);
 }

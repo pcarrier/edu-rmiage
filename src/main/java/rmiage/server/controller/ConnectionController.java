@@ -1,5 +1,6 @@
-package rmiage.server.connection;
+package rmiage.server.controller;
 
+import rmiage.server.exceptions.ConnectionException;
 import java.rmi.AccessException;
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
@@ -7,7 +8,7 @@ import java.rmi.registry.Registry;
 
 import rmiage.common.interfaces.LoginController;
 
-public class ConnectionManager {
+public class ConnectionController {
 
     protected Registry registry;
     protected LoginController loginController;
@@ -19,7 +20,7 @@ public class ConnectionManager {
      * @param port
      * @throws ConnectionException
      */
-    public ConnectionManager(int port, String uri, LoginController loginController) throws ConnectionException {
+    public ConnectionController(int port, String uri, LoginController loginController) throws ConnectionException {
         if (uri == null) {
             throw new ConnectionException("bind : Server uri can't be null");
         }

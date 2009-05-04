@@ -3,21 +3,36 @@ package rmiage.app.server;
 import java.rmi.RemoteException;
 
 import rmiage.common.interfaces.SecurityController;
-import rmiage.server.connection.ConnectionException;
-import rmiage.server.connection.ConnectionManager;
+import rmiage.server.exceptions.ConnectionException;
+import rmiage.server.controller.ConnectionController;
+import rmiage.server.controller.ClassesManager;
 import rmiage.server.controller.StandardLoginController;
-import rmiage.server.settings.SettingsException;
 import rmiage.server.settings.SettingsController;
 
 public class MainController {
 
+    public MainController(String[] args) throws ConnectionException {
+        init(args);
+    }
     protected SettingsController settingsController;
-    protected ConnectionManager connectionManager;
+    protected ConnectionController connectionController;
     protected StandardLoginController loginController;
     protected SecurityController securityController;
 
-    public MainController(String[] args) throws ConnectionException {
-        init(args);
+    public SettingsController getSettingsController() {
+        return settingsController;
+    }
+
+    public ConnectionController getConnectionController() {
+        return connectionController;
+    }
+
+    public StandardLoginController getLoginController() {
+        return loginController;
+    }
+
+    public SecurityController getSecurityController() {
+        return securityController;
     }
 
     /**
@@ -28,31 +43,30 @@ public class MainController {
      * @throws RemoteException
      */
     public void init(String[] cmdLineParams) throws ConnectionException {
+        settingsController = new SettingsController(cmdLineParams);
+        securityController = (SecurityController) ClassesManager.createInstance(
+                settingsController.getSecurityControllerDescription());
         try {
             loginController = new StandardLoginController(this);
-            settingsController = new SettingsController(cmdLineParams);
-            connectionManager = new ConnectionManager(settingsController.getRmiPort(), settingsController.getURI(), loginController);
-            connectionManager.connect();
+            connectionController = new ConnectionController(
+                    settingsController.getRmiPort(),
+                    settingsController.getURI(),
+                    loginController);
+            connectionController.connect();
         } catch (RemoteException ex) {
-            throw new ConnectionException("Can't instanciate the StandardLoginController");
+            throw new ConnectionException("Network error during initialization!");
         }
+
+
     }
 
     public static void main(String[] args) {
         MainController controller = null;
         try {
             controller = new MainController(args);
-        } catch (SettingsException ex) {
+        } catch (Exception ex) {
             System.err.println(ex.getMessage());
-        } catch (ConnectionException ex) {
-            System.err.println(ex.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
+            ex.printStackTrace();
         }
-    }
-
-    @Override
-    public void finalize() {
-        System.out.println("Server stopped!");
     }
 }

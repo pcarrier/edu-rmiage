@@ -1,9 +1,6 @@
 package rmiage.common.messages;
 
-public class ServerMessage {
-
-    public Type messageType;
-    public Object[] information;
+public class ServerMessage extends Message {
 
     public enum Type {
 

@@ -1,5 +1,6 @@
 package rmiage.server.storage;
 
+import rmiage.server.exceptions.ContentNotFoundException;
 import java.util.Hashtable;
 import java.util.UUID;
 

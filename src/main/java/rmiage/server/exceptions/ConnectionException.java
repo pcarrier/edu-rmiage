@@ -1,4 +1,4 @@
-package rmiage.server.connection;
+package rmiage.server.exceptions;
 
 public class ConnectionException extends Exception {
 

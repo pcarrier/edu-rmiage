@@ -1,5 +1,7 @@
 package rmiage.server.storage;
 
+import rmiage.server.exceptions.ContentNotFoundException;
+
 public interface Backend {
 
     /**

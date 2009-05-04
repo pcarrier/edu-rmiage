@@ -1,5 +1,7 @@
 package rmiage.server.settings;
 
+import rmiage.server.exceptions.SettingsException;
+import rmiage.server.controller.ClassesManager;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -17,12 +19,12 @@ public class SettingsController {
                     "rmiage.settingsloader",
                     "rmiage.server.settings.PropertiesSettingsBackend");
             /*
-             * Class backendClass = ClassLoader.loadClass(backendClassName); if
+             * Class backendClass = ClassesManager.loadClass(backendClassName); if
              * (backend != null) { backend = (SettingsBackend)
              * backendClass.newInstance(); } else { //TODO
              * System.err.println("TODO SettingController backend was null"); }
              */
-            backend = (SettingsBackend) ClassLoader.createInstance(backendClassName);
+            backend = (SettingsBackend) ClassesManager.createInstance(backendClassName);
             backend.giveCommandLine(cmdlineParams);
         } catch (Exception ex) {
             throw new SettingsException(ex.getMessage());
@@ -71,7 +73,7 @@ public class SettingsController {
         return (modLstStr.split(";"));
     }
 
-    public String getSecurityManagerDescription() {
-        return (backend.getOption("SecurityManager"));
+    public String getSecurityControllerDescription() {
+        return (backend.getOption("SecurityController"));
     }
 }

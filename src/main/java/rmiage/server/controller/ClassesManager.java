@@ -1,6 +1,6 @@
-package rmiage.server.settings;
+package rmiage.server.controller;
 
-public class ClassLoader {
+public class ClassesManager {
 
     public static Class loadClass(String name) {
         Class res = null;

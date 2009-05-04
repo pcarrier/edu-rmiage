@@ -1,4 +1,4 @@
-package rmiage.server.settings;
+package rmiage.server.exceptions;
 
 public class SettingsException extends RuntimeException {
 

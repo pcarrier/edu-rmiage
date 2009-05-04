@@ -1,4 +1,4 @@
-package rmiage.server.storage;
+package rmiage.server.exceptions;
 
 public class ContentNotFoundException extends Exception {
 

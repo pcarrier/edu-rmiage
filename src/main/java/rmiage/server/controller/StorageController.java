@@ -1,8 +1,10 @@
-package rmiage.server.storage;
+package rmiage.server.controller;
 
+import rmiage.server.storage.*;
+import rmiage.server.exceptions.StorageException;
 import java.util.Hashtable;
 
-import rmiage.server.settings.ClassLoader;
+import rmiage.server.controller.ClassesManager;
 
 public class StorageController {
 
@@ -29,7 +31,7 @@ public class StorageController {
 
                 // backendClass = Class.forName(backendDescrs.get(backId));
                 // backend = (Backend) backendClass.newInstance();
-                backend = (Backend) ClassLoader.createInstance(backendDescrs.get(backId));
+                backend = (Backend) ClassesManager.createInstance(backendDescrs.get(backId));
                 backAss.put(backId, backend);
             /*
              * } catch (InstantiationException ex) { throw new
