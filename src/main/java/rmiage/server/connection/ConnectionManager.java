@@ -16,8 +16,9 @@ public class  ConnectionManager {
 	public ConnectionManager(int port) throws ConnectionException {
         try {
 			registry = java.rmi.registry.LocateRegistry.createRegistry(port);
+			//System.out.println("Rmiregistry started on port "+port);
 		} catch (RemoteException e) {
-			throw new ConnectionException("The server cannot start.");
+			throw new ConnectionException("ConnectionManager : The server cannot start.");
 		}
 	}
 	
@@ -29,7 +30,7 @@ public class  ConnectionManager {
 						this.registry.unbind(bound);
 				}
 			} catch (Exception e) {
-				System.out.println("An error occured while stopping.");
+				System.out.println("ConnectionManager : An error occured while stopping.");
 				e.printStackTrace();
 			}
 		}
@@ -39,14 +40,14 @@ public class  ConnectionManager {
 	public void bind(String uri, LoginController loginController) throws ConnectionException{
 		if (this.registry != null) {
 			try {
-                System.out.println(uri);
 				this.registry.bind(uri, loginController);
+				//System.out.println("Server bound to '"+uri+"'");
 			} catch (AccessException e) {
-				throw new ConnectionException("Le serveur ne peut acceder au registre rmi.");
+				throw new ConnectionException("ConnectionManager : AccessException");
 			} catch (RemoteException e) {
-				throw new ConnectionException("Le serveur ne peut acceder au registre rmi.");
+				throw new ConnectionException("ConnectionManager : RemoteException");
 			} catch (AlreadyBoundException e) {
-				throw new ConnectionException("Le serveur a deja bind cette uri");
+				throw new ConnectionException("ConnectionManager : Already bound.");
 			}
 		}
 	}

@@ -14,15 +14,10 @@ public class StandardLoginController extends UnicastRemoteObject implements Logi
 	 */
 	private static final long serialVersionUID = 5730233503923240706L;
 
-	public StandardLoginController() throws ConnectionException{
-		try{
+	public StandardLoginController() throws RemoteException{
 			super();
-		}catch(Exception e){
-			throw ConnectionException("Le StandardLoginController ne peut s'instancier.");
 		}
-		
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	public SessionController launchSession(Credential credential) {
         System.out.println("Comme c'est chou !");
