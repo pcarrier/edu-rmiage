@@ -22,7 +22,7 @@ public class SessionManager {
     private SessionController sessionController;
 
     public SessionManager(Credential credentials, String uri)
-            throws InvalidCredentialException {
+            throws InvalidCredentialException, RemoteException {
         this.uri = uri;
         if (credentials.checkValid()) {
             this.credentials = credentials;
@@ -39,10 +39,11 @@ public class SessionManager {
         } catch (NotBoundException ex) {
         	System.out.println(ex);
             throw new ConnectionException("cannot bind");
-            
         } catch (MalformedURLException ex) {
+        	System.out.println(ex);
             throw new ConnectionException("Invalid URI");
         } catch (RemoteException ex) {
+        	System.out.println(ex);
             throw new ConnectionException("remote error");
         }
     }
