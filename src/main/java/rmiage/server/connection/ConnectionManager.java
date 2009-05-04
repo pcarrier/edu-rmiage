@@ -11,7 +11,13 @@ import rmiage.common.login.LoginController;
 public class  ConnectionManager {
 
 	protected Registry registry;
-	
+
+	/**
+	 * Launch the server at a specific port location
+	 * 
+	 * @param port
+	 * @throws ConnectionException
+	 */
 	
 	public ConnectionManager(int port) throws ConnectionException {
         try {
@@ -21,6 +27,10 @@ public class  ConnectionManager {
 			throw new ConnectionException("ConnectionManager : The server cannot start.");
 		}
 	}
+	
+	/**
+	 * Properly stops the Rmiregistry by unbinding each uri.
+	 */
 	
 	public void stop(){
 		if (this.registry != null) {
@@ -36,6 +46,14 @@ public class  ConnectionManager {
 		}
 		System.out.println("Rmiregistry Stoped");
 	}
+	
+	/**
+	 * Binds one more uri to the Rmiregistry
+	 * 
+	 * @param uri
+	 * @param loginController
+	 * @throws ConnectionException
+	 */
 	
 	public void bind(String uri, LoginController loginController) throws ConnectionException{
 		if(uri == null){

@@ -9,6 +9,10 @@ import rmiage.client.controller.ConnectionException;
 import rmiage.common.security.Credential;
 import rmiage.common.security.InvalidCredentialException;
 
+/**
+ * The SessoinManager is used for managing (connecting and disconnecting) the user.
+ */
+
 public class SessionManager {
 
     protected Credential credentials;
