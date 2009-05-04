@@ -3,6 +3,7 @@ package rmiage.server.controller;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
+import rmiage.app.server.MainController;
 import rmiage.common.interfaces.LoginController;
 import rmiage.common.interfaces.SessionController;
 import rmiage.common.security.Credential;

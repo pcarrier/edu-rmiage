@@ -1,10 +1,11 @@
-package rmiage.server.controller;
+package rmiage.app.server;
 
 import java.rmi.RemoteException;
 
 import rmiage.common.interfaces.SecurityController;
 import rmiage.server.connection.ConnectionException;
 import rmiage.server.connection.ConnectionManager;
+import rmiage.server.controller.StandardLoginController;
 import rmiage.server.settings.SettingsException;
 import rmiage.server.settings.SettingsController;
 
