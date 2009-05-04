@@ -1,2 +1,3 @@
 #!/bin/sh
-java -classpath target/classes rmiage.server.controller.MainController --config-file=example-config.properties
+mvn package
+java -cp target/rmiage-1.0-SNAPSHOT.jar rmiage.server.controller.MainController --config-file=example-config.properties
