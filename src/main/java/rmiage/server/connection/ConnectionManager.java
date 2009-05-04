@@ -18,7 +18,7 @@ public class  ConnectionManager {
 			registry = java.rmi.registry.LocateRegistry.createRegistry(port);
 			//System.out.println("Rmiregistry started on port "+port);
 		} catch (RemoteException e) {
-			throw new ConnectionException("ConnectionManager : The server cannot start.");
+			throw new ConnectionException("ConnectionManager : The server cannot start."+e);
 		}
 	}
 	
