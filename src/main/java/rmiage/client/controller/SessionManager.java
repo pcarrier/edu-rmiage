@@ -51,6 +51,10 @@ public class SessionManager {
         }
     }
 
+    /**
+     * Ends the connection between the client and the server
+     */
+    
     public void close() {
         new LoginWindow().setVisible(true);
     }
