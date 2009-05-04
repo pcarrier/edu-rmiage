@@ -37,7 +37,9 @@ public class SessionManager {
             sessionController = loginController.launchSession(credentials);
             MainWindow main = new MainWindow(this);
         } catch (NotBoundException ex) {
+        	System.out.println(ex);
             throw new ConnectionException("cannot bind");
+            
         } catch (MalformedURLException ex) {
             throw new ConnectionException("Invalid URI");
         } catch (RemoteException ex) {

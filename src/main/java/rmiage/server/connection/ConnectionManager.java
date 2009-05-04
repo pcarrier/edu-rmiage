@@ -2,7 +2,6 @@ package rmiage.server.connection;
 
 import java.rmi.AccessException;
 import java.rmi.AlreadyBoundException;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
 
@@ -11,7 +10,9 @@ import rmiage.common.interfaces.LoginController;
 public class  ConnectionManager {
 
 	protected Registry registry;
-
+	protected LoginController loginController;
+	protected String uri;
+	
 	/**
 	 * Launch the server at a specific port location
 	 * 
@@ -19,13 +20,22 @@ public class  ConnectionManager {
 	 * @throws ConnectionException
 	 */
 	
-	public ConnectionManager(int port) throws ConnectionException {
+	public ConnectionManager(int port, String uri, LoginController loginController) throws ConnectionException {
+		if(uri == null){
+			throw new ConnectionException("bind : Server uri can't be null");
+		}
+		if(loginController == null){
+			throw new ConnectionException("bind : param loginController can't be null");
+		}
         try {
 			registry = java.rmi.registry.LocateRegistry.createRegistry(port);
-			//System.out.println("Rmiregistry started on port "+port);
+			System.out.println("Rmiregistry started on port "+port);
 		} catch (RemoteException e) {
 			throw new ConnectionException("ConnectionManager : The server cannot start."+e);
 		}
+		this.uri = uri;
+		this.loginController=loginController;
+		
 	}
 	
 	/**
@@ -55,17 +65,12 @@ public class  ConnectionManager {
 	 * @throws ConnectionException
 	 */
 	
-	public void bind(String uri, LoginController loginController) throws ConnectionException{
-		if(uri == null){
-			throw new ConnectionException("bind : Server uri can't be null");
-		}
-		if(loginController == null){
-			throw new ConnectionException("bind : param loginController can't be null");
-		}
+	public void connect() throws ConnectionException{
+		
 		if (this.registry != null) {
 			try {
 				this.registry.bind(uri, loginController);
-				//System.out.println("Server bound to '"+uri+"'");
+				System.out.println("Server bound to '"+uri+"'");
 			} catch (AccessException e) {
 				throw new ConnectionException("ConnectionManager : AccessException");
 			} catch (RemoteException e) {
