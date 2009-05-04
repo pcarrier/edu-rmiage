@@ -59,7 +59,7 @@ public class ConnectionController {
      * @throws ConnectionException
      */
     public void connect() throws ConnectionException {
-        String res = main.getSettingsController().getURI();
+        String res = main.getSettingsController().getRessourceName();
         try {
             this.registry.bind(res,
                     main.getLoginController());

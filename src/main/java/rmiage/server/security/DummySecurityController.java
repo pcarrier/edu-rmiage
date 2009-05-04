@@ -9,6 +9,11 @@ import rmiage.common.security.Credential;
  */
 public class DummySecurityController implements SecurityController {
 
+	/**
+	 * Check the credential
+	 * @param c the credential to test.
+	 * @return Always true.
+	 */
     public boolean checkCredentials(Credential c) {
         return true;
     }
