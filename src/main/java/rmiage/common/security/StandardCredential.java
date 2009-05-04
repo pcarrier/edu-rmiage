@@ -9,14 +9,14 @@ import java.rmi.server.UnicastRemoteObject;
 public class StandardCredential extends UnicastRemoteObject implements Credential {
 
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = -2615031637715727970L;
-	protected String login;
+     *
+     */
+    private static final long serialVersionUID = -2615031637715727970L;
+    protected String login;
     protected String password;
 
     public StandardCredential() throws RemoteException {
-    	super();
+        super();
         throw new IllegalArgumentException();
     }
 
@@ -25,7 +25,7 @@ public class StandardCredential extends UnicastRemoteObject implements Credentia
      * @param login the user's login
      * @param password the user's password
      */
-    public StandardCredential(String login, String password) throws RemoteException  {
+    public StandardCredential(String login, String password) throws RemoteException {
         this.login = login;
         this.password = password;
     }

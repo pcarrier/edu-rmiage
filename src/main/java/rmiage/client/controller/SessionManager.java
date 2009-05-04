@@ -14,7 +14,6 @@ import rmiage.common.interfaces.SessionController;
 /**
  * The SessionManager is used for managing (connecting and disconnecting) the user.
  */
-
 public class SessionManager {
 
     protected Credential credentials;
@@ -30,25 +29,24 @@ public class SessionManager {
             throw new InvalidCredentialException();
         }
     }
-    
+
     /**
      * Starts the connection between the client and the server
      * @throws ConnectionException
      */
-    
     public void connect() throws ConnectionException {
         try {
             LoginController loginController = (LoginController) Naming.lookup(uri);
             sessionController = loginController.launchSession(credentials);
             MainWindow main = new MainWindow(this);
         } catch (NotBoundException ex) {
-        	System.out.println(ex);
+            System.out.println(ex);
             throw new ConnectionException("cannot bind");
         } catch (MalformedURLException ex) {
-        	System.out.println(ex);
+            System.out.println(ex);
             throw new ConnectionException("Invalid URI");
         } catch (RemoteException ex) {
-        	System.out.println(ex);
+            System.out.println(ex);
             throw new ConnectionException("remote error");
         }
     }

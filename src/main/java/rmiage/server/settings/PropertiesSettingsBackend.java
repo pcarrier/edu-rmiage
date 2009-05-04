@@ -9,7 +9,6 @@ import java.util.Properties;
  * Loads all server's properties, they are stocked in a file,
  * the path of this file is given as a parameter at the server's launch.
  */
-
 public class PropertiesSettingsBackend implements SettingsBackend {
 
     protected Properties properties;
@@ -36,6 +35,6 @@ public class PropertiesSettingsBackend implements SettingsBackend {
     }
 
     public String getOption(String optionName) {
-        return(properties.getProperty(optionName));
+        return (properties.getProperty(optionName));
     }
 }

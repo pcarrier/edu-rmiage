@@ -6,5 +6,4 @@ public class MainController {
         GuiManager guiManager = new GuiManager();
         guiManager.startGUI();
     }
-
 }

@@ -9,6 +9,7 @@ import rmiage.common.security.Credential;
 import rmiage.common.security.RefusedCredentialException;
 
 public class StandardLoginController extends UnicastRemoteObject implements LoginController {
+
     private static final long serialVersionUID = 5730233503923240706L;
     private MainController main;
 
@@ -19,6 +20,6 @@ public class StandardLoginController extends UnicastRemoteObject implements Logi
 
     public SessionController launchSession(Credential credential) throws RemoteException, RefusedCredentialException {
         //TODO
-        return((SessionController) null);
+        return ((SessionController) null);
     }
 }
