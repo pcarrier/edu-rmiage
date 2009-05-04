@@ -13,13 +13,15 @@ public class SessionManager {
 
     protected Credential credentials;
     private String uri;
+
     public SessionManager(Credential credentials, String uri)
             throws InvalidCredentialException {
         this.uri = uri;
-        if (credentials.checkValid())
+        if (credentials.checkValid()) {
             this.credentials = credentials;
-        else
+        } else {
             throw new InvalidCredentialException();
+        }
     }
 
     public void connect() throws ConnectionException {
@@ -35,6 +37,5 @@ public class SessionManager {
     }
 
     public void close() {
-        
     }
 }

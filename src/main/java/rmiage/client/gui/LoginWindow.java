@@ -8,7 +8,6 @@
  *
  * Created on 2 mai 2009, 15:41:53
  */
-
 package rmiage.client.gui;
 
 import java.util.logging.Level;
@@ -60,11 +59,6 @@ public class LoginWindow extends javax.swing.JFrame {
         setResizable(false);
 
         loginField.setText("anonymous");
-        loginField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginFieldActionPerformed(evt);
-            }
-        });
 
         uriField.setText("rmi://rmiagedemo/app");
 
@@ -75,11 +69,7 @@ public class LoginWindow extends javax.swing.JFrame {
         uriLabel.setText("URI:");
 
         registerButton.setText("register");
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerButtonActionPerformed(evt);
-            }
-        });
+        registerButton.setEnabled(false);
 
         connectButton.setText("connect");
         connectButton.addActionListener(new java.awt.event.ActionListener() {
@@ -144,10 +134,6 @@ public class LoginWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_registerButtonActionPerformed
-
     private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectButtonActionPerformed
         removeErrorMessage();
         try {
@@ -161,15 +147,12 @@ public class LoginWindow extends javax.swing.JFrame {
         }
 }//GEN-LAST:event_connectButtonActionPerformed
 
-    private void loginFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginFieldActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_loginFieldActionPerformed
-
     /**
-    * @param args the command line arguments
-    */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new LoginWindow().setVisible(true);
             }
@@ -187,5 +170,4 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JTextField uriField;
     private javax.swing.JLabel uriLabel;
     // End of variables declaration//GEN-END:variables
-
 }

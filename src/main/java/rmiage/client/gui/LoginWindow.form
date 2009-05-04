@@ -88,9 +88,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="anonymous"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginFieldActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="passwordField">
     </Component>
@@ -117,10 +114,8 @@
     <Component class="javax.swing.JButton" name="registerButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="register"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerButtonActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="connectButton">
       <Properties>
