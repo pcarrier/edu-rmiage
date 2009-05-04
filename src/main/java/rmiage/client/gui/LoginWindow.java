@@ -10,7 +10,7 @@
  */
 package rmiage.client.gui;
 
-import rmiage.client.controller.SessionManager;
+import rmiage.client.controller.NetworkManager;
 import rmiage.common.security.StandardCredential;
 
 /**
@@ -140,7 +140,7 @@ public class LoginWindow extends javax.swing.JFrame {
         removeErrorMessage();
         setButtonsEnabled(false);
         try {
-            SessionManager sm = new SessionManager(
+            NetworkManager sm = new NetworkManager(
                     new StandardCredential(loginField.getText(),
                     new String(passwordField.getPassword())),
                     uriField.getText());

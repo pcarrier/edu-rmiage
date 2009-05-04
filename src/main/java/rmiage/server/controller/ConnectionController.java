@@ -1,18 +1,23 @@
 package rmiage.server.controller;
 
+import java.rmi.NotBoundException;
 import rmiage.server.exceptions.ConnectionException;
 import java.rmi.AccessException;
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
 
-import rmiage.common.interfaces.LoginController;
+import rmiage.app.server.MainController;
 
 public class ConnectionController {
 
     protected Registry registry;
-    protected LoginController loginController;
-    protected String uri;
+    protected MainController main;
+
+    protected ConnectionController() {
+        super();
+    }
+    ;
 
     /**
      * Launch the server at a specific port location
@@ -20,62 +25,51 @@ public class ConnectionController {
      * @param port
      * @throws ConnectionException
      */
-    public ConnectionController(int port, String uri, LoginController loginController) throws ConnectionException {
-        if (uri == null) {
-            throw new ConnectionException("bind : Server uri can't be null");
-        }
-        if (loginController == null) {
-            throw new ConnectionException("bind : param loginController can't be null");
-        }
+    public ConnectionController(MainController main)
+            throws ConnectionException {
+        this();
+        this.main = main;
+        init();
+    }
+
+    protected void init() throws ConnectionException {
+        int port = main.getSettingsController().getRmiPort();
         try {
             registry = java.rmi.registry.LocateRegistry.createRegistry(port);
-            System.out.println("Rmiregistry started on port " + port);
+            System.out.println("RMIRegistry started on port " + port);
         } catch (RemoteException e) {
-            throw new ConnectionException("ConnectionManager : The server cannot start." + e);
+            throw new ConnectionException(
+                    "ConnectionManager : The server cannot start: " + e.getMessage());
         }
-        this.uri = uri;
-        this.loginController = loginController;
-
     }
 
     /**
-     * Properly stops the Rmiregistry by unbinding each uri.
+     * Properly stops the Rmiregistry by unbinding each res.
      */
-    public void stop() {
-        if (this.registry != null) {
-            try {
-                //Unbind each bounded uri.
-                for (String bound : this.registry.list()) {
-                    this.registry.unbind(bound);
-                }
-            } catch (Exception e) {
-                System.out.println("ConnectionManager : An error occured while stopping.");
-                e.printStackTrace();
-            }
+    public void stop() throws RemoteException, NotBoundException {
+        //Unbind each bounded res.
+        for (String bound : this.registry.list()) {
+            this.registry.unbind(bound);
         }
-        System.out.println("Rmiregistry Stoped");
+        System.out.println("RMIRegistry stopped");
     }
 
     /**
-     * Binds one more uri to the Rmiregistry
-     *
-     * @param uri
-     * @param loginController
+     * Binds one more res to the RMIRegistry
      * @throws ConnectionException
      */
     public void connect() throws ConnectionException {
-
-        if (this.registry != null) {
-            try {
-                this.registry.bind(uri, loginController);
-                System.out.println("Server bound to '" + uri + "'");
-            } catch (AccessException e) {
-                throw new ConnectionException("ConnectionManager : AccessException");
-            } catch (RemoteException e) {
-                throw new ConnectionException("ConnectionManager : RemoteException");
-            } catch (AlreadyBoundException e) {
-                throw new ConnectionException("ConnectionManager : Already bound.");
-            }
+        String res = main.getSettingsController().getURI();
+        try {
+            this.registry.bind(res,
+                    main.getLoginController());
+            System.out.println("Server bound to '" + res + "'");
+        } catch (AccessException e) {
+            throw new ConnectionException("ConnectionController: AccessException");
+        } catch (RemoteException e) {
+            throw new ConnectionException("ConnectionController: RemoteException");
+        } catch (AlreadyBoundException e) {
+            throw new ConnectionException("ConnectionController: Already bound.");
         }
     }
 }

@@ -2,6 +2,9 @@ package rmiage.server.controller;
 
 public class ClassesManager {
 
+    private ClassesManager() {
+    }
+
     public static Class loadClass(String name) {
         Class res = null;
         try {

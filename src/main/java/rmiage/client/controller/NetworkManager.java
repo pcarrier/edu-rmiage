@@ -4,8 +4,6 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import rmiage.client.gui.LoginWindow;
 import rmiage.common.interfaces.LoginController;
 import rmiage.client.gui.MainWindow;
@@ -15,15 +13,16 @@ import rmiage.common.interfaces.SessionController;
 import rmiage.common.security.RefusedCredentialException;
 
 /**
- * The SessionManager is used for managing (connecting and disconnecting) the user.
+ * The NetworkManager is used for managing (connecting and disconnecting) the user.
  */
-public class SessionManager {
+public class NetworkManager {
 
     protected Credential credentials;
-    private String uri;
-    private SessionController sessionController;
+    protected String uri;
+    protected SessionController sessionController;
+    protected MainWindow mainWindow;
 
-    public SessionManager(Credential credentials, String uri)
+    public NetworkManager(Credential credentials, String uri)
             throws InvalidCredentialException, RemoteException {
         this.uri = uri;
         if (credentials.checkValid()) {
@@ -41,8 +40,8 @@ public class SessionManager {
         try {
             LoginController loginController = (LoginController) Naming.lookup(uri);
             sessionController = loginController.launchSession(credentials);
-            MainWindow main = new MainWindow(this);
-            main.setVisible(true);
+            mainWindow = new MainWindow(this);
+            mainWindow.setVisible(true);
         } catch (NotBoundException ex) {
             System.out.println(ex);
             throw new ConnectionException("Cannot bind");
@@ -65,6 +64,10 @@ public class SessionManager {
      * Ends the connection between the client and the server
      */
     public void close() {
+        // Detruira la session cote serveur
+        sessionController = null;
+        mainWindow.dispose();
+        new LoginWindow().setVisible(true);
     }
 
     public SessionController getSessionController() {

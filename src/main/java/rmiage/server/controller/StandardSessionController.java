@@ -3,21 +3,31 @@ package rmiage.server.controller;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
+import java.util.ArrayList;
 import rmiage.common.interfaces.SessionController;
 import rmiage.common.messages.ClientMessage;
 import rmiage.common.messages.ServerMessage;
 
-public class StandardSessionController extends UnicastRemoteObject implements SessionController {
+public class StandardSessionController extends UnicastRemoteObject
+        implements SessionController {
 
     private ServerMessage serverMessage = null;
     private ClientMessage clientMessage = null;
     private static final long serialVersionUID = 5234466488747975638L;
+    protected static ArrayList<StandardSessionController> sessions =
+            new ArrayList<StandardSessionController>();
 
-    protected StandardSessionController() throws RemoteException {
+    public StandardSessionController() throws RemoteException {
         super();
+        sessions.add(this);
     }
 
-    public synchronized ServerMessage getServerMessage() throws RemoteException{
+    public static SessionController[] getCurrentSessions() {
+        return (SessionController[]) sessions.toArray();
+    }
+
+    public synchronized ServerMessage getServerMessage()
+            throws RemoteException {
         ServerMessage ret;
         while (serverMessage == null) {
             try {
@@ -32,7 +42,8 @@ public class StandardSessionController extends UnicastRemoteObject implements Se
         return serverMessage;
     }
 
-    public synchronized ClientMessage getClientMessage() throws RemoteException{
+    public synchronized ClientMessage getClientMessage()
+            throws RemoteException {
         ClientMessage ret;
         while (clientMessage == null) {
             try {
@@ -47,7 +58,8 @@ public class StandardSessionController extends UnicastRemoteObject implements Se
         return clientMessage;
     }
 
-    public synchronized void sendMessageToServer(ClientMessage msg) throws RemoteException{
+    public synchronized void sendMessageToServer(ClientMessage msg)
+            throws RemoteException {
         while (clientMessage != null) {
             try {
                 this.wait();
@@ -59,7 +71,8 @@ public class StandardSessionController extends UnicastRemoteObject implements Se
         this.notifyAll();
     }
 
-    public synchronized void sendMessageToClient(ServerMessage msg) throws RemoteException{
+    public synchronized void sendMessageToClient(ServerMessage msg)
+            throws RemoteException {
         while (serverMessage != null) {
             try {
                 this.wait();

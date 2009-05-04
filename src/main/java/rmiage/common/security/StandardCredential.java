@@ -15,9 +15,8 @@ public class StandardCredential extends UnicastRemoteObject implements Credentia
     protected String login;
     protected String password;
 
-    public StandardCredential() throws RemoteException {
+    protected StandardCredential() throws RemoteException {
         super();
-        throw new IllegalArgumentException();
     }
 
     /**
@@ -26,6 +25,7 @@ public class StandardCredential extends UnicastRemoteObject implements Credentia
      * @param password the user's password
      */
     public StandardCredential(String login, String password) throws RemoteException {
+        this();
         this.login = login;
         this.password = password;
     }

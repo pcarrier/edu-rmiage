@@ -48,10 +48,7 @@ public class MainController {
                 settingsController.getSecurityControllerDescription());
         try {
             loginController = new StandardLoginController(this);
-            connectionController = new ConnectionController(
-                    settingsController.getRmiPort(),
-                    settingsController.getURI(),
-                    loginController);
+            connectionController = new ConnectionController(this);
             connectionController.connect();
         } catch (RemoteException ex) {
             throw new ConnectionException("Network error during initialization!");

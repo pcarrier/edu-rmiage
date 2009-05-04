@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 public class Message implements Serializable, Cloneable {
 
+    protected Message() {
+    }
+    ;
+
     @Override
     public Object clone() {
         try {
