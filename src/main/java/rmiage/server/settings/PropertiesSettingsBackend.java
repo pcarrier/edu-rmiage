@@ -9,8 +9,8 @@ import java.util.Hashtable;
 import java.util.Properties;
 
 /**
- * Loads all server's parameters,
- * the path of the file is given as a parameter at the server's launch
+ * Loads all server's properties, they are stocked in a file,
+ * the path of this file is given as a parameter at the server's launch.
  */
 
 public class PropertiesSettingsBackend implements SettingsBackend {

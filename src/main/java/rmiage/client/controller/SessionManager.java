@@ -17,18 +17,21 @@ public class SessionManager {
 
     protected Credential credentials;
     private String uri;
+
     public SessionManager(Credential credentials, String uri)
             throws InvalidCredentialException {
         this.uri = uri;
-        if (credentials.checkValid())
+        if (credentials.checkValid()) {
             this.credentials = credentials;
-        else
+        } else {
             throw new InvalidCredentialException();
+        }
     }
 
     public void connect() throws ConnectionException {
         try {
             LoginController loginController = (LoginController) Naming.lookup(uri);
+            loginController.launchSession(credentials);
         } catch (NotBoundException ex) {
             throw new ConnectionException("cannot bind");
         } catch (MalformedURLException ex) {
@@ -39,6 +42,5 @@ public class SessionManager {
     }
 
     public void close() {
-        
     }
 }

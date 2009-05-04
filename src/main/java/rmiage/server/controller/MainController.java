@@ -11,7 +11,7 @@ public class MainController {
 
     protected SettingsController settingsController;
     protected ConnectionManager connectionManager;
-    protected StandardLoginController loginControler;
+    protected StandardLoginController loginController;
 
     public MainController(String[] args) throws ConnectionException {
         init(args);
@@ -25,20 +25,17 @@ public class MainController {
      * @throws RemoteException
      */
     public void init(String[] cmdLineParams) throws ConnectionException {
-        settingsController = new SettingsController(cmdLineParams);
-        int RMIPort = settingsController.getRmiPort();
-        connectionManager = new ConnectionManager(RMIPort);
         try {
-        	loginControler=new StandardLoginController();
-			connectionManager.bind(settingsController.getURI(), loginControler);
-		} catch (RemoteException e) {
-			throw new ConnectionException("Can't instanciate the StandardLoginController");
-		}
+            settingsController = new SettingsController(cmdLineParams);
+            connectionManager = new ConnectionManager(settingsController.getRmiPort());
+            loginController = new StandardLoginController();
+        } catch (RemoteException ex) {
+            throw new ConnectionException("Can't instanciate the StandardLoginController");
+        }
     }
 
     public static void main(String[] args) {
         MainController controller = null;
-        
         try {
             controller = new MainController(args);
         } catch (SettingsException ex) {
@@ -50,7 +47,8 @@ public class MainController {
         }
     }
 
+    @Override
     public void finalize() {
-        System.out.println("Server stopped");
+        System.out.println("Server stopped!");
     }
 }

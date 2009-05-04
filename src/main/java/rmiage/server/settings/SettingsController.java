@@ -1,40 +1,31 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package rmiage.server.settings;
 
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-/**
- *
- * @author gcarrier
- */
 public class SettingsController {
 
     protected SettingsBackend backend = null;
 
     public SettingsController(String[] cmdlineParams) {
-		try {
-			String backendClassName = System.getProperty(
-					"rmiage.settingsloader",
+        try {
+            String backendClassName = System.getProperty(
+                    "rmiage.settingsloader",
                     "rmiage.server.settings.PropertiesSettingsBackend");
-			Class backendClass = Class.forName(backendClassName);
-			backend = (SettingsBackend) backendClass.newInstance();
-		} catch (InstantiationException ex) {
-			throw new SettingsException(
-					"Cannot instantiate the settings backend");
-		} catch (IllegalAccessException ex) {
+            Class backendClass = Class.forName(backendClassName);
+            backend = (SettingsBackend) backendClass.newInstance();
+        } catch (InstantiationException ex) {
+            throw new SettingsException(
+                    "Cannot instantiate the settings backend");
+        } catch (IllegalAccessException ex) {
             System.err.println(ex.getMessage());
-			throw new SettingsException(
-					"Illegal access around the settings backend");
-		} catch (ClassNotFoundException ex) {
-			throw new SettingsException(
-					"Settings backend class cannot be found!");
-		}
+            throw new SettingsException(
+                    "Illegal access around the settings backend");
+        } catch (ClassNotFoundException ex) {
+            throw new SettingsException(
+                    "Settings backend class cannot be found!");
+        }
         backend.giveCommandLine(cmdlineParams);
     }
 
@@ -48,11 +39,10 @@ public class SettingsController {
         return res;
     }
 
-    public String getURI(){
-    	String ret;
-    	ret =backend.getOption("MainUri");
-    	return ret;
+    public String getURI() {
+        return (backend.getOption("MainUri"));
     }
+
     public Hashtable<String, String> getBackendAssociationsDescriptions() {
         Hashtable<String, String> res = new Hashtable<String, String>();
         String badLstStr = backend.getOption("Backends");
@@ -68,5 +58,9 @@ public class SettingsController {
         ArrayList<String> modsDescr = new ArrayList<String>();
         String modLstStr = backend.getOption("Modules");
         return (modLstStr.split(";"));
+    }
+
+    public String getSecurityManagerDescription() {
+        return (backend.getOption("SecurityManager"));
     }
 }
