@@ -48,6 +48,11 @@ public class SettingsController {
         return res;
     }
 
+    public String getURI(){
+    	String ret;
+    	ret =backend.getOption("ServerUri");
+    	return ret;
+    }
     public Hashtable<String, String> getBackendAssociationsDescriptions() {
         Hashtable<String, String> res = new Hashtable<String, String>();
         String badLstStr = backend.getOption("Backends");
