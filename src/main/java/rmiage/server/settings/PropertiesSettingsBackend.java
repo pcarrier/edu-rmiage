@@ -3,9 +3,6 @@ package rmiage.server.settings;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.rmi.registry.Registry;
-import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.Properties;
 
 /**
