@@ -7,7 +7,8 @@ public class ClassLoader {
         try {
             res = Class.forName(name);
         } catch (ClassNotFoundException ex) {
-            //TODO
+            // TODO
+        	System.err.println("TODO "+ex);
         } finally {
             return res;
         }
