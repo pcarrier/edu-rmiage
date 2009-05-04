@@ -8,6 +8,11 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Properties;
 
+/**
+ * Loads all server's parameters,
+ * the path of the file is given as a parameter at the server's launch
+ */
+
 public class PropertiesSettingsBackend implements SettingsBackend {
 
     protected Properties properties;
