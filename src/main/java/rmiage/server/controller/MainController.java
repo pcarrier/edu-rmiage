@@ -28,7 +28,7 @@ public class MainController {
         int RMIPort = settingsController.getRmiPort();
         connectionManager = new ConnectionManager(RMIPort);
         try {
-			connectionManager.bind("rmi://127.0.0.1/login", new StandardLoginController());
+			connectionManager.bind(settingsController.getURI(), new StandardLoginController());
 		} catch (RemoteException e) {
 			throw new ConnectionException("Can't instanciate the StandardLoginController");
 		}
@@ -36,6 +36,7 @@ public class MainController {
 
     public static void main(String[] args) {
         MainController controller = null;
+        
         try {
             controller = new MainController(args);
         } catch (SettingsException ex) {

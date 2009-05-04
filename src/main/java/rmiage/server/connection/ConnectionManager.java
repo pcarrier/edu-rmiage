@@ -38,6 +38,12 @@ public class  ConnectionManager {
 	}
 	
 	public void bind(String uri, LoginController loginController) throws ConnectionException{
+		if(uri == null){
+			throw new ConnectionException("bind : Server uri can't be null");
+		}
+		if(loginController == null){
+			throw new ConnectionException("bind : param loginController can't be null");
+		}
 		if (this.registry != null) {
 			try {
 				this.registry.bind(uri, loginController);
