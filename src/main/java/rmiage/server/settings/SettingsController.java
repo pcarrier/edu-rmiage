@@ -83,12 +83,6 @@ public class SettingsController {
 		return res;
 	}
 
-	public String[] getModulesDescriptions() {
-		ArrayList<String> modsDescr = new ArrayList<String>();
-		String modLstStr = backend.getOption("Modules");
-		return (modLstStr.split(";"));
-	}
-
 	public String getSecurityManagerDescription() {
 		return (backend.getOption("SecurityManager"));
 	}
