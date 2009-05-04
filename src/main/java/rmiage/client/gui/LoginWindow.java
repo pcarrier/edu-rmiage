@@ -10,10 +10,7 @@
  */
 package rmiage.client.gui;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import rmiage.client.controller.SessionManager;
-import rmiage.common.security.InvalidCredentialException;
 import rmiage.common.security.StandardCredential;
 
 /**
@@ -33,6 +30,11 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void removeErrorMessage() {
         setErrorMessage("");
+    }
+
+    private void setButtonsEnabled(boolean b) {
+        connectButton.setEnabled(b);
+        registerButton.setEnabled(b);
     }
 
     /** This method is called from within the constructor to
@@ -60,7 +62,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         loginField.setText("anonymous");
 
-        uriField.setText("rmi://rmiagedemo/app");
+        uriField.setText("rmi://rmiagedemo/login");
 
         loginLabel.setText("Login:");
 
@@ -137,13 +139,16 @@ public class LoginWindow extends javax.swing.JFrame {
     private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectButtonActionPerformed
         removeErrorMessage();
         try {
+            setButtonsEnabled(false);
             SessionManager sm = new SessionManager(
                     new StandardCredential(loginField.getText(),
                     new String(passwordField.getPassword())),
                     uriField.getText());
             sm.connect();
+            dispose();
         } catch (Exception ex) {
             setErrorMessage(ex.toString());
+            setButtonsEnabled(true);
         }
 }//GEN-LAST:event_connectButtonActionPerformed
 

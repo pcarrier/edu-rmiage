@@ -25,8 +25,7 @@ public class MainController {
      */
     public void init(String[] cmdLineParams) throws ConnectionException {
         settingsController = new SettingsController(cmdLineParams);
-        int RMIPort = settingsController.getRmiPort();
-        connectionManager = new ConnectionManager(RMIPort);
+        connectionManager = new ConnectionManager(settingsController.getRmiPort());
         try {
 			connectionManager.bind(settingsController.getURI(), new StandardLoginController());
 		} catch (RemoteException e) {
@@ -36,7 +35,6 @@ public class MainController {
 
     public static void main(String[] args) {
         MainController controller = null;
-        
         try {
             controller = new MainController(args);
         } catch (SettingsException ex) {

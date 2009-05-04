@@ -3,7 +3,7 @@ Pour telecharger le projet via git (sous linux)
 1. installer git via votre gestionnaire de paquet.
 2. generer une paire clef privee/publique si ce n'est deja fait a l'aide de la commande 'ssh-keygen' (ne pas creer de passphrase)
 3. dans votre profile, ajouter le contenu de ~/.ssh/id_rsa.pub dans vos clef publique
-4. pour recuperer le projet, faire un 'git clone git@github.com:gcarrier/rmiage.git'. pour suivre l'avancee du projet, faire un 'git pull' regulierement.
+4. pour recuperer le prsssojet, faire un 'git clone git@github.com:gcarrier/rmiage.git'. pour suivre l'avancee du projet, faire un 'git pull' regulierement.
 
 Sous windows, voir tortoise-git. 
 Attention:

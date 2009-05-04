@@ -93,7 +93,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="uriField">
       <Properties>
-        <Property name="text" type="java.lang.String" value="rmi://rmiagedemo/app"/>
+        <Property name="text" type="java.lang.String" value="rmi://rmiagedemo/login"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="loginLabel">

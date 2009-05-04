@@ -27,6 +27,7 @@ public class SessionManager {
     public void connect() throws ConnectionException {
         try {
             LoginController loginController = (LoginController) Naming.lookup(uri);
+            loginController.launchSession(credentials);
         } catch (NotBoundException ex) {
             throw new ConnectionException("cannot bind");
         } catch (MalformedURLException ex) {
