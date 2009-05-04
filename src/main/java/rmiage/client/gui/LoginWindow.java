@@ -147,6 +147,7 @@ public class LoginWindow extends javax.swing.JFrame {
             sm.connect();
             dispose();
         } catch (Exception ex) {
+        	ex.printStackTrace();
             setErrorMessage(ex.toString());
             setButtonsEnabled(true);
         }
