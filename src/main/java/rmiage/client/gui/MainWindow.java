@@ -1,6 +1,7 @@
 package rmiage.client.gui;
 
 import rmiage.client.controller.NetworkManager;
+import rmiage.common.interfaces.TreeModel;
 
 public class MainWindow extends javax.swing.JFrame {
 
@@ -13,6 +14,10 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow(NetworkManager nm) {
         this();
         this.networkManager = nm;
+    }
+
+    public void updateTree(TreeModel tm) {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 
     /** This method is called from within the constructor to

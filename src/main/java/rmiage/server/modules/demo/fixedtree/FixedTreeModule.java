@@ -1,7 +1,8 @@
 package rmiage.server.modules.demo.fixedtree;
 
+import java.rmi.RemoteException;
 import rmiage.common.interfaces.Panel;
-import rmiage.common.interfaces.SessionController;
+import rmiage.server.controller.SessionController;
 import rmiage.server.modules.BasicModule;
 import rmiage.server.modules.TreeModel;
 import rmiage.server.modules.TreeModule;
@@ -9,7 +10,7 @@ import rmiage.server.modules.TreeNode;
 
 public class FixedTreeModule extends BasicModule implements TreeModule {
 
-    public FixedTreeModule(SessionController sc) {
+    public FixedTreeModule(SessionController sc) throws RemoteException {
         super(sc);
     }
 

@@ -17,7 +17,7 @@ public class ServerMessagesRunnable implements Runnable {
         this();
         this.nm = nm;
     }
-    
+
     public void run() {
         ServerMessage msg;
         while (true) {
@@ -26,11 +26,17 @@ public class ServerMessagesRunnable implements Runnable {
             } catch (RemoteException ex) {
                 throw new InternalError("Error getting a server message");
             }
-            if (msg.messageType == ServerMessage.Type.showSimplePopup) {
-                new PopupWindow((String) msg.information[0]).setVisible(true);
-            } else if (msg.messageType == ServerMessage.Type.showPopup) {
-                new PopupWindow((Icon) msg.information[1],
-                        (String) msg.information[0]).setVisible(true);
+            switch (msg.messageType) {
+                case showSimplePopup:
+                    new PopupWindow((String) msg.information[0]).setVisible(true);
+                    break;
+                case showPopup:
+                    new PopupWindow((Icon) msg.information[1],
+                            (String) msg.information[0]).setVisible(true);
+                    break;
+                case updateTree:
+                    nm.updateTree();
+                    break;
             }
         }
     }
