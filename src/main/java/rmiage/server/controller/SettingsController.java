@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 
 /**
- * A controller used to get somes configuration values
+ * A controller used to get some configuration values
  */
 public class SettingsController {
 

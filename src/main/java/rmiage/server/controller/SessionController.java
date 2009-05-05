@@ -34,6 +34,10 @@ public class SessionController extends UnicastRemoteObject
         return (SessionController[]) sessions.toArray();
     }
 
+    /**
+     * Notify all sessionControllers with a message from server
+     * @return the ServerMessage
+     */
     public synchronized ServerMessage getServerMessage()
             throws RemoteException {
         ServerMessage ret;
@@ -50,6 +54,10 @@ public class SessionController extends UnicastRemoteObject
         return ret;
     }
 
+    /**
+     * Notify all sessionControllers with a message from client
+     * @return the ClientMessage 
+     */
     public synchronized ClientMessage getClientMessage()
             throws RemoteException {
         ClientMessage ret;
@@ -66,6 +74,10 @@ public class SessionController extends UnicastRemoteObject
         return ret;
     }
 
+    /**
+     * Receive a message from the client to the server
+     * @param msg
+     */
     public synchronized void sendMessageToServer(ClientMessage msg)
             throws RemoteException {
         while (clientMessage != null) {
@@ -79,6 +91,10 @@ public class SessionController extends UnicastRemoteObject
         this.notifyAll();
     }
 
+    /**
+     * Send a message from the server to the client
+     * @param msg
+     */
     public synchronized void sendMessageToClient(ServerMessage msg)
             throws RemoteException {
         while (serverMessage != null) {

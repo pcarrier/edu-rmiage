@@ -6,6 +6,11 @@ import rmiage.common.interfaces.SessionController;
 import rmiage.common.messages.ServerMessage;
 import rmiage.server.modules.Module;
 
+/**
+ * This is a demo module which shows you a creation of it
+ * and some exceptions which may happen.
+ */
+
 public class GreetingsModule implements Module {
 
     private SessionController sc;
