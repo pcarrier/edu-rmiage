@@ -4,11 +4,18 @@ import javax.swing.JPanel;
 
 import rmiage.common.interfaces.Panel;
 
-public class FixedTreePanel extends JPanel implements Panel{
+public class FixedTreePanel extends Panel {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 4240224812938104012L;
+	@Override
+	public void close() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void initialize(Object initialdata) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

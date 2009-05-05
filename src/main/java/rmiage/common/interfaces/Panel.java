@@ -1,7 +1,11 @@
 package rmiage.common.interfaces;
 
-import java.rmi.Remote;
+import javax.swing.JPanel;
 
-public interface Panel extends Remote{
+public abstract class Panel extends JPanel{
 
+	public Panel() {
+	}
+	public abstract void close();
+	public abstract void initialize(Object initialdata);
 }
