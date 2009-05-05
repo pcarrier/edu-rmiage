@@ -1,8 +1,7 @@
 package rmiage.server.modules;
 
 import java.util.ArrayList;
-
-import rmiage.common.interfaces.SessionController;
+import rmiage.server.controller.SessionController;
 
 /**
  * Describe an interface for a ModuleLoader

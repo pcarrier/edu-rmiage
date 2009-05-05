@@ -2,7 +2,7 @@ package rmiage.server.modules.demo.singleton;
 
 import java.util.ArrayList;
 
-import rmiage.common.interfaces.SessionController;
+import rmiage.server.controller.SessionController;
 import rmiage.server.modules.Module;
 import rmiage.server.modules.ModuleLoader;
 
