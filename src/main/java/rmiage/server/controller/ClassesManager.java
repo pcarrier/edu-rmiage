@@ -22,6 +22,11 @@ public class ClassesManager {
         }
     }
 
+    /**
+     * Creates a new Instance  
+     * @param InstanceName
+     * @return TODO ? :)
+     */
     public static Object createInstance(String name) {
         Object res = null;
         try {
@@ -34,7 +39,11 @@ public class ClassesManager {
             return res;
         }
     }
-
+    /**
+     * Get a List of Classes with the classNames[] names
+     * @param classNames
+     * @return
+     */
     public static <T> List<Class<T>> getClasses(String[] classNames) {
         ArrayList<Class<T>> ret = new ArrayList<Class<T>>();
         for (String name : classNames) {
@@ -44,12 +53,12 @@ public class ClassesManager {
     }
 
     /**
-     * Get a List of Instances 
-     * @param classNames
+     * Get a List of Instances with the classNames[] names
+     * @param List of classNames
      * @return
      */
     public static <T> List<T> getInstances(String[] classNames) {
-        ArrayList<T> ret = new ArrayList<T>();
+    	ArrayList<T> ret = new ArrayList<T>();
         for (String name : classNames) {
             ret.add((T) createInstance(name));
         }
