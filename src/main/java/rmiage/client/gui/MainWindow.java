@@ -1,5 +1,6 @@
 package rmiage.client.gui;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 
 import javax.swing.JTree;
@@ -12,6 +13,7 @@ import javax.swing.tree.TreePath;
 import rmiage.client.controller.NetworkManager;
 import rmiage.common.interfaces.TreeModel;
 import rmiage.common.interfaces.NavigTreeNode;
+import rmiage.common.interfaces.Panel;
 
 
 public class MainWindow extends javax.swing.JFrame {
@@ -35,6 +37,11 @@ public class MainWindow extends javax.swing.JFrame {
     	}
     	return ret;
     }
+
+    public void sendMessageToPanel(Serializable serializable) {
+        ((Panel)mainPanel).receiveMessage(serializable);
+    }
+
     public void updateTree(TreeModel tm) throws RemoteException {
     	//System.err.println("UpdateTree "+tm);
     	String nodename=tm.getRootNode().getName();

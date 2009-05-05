@@ -11,10 +11,10 @@ public class ServerMessage extends Message {
 
         dummyMessage,
         updateTree,
-        updateList,
         discardForm,
         showSimplePopup,
         showPopup,
+        toPanel,
         custom,
     }
 }
