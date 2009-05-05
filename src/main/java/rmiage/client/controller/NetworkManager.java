@@ -64,7 +64,11 @@ public class NetworkManager {
             }
         }
     }
-
+    
+    /**
+     * Updates the tree in the graphical user interface (at the left)
+     * @throws RemoteException
+     */
     public void updateTree() throws RemoteException {
         TreeModel tm = sessionController.getTreeModel();
         //System.err.println(tm);
