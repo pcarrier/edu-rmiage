@@ -34,10 +34,19 @@ public class ModulesController {
         modules.put(sc, (List) modulesList);
     }
 
+    /**
+     * Get modules from a SessionController given as parameter
+     * @param sc
+     * @return the modules from this SessionController
+     */
     public List<Module> getModules(SessionController sc) {
         return modules.get(sc);
     }
 
+    /**
+     * Removes a Sessioncontroller from the modules Hashtable
+     * @param sc
+     */
     public List<TreeModule> getTreeModules(SessionController sc) {
         ArrayList<TreeModule> res = new ArrayList<TreeModule>();
         for(Module m : getModules(sc)) {

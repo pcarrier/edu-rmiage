@@ -4,6 +4,11 @@ import java.rmi.RemoteException;
 import rmiage.server.controller.SessionController;
 import rmiage.server.modules.Module;
 
+/**
+ * This is a demo module which shows you a creation of it
+ * and some exceptions which may happen.
+ */
+
 public class GreetingsModule implements Module {
 
     private SessionController sc;

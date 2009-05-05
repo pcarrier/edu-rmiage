@@ -32,6 +32,10 @@ public class ConnectionController {
         init();
     }
 
+    /**
+     * Initialize the server
+     * @throws ConnectionException
+     */
     protected void init() throws ConnectionException {
         int port = main.getSettingsController().getRmiPort();
         try {

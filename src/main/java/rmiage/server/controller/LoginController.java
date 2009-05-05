@@ -23,6 +23,10 @@ public class LoginController extends UnicastRemoteObject
         this.main = main;
     }
 
+    /**
+     * Launch a new sessionController if credentials are OK
+     * @param creditential
+     */
     public SessionController launchSession(Credential credential) throws RemoteException, RefusedCredentialException {
         if(main.getSecurityController().checkCredentials(credential)) {
             return new rmiage.server.controller.SessionController(main);
