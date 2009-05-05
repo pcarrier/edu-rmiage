@@ -24,6 +24,10 @@ public class ModulesController {
         this.main = main;
     }
 
+    /**
+     * Initialize all modules in a defined SessionController
+     * @param SessionController
+     */
     public void initializeModules(SessionController sc) {
         List<ModuleLoader> moduleLoadersList = ClassesManager.getInstances(
                 main.getModuleLoadersDescriptions());
@@ -44,8 +48,8 @@ public class ModulesController {
     }
 
     /**
-     * Removes a Sessioncontroller from the modules Hashtable
-     * @param sc
+     * Removes a SessionController from the modules Hashtable
+     * @param SessionController
      */
     public List<TreeModule> getTreeModules(SessionController sc) {
         ArrayList<TreeModule> res = new ArrayList<TreeModule>();
