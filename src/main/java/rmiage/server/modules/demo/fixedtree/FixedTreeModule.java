@@ -20,6 +20,7 @@ public class FixedTreeModule extends BasicModule implements TreeModule {
         for (int i = 0; i < 10; i++) {
             root.addNode(new TreeNode("Child" + i));
         }
+        System.out.println("Provided a fixed tree.");
         return ret;
     }
 
