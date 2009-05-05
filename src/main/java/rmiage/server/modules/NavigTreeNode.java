@@ -1,8 +1,10 @@
 package rmiage.server.modules;
 
 import java.rmi.RemoteException;
+
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class NavigTreeNode extends UnicastRemoteObject implements rmiage.common.interfaces.NavigTreeNode {
 
@@ -11,6 +13,8 @@ public class NavigTreeNode extends UnicastRemoteObject implements rmiage.common.
 	 */
 	private static final long serialVersionUID = 4008168423435212578L;
 	protected String name;
+	protected String uid = UUID.randomUUID().toString();
+	
 	protected ArrayList<rmiage.common.interfaces.NavigTreeNode> childNodes;;
 	
 	protected NavigTreeNode() throws RemoteException {		
@@ -47,5 +51,9 @@ public class NavigTreeNode extends UnicastRemoteObject implements rmiage.common.
 		if (!this.childNodes.contains(newchild)){
 			this.childNodes.add(newchild);
 		}
+	}
+	
+	public String getUUID(){
+		return this.uid;
 	}
 }

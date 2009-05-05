@@ -1,5 +1,6 @@
 package rmiage.server.modules.demo.fixedtree;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 
 import rmiage.common.interfaces.PanelDescriptor;
@@ -38,7 +39,7 @@ public class FixedTreeModule extends BasicModule implements TreeModule {
         return ret;
     }
 
-    private int findNodeRank(NavigTreeNode n) throws RemoteException{
+    private int findNodeRank(rmiage.common.interfaces.NavigTreeNode  n) throws RemoteException{
     	int i=0;
     	boolean founded = false;
     	for(rmiage.common.interfaces.NavigTreeNode subn : root.getChildNodes()){
@@ -51,9 +52,8 @@ public class FixedTreeModule extends BasicModule implements TreeModule {
     }
     public PanelDescriptor getPanel(rmiage.common.interfaces.NavigTreeNode node) throws RemoteException {
     	//Create initial data from the node for the descriptor.
-    	Object initalPanelData=findNodeRank((NavigTreeNode) node);
-        
-    	FixedTreePanelDescriptor pannelDescriptor = new FixedTreePanelDescriptor(initalPanelData);
+    	Object initalPanelData=findNodeRank(node);
+    	FixedTreePanelDescriptor pannelDescriptor = new FixedTreePanelDescriptor((Serializable) initalPanelData);
         return pannelDescriptor;
     }
 }

@@ -1,8 +1,11 @@
 package rmiage.server.modules.demo.fixedtree;
 
+import java.io.Serializable;
+
 import javax.swing.JLabel;
 
 import rmiage.common.interfaces.Panel;
+import rmiage.common.interfaces.SessionController;
 
 public class FixedTreePanel extends Panel {
 
@@ -18,10 +21,16 @@ public class FixedTreePanel extends Panel {
 	}
 
 	@Override
-	public void initialize(Object initialdata) {
-		String message = "Hey ! i'm on the "+ initialdata+" place !";
+	public void initialize(Serializable initialData,     SessionController sc) {
+		String message = "Hey ! i'm on the "+ initialData+" place !";
 		JLabel label = new JLabel(message);
 		this.add(label);
+	}
+
+	@Override
+	public void receiveMessage(Serializable message) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
