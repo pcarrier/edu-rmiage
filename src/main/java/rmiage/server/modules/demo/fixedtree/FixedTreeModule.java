@@ -2,10 +2,10 @@ package rmiage.server.modules.demo.fixedtree;
 
 import rmiage.common.interfaces.Panel;
 import rmiage.common.interfaces.SessionController;
-import rmiage.common.interfaces.TreeModel;
-import rmiage.common.interfaces.TreeNode;
 import rmiage.server.modules.BasicModule;
+import rmiage.server.modules.TreeModel;
 import rmiage.server.modules.TreeModule;
+import rmiage.server.modules.TreeNode;
 
 public class FixedTreeModule extends BasicModule implements TreeModule {
 
@@ -14,10 +14,16 @@ public class FixedTreeModule extends BasicModule implements TreeModule {
     }
 
     public TreeModel getTreeModel() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    	TreeModel  ret = new rmiage.server.modules.TreeModel();
+    	TreeNode root= new TreeNode("root");
+    	ret.setRootNode(root);
+    	for(int i=0; i<10; i++){
+    		root.addNode(new TreeNode("Child"+i));
+    	}
+        return ret;
     }
 
-    public Panel getPanel(TreeNode node) {
+    public Panel getPanel(rmiage.common.interfaces.TreeNode node) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
