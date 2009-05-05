@@ -22,7 +22,12 @@ public class NavigTreeNode extends UnicastRemoteObject implements rmiage.common.
 		this();
 		this.name=name;
 	}
-    public ArrayList<rmiage.common.interfaces.NavigTreeNode> getChildNodes() throws RemoteException{
+    
+	/**
+	 * get all childrens
+	 * @return an ArrayList of childrens
+	 */
+	public ArrayList<rmiage.common.interfaces.NavigTreeNode> getChildNodes() throws RemoteException{
         return childNodes;
     }
 
@@ -42,7 +47,5 @@ public class NavigTreeNode extends UnicastRemoteObject implements rmiage.common.
 		if (!this.childNodes.contains(newchild)){
 			this.childNodes.add(newchild);
 		}
-		
 	}
-
 }
