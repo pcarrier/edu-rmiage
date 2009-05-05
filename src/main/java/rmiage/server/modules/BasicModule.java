@@ -2,7 +2,7 @@ package rmiage.server.modules;
 
 import rmiage.common.interfaces.SessionController;
 
-public class BasicModule implements Module {
+public class BasicModule extends Object implements Module {
 
     protected SessionController sessionController;
 
