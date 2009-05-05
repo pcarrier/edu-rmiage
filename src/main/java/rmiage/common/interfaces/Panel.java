@@ -1,5 +1,11 @@
 package rmiage.common.interfaces;
 
-public interface Panel {
+import javax.swing.JPanel;
 
+public abstract class Panel extends JPanel{
+
+	public Panel() {
+	}
+	public abstract void close();
+	public abstract void initialize(Object initialdata);
 }

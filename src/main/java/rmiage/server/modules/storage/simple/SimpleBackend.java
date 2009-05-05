@@ -9,10 +9,10 @@ public class SimpleBackend implements StorageBackendModule {
 	private Hashtable<String, Object> table;
 
 	/**
-	 * Generate a simple backend, without any persistance
+	 * Generate a simple backend
 	 */
 	public SimpleBackend() {
-		this.table = new Hashtable<String, Object>();
+		table = new Hashtable<String, Object>();
 	}
 
 	/**
@@ -23,7 +23,7 @@ public class SimpleBackend implements StorageBackendModule {
 	 * @return The content instance corresponding.
 	 */
 	public Object load(String identifier) {
-		return this.table.get(identifier);
+		return table.get(identifier);
 	}
 
 	/**
@@ -32,7 +32,7 @@ public class SimpleBackend implements StorageBackendModule {
 	 * @param identifier A string identifying the content to retrieve
 	 */
 	public void remove(String identifier) {
-		this.table.remove(identifier);
+		table.remove(identifier);
 	}
 
 	/**
@@ -42,22 +42,15 @@ public class SimpleBackend implements StorageBackendModule {
 	 */
 	public String store(Object obj) {
 		UUID id = UUID.randomUUID();
-		this.table.put(id.toString(), obj);
+		table.put(id.toString(), obj);
 		return id.toString();
 	}
 
 	public void update(String identifier, Object obj) {
-		if (this.table.get(identifier) == null) {
+		if (table.get(identifier) == null) {
 			throw new InternalError(identifier + " not found");
 		}
-		this.table.put(identifier, obj);
+		table.put(identifier, obj);
 	}
 
-    public String store(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public void update(String identifier, Object obj) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 }

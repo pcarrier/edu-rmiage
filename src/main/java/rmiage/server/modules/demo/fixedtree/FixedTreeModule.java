@@ -1,30 +1,47 @@
 package rmiage.server.modules.demo.fixedtree;
 
-import rmiage.common.interfaces.Panel;
+import java.rmi.RemoteException;
+
+import rmiage.common.interfaces.PanelDescriptor;
 import rmiage.server.controller.SessionController;
 import rmiage.server.modules.BasicModule;
 import rmiage.server.modules.TreeModel;
 import rmiage.server.modules.TreeModule;
-import rmiage.server.modules.TreeNode;
+import rmiage.server.modules.NavigTreeNode;
 
 public class FixedTreeModule extends BasicModule implements TreeModule {
 
-    public FixedTreeModule(SessionController sc) {
+	protected NavigTreeNode root;
+	//protected FixedTreePanelDescriptor pannelDescriptor;
+	
+    public FixedTreeModule(SessionController sc) throws RemoteException {
         super(sc);
+        init();        
+    }
+    
+    public void init() throws RemoteException{
+    	root = new NavigTreeNode("root");
+        
+        for (int i = 0; i < 3; i++) {
+        	 NavigTreeNode tmp =new NavigTreeNode("Child" + i);
+            for (int j = 0; j < 3; j++) {
+            	NavigTreeNode tmp2 =new NavigTreeNode("SubChild" + j);
+            	tmp.addNode(tmp2);
+            }
+        	 root.addNode(tmp);
+        }
     }
 
-    public TreeModel getTreeModel() {
+    public rmiage.common.interfaces.TreeModel getTreeModel() throws RemoteException {
         TreeModel ret = new rmiage.server.modules.TreeModel();
-        TreeNode root = new TreeNode("root");
         ret.setRootNode(root);
-        for (int i = 0; i < 10; i++) {
-            root.addNode(new TreeNode("Child" + i));
-        }
-        System.out.println("Provided a fixed tree.");
         return ret;
     }
 
-    public Panel getPanel(rmiage.common.interfaces.TreeNode node) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public PanelDescriptor getPanel(rmiage.common.interfaces.NavigTreeNode node) throws RemoteException {
+    	Object initalPanelData=null;
+        //TODO create initial data from the node for the descriptor.
+    	FixedTreePanelDescriptor pannelDescriptor = new FixedTreePanelDescriptor(initalPanelData);
+        return pannelDescriptor;
     }
 }

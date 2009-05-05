@@ -1,5 +1,6 @@
 package rmiage.server.controller;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -24,7 +25,12 @@ public class ModulesController {
         this.main = main;
     }
 
-    public void initializeModules(SessionController sc) {
+    /**
+     * Initialize all modules in a defined SessionController
+     * @param SessionController
+     * @throws RemoteException 
+     */
+    public void initializeModules(SessionController sc) throws RemoteException {
         List<ModuleLoader> moduleLoadersList = ClassesManager.getInstances(
                 main.getModuleLoadersDescriptions());
         ArrayList<Module> modulesList = new ArrayList<Module>();
@@ -44,8 +50,8 @@ public class ModulesController {
     }
 
     /**
-     * Removes a Sessioncontroller from the modules Hashtable
-     * @param sc
+     * Removes a SessionController from the modules Hashtable
+     * @param SessionController
      */
     public List<TreeModule> getTreeModules(SessionController sc) {
         ArrayList<TreeModule> res = new ArrayList<TreeModule>();

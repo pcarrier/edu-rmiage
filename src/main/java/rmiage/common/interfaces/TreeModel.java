@@ -1,7 +1,10 @@
 package rmiage.common.interfaces;
 
-public interface TreeModel {
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 
-	public void setRootNode(TreeNode rootnode);
-	public TreeNode getRootNode();
+public interface TreeModel extends Remote{
+
+	public void setRootNode(NavigTreeNode rootnode) throws RemoteException ;
+	public NavigTreeNode getRootNode() throws RemoteException ;
 }

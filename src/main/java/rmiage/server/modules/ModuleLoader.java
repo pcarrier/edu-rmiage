@@ -1,5 +1,6 @@
 package rmiage.server.modules;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import rmiage.server.controller.SessionController;
 
@@ -20,6 +21,7 @@ public interface ModuleLoader {
 	 * @param sc
 	 *            A SessionController
 	 * @return a new instance of the module for the session
+	 * @throws RemoteException 
 	 */
-	public Module createModule(SessionController sc);
+	public Module createModule(SessionController sc) throws RemoteException;
 }

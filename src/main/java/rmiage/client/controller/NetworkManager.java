@@ -38,7 +38,7 @@ public class NetworkManager {
      * Starts the connection between the client and the server
      * @throws ConnectionException
      */
-    public void connect() throws ConnectionException {
+    public void connect() throws ConnectionException, RemoteException {
         try {
             LoginController loginController = (LoginController) Naming.lookup(uri);
             sessionController = loginController.launchSession(credentials);
@@ -64,9 +64,14 @@ public class NetworkManager {
             }
         }
     }
-
+    
+    /**
+     * Updates the tree in the graphical user interface (at the left)
+     * @throws RemoteException
+     */
     public void updateTree() throws RemoteException {
         TreeModel tm = sessionController.getTreeModel();
+        //System.err.println(tm);
         mainWindow.updateTree(tm);
     }
 
