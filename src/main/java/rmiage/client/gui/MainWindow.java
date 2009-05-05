@@ -1,5 +1,7 @@
 package rmiage.client.gui;
 
+import java.rmi.RemoteException;
+
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -20,14 +22,14 @@ public class MainWindow extends javax.swing.JFrame {
         this.networkManager = nm;
     }
 
-    public javax.swing.tree.TreeModel getSwingTreeModel(TreeModel tm){
+    public javax.swing.tree.TreeModel getSwingTreeModel(TreeModel tm) throws RemoteException{
     	DefaultMutableTreeNode top =  new DefaultMutableTreeNode(tm.getRootNode().getName());
     	System.err.println("root"+top);
     	DefaultTreeModel arbreModele = new DefaultTreeModel(top);
 		return arbreModele;
     	
     }
-    public void updateTree(TreeModel tm) {
+    public void updateTree(TreeModel tm) throws RemoteException {
     	System.err.println("UpdateTree");
         this.navigTree.setModel(getSwingTreeModel(tm));
     }

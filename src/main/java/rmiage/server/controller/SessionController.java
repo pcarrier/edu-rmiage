@@ -38,7 +38,7 @@ public class SessionController extends UnicastRemoteObject
         return (SessionController[]) sessions.toArray();
     }
 
-    public rmiage.common.interfaces.TreeModel getTreeModel() {
+    public rmiage.common.interfaces.TreeModel getTreeModel() throws RemoteException {
         TreeModel res = new TreeModel();
         res.setRootNode(new TreeNode("Navigation"));
         for (TreeModule m : main.getModulesController().getTreeModules(this)) {

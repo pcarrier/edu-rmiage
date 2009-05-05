@@ -1,6 +1,9 @@
 package rmiage.common.interfaces;
 
-public interface TreeNode {
-	public TreeNode[] getChildNodes();
-	public String getName();
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface TreeNode extends Remote{
+	public TreeNode[] getChildNodes() throws RemoteException;
+	public String getName() throws RemoteException;
 }
