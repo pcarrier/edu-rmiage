@@ -2,8 +2,6 @@ package rmiage.server.modules.demo.fixedtree;
 
 import rmiage.common.interfaces.Panel;
 import rmiage.common.interfaces.SessionController;
-import rmiage.common.interfaces.TreeModel;
-import rmiage.common.interfaces.TreeNode;
 import rmiage.server.modules.BasicModule;
 import rmiage.server.modules.TreeModule;
 
@@ -13,11 +11,11 @@ public class FixedTreeModule extends BasicModule implements TreeModule {
         super(sc);
     }
 
-    public TreeModel getTreeModel() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public rmiage.common.interfaces.TreeModel getTreeModel() {
+        return null;
     }
 
-    public Panel getPanel(TreeNode node) {
+    public Panel getPanel(rmiage.common.interfaces.TreeNode node) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
