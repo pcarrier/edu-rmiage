@@ -42,6 +42,10 @@ public class SessionController extends UnicastRemoteObject
         main.getModulesController().initializeModules(this);
     }
 
+    /**
+     * get all current sessions
+     * @return all sessions
+     */
     public static SessionController[] getCurrentSessions() {
         return (SessionController[]) sessions.toArray();
     }
@@ -135,6 +139,11 @@ public class SessionController extends UnicastRemoteObject
         this.notifyAll();
     }
 
+    /**
+     * sends un simple popup to the client
+     * @param msg
+     * @throws RemoteException
+     */
     public void sendSimplePopup(String msg) throws RemoteException {
         ServerMessage sm = new ServerMessage();
         sm.messageType = ServerMessage.Type.showSimplePopup;
@@ -143,12 +152,23 @@ public class SessionController extends UnicastRemoteObject
         sendMessageToClient(sm);
     }
 
+    /**
+     * updates the tree in the client interface
+     * @throws RemoteException
+     */
     public void sendTreeUpdate() throws RemoteException {
         ServerMessage sm = new ServerMessage();
         sm.messageType = ServerMessage.Type.updateTree;
         sendMessageToClient(sm);
     }
     
+    /**
+     * get a panel
+     * @param node
+     * @return
+     * @throws RemoteException
+     */
+
     public PanelDescriptor getNavigNodePanel(NavigTreeNode node) throws RemoteException {
     	return navigTreeNodeModule.get(node).getPanel(node);
     }

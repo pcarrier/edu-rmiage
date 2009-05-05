@@ -28,6 +28,8 @@ public class ServerMessagesRunnable implements Runnable {
                     throw new InternalError("Error getting a server message");
                 }
                 switch (msg.messageType) {
+                    case dummyMessage:
+                        new PopupWindow("Dummy message received!");
                     case showSimplePopup:
                         new PopupWindow((String) msg.information[0]).setVisible(true);
                         break;
@@ -37,6 +39,8 @@ public class ServerMessagesRunnable implements Runnable {
                     case updateTree:
                         nm.updateTree();
                         break;
+                    case toPanel:
+                        nm.mainWindow.sendMessageToPanel(msg.information[0]);
                 }
             } catch (RemoteException ex) {
                 throw new InternalError("Error processing a server message");
