@@ -26,10 +26,18 @@ public class NavigTreeNode extends UnicastRemoteObject implements rmiage.common.
         return childNodes;
     }
 
+    /**
+     * get the name
+     * @return name
+     */
     public String getName() throws RemoteException{
         return name;
     }
 
+    /**
+     * add a new children to this node
+     * @param newchild
+     */
 	public void addNode(rmiage.common.interfaces.NavigTreeNode newchild) {
 		if (!this.childNodes.contains(newchild)){
 			this.childNodes.add(newchild);
