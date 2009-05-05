@@ -20,9 +20,9 @@ public class ConnectionController {
     ;
 
     /**
-     * Launch the server at a specific port location
+     * Launch the server
      *
-     * @param port
+     * @param main
      * @throws ConnectionException
      */
     public ConnectionController(MainController main)

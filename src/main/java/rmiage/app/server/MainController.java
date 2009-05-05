@@ -15,7 +15,6 @@ public class MainController {
     protected LoginController loginController;
     protected SecurityController securityController;
     protected ModulesController modulesController;
-    protected StorageController storageController;
 
     public SettingsController getSettingsController() {
         return settingsController;
@@ -35,10 +34,6 @@ public class MainController {
 
     public ModulesController getModulesController() {
         return modulesController;
-    }
-
-    public StorageController getStorageController() {
-        return storageController;
     }
 
     /**

@@ -3,7 +3,6 @@ package rmiage.server.controller;
 import rmiage.server.settings.*;
 import rmiage.server.exceptions.SettingsException;
 import java.rmi.registry.Registry;
-import java.util.ArrayList;
 import java.util.Hashtable;
 
 /**
@@ -103,4 +102,22 @@ public class SettingsController {
 	public String getSecurityControllerDescription() {
 		return (backend.getOption("SecurityController"));
 	}
+
+	/**
+	 * get an option which his name is given as parameter
+	 * @param optionName
+	 * @return
+	 */
+	public String getOption(String optionName) {
+        return backend.getOption(optionName);
+    }
+
+	/**
+	 * get options which names are given as parameter
+	 * @param optionsName
+	 * @return
+	 */
+    public String[] getListOption(String optionsName) {
+        return backend.getList(optionsName);
+    }
 }
