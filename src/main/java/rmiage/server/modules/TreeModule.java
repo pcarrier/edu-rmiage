@@ -11,5 +11,5 @@ public interface TreeModule extends Module {
 
 	public TreeModel getTreeModel() throws RemoteException;
 	
-	public Panel getPanel(NavigTreeNode identifier) throws RemoteException;
+	public Class<Panel> getPanel(NavigTreeNode identifier) throws RemoteException;
 }

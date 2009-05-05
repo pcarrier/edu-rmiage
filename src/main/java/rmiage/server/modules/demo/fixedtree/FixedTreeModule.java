@@ -11,14 +11,15 @@ import rmiage.server.modules.NavigTreeNode;
 
 public class FixedTreeModule extends BasicModule implements TreeModule {
 
-    public FixedTreeModule(SessionController sc) {
+	protected NavigTreeNode root;
+    public FixedTreeModule(SessionController sc) throws RemoteException {
         super(sc);
+        init();
     }
-
-    public rmiage.common.interfaces.TreeModel getTreeModel() throws RemoteException {
-        TreeModel ret = new rmiage.server.modules.TreeModel();
-        NavigTreeNode root = new NavigTreeNode("root");
-        ret.setRootNode(root);
+    
+    public void init() throws RemoteException{
+    	root = new NavigTreeNode("root");
+        
         for (int i = 0; i < 3; i++) {
         	 NavigTreeNode tmp =new NavigTreeNode("Child" + i);
             for (int j = 0; j < 3; j++) {
@@ -27,10 +28,15 @@ public class FixedTreeModule extends BasicModule implements TreeModule {
             }
         	 root.addNode(tmp);
         }
+    }
+
+    public rmiage.common.interfaces.TreeModel getTreeModel() throws RemoteException {
+        TreeModel ret = new rmiage.server.modules.TreeModel();
+        ret.setRootNode(root);
         return ret;
     }
 
-    public Panel getPanel(rmiage.common.interfaces.NavigTreeNode node) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Class<Panel> getPanel(rmiage.common.interfaces.NavigTreeNode node) {
+        return (Class<Panel>) FixedTreePanel.class.asSubclass(Panel.class);
     }
 }

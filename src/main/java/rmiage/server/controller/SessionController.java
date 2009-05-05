@@ -5,9 +5,13 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
+
 import rmiage.app.server.MainController;
+import rmiage.common.interfaces.Panel;
 import rmiage.common.messages.ClientMessage;
 import rmiage.common.messages.ServerMessage;
+import rmiage.server.modules.Module;
 import rmiage.server.modules.TreeModel;
 import rmiage.server.modules.TreeModule;
 import rmiage.server.modules.NavigTreeNode;
@@ -20,11 +24,15 @@ public class SessionController extends UnicastRemoteObject
     private static final long serialVersionUID = 5234466488747975638L;
     protected static ArrayList<SessionController> sessions =
             new ArrayList<SessionController>();
+    
+    //Garder une trace des module de chaque racine
+    protected Hashtable<rmiage.common.interfaces.NavigTreeNode, TreeModule> navigTreeNodeModule;
     protected MainController main;
 
     protected SessionController() throws RemoteException {
         super();
         sessions.add(this);
+        navigTreeNodeModule = new Hashtable<rmiage.common.interfaces.NavigTreeNode, TreeModule>();
     }
 
     protected SessionController(MainController mainController)
@@ -42,8 +50,13 @@ public class SessionController extends UnicastRemoteObject
         TreeModel res = new TreeModel();
         res.setRootNode(new NavigTreeNode("Navigation"));
         for (TreeModule m : main.getModulesController().getTreeModules(this)) {
-            ((NavigTreeNode)res.getRootNode()).addNode(
-                    m.getTreeModel().getRootNode());
+        	rmiage.common.interfaces.NavigTreeNode root = m.getTreeModel().getRootNode();
+        	//System.err.println("Root  "+root);
+            ((NavigTreeNode)res.getRootNode()).addNode(root);
+            //On garde
+            //if(root!=null){
+            	navigTreeNodeModule.put(root,m);
+            //}
         }
         return res;
     }
@@ -134,6 +147,10 @@ public class SessionController extends UnicastRemoteObject
         ServerMessage sm = new ServerMessage();
         sm.messageType = ServerMessage.Type.updateTree;
         sendMessageToClient(sm);
+    }
+    
+    public Class<Panel> getNavigNodePanel(NavigTreeNode node) throws RemoteException {
+    	return navigTreeNodeModule.get(node).getPanel(node);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package rmiage.common.interfaces;
 
-public interface Panel {
+import java.rmi.Remote;
+
+public interface Panel extends Remote{
 
 }
