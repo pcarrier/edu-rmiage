@@ -4,12 +4,7 @@ import java.rmi.RemoteException;
 
 import rmiage.common.interfaces.SecurityController;
 import rmiage.server.exceptions.ConnectionException;
-import rmiage.server.controller.ConnectionController;
-import rmiage.server.controller.ClassesManager;
-import rmiage.server.controller.ModulesController;
-import rmiage.server.controller.LoginController;
-import rmiage.server.controller.SettingsController;
-
+import rmiage.server.controller.*;
 public class MainController {
 
     public MainController(String[] args) throws ConnectionException {
@@ -20,6 +15,7 @@ public class MainController {
     protected LoginController loginController;
     protected SecurityController securityController;
     protected ModulesController modulesController;
+    protected StorageController storageController;
 
     public SettingsController getSettingsController() {
         return settingsController;
@@ -39,6 +35,10 @@ public class MainController {
 
     public ModulesController getModulesController() {
         return modulesController;
+    }
+
+    public StorageController getStorageController() {
+        return storageController;
     }
 
     /**

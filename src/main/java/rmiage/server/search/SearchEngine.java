@@ -1,7 +1,6 @@
 package rmiage.server.search;
 
 import java.util.Collection;
-import rmiage.server.storage.Content;
 
 /**
  * An interface which gives the possibility to make
@@ -9,5 +8,5 @@ import rmiage.server.storage.Content;
  */
 public interface SearchEngine {
 
-    public <T extends Content, C extends Collection<T>> C search(Request R);
+    public <T, C extends Collection<T>> C search(Request R);
 }

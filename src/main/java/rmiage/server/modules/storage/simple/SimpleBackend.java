@@ -1,18 +1,18 @@
-package rmiage.server.storage;
+package rmiage.server.modules.storage.simple;
 
-import rmiage.server.exceptions.ContentNotFoundException;
 import java.util.Hashtable;
 import java.util.UUID;
+import rmiage.server.modules.StorageBackendModule;
 
-public class SimpleBackend implements Backend {
+public class SimpleBackend implements StorageBackendModule {
 
-	private Hashtable<String, Content> table;
+	private Hashtable<String, Object> table;
 
 	/**
 	 * Generate a simple backend, without any persistance
 	 */
 	public SimpleBackend() {
-		this.table = new Hashtable<String, Content>();
+		this.table = new Hashtable<String, Object>();
 	}
 
 	/**
@@ -20,9 +20,9 @@ public class SimpleBackend implements Backend {
 	 * 
 	 * @param identifier
 	 *            A string identifying the content to retrieve
-	 *@return The content instance corresponding.
+	 * @return The content instance corresponding.
 	 */
-	public Content load(String identifier) {
+	public Object load(String identifier) {
 		return this.table.get(identifier);
 	}
 
@@ -40,17 +40,24 @@ public class SimpleBackend implements Backend {
      * @param obj The content to store in this backend.
      * @return The unique string identifying the Content
 	 */
-	public String store(Content obj) {
+	public String store(Object obj) {
 		UUID id = UUID.randomUUID();
 		this.table.put(id.toString(), obj);
 		return id.toString();
 	}
 
-	public void update(String identifier, Content object)
-			throws ContentNotFoundException {
+	public void update(String identifier, Object obj) {
 		if (this.table.get(identifier) == null) {
-			throw new ContentNotFoundException(identifier + " not found");
+			throw new InternalError(identifier + " not found");
 		}
-		this.table.put(identifier, object);
+		this.table.put(identifier, obj);
 	}
+
+    public String store(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void update(String identifier, Object obj) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
