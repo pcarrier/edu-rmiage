@@ -44,7 +44,7 @@ public class ClassesManager {
     }
 
     /**
-     *
+     * Get a List of Instances 
      * @param classNames
      * @return
      */
