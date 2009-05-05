@@ -27,11 +27,11 @@ public class MainWindow extends javax.swing.JFrame {
         this.networkManager = nm;
     }
 
-    public GraphicalTreenode getSwingTreeNodes(NavigTreeNode node) throws RemoteException{
+    public GraphicalTreenode getGraphicalTreeNodes(NavigTreeNode node) throws RemoteException{
     	System.err.println("Finding subnodes for "+node);
     	GraphicalTreenode ret = new GraphicalTreenode(node);
     	for(NavigTreeNode n : node.getChildNodes()){
-    		ret.add(getSwingTreeNodes(n));
+    		ret.add(getGraphicalTreeNodes(n));
     	}
     	return ret;
     }
@@ -39,7 +39,7 @@ public class MainWindow extends javax.swing.JFrame {
     	//System.err.println("UpdateTree");
     	String nodename=tm.getRootNode().getName();
     	System.err.println("Nodename "+nodename);
-    	GraphicalTreenode root = getSwingTreeNodes(tm.getRootNode());
+    	GraphicalTreenode root = getGraphicalTreeNodes(tm.getRootNode());
     	//System.err.println("root "+root);
     	DefaultTreeModel arbreModele = new DefaultTreeModel(root);    	
         this.navigTree.setModel(arbreModele);
