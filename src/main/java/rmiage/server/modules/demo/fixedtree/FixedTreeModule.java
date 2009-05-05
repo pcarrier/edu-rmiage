@@ -38,9 +38,21 @@ public class FixedTreeModule extends BasicModule implements TreeModule {
         return ret;
     }
 
+    private int findNodeRank(NavigTreeNode n) throws RemoteException{
+    	int i=0;
+    	boolean founded = false;
+    	for(rmiage.common.interfaces.NavigTreeNode subn : root.getChildNodes()){
+    		i++;
+    		if(subn.equals(n)){
+    			break; 
+    		}
+    	}
+    	return i;
+    }
     public PanelDescriptor getPanel(rmiage.common.interfaces.NavigTreeNode node) throws RemoteException {
-    	Object initalPanelData=null;
-        //TODO create initial data from the node for the descriptor.
+    	//Create initial data from the node for the descriptor.
+    	Object initalPanelData=findNodeRank((NavigTreeNode) node);
+        
     	FixedTreePanelDescriptor pannelDescriptor = new FixedTreePanelDescriptor(initalPanelData);
         return pannelDescriptor;
     }
