@@ -1,5 +1,8 @@
 package rmiage.client.gui;
 
+import java.awt.Component;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.rmi.RemoteException;
 
 import javax.swing.JTree;
@@ -25,16 +28,39 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow(NetworkManager nm) {
         this();
         this.networkManager = nm;
-    }
+        jTreeFocListen = new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                dumpInfo(e);
+              }
 
+              public void focusLost(FocusEvent e) {
+                dumpInfo(e);
+              }
+
+              private void dumpInfo(FocusEvent e) {
+                System.out.println("Source  : " + name(e.getComponent()));
+                System.out.println("Opposite : "
+                    + name(e.getOppositeComponent()));
+                System.out.println("Temporary: " + e.isTemporary());
+                
+              }
+
+              private String name(Component c) {
+                return (c == null) ? null : c.getName();
+              }
+            };
+    }
+    
     public GraphicalTreenode getGraphicalTreeNodes(NavigTreeNode node) throws RemoteException{
     	//System.err.println("Finding subnodes for "+node);
     	GraphicalTreenode ret = new GraphicalTreenode(node);
     	for(NavigTreeNode n : node.getChildNodes()){
-    		ret.add(getGraphicalTreeNodes(n));
+    		GraphicalTreenode graphicalRepr=getGraphicalTreeNodes(n);
+    		ret.add(graphicalRepr);
     	}
     	return ret;
     }
+    
     public void updateTree(TreeModel tm) throws RemoteException {
     	//System.err.println("UpdateTree "+tm);
     	String nodename=tm.getRootNode().getName();
@@ -43,6 +69,7 @@ public class MainWindow extends javax.swing.JFrame {
     	//System.err.println("root "+root);
     	DefaultTreeModel arbreModele = new DefaultTreeModel(root);
         this.navigTree.setModel(arbreModele);
+        this.navigTree.addFocusListener(this.jTreeFocListen);
     }
 
     /** This method is called from within the constructor to
@@ -124,6 +151,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
     }
     private NetworkManager networkManager;
+    protected FocusListener jTreeFocListen;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton disconnectButton;
     private javax.swing.JPanel mainPanel;
