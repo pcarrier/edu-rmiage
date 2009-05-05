@@ -103,10 +103,20 @@ public class SettingsController {
 		return (backend.getOption("SecurityController"));
 	}
 
-    public String getOption(String optionName) {
+	/**
+	 * get an option which his name is given as parameter
+	 * @param optionName
+	 * @return
+	 */
+	public String getOption(String optionName) {
         return backend.getOption(optionName);
     }
 
+	/**
+	 * get options which names are given as parameter
+	 * @param optionsName
+	 * @return
+	 */
     public String[] getListOption(String optionsName) {
         return backend.getList(optionsName);
     }
