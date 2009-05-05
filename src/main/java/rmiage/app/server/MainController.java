@@ -7,7 +7,7 @@ import rmiage.server.exceptions.ConnectionException;
 import rmiage.server.controller.ConnectionController;
 import rmiage.server.controller.ClassesManager;
 import rmiage.server.controller.ModulesController;
-import rmiage.server.controller.StandardLoginController;
+import rmiage.server.controller.LoginController;
 import rmiage.server.controller.SettingsController;
 
 public class MainController {
@@ -17,7 +17,7 @@ public class MainController {
     }
     protected SettingsController settingsController;
     protected ConnectionController connectionController;
-    protected StandardLoginController loginController;
+    protected LoginController loginController;
     protected SecurityController securityController;
     protected ModulesController modulesController;
 
@@ -29,7 +29,7 @@ public class MainController {
         return connectionController;
     }
 
-    public StandardLoginController getLoginController() {
+    public LoginController getLoginController() {
         return loginController;
     }
 
@@ -54,7 +54,7 @@ public class MainController {
         securityController = (SecurityController) ClassesManager.createInstance(
                 settingsController.getSecurityControllerDescription());
         try {
-            loginController = new StandardLoginController(this);
+            loginController = new LoginController(this);
             connectionController = new ConnectionController(this);
             connectionController.connect();
         } catch (RemoteException ex) {

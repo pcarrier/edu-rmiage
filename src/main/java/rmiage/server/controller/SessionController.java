@@ -5,26 +5,25 @@ import java.rmi.server.UnicastRemoteObject;
 
 import java.util.ArrayList;
 import rmiage.app.server.MainController;
-import rmiage.common.interfaces.SessionController;
 import rmiage.common.messages.ClientMessage;
 import rmiage.common.messages.ServerMessage;
 
-public class StandardSessionController extends UnicastRemoteObject
-        implements SessionController {
+public class SessionController extends UnicastRemoteObject
+        implements rmiage.common.interfaces.SessionController {
 
     private ServerMessage serverMessage = null;
     private ClientMessage clientMessage = null;
     private static final long serialVersionUID = 5234466488747975638L;
-    protected static ArrayList<StandardSessionController> sessions =
-            new ArrayList<StandardSessionController>();
+    protected static ArrayList<SessionController> sessions =
+            new ArrayList<SessionController>();
     protected MainController main;
 
-    protected StandardSessionController() throws RemoteException {
+    protected SessionController() throws RemoteException {
         super();
         sessions.add(this);
     }
 
-    protected StandardSessionController(MainController mainController)
+    protected SessionController(MainController mainController)
             throws RemoteException {
         this();
         main = mainController;

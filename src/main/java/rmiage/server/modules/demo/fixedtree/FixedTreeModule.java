@@ -4,19 +4,13 @@ import rmiage.common.interfaces.Panel;
 import rmiage.common.interfaces.SessionController;
 import rmiage.common.interfaces.TreeModel;
 import rmiage.common.interfaces.TreeNode;
+import rmiage.server.modules.BasicModule;
 import rmiage.server.modules.TreeModule;
 
-public class FixedTreeModule implements TreeModule {
-
-    private SessionController sc;
-
-    private FixedTreeModule() {
-        super();
-    }
+public class FixedTreeModule extends BasicModule implements TreeModule {
 
     public FixedTreeModule(SessionController sc) {
-        this();
-        this.sc = sc;
+        super(sc);
     }
 
     public TreeModel getTreeModel() {
@@ -26,5 +20,4 @@ public class FixedTreeModule implements TreeModule {
     public Panel getPanel(TreeNode node) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
 }
