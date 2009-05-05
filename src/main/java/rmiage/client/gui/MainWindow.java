@@ -1,5 +1,9 @@
 package rmiage.client.gui;
 
+import javax.swing.JTree;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+
 import rmiage.client.controller.NetworkManager;
 import rmiage.common.interfaces.TreeModel;
 
@@ -16,8 +20,16 @@ public class MainWindow extends javax.swing.JFrame {
         this.networkManager = nm;
     }
 
+    public javax.swing.tree.TreeModel getSwingTreeModel(TreeModel tm){
+    	DefaultMutableTreeNode top =  new DefaultMutableTreeNode(tm.getRootNode().getName());
+    	System.err.println("root"+top);
+    	DefaultTreeModel arbreModele = new DefaultTreeModel(top);
+		return arbreModele;
+    	
+    }
     public void updateTree(TreeModel tm) {
-        throw new UnsupportedOperationException("Not yet implemented");
+    	System.err.println("UpdateTree");
+        this.navigTree.setModel(getSwingTreeModel(tm));
     }
 
     /** This method is called from within the constructor to
