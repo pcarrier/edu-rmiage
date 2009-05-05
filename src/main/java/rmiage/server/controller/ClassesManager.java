@@ -35,13 +35,23 @@ public class ClassesManager {
         }
     }
     
-	public static List<Class> getClasses(String[] classNames){
+	public static List<Class<Object>> getClasses(String[] classNames){
     	ArrayList<Class> ret = new ArrayList<Class>();
     	for(String name: classNames){
     		ret.add( createClass(name));
     	}
-    	return (List<Class>)ret;
+    	return (List<Class<Object>>)ret;
     }
-	
-	
+	/**
+	 * 
+	 * @param classNames
+	 * @return
+	 */
+	public static List<Object> getInstances(String[] classNames){
+    	ArrayList<Object> ret = new ArrayList<Object>();
+    	for(String name: classNames){
+    		ret.add( createInstance(name));
+    	}
+    	return (List<Object>)ret;
+    }
 }
