@@ -1,11 +1,16 @@
 package rmiage.server.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import rmiage.server.modules.ModuleLoader;
+
 public class ClassesManager {
 
     private ClassesManager() {
     }
 
-    public static Class loadClass(String name) {
+    public static Class createClass(String name) {
         Class res = null;
         try {
             res = Class.forName(name);
@@ -20,7 +25,7 @@ public class ClassesManager {
     public static Object createInstance(String name) {
         Object res = null;
         try {
-            res = loadClass(name).newInstance();
+            res = createClass(name).newInstance();
         } catch (InstantiationException ex) {
             //TODO
         } catch (IllegalAccessException ex) {
@@ -29,4 +34,14 @@ public class ClassesManager {
             return res;
         }
     }
+    
+	public static List<Class> getClasses(String[] classNames){
+    	ArrayList<Class> ret = new ArrayList<Class>();
+    	for(String name: classNames){
+    		ret.add( createClass(name));
+    	}
+    	return (List<Class>)ret;
+    }
+	
+	
 }
