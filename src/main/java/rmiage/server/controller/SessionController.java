@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 
 import rmiage.app.server.MainController;
-import rmiage.common.interfaces.Panel;
+import rmiage.common.interfaces.PanelDescriptor;
 import rmiage.common.messages.ClientMessage;
 import rmiage.common.messages.ServerMessage;
 import rmiage.server.modules.Module;
@@ -149,7 +149,7 @@ public class SessionController extends UnicastRemoteObject
         sendMessageToClient(sm);
     }
     
-    public Class<Panel> getNavigNodePanel(NavigTreeNode node) throws RemoteException {
+    public PanelDescriptor getNavigNodePanel(NavigTreeNode node) throws RemoteException {
     	return navigTreeNodeModule.get(node).getPanel(node);
     }
 

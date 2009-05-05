@@ -2,7 +2,7 @@ package rmiage.server.modules.demo.fixedtree;
 
 import java.rmi.RemoteException;
 
-import rmiage.common.interfaces.Panel;
+import rmiage.common.interfaces.PanelDescriptor;
 import rmiage.server.controller.SessionController;
 import rmiage.server.modules.BasicModule;
 import rmiage.server.modules.TreeModel;
@@ -12,9 +12,11 @@ import rmiage.server.modules.NavigTreeNode;
 public class FixedTreeModule extends BasicModule implements TreeModule {
 
 	protected NavigTreeNode root;
+	//protected FixedTreePanelDescriptor pannelDescriptor;
+	
     public FixedTreeModule(SessionController sc) throws RemoteException {
         super(sc);
-        init();
+        init();        
     }
     
     public void init() throws RemoteException{
@@ -36,7 +38,10 @@ public class FixedTreeModule extends BasicModule implements TreeModule {
         return ret;
     }
 
-    public Class<Panel> getPanel(rmiage.common.interfaces.NavigTreeNode node) {
-        return (Class<Panel>) FixedTreePanel.class.asSubclass(Panel.class);
+    public PanelDescriptor getPanel(rmiage.common.interfaces.NavigTreeNode node) throws RemoteException {
+    	Object initalPanelData=null;
+        //TODO create initial data from the node for the descriptor.
+    	FixedTreePanelDescriptor pannelDescriptor = new FixedTreePanelDescriptor(initalPanelData);
+        return pannelDescriptor;
     }
 }
