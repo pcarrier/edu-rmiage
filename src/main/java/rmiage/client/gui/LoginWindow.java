@@ -56,7 +56,7 @@ public class LoginWindow extends javax.swing.JFrame {
         connectButton = new javax.swing.JButton();
         errorLabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Login to RMIAGE");
         setResizable(false);
 
