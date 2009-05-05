@@ -1,15 +1,13 @@
-package rmiage.server.storage;
+package rmiage.server.modules;
 
-import rmiage.server.exceptions.ContentNotFoundException;
-
-public interface Backend {
+public interface StorageBackendModule extends Module {
 
     /**
      * Store an object.
      * @param obj the object to store.
      * @return an unique identifier to retrieve the object.
      */
-    public String store(Content obj);
+    public String store(Object obj);
 
     /**
      * Remove an object.
@@ -22,13 +20,12 @@ public interface Backend {
      * @param identifier the unique identifier of the object.
      * @return
      */
-    public Content load(String identifier);
+    public Object load(String identifier);
 
     /**
      * Update an existing object in the backend.
      * @param identifier the identifier of the object to update.
      * @param object the new version of the object.
-     * @throws ContentNotFoundException
      */
-    public void update(String identifier, Content object) throws ContentNotFoundException;
+    public void update(String identifier, Object object);
 }

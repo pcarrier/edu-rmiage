@@ -1,51 +1,33 @@
 package rmiage.server.controller;
 
-import rmiage.server.storage.*;
+import rmiage.server.modules.StorageBackendModule;
 import rmiage.server.exceptions.StorageException;
 import java.util.Hashtable;
 
-import rmiage.server.controller.ClassesManager;
-
 public class StorageController {
 
-    protected Hashtable<String, Backend> backAss = new Hashtable<String, Backend>();
+    protected Hashtable<String, StorageBackendModule> backAss = new Hashtable<String, StorageBackendModule>();
 
-    public void associateBackend(String id, Backend backend) {
+    public StorageController(Hashtable<String, String> backendDescrs) {
+        for (String backId : backendDescrs.values()) {
+            StorageBackendModule backend;
+            Class backendClass;
+            backend = (StorageBackendModule) ClassesManager.createInstance(backendDescrs.get(backId));
+            backAss.put(backId, backend);
+
+        }
+    }
+
+    public void associateBackend(String id, StorageBackendModule backend) {
         try {
             backAss.put(id, backend);
         } catch (NullPointerException e) {
             throw new StorageException(
-                    "Can't associate backend : NullPointerException");
+                    "Can't associate backend: NullPointerException");
         }
     }
 
     public void detachBackend(String id) {
         backAss.remove(id);
-    }
-
-    public StorageController(Hashtable<String, String> backendDescrs) {
-        try {
-            for (String backId : backendDescrs.values()) {
-                Backend backend;
-                Class backendClass;
-
-                // backendClass = Class.forName(backendDescrs.get(backId));
-                // backend = (Backend) backendClass.newInstance();
-                backend = (Backend) ClassesManager.createInstance(backendDescrs.get(backId));
-                backAss.put(backId, backend);
-            /*
-             * } catch (InstantiationException ex) { throw new
-             * StorageException("Cannot instantiate the backend: " +
-             * backId); } catch (IllegalAccessException ex) { throw new
-             * StorageException("Illegal access around the backend: " +
-             * backId); } /*catch (ClassNotFoundException ex) { throw new
-             * StorageException
-             * ("The class cannot be found for the backend: " + backId); }
-             */
-            }
-        } catch (Exception e) {
-            throw new StorageException(
-                    "Error while instaciating StorageController : " + e.getMessage());
-        }
     }
 }
