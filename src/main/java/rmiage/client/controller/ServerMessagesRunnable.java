@@ -1,8 +1,6 @@
 package rmiage.client.controller;
 
 import java.rmi.RemoteException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Icon;
 import rmiage.client.gui.PopupWindow;
 import rmiage.common.messages.ServerMessage;
@@ -19,8 +17,7 @@ public class ServerMessagesRunnable implements Runnable {
         this();
         this.nm = nm;
     }
-
-    @Override
+    
     public void run() {
         ServerMessage msg;
         while (true) {
