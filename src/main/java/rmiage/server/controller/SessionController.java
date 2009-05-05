@@ -10,7 +10,7 @@ import rmiage.common.messages.ClientMessage;
 import rmiage.common.messages.ServerMessage;
 import rmiage.server.modules.TreeModel;
 import rmiage.server.modules.TreeModule;
-import rmiage.server.modules.TreeNode;
+import rmiage.server.modules.NavigTreeNode;
 
 public class SessionController extends UnicastRemoteObject
         implements rmiage.common.interfaces.SessionController {
@@ -40,9 +40,9 @@ public class SessionController extends UnicastRemoteObject
 
     public rmiage.common.interfaces.TreeModel getTreeModel() throws RemoteException {
         TreeModel res = new TreeModel();
-        res.setRootNode(new TreeNode("Navigation"));
+        res.setRootNode(new NavigTreeNode("Navigation"));
         for (TreeModule m : main.getModulesController().getTreeModules(this)) {
-            ((TreeNode)res.getRootNode()).addNode(
+            ((NavigTreeNode)res.getRootNode()).addNode(
                     m.getTreeModel().getRootNode());
         }
         return res;

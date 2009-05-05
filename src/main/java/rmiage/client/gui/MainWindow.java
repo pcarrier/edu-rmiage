@@ -5,9 +5,14 @@ import java.rmi.RemoteException;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.MutableTreeNode;
+import javax.swing.tree.TreeNode;
+import javax.swing.tree.TreePath;
 
 import rmiage.client.controller.NetworkManager;
 import rmiage.common.interfaces.TreeModel;
+import rmiage.common.interfaces.NavigTreeNode;
+
 
 public class MainWindow extends javax.swing.JFrame {
 
@@ -22,16 +27,22 @@ public class MainWindow extends javax.swing.JFrame {
         this.networkManager = nm;
     }
 
-    public javax.swing.tree.TreeModel getSwingTreeModel(TreeModel tm) throws RemoteException{
-    	DefaultMutableTreeNode top =  new DefaultMutableTreeNode(tm.getRootNode().getName());
-    	System.err.println("root"+top);
-    	DefaultTreeModel arbreModele = new DefaultTreeModel(top);
-		return arbreModele;
-    	
+    public GraphicalTreenode getSwingTreeNodes(NavigTreeNode node) throws RemoteException{
+    	System.err.println("Finding subnodes for "+node);
+    	GraphicalTreenode ret = new GraphicalTreenode(node);
+    	for(NavigTreeNode n : node.getChildNodes()){
+    		ret.add(getSwingTreeNodes(n));
+    	}
+    	return ret;
     }
     public void updateTree(TreeModel tm) throws RemoteException {
-    	System.err.println("UpdateTree");
-        this.navigTree.setModel(getSwingTreeModel(tm));
+    	//System.err.println("UpdateTree");
+    	String nodename=tm.getRootNode().getName();
+    	System.err.println("Nodename "+nodename);
+    	GraphicalTreenode root = getSwingTreeNodes(tm.getRootNode());
+    	//System.err.println("root "+root);
+    	DefaultTreeModel arbreModele = new DefaultTreeModel(root);    	
+        this.navigTree.setModel(arbreModele);
     }
 
     /** This method is called from within the constructor to

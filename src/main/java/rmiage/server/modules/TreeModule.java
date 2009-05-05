@@ -4,12 +4,12 @@ import java.rmi.RemoteException;
 
 import rmiage.common.interfaces.Panel;
 import rmiage.common.interfaces.TreeModel;
-import rmiage.common.interfaces.TreeNode;
+import rmiage.common.interfaces.NavigTreeNode;
 
 
 public interface TreeModule extends Module {
 
 	public TreeModel getTreeModel() throws RemoteException;
 	
-	public Panel getPanel(TreeNode identifier) throws RemoteException;
+	public Panel getPanel(NavigTreeNode identifier) throws RemoteException;
 }

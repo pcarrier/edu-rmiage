@@ -3,7 +3,7 @@ package rmiage.server.modules;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import rmiage.common.interfaces.TreeNode;
+import rmiage.common.interfaces.NavigTreeNode;
 
 public class TreeModel  extends UnicastRemoteObject implements rmiage.common.interfaces.TreeModel {
 
@@ -16,13 +16,13 @@ public class TreeModel  extends UnicastRemoteObject implements rmiage.common.int
 		super();
 	}
 
-	protected TreeNode rootNode;
+	protected NavigTreeNode rootNode;
 	
-    public TreeNode getRootNode() throws RemoteException {
+    public NavigTreeNode getRootNode() throws RemoteException {
     	return rootNode;
     }
 
-	public void setRootNode(TreeNode rootnode) throws RemoteException {
+	public void setRootNode(NavigTreeNode rootnode) throws RemoteException {
 		this.rootNode=rootnode;
 	}
 }
