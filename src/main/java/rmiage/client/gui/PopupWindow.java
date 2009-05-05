@@ -30,6 +30,8 @@ public class PopupWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Server message");
         setResizable(false);
+
+        messageLabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 8, 8, 8));
         getContentPane().add(messageLabel, java.awt.BorderLayout.CENTER);
 
         okButton.setText("Close");

@@ -1,7 +1,7 @@
-package rmiage.server.settings;
+package rmiage.server.controller;
 
+import rmiage.server.settings.*;
 import rmiage.server.exceptions.SettingsException;
-import rmiage.server.controller.ClassesManager;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -91,10 +91,8 @@ public class SettingsController {
 	 * 
 	 * @return Strings describing the modules to use. 
 	 */
-	public String[] getModulesDescriptions() {
-		ArrayList<String> modsDescr = new ArrayList<String>();
-		String modLstStr = backend.getOption("Modules");
-		return (modLstStr.split(";"));
+	public String[] getModuleLoadersDescriptions() {
+		return (backend.getList("ModuleLoaders"));
 	}
 
 	/**

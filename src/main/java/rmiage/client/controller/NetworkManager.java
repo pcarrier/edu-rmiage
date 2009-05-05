@@ -21,8 +21,7 @@ public class NetworkManager {
     protected String uri;
     protected SessionController sessionController;
     protected MainWindow mainWindow;
-    protected ServerMessagesThread srvMsgThread =
-            new ServerMessagesThread(this);
+    protected Thread srvMsgThread;
 
     public NetworkManager(Credential credentials, String uri)
             throws InvalidCredentialException, RemoteException {
@@ -44,6 +43,7 @@ public class NetworkManager {
             sessionController = loginController.launchSession(credentials);
             mainWindow = new MainWindow(this);
             mainWindow.setVisible(true);
+            srvMsgThread = new Thread(new ServerMessagesRunnable(this));
             srvMsgThread.start();
         } catch (NotBoundException ex) {
             System.out.println(ex);
@@ -67,10 +67,10 @@ public class NetworkManager {
      * Ends the connection between the client and the server
      */
     public void close() {
-        // Detruira la session cote serveur
-        srvMsgThread.stopWaiting();
-        sessionController = null;
+        srvMsgThread.interrupt();
         mainWindow.dispose();
+        // Detruira la session cote serveur
+        sessionController = null;
         new LoginWindow().setVisible(true);
     }
 

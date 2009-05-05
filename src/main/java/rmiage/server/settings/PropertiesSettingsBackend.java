@@ -47,4 +47,8 @@ public class PropertiesSettingsBackend implements SettingsBackend {
     public String getOption(String optionName) {
         return (properties.getProperty(optionName));
     }
+
+    public String[] getList(String listName) {
+		return (getOption(listName).split(";"));
+    }
 }

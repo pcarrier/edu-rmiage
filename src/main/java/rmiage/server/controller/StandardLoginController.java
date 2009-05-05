@@ -25,7 +25,7 @@ public class StandardLoginController extends UnicastRemoteObject implements Logi
 
     public SessionController launchSession(Credential credential) throws RemoteException, RefusedCredentialException {
         if(main.getSecurityController().checkCredentials(credential)) {
-            return new StandardSessionController();
+            return new StandardSessionController(main);
         } else {
             throw new RefusedCredentialException();
         }

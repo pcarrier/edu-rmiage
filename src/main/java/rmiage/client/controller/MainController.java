@@ -1,5 +1,8 @@
 package rmiage.client.controller;
 
+import java.io.IOException;
+import java.rmi.server.RMISocketFactory;
+import org.neilja.net.interruptiblermi.InterruptibleRMISocketFactory;
 import rmiage.client.gui.LoginWindow;
 
 public class MainController {
@@ -9,7 +12,8 @@ public class MainController {
         loginWindow.setVisible(true);
     }
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
+        RMISocketFactory.setSocketFactory(new InterruptibleRMISocketFactory());
         new MainController().startGUI();
     }
 }

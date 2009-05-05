@@ -17,4 +17,6 @@ public interface SettingsBackend {
      * @return The value corresponding.
      */
     public String getOption(String optionName);
+
+    public String[] getList(String listName);
 }

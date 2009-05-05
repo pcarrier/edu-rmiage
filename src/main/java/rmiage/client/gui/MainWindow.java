@@ -10,9 +10,9 @@ public class MainWindow extends javax.swing.JFrame {
         initComponents();
     }
 
-    public MainWindow(NetworkManager sm) {
+    public MainWindow(NetworkManager nm) {
         this();
-        this.sessionManager = sm;
+        this.networkManager = nm;
     }
 
     /** This method is called from within the constructor to
@@ -79,7 +79,7 @@ public class MainWindow extends javax.swing.JFrame {
 }//GEN-LAST:event_searchFieldActionPerformed
 
     private void disconnectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disconnectButtonActionPerformed
-        sessionManager.close();
+        networkManager.close();
     }//GEN-LAST:event_disconnectButtonActionPerformed
 
     /**
@@ -93,7 +93,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
     }
-    private NetworkManager sessionManager;
+    private NetworkManager networkManager;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton disconnectButton;
     private javax.swing.JPanel mainPanel;

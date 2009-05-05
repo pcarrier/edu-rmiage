@@ -34,24 +34,25 @@ public class ClassesManager {
             return res;
         }
     }
-    
-	public static List<Class> getClasses(String[] classNames){
-    	ArrayList<Class> ret = new ArrayList<Class>();
-    	for(String name: classNames){
-    		ret.add( createClass(name));
-    	}
-    	return (List<Class>)ret;
+
+    public static <T> List<Class<T>> getClasses(String[] classNames) {
+        ArrayList<Class<T>> ret = new ArrayList<Class<T>>();
+        for (String name : classNames) {
+            ret.add((Class<T>) createClass(name));
+        }
+        return (List<Class<T>>) ret;
     }
-	/**
-	 * 
-	 * @param classNames
-	 * @return
-	 */
-	public static List<Object> getInstances(String[] classNames){
-    	ArrayList<Object> ret = new ArrayList<Object>();
-    	for(String name: classNames){
-    		ret.add( createInstance(name));
-    	}
-    	return (List<Object>)ret;
+
+    /**
+     *
+     * @param classNames
+     * @return
+     */
+    public static <T> List<T> getInstances(String[] classNames) {
+        ArrayList<T> ret = new ArrayList<T>();
+        for (String name : classNames) {
+            ret.add((T) createInstance(name));
+        }
+        return (List<T>) ret;
     }
 }

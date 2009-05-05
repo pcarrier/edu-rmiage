@@ -6,8 +6,9 @@ import rmiage.common.interfaces.SecurityController;
 import rmiage.server.exceptions.ConnectionException;
 import rmiage.server.controller.ConnectionController;
 import rmiage.server.controller.ClassesManager;
+import rmiage.server.controller.ModulesController;
 import rmiage.server.controller.StandardLoginController;
-import rmiage.server.settings.SettingsController;
+import rmiage.server.controller.SettingsController;
 
 public class MainController {
 
@@ -18,6 +19,7 @@ public class MainController {
     protected ConnectionController connectionController;
     protected StandardLoginController loginController;
     protected SecurityController securityController;
+    protected ModulesController modulesController;
 
     public SettingsController getSettingsController() {
         return settingsController;
@@ -35,6 +37,10 @@ public class MainController {
         return securityController;
     }
 
+    public ModulesController getModulesController() {
+        return modulesController;
+    }
+
     /**
      * Initialize the server with command line args.
      *
@@ -44,6 +50,7 @@ public class MainController {
      */
     public void init(String[] cmdLineParams) throws ConnectionException {
         settingsController = new SettingsController(cmdLineParams);
+        modulesController = new ModulesController(this);
         securityController = (SecurityController) ClassesManager.createInstance(
                 settingsController.getSecurityControllerDescription());
         try {
@@ -53,8 +60,6 @@ public class MainController {
         } catch (RemoteException ex) {
             throw new ConnectionException("Network error during initialization!");
         }
-
-
     }
 
     public static void main(String[] args) {
@@ -65,5 +70,9 @@ public class MainController {
             System.err.println(ex.getMessage());
             ex.printStackTrace();
         }
+    }
+
+    public String[] getModuleLoadersDescriptions() {
+        return settingsController.getModuleLoadersDescriptions();
     }
 }
