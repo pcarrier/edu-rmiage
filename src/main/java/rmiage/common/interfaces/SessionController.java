@@ -12,4 +12,5 @@ public interface SessionController extends Remote{
     public ClientMessage getClientMessage() throws RemoteException;
     public void sendMessageToServer(ClientMessage msg) throws RemoteException;
     public void sendMessageToClient(ServerMessage msg) throws RemoteException;
+    public TreeModel getTreeModel() throws RemoteException;
 }

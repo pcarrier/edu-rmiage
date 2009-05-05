@@ -5,9 +5,9 @@ import java.util.Hashtable;
 import java.util.List;
 
 import rmiage.app.server.MainController;
-import rmiage.common.interfaces.SessionController;
 import rmiage.server.modules.ModuleLoader;
 import rmiage.server.modules.Module;
+import rmiage.server.modules.TreeModule;
 
 public class ModulesController {
 
@@ -47,6 +47,16 @@ public class ModulesController {
      * Removes a Sessioncontroller from the modules Hashtable
      * @param sc
      */
+    public List<TreeModule> getTreeModules(SessionController sc) {
+        ArrayList<TreeModule> res = new ArrayList<TreeModule>();
+        for(Module m : getModules(sc)) {
+            if (m instanceof TreeModule) {
+                res.add((TreeModule)m);
+            }
+        }
+        return res;
+    }
+
     public void sessionFinished(SessionController sc) {
         modules.remove(sc);
     }

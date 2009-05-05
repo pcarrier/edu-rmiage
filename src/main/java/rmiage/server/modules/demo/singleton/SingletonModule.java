@@ -10,7 +10,7 @@ public class SingletonModule implements Module {
         if (instance == null) {
             instance = new SingletonModule();
         }
-        System.out.println("TestModule provided.");
+        System.out.println("SingletonModule provided.");
         return instance;
 
     }

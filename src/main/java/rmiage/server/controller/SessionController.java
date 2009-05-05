@@ -1,5 +1,6 @@
 package rmiage.server.controller;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -7,6 +8,9 @@ import java.util.ArrayList;
 import rmiage.app.server.MainController;
 import rmiage.common.messages.ClientMessage;
 import rmiage.common.messages.ServerMessage;
+import rmiage.server.modules.TreeModel;
+import rmiage.server.modules.TreeModule;
+import rmiage.server.modules.TreeNode;
 
 public class SessionController extends UnicastRemoteObject
         implements rmiage.common.interfaces.SessionController {
@@ -32,6 +36,16 @@ public class SessionController extends UnicastRemoteObject
 
     public static SessionController[] getCurrentSessions() {
         return (SessionController[]) sessions.toArray();
+    }
+
+    public rmiage.common.interfaces.TreeModel getTreeModel() {
+        TreeModel res = new TreeModel();
+        res.setRootNode(new TreeNode("Navigation"));
+        for (TreeModule m : main.getModulesController().getTreeModules(this)) {
+            ((TreeNode)res.getRootNode()).addNode(
+                    m.getTreeModel().getRootNode());
+        }
+        return res;
     }
 
     /**
@@ -106,6 +120,20 @@ public class SessionController extends UnicastRemoteObject
         }
         serverMessage = msg;
         this.notifyAll();
+    }
+
+    public void sendSimplePopup(String msg) throws RemoteException {
+        ServerMessage sm = new ServerMessage();
+        sm.messageType = ServerMessage.Type.showSimplePopup;
+        sm.information = new Serializable[1];
+        sm.information[0] = msg;
+        sendMessageToClient(sm);
+    }
+
+    public void sendTreeUpdate() throws RemoteException {
+        ServerMessage sm = new ServerMessage();
+        sm.messageType = ServerMessage.Type.updateTree;
+        sendMessageToClient(sm);
     }
 
     @Override

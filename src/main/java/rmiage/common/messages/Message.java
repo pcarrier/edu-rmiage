@@ -17,5 +17,5 @@ public class Message implements Serializable, Cloneable {
             throw new InternalError(e.toString());
         }
     }
-    public Serializable[] information;
+    public Serializable[] information = new Serializable[0];
 }

@@ -10,6 +10,7 @@ import rmiage.client.gui.MainWindow;
 import rmiage.common.security.Credential;
 import rmiage.common.security.InvalidCredentialException;
 import rmiage.common.interfaces.SessionController;
+import rmiage.common.interfaces.TreeModel;
 import rmiage.common.security.RefusedCredentialException;
 
 /**
@@ -43,6 +44,7 @@ public class NetworkManager {
             sessionController = loginController.launchSession(credentials);
             mainWindow = new MainWindow(this);
             mainWindow.setVisible(true);
+            updateTree();
             srvMsgThread = new Thread(new ServerMessagesRunnable(this));
             srvMsgThread.start();
         } catch (NotBoundException ex) {
@@ -61,6 +63,11 @@ public class NetworkManager {
                 throw new ConnectionException("Remote error");
             }
         }
+    }
+
+    public void updateTree() throws RemoteException {
+        TreeModel tm = sessionController.getTreeModel();
+        mainWindow.updateTree(tm);
     }
 
     /**
