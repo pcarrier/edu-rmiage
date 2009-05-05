@@ -11,7 +11,6 @@ import rmiage.app.server.MainController;
 import rmiage.common.interfaces.PanelDescriptor;
 import rmiage.common.messages.ClientMessage;
 import rmiage.common.messages.ServerMessage;
-import rmiage.server.modules.Module;
 import rmiage.server.modules.TreeModel;
 import rmiage.server.modules.TreeModule;
 import rmiage.server.modules.NavigTreeNode;
@@ -26,13 +25,13 @@ public class SessionController extends UnicastRemoteObject
             new ArrayList<SessionController>();
     
     //Garder une trace des module de chaque racine
-    protected Hashtable<rmiage.common.interfaces.NavigTreeNode, TreeModule> navigTreeNodeModule;
+    protected Hashtable<String, TreeModule> navigTreeNodeModule;
     protected MainController main;
 
     protected SessionController() throws RemoteException {
         super();
         sessions.add(this);
-        navigTreeNodeModule = new Hashtable<rmiage.common.interfaces.NavigTreeNode, TreeModule>();
+        navigTreeNodeModule = new Hashtable<String, TreeModule>();
     }
 
     protected SessionController(MainController mainController)
@@ -59,7 +58,8 @@ public class SessionController extends UnicastRemoteObject
             ((NavigTreeNode)res.getRootNode()).addNode(root);
             //On garde
             //if(root!=null){
-            	navigTreeNodeModule.put(root,m);
+            	navigTreeNodeModule.put(root.getUUID(),m);
+            	System.err.println("Added module "+m);
             //}
         }
         return res;
@@ -169,8 +169,34 @@ public class SessionController extends UnicastRemoteObject
      * @throws RemoteException
      */
 
-    public PanelDescriptor getNavigNodePanel(NavigTreeNode node) throws RemoteException {
-    	return navigTreeNodeModule.get(node).getPanel(node);
+    public PanelDescriptor getNavigNodePanel(rmiage.common.interfaces.NavigTreeNode node) throws RemoteException {
+    	System.out.println("Node UID : "+node.getUUID());
+    	System.out.println(node);
+    	System.out.println("Clefs : ");
+    	
+    	for (TreeModule r :navigTreeNodeModule.values()){
+    		System.out.println(r);
+    	}
+    	
+
+    	
+    	if(navigTreeNodeModule==null){
+   		 System.err.println("########################################## navigTreeNodeModule NULL");
+   	 	}
+    	
+    	if(node==null){
+   		 System.err.println("########################################## NODE NULL");
+   	 	}
+    	 TreeModule t = navigTreeNodeModule.get(node.getUUID());
+    	 if(t==null){
+    		 System.err.println("########################################## MODULE NULL");
+    	 }
+    	PanelDescriptor ret =t.getPanel(node);
+    	if(ret==null){
+    		System.err.println("##########################################PanelDescriptor NULL");
+    	}
+    	
+    	return ret;
     }
 
     @Override
