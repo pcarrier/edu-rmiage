@@ -1,8 +1,8 @@
 package rmiage.server.security;
 
+import java.rmi.RemoteException;
 import rmiage.common.interfaces.SecurityController;
 import rmiage.common.security.Credential;
-import rmiage.common.security.StandardCredential;
 
 /**
  * A security manager based on logins and passwords.
@@ -20,6 +20,10 @@ public class StandardSecurityController implements SecurityController {
     }
 
     public String getIdentity(Credential credential) {
-        return credential.asString();
+        try {
+            return credential.asString();
+        } catch (RemoteException ex) {
+            throw new InternalError();
+        }
     }
 }
