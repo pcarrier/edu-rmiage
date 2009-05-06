@@ -4,8 +4,10 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-
-
+/**
+ * an interface which gives a common model for 
+ * navigations tree node
+ */
 public interface NavigTreeNode extends Remote{
 	public ArrayList<NavigTreeNode> getChildNodes() throws RemoteException;
 	public String getName() throws RemoteException;
