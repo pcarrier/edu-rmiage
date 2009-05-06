@@ -1,6 +1,9 @@
 package rmiage.server.modules.demo.commontext;
 
 import java.io.Serializable;
+import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import rmiage.common.interfaces.Panel;
 import rmiage.common.interfaces.SessionController;
 
@@ -36,7 +39,13 @@ public class CommonTextPanel extends Panel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextPane1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTextPane1PropertyChange
-        
+        Serializable[] content = new Serializable[1];
+        content[0] = jTextPane1.getText();
+        try {
+            sc.sendMessageToModules(content);
+        } catch (RemoteException ex) {
+            throw new InternalError();
+        }
     }//GEN-LAST:event_jTextPane1PropertyChange
 
     @Override
