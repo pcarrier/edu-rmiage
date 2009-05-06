@@ -48,8 +48,9 @@ public class CommonTextPanel extends Panel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void textUpdated() {
-        Serializable[] content = new Serializable[1];
-        content[0] = jTextPane1.getText();
+        Serializable[] content = new Serializable[2];
+        content[0] = "NewCommonText";
+        content[1] = jTextPane1.getText();
         try {
             sc.sendMessageToModules(content);
         } catch (RemoteException ex) {

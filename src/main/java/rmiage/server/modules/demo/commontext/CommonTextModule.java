@@ -31,7 +31,17 @@ public class CommonTextModule implements TreeModule {
     }
 
 	public void processMessage(ClientMessage msg) {
-		// TODO Auto-generated method stub
+		if(msg.information.length > 0 && (msg.information[0] == "NewCommonText")) {
+            SessionController[] sessions =
+                    SessionController.getCurrentSessions();
+            for(SessionController s : sessions) {
+                try {
+                    s.sendMessageToPanel(msg.information[1]);
+                } catch (RemoteException ex) {
+                    throw new InternalError();
+                }
+            }
+        }
 		
 	}
 }
