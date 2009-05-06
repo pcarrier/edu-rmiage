@@ -1,10 +1,11 @@
 package rmiage.server.exceptions;
 
+/**
+ * An Exception throwed during connection time. 
+ */
+
 public class ConnectionException extends Exception {
 
-    /**
-     * An Exception throwed during connection time. 
-     */
     private static final long serialVersionUID = -6499060800854600649L;
 
     /**

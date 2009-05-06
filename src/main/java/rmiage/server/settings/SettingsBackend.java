@@ -18,5 +18,10 @@ public interface SettingsBackend {
      */
     public String getOption(String optionName);
 
+    /**
+     * return the list of settings
+     * @param listName
+     * @return
+     */
     public String[] getList(String listName);
 }

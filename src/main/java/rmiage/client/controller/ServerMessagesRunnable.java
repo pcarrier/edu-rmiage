@@ -18,6 +18,9 @@ public class ServerMessagesRunnable implements Runnable {
         this.nm = nm;
     }
 
+    /**
+     * display a message to the user
+     */
     public void run() {
         ServerMessage msg;
         while (true) {

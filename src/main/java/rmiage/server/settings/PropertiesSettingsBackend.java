@@ -48,6 +48,10 @@ public class PropertiesSettingsBackend implements SettingsBackend {
         return (properties.getProperty(optionName));
     }
 
+    /**
+     * get the list of settings
+     * @return allSettings
+     */
     public String[] getList(String listName) {
 		return (getOption(listName).split(";"));
     }

@@ -71,11 +71,19 @@ public class NavigTreeNode extends UnicastRemoteObject implements rmiage.common.
 		return this.uid;
 	}
 
+	/**
+	 * get the parent
+	 * @return parent
+	 */
 	public rmiage.common.interfaces.NavigTreeNode getParent()
 			throws RemoteException {
 		return this.parent;
 	}
 
+	/**
+	 * set the parent
+	 * @require parent != null
+	 */
 	public void setParent(rmiage.common.interfaces.NavigTreeNode parent)
 			throws RemoteException {
 		if(this.parent != null){

@@ -35,11 +35,20 @@ public class TreeModel  extends UnicastRemoteObject implements rmiage.common.int
 		this.rootNode=rootnode;
 	}
 	
-	
+	/**
+	 * calls the other find(...) method with one more argument
+	 */
 	public boolean find(rmiage.common.interfaces.NavigTreeNode node) throws RemoteException{
 		return this.find(rootNode, node);
 	}
 	
+	/**
+	 * search for an existing node in the arborescence root
+	 * @param root
+	 * @param node
+	 * @return true if the node is found, else it will return false
+	 * @throws RemoteException
+	 */
 	private boolean find (rmiage.common.interfaces.NavigTreeNode root,rmiage.common.interfaces.NavigTreeNode  node) throws RemoteException{
 		if(root.getUUID().equals(node.getUUID())){
 			return true;

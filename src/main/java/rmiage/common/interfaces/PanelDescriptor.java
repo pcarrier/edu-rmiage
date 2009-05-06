@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-
+/**
+ * an interface which 
+ */
 public interface PanelDescriptor extends Remote{
 	public Class<Panel> getPannelClass() throws RemoteException;
 	public Serializable getInitialData() throws RemoteException;

@@ -5,6 +5,9 @@ import java.io.Serializable;
 import rmiage.common.interfaces.Panel;
 import rmiage.common.interfaces.SessionController;
 
+/**
+ * a totally empty panel
+ */
 public class EmptyPanel extends Panel{
 
 	/**

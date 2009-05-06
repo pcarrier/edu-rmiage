@@ -46,10 +46,18 @@ public class StandardCredential extends UnicastRemoteObject implements Credentia
         return password;
     }
 
+    /**
+     * check if each login and password aren't empty
+     * @return true if none of them is empty
+     */
     public boolean checkValid() {
         return (!login.isEmpty() && !password.isEmpty());
     }
 
+    /**
+     * return the login
+     * @return login
+     */
     public String asString() throws RemoteException {
         return login;
     }

@@ -26,10 +26,18 @@ public class PanelDescriptor extends UnicastRemoteObject
         this.data = data;
     }
 
+    /**
+     * get the class of this panel
+     * @return panelClass
+     */
     public Class<Panel> getPannelClass() throws RemoteException {
         return panelClass;
     }
 
+    /**
+     * get the initial data
+     * @return data
+     */
     public Serializable getInitialData() throws RemoteException {
         return data;
     }

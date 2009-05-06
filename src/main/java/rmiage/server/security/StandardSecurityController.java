@@ -19,6 +19,10 @@ public class StandardSecurityController implements SecurityController {
         return true;
     }
 
+    /**
+     * get the Credential as a string
+     * @return Creditential
+     */
     public String getIdentity(Credential credential) {
         try {
             return credential.asString();

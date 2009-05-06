@@ -132,6 +132,9 @@ public class SessionController extends UnicastRemoteObject
         this.notifyAll();
     }
 
+    /**
+     * sends a message to all modules
+     */
     public void sendMessageToModules(Serializable[] serializable) throws RemoteException {
         ClientMessage msg = new ClientMessage();
         msg.messageType = ClientMessage.Type.forModules;
@@ -156,6 +159,11 @@ public class SessionController extends UnicastRemoteObject
         this.notifyAll();
     }
 
+    /**
+     * sends a message to the client panel
+     * @param serializable
+     * @throws RemoteException
+     */
     public void sendMessageToPanel(Serializable serializable) throws RemoteException {
         ServerMessage msg = new ServerMessage();
         msg.messageType = ServerMessage.Type.toPanel;
@@ -204,6 +212,10 @@ public class SessionController extends UnicastRemoteObject
 
     }
 
+    /**
+     * get the MainController
+     * @return the mainController
+     */
     public MainController getMainController() {
         return main;
     }
@@ -213,10 +225,18 @@ public class SessionController extends UnicastRemoteObject
         main.getModulesController().sessionFinished(this);
     }
 
+    /**
+     * send a message to all ModulesController
+     * @param msg
+     */
     void dispatchMessage(ClientMessage msg) {
         main.getModulesController().sendToControllers(this, msg);
     }
 
+    /**
+     * get the identity
+     * @return identity
+     */
     public String getIdentity() {
         return identity;
     }

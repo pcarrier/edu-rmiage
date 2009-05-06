@@ -18,6 +18,10 @@ public class DummySecurityController implements SecurityController {
         return true;
     }
 
+    /**
+     * get the Identity
+     * @return 'dummy user'
+     */
     public String getIdentity(Credential credential) {
         return ("dummy user");
     }
