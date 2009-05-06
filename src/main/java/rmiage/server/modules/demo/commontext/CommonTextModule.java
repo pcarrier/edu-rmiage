@@ -1,6 +1,8 @@
 package rmiage.server.modules.demo.commontext;
 
 import java.rmi.RemoteException;
+
+import rmiage.common.messages.ClientMessage;
 import rmiage.server.controller.SessionController;
 import rmiage.server.modules.NavigTreeNode;
 import rmiage.server.modules.PanelDescriptor;
@@ -27,4 +29,9 @@ public class CommonTextModule implements TreeModule {
     public PanelDescriptor getPanel(rmiage.common.interfaces.NavigTreeNode identifier) throws RemoteException {
         return pd;
     }
+
+	public void processMessage(ClientMessage msg) {
+		// TODO Auto-generated method stub
+		
+	}
 }
