@@ -17,6 +17,7 @@ import rmiage.common.interfaces.PanelDescriptor;
 import rmiage.common.interfaces.TreeModel;
 import rmiage.common.interfaces.NavigTreeNode;
 import rmiage.common.interfaces.Panel;
+import rmiage.common.messages.ClientMessage;
 import rmiage.server.controller.SessionController;
 
 
@@ -48,8 +49,7 @@ public class MainWindow extends javax.swing.JFrame {
                 tmpTopPanel=pn;
                 mainPanel.add(tmpTopPanel);
                 
-                mainPanel.revalidate();
-                
+                mainPanel.revalidate();              
                 
               }
 
