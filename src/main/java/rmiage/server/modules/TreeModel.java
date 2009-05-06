@@ -49,7 +49,7 @@ public class TreeModel  extends UnicastRemoteObject implements rmiage.common.int
 				return true;
 			}
 			for(rmiage.common.interfaces.NavigTreeNode n : x.getChildNodes()){
-				System.out.println(n.getName());
+				//System.out.println(n.getName());
 				if(find(n,node)){
 					return true;
 				}

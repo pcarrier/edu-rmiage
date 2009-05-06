@@ -14,7 +14,7 @@ public class CommonTextModule implements TreeModule {
     private SessionController sc;
     private PanelDescriptor pd;
 
-    public CommonTextModule(SessionController sc) {
+    public CommonTextModule(SessionController sc) throws RemoteException {
         this.sc = sc;
         pd = new PanelDescriptor((Class) CommonTextPanel.class, null);
     }
