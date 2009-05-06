@@ -2,6 +2,8 @@ package rmiage.server.modules.demo.commontext;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import rmiage.common.interfaces.Panel;
 import rmiage.common.interfaces.SessionController;
 
@@ -12,6 +14,20 @@ public class CommonTextPanel extends Panel {
     /** Creates new form CommonTextPanel */
     public CommonTextPanel() {
         initComponents();
+        jTextPane1.getDocument().addDocumentListener(new DocumentListener() {
+
+            public void insertUpdate(DocumentEvent e) {
+                textUpdated();
+            }
+
+            public void removeUpdate(DocumentEvent e) {
+                textUpdated();
+            }
+
+            public void changedUpdate(DocumentEvent e) {
+                textUpdated();
+            }
+        });
     }
 
     /** This method is called from within the constructor to
@@ -26,17 +42,12 @@ public class CommonTextPanel extends Panel {
 
         setLayout(new java.awt.BorderLayout());
 
-        jTextPane1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jTextPane1PropertyChange(evt);
-            }
-        });
         jScrollPane1.setViewportView(jTextPane1);
 
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextPane1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTextPane1PropertyChange
+    private void textUpdated() {
         Serializable[] content = new Serializable[1];
         content[0] = jTextPane1.getText();
         try {
@@ -44,7 +55,7 @@ public class CommonTextPanel extends Panel {
         } catch (RemoteException ex) {
             throw new InternalError();
         }
-    }//GEN-LAST:event_jTextPane1PropertyChange
+    }
 
     @Override
     public void close() {
