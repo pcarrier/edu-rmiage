@@ -31,20 +31,21 @@ public class CommonTextModule implements TreeModule {
         return pd;
     }
 
-	public void processMessage(ClientMessage msg) {
-		if(msg.information.length > 0 && (msg.information[0] == "NewCommonText")) {
-            System.out.println("Processing message");
+    public void processMessage(ClientMessage msg) {
+        if (((String) msg.information[0]).startsWith("NewCommonText")) {
             List<SessionController> sessions =
                     SessionController.getCurrentSessions();
-            for(SessionController s : sessions) {
-                System.out.println("Sending to someone");
-                try {
-                    s.sendMessageToPanel(msg.information[1]);
-                } catch (RemoteException ex) {
-                    throw new InternalError();
+            for (SessionController s : sessions) {
+                if (s != sc) {
+                    try {
+                        System.out.println((String)msg.information[1]);
+                        s.sendMessageToPanel((String)msg.information[1]);
+                    } catch (RemoteException ex) {
+                        throw new InternalError();
+                    }
                 }
             }
         }
-		
-	}
+
+    }
 }
