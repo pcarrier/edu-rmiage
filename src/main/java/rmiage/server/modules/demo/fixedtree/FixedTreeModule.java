@@ -31,7 +31,6 @@ public class FixedTreeModule extends BasicModule implements TreeModule {
             }
         	 root.addNode(tmp);
         }
-        System.out.println("LE PARENT EDE ROOT EST :--------------------------->"+root.getParent());
     }
 
     public rmiage.common.interfaces.TreeModel getTreeModel() throws RemoteException {
