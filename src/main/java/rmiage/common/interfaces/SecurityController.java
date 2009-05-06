@@ -8,4 +8,5 @@ import rmiage.common.security.Credential;
 public interface SecurityController {
 
     boolean checkCredentials(Credential credential);
+    String getIdentity(Credential credential);
 }

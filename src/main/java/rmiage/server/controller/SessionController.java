@@ -29,6 +29,7 @@ public class SessionController extends UnicastRemoteObject
     protected Hashtable<String, TreeModule> navigTreeNodeModule;
     protected MainController main;
     protected Thread clientMessageThread;
+    protected String identity;
 
     protected SessionController() throws RemoteException {
         super();
@@ -37,10 +38,11 @@ public class SessionController extends UnicastRemoteObject
         trees = new ArrayList<TreeModel>();
     }
 
-    protected SessionController(MainController mainController)
+    public SessionController(MainController mainController, String identity)
             throws RemoteException {
         this();
         main = mainController;
+        this.identity = identity;
         main.getModulesController().initializeModules(this);
         clientMessageThread = new Thread(new ClientMessagesRunnable(this));
         clientMessageThread.start();
@@ -185,6 +187,10 @@ public class SessionController extends UnicastRemoteObject
         return (PanelDescriptor) new EmptyPanel();
     }
 
+    public MainController getMainController() {
+        return main;
+    }
+
     @Override
     public void finalize() {
         main.getModulesController().sessionFinished(this);
@@ -192,5 +198,9 @@ public class SessionController extends UnicastRemoteObject
 
     void dispatchMessage(ClientMessage msg) {
         main.getModulesController().sendToControllers(this, msg);
+    }
+
+    public String getIdentity() {
+        return identity;
     }
 }

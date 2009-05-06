@@ -23,28 +23,12 @@ public class SettingsController {
 			String backendClassName = System.getProperty(
 					"rmiage.settingsloader",
 					"rmiage.server.settings.PropertiesSettingsBackend");
-			/*
-			 * Class backendClass = ClassesManager.loadClass(backendClassName);
-			 * if (backend != null) { backend = (SettingsBackend)
-			 * backendClass.newInstance(); } else { //TODO
-			 * System.err.println("TODO SettingController backend was null"); }
-			 */
 			backend = (SettingsBackend) ClassesManager
 					.createInstance(backendClassName);
 			backend.giveCommandLine(cmdlineParams);
 		} catch (Exception ex) {
 			throw new SettingsException(ex.getMessage());
 		}
-		/*
-		 * } catch (InstantiationException ex) { throw new SettingsException(
-		 * "Cannot instantiate the settings backend"); } catch
-		 * (IllegalAccessException ex) { System.err.println(ex.getMessage());
-		 * throw new SettingsException(
-		 * "Illegal access around the settings backend"); } /* catch
-		 * (ClassNotFoundException ex) { throw new SettingsException(
-		 * "Settings backend class cannot be found!"); }
-		 */
-
 	}
 
 	/**
@@ -70,21 +54,6 @@ public class SettingsController {
 		return (backend.getOption("RessourceName"));
 	}
 
-	/**
-	 * Return the Backend Association descriptions from parameters.
-	 * 
-	 * @return A Hashtable with a String,String pair describing the Backend Association to use. 
-	 */
-	public Hashtable<String, String> getBackendAssociationsDescriptions() {
-		Hashtable<String, String> res = new Hashtable<String, String>();
-		String badLstStr = backend.getOption("Backends");
-		String[] badLst = badLstStr.split(";");
-		for (String badString : badLst) {
-			String[] badSplStr = badString.split(":");
-			res.put(badSplStr[0], badSplStr[1]);
-		}
-		return res;
-	}
 	/**
 	 * Return the Modules descriptions from parameters.
 	 * 
