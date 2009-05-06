@@ -16,10 +16,10 @@ public class StandardSecurityController implements SecurityController {
 	 */
     public boolean checkCredentials(Credential c) {
         // TODO Auto-generated method stub
-        return false;
+        return true;
     }
 
     public String getIdentity(Credential credential) {
-        return ((StandardCredential)credential).getLogin();
+        return credential.asString();
     }
 }
