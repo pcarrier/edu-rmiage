@@ -2,20 +2,26 @@ package rmiage.server.modules;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
 import rmiage.common.interfaces.Panel;
 
-public class PanelDescriptor
+public class PanelDescriptor extends UnicastRemoteObject
         implements rmiage.common.interfaces.PanelDescriptor {
 
-    protected Class panelClass;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -530929436173924073L;
+	protected Class panelClass;
     protected Serializable data;
 
     public static PanelDescriptor createInstance(Class panelClass,
-            Serializable data) {
+            Serializable data) throws RemoteException {
         return new PanelDescriptor(panelClass, data);
     }
 
-    public PanelDescriptor(Class<Panel> panelClass, Serializable data) {
+    public PanelDescriptor(Class<Panel> panelClass, Serializable data) throws RemoteException {
         this.panelClass = panelClass;
         this.data = data;
     }
