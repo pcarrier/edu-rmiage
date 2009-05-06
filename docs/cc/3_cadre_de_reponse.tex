@@ -9,6 +9,7 @@ Nous souhaitions proposer messagerie instantanée et courriers type E-mail, puis
 
 L'utilisation du \emph{framework} Qt Jambi pour l'interface graphique a été rapidement écarté pour permettre l'utilisation de JWS.
 
+La gestion de la persistance des données ne sera pas implémentée directement dans le framework, laissant au client la possibilité d'implémenter ses propres solution si besoin, facilité par l'architecture générale modulaire du \emph{framework}.
 \subsection{Mesures prises pour respecter les contraintes}
 
 \begin{figure}[thbp]
@@ -26,9 +27,16 @@ Le produit sera livré sous forme d'archives JAR contenant la librairie et les p
 
 Les clients pourront utiliser la technologie Java Web Start pour distribuer l'application à tous leurs utilisateurs sans l'intervention des administrateurs.
 
-La documentation sera distribuée sous forme d'archive (utilisation de javadoc) ainsi que d'une vidéo de démonstration du produit (\emph{screencast}).
+La documentation sera distribuée sous forme d'archive (utilisation de javadoc).
 
 \subsection{Perspectives d’évolution technologique}
 
 Le produit pourra, plus tard, évoluer vers une version plus complète en ajoutant, par exemple, une gestion des événements ou le suivi des versions des modèles.
 Il pourra aussi être doté d'une persistance de donnée abstraite de tout éditeur de serveur SQL au travers d'Hibernate.
+
+La couche RMI à elle aussi été intégrée sous forme de module. Le client pourra utiliser les différents modules, avec une implémentation de la couche réseau différente.
+
+Avec notre architecture, il serais possible de faire tourner une seule instance du serveur, avec plusieurs resaux sociaux, joignables suivant le nom d'hôte demandé.
+
+L'architecture en module permettera d'implémenter un systême hiérarchique de dépendance entre les différents modules, permettant au serveur de les chargés suivant les besoins.
+De même, une gestion d'incompatibilités entre différents modules pourra être développée.

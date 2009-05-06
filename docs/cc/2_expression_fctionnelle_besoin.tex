@@ -9,10 +9,8 @@
 \emph{Framework} accélérant le développement de serveurs applicatifs et clients lourds et proposant~:
 
 \begin{enumerate}
-	\item La gestion d'utilisateurs~;
-	\item Le stockage de contenus~;
-	\item La création, modification, suppression de ces contenus~;
-	\item Le partage de ces contenus entre utilisateurs~;
+	\item la gestion de différentes configuration, via le chargement de modules~;
+	\item Le partage de contenus entre utilisateurs~;
 	\item Un accès aisé à ces contenus~;
 	\item Une architecture pour intégrer une politique de permissions~;
 	\item Des outils de communication entre les utilisateurs.
@@ -28,15 +26,13 @@ Deux programmes de démonstration exploitant les fonctionnalités du \emph{frame
 
 \end{itemize}
 
-De plus, nous fournirons une batterie de tests unitaires garantissant la qualité de chaque fonctionnalité du \emph{framework}.
-
 \subsubsection{Contraintes}
 % (limitations à la liberté du concepteur-réalisateur)
 \begin{enumerate}
 
 	\item Développement
 
-Le framework sera aussi indépendant de choix techniques que possible, notamment au niveau persistance des données qui sera totalement générique.
+Le framework sera aussi indépendant de choix techniques que possible. La persistance des données pourra être implémentée de manière générique par le client, sous forme de modules.
 
 	\item Environnement
 
@@ -55,10 +51,10 @@ Les principaux critères d'appréciation sont~:
 \begin{itemize}
 	\item Du coté \emph{framework} :
 	\begin{itemize} 
-		\item Sa qualité ;
-		\item Son indépendance concernant le système de persistance ;
-		\item Sa flexibilité ;
-		\item Sa généricité ;
+		\item Sa qualité~;
+		\item Sa modularité~;
+		\item Sa flexibilité~;
+		\item Sa généricité~;
 	\end{itemize} 
 	\item du coté application témoin :
 	\begin{itemize}

@@ -77,7 +77,7 @@ Le produit se compose de trois livrables :
 
  \item \textit{Framework}
 
-Le \textit{framework} permettra une présentation hiérarchique des données côté client, et reposera sur la technologie de persistence JPA permettant de stocker les données sur un serveur SQL. Cette solution assure leur cohérence, la fiabilité du stockage et la rapidité des recherches.
+Le \textit{framework} permettra une présentation hiérarchique des données côté client, assurant leur cohérence, et la rapidité des recherches.
 
 Il permettra l'ajout, la suppression, la modification de celles-ci à travers une couche de sécurité conçue sur mesure pour répondre aux attentes métier.
 
@@ -88,13 +88,12 @@ Les arborescences de contenu construites pour chaque utilisateur pourront partag
 Des modules de gestion de contacts et de discussion seront fournis, proposant en standard des fonctionnalités fréquemment proposées sur les réseaux sociaux.
 
  \item Application témoin serveur
-
-L'application témoin serveur sera un simple \emph{package} configuré pour utiliser le serveur SQL embarqué dans la machine virtuelle Java de Sun et ne nécessitant aucune configuration, auquel sera adjoint un système de forums (fils de discussion publics), et un modèle de sécurité minimal.
+L'application témoin serveur sera une application hautement configurable, implémentant les fonctionnalités de base proposées par le serveur (modèle de sécurité minimal, démonstration d'échanges entre plusieurs clients...).
 
  \item Application témoin cliente
 
 Il s'agira de l'application déployable directement par l'entreprise, et capable \emph{via} la diffusion des éléments graphiques métier par le serveur de s'adapter aux différents réseaux proposés.
 
-Elle sera néanmoins adaptable à volonté par l'entreprise au cas par cas (ajouts de fonctionnalités, d'une documentation ad hoc, thèmes visuels, retrait du choix du serveur, etc.).
+Elle sera néanmoins adaptable à volonté par l'entreprise au cas par cas (ajouts de fonctionnalités, d'une documentation ad hoc, thèmes visuels, retrait du choix du serveur, implémentation/retrait de la recherche).
 
 \end{enumerate}
