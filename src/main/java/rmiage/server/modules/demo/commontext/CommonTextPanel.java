@@ -69,6 +69,7 @@ public class CommonTextPanel extends Panel {
 
     @Override
     public void receiveMessage(Serializable message) {
+        System.out.println(message);
         jTextPane1.setText((String)message);
     }
 

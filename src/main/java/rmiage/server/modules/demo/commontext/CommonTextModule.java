@@ -2,6 +2,7 @@ package rmiage.server.modules.demo.commontext;
 
 import java.rmi.RemoteException;
 
+import java.util.List;
 import rmiage.common.messages.ClientMessage;
 import rmiage.server.controller.SessionController;
 import rmiage.server.modules.NavigTreeNode;
@@ -32,9 +33,11 @@ public class CommonTextModule implements TreeModule {
 
 	public void processMessage(ClientMessage msg) {
 		if(msg.information.length > 0 && (msg.information[0] == "NewCommonText")) {
-            SessionController[] sessions =
+            System.out.println("Processing message");
+            List<SessionController> sessions =
                     SessionController.getCurrentSessions();
             for(SessionController s : sessions) {
+                System.out.println("Sending to someone");
                 try {
                     s.sendMessageToPanel(msg.information[1]);
                 } catch (RemoteException ex) {
