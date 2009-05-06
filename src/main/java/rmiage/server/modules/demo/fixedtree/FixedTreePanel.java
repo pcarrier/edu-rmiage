@@ -24,8 +24,8 @@ public class FixedTreePanel extends Panel {
 	 * Initialize the treePanel
 	 */
 	@Override
-	public void initialize(Serializable initialData, SessionController sc) {
-		String message = "Hey ! i'm on the " + initialData + " place !";
+	public void initialize(Serializable initialData,     SessionController sc) {
+		String message = "Hey ! i'm "+initialData;
 		JLabel label = new JLabel(message);
 		this.add(label);
 	}

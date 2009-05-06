@@ -34,19 +34,16 @@ public class MainWindow extends javax.swing.JFrame {
         jTreeFocListen = new TreeSelectionListener() {
 
               private void dumpInfo(TreeSelectionEvent e) throws RemoteException, InstantiationException, IllegalAccessException {
-                /* System.out.println("Source  : " + e.getSource());
-                System.out.println("New Seleted Path : "
-                    +e.getNewLeadSelectionPath());
-                System.out.println("Old Seleted Path : "
-                        +e.getOldLeadSelectionPath());
-                        */
             	GraphicalTreenode o =(GraphicalTreenode) ((JTree)e.getSource()).getLastSelectedPathComponent();
                 NavigTreeNode n = o.getDataTreeNode(); 
-                System.err.println(n.getClass()+" "+n);
+                System.out.println(n.getClass()+" "+n);
                 PanelDescriptor pd =(PanelDescriptor) networkManager.getSessionController().getNavigNodePanel(n);
+                
                 Panel pn = (Panel)pd.getPannelClass().newInstance();
                 pn.initialize(pd.getInitialData(), networkManager.getSessionController());
+                
                 mainPanel.add(pn);
+                
               }
 
 			public void valueChanged(TreeSelectionEvent e) {

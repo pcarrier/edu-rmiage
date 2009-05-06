@@ -15,11 +15,13 @@ public class NavigTreeNode extends UnicastRemoteObject implements rmiage.common.
 	protected String name;
 	protected String uid = UUID.randomUUID().toString();
 	
-	protected ArrayList<rmiage.common.interfaces.NavigTreeNode> childNodes;;
+	protected ArrayList<rmiage.common.interfaces.NavigTreeNode> childNodes;
+	private rmiage.common.interfaces.NavigTreeNode  parent;
 	
 	protected NavigTreeNode() throws RemoteException {		
 		super();
 		childNodes=new ArrayList<rmiage.common.interfaces.NavigTreeNode>();
+		this.parent = null;
 	}
 
 	public NavigTreeNode(String name) throws RemoteException{
@@ -46,10 +48,18 @@ public class NavigTreeNode extends UnicastRemoteObject implements rmiage.common.
     /**
      * add a new children to this node
      * @param newchild
+     * @throws RemoteException 
      */
-	public void addNode(rmiage.common.interfaces.NavigTreeNode newchild) {
+	public void addNode(rmiage.common.interfaces.NavigTreeNode newchild) throws RemoteException {
 		if (!this.childNodes.contains(newchild)){
 			this.childNodes.add(newchild);
+			newchild.setParent(this);
+			/*System.out.println("Me : "+this.getName());
+			System.out.println("new : "+newchild.getName());
+			if(newchild.getParent()!= null){
+				System.out.println("nc Daddy : "+newchild.getParent().getName());
+			}
+			*/
 		}
 	}
 	
@@ -60,4 +70,26 @@ public class NavigTreeNode extends UnicastRemoteObject implements rmiage.common.
 	public String getUUID(){
 		return this.uid;
 	}
-}	
+
+	public rmiage.common.interfaces.NavigTreeNode getParent()
+			throws RemoteException {
+		return this.parent;
+	}
+
+	public void setParent(rmiage.common.interfaces.NavigTreeNode parent)
+			throws RemoteException {
+		if(this.parent != null){
+			this.parent.removeChild(this);
+		}
+		this.parent = parent;
+		
+		
+	}
+
+	public void removeChild(rmiage.common.interfaces.NavigTreeNode child) {
+		if (this.childNodes.contains(child)){
+			this.childNodes.remove(child);
+		}
+		
+	}
+}
