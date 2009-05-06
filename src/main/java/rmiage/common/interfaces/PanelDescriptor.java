@@ -5,7 +5,8 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
- * an interface which 
+ * an interface which gives a common descriptor for panels
+ * which implements it
  */
 public interface PanelDescriptor extends Remote{
 	public Class<Panel> getPannelClass() throws RemoteException;

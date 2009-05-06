@@ -16,6 +16,9 @@ public class ClientMessagesRunnable implements Runnable {
         this.sc = sc;
     }
 
+    /**
+     * send a message to the server
+     */
     public void run() {
         ClientMessage msg;
         while (true) {
