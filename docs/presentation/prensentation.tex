@@ -1,0 +1,53 @@
+\documentclass[a4paper,10pt,twoside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+
+\usepackage{hyperref}
+
+\usepackage{textcomp}
+
+\usepackage{a4wide}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage[absolute]{textpos}
+
+\begin{document}
+
+\title{Projet RMIAGE\\ \Huge{Soutenance}}
+\author{
+	Badre Baba, Geoffroy Carrier, J-Ch Saad-Dupuy, Mickael Scheer
+}
+
+\begin{center}
+\begin{textblock*}{35cm}(2mm,3mm)
+\includegraphics[scale=0.8]{../cc/imag_logo.png}
+\end{textblock*}
+\end{center}
+ 
+\maketitle
+
+% \begin{figure}[htbp]
+% 	\centering
+% 		\includegraphics[scale=1]{../diagrammes/architecture.pdf}
+% 	\caption{Architecture}
+% 	\label{fig:archi}
+% \end{figure}
+
+
+\input{objet}
+\input{avant_propos}
+\input{planning_dvt}
+\input{finalite}
+\input{mecanismes}
+\input{fonctionnement}
+\input{difficultes}
+\end{document}
