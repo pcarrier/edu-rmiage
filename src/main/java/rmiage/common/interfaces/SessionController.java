@@ -7,6 +7,9 @@ import rmiage.common.messages.ClientMessage;
 import rmiage.common.messages.ServerMessage;
 import rmiage.server.modules.NavigTreeNode;
 
+/**
+ * an interface which may control sessions
+ */
 public interface SessionController extends Remote{
 
     public ServerMessage getServerMessage() throws RemoteException;
