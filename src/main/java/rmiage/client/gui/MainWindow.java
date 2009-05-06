@@ -42,7 +42,14 @@ public class MainWindow extends javax.swing.JFrame {
                 Panel pn = (Panel)pd.getPannelClass().newInstance();
                 pn.initialize(pd.getInitialData(), networkManager.getSessionController());
                 
-                mainPanel.add(pn);
+                if(tmpTopPanel != null){
+                	mainPanel.remove(tmpTopPanel);
+                }
+                tmpTopPanel=pn;
+                mainPanel.add(tmpTopPanel);
+                
+                mainPanel.revalidate();
+                
                 
               }
 
@@ -187,5 +194,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel searchIcon;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel topPanel;
+    private javax.swing.JPanel tmpTopPanel;
     // End of variables declaration//GEN-END:variables
 }

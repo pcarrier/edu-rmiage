@@ -11,10 +11,11 @@ import rmiage.app.server.MainController;
 import rmiage.common.interfaces.PanelDescriptor;
 import rmiage.common.messages.ClientMessage;
 import rmiage.common.messages.ServerMessage;
+import rmiage.server.modules.EmptyPanelDescriptor;
 import rmiage.server.modules.TreeModel;
 import rmiage.server.modules.TreeModule;
 import rmiage.server.modules.NavigTreeNode;
-import rmiage.server.modules.EmptyPanel;
+
 
 public class SessionController extends UnicastRemoteObject
         implements rmiage.common.interfaces.SessionController {
@@ -179,12 +180,14 @@ public class SessionController extends UnicastRemoteObject
      * @throws RemoteException
      */
     public PanelDescriptor getNavigNodePanel(rmiage.common.interfaces.NavigTreeNode node) throws RemoteException {
-        for (TreeModel t : trees) {
-            if (t.find(node)) {
-                return navigTreeNodeModule.get(t.getRootNode().getUUID()).getPanel(node);
-            }
-        }
-        return (PanelDescriptor) new EmptyPanel();
+
+    	for (TreeModel t : trees){
+    		if (t.find( node)){
+    			return navigTreeNodeModule.get(t.getRootNode().getUUID()).getPanel(node);
+    		}
+    	}
+    	return (PanelDescriptor) new EmptyPanelDescriptor(); 
+
     }
 
     public MainController getMainController() {

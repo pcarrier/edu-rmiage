@@ -10,7 +10,7 @@ import rmiage.common.interfaces.PanelDescriptor;
 
 public class EmptyPanelDescriptor extends UnicastRemoteObject implements PanelDescriptor {
 
-	protected EmptyPanelDescriptor() throws RemoteException {
+	public EmptyPanelDescriptor() throws RemoteException {
 		super();
 	}
 

@@ -1,5 +1,6 @@
 package rmiage.server.modules.demo.singleton;
 
+import rmiage.common.messages.ClientMessage;
 import rmiage.server.modules.Module;
 
 public class SingletonModule implements Module {
@@ -24,4 +25,9 @@ public class SingletonModule implements Module {
     public void finalize() {
         System.out.println("SingletonModule destroyed!");
     }
+
+	public void processMessage(ClientMessage msg) {
+		// TODO Auto-generated method stub
+		
+	}
 }
