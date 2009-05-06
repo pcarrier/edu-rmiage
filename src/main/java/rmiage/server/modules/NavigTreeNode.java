@@ -53,7 +53,11 @@ public class NavigTreeNode extends UnicastRemoteObject implements rmiage.common.
 		}
 	}
 	
+	/**
+	 * get the uid
+	 * @return uid
+	 */
 	public String getUUID(){
 		return this.uid;
 	}
-}
+}	

@@ -19,7 +19,11 @@ public class FixedTreeModule extends BasicModule implements TreeModule {
         super(sc);
         init();        
     }
-    
+
+    /**
+     * called by the constructor
+     * @throws RemoteException
+     */
     public void init() throws RemoteException{
     	root = new NavigTreeNode("root");
         
@@ -33,6 +37,10 @@ public class FixedTreeModule extends BasicModule implements TreeModule {
         }
     }
 
+    /**
+     * return a TreeModel
+     * @return TreeModel
+     */
     public rmiage.common.interfaces.TreeModel getTreeModel() throws RemoteException {
         TreeModel ret = new rmiage.server.modules.TreeModel();
         ret.setRootNode(root);
