@@ -1,5 +1,6 @@
 package rmiage.common.interfaces;
 
+import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
@@ -16,6 +17,7 @@ public interface SessionController extends Remote{
     public ClientMessage getClientMessage() throws RemoteException;
     public void sendMessageToServer(ClientMessage msg) throws RemoteException;
     public void sendMessageToClient(ServerMessage msg) throws RemoteException;
+    public void sendMessageToModules(Serializable[] content) throws RemoteException;
     public TreeModel getTreeModel() throws RemoteException;
     public PanelDescriptor getNavigNodePanel(rmiage.common.interfaces.NavigTreeNode n) throws RemoteException; 
 }
