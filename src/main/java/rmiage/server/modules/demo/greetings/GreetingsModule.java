@@ -1,6 +1,8 @@
 package rmiage.server.modules.demo.greetings;
 
 import java.rmi.RemoteException;
+
+import rmiage.common.messages.ClientMessage;
 import rmiage.server.controller.SessionController;
 import rmiage.server.modules.Module;
 
@@ -31,4 +33,9 @@ public class GreetingsModule implements Module {
             }
         }.start();
     }
+
+	public void processMessage(ClientMessage msg) {
+		// TODO Auto-generated method stub
+		
+	}
 }
