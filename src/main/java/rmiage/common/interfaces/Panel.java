@@ -14,4 +14,5 @@ public abstract class Panel extends JPanel {
             SessionController sc);
 
     public abstract void receiveMessage(Serializable message);
+
 }

@@ -7,17 +7,17 @@ import java.awt.event.FocusListener;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 
+import javax.swing.JPanel;
 import javax.swing.JTree;
-import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.MutableTreeNode;
-import javax.swing.tree.TreeNode;
-import javax.swing.tree.TreePath;
-
 import rmiage.client.controller.NetworkManager;
+import rmiage.common.interfaces.PanelDescriptor;
 import rmiage.common.interfaces.TreeModel;
 import rmiage.common.interfaces.NavigTreeNode;
 import rmiage.common.interfaces.Panel;
+import rmiage.server.controller.SessionController;
 
 
 public class MainWindow extends javax.swing.JFrame {
@@ -31,27 +31,45 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow(NetworkManager nm) {
         this();
         this.networkManager = nm;
-        jTreeFocListen = new FocusListener() {
-            public void focusGained(FocusEvent e) {
-                dumpInfo(e);
+        jTreeFocListen = new TreeSelectionListener() {
+
+              private void dumpInfo(TreeSelectionEvent e) throws RemoteException, InstantiationException, IllegalAccessException {
+                /* System.out.println("Source  : " + e.getSource());
+                System.out.println("New Seleted Path : "
+                    +e.getNewLeadSelectionPath());
+                System.out.println("Old Seleted Path : "
+                        +e.getOldLeadSelectionPath());
+                        */
+            	GraphicalTreenode o =(GraphicalTreenode) ((JTree)e.getSource()).getLastSelectedPathComponent();
+                NavigTreeNode n = o.getDataTreeNode(); 
+                System.err.println(n.getClass()+" "+n);
+                PanelDescriptor pd =(PanelDescriptor) networkManager.getSessionController().getNavigNodePanel(n);
+                Panel pn = (Panel)pd.getPannelClass().newInstance();
+                pn.initialize(pd.getInitialData(), networkManager.getSessionController());
+                mainPanel.add(pn);
               }
 
-              public void focusLost(FocusEvent e) {
-                dumpInfo(e);
-              }
-
-              private void dumpInfo(FocusEvent e) {
-                System.out.println("Source  : " + name(e.getComponent()));
-                System.out.println("Opposite : "
-                    + name(e.getOppositeComponent()));
-                System.out.println("Temporary: " + e.isTemporary());
-                
-              }
-
-              private String name(Component c) {
-                return (c == null) ? null : c.getName();
-              }
+			public void valueChanged(TreeSelectionEvent e) {
+				// TODO Auto-generated method stub
+				try {
+					try {
+						dumpInfo(e);
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
             };
+            
+            this.navigTree.addTreeSelectionListener(this.jTreeFocListen);
     }
     
     public GraphicalTreenode getGraphicalTreeNodes(NavigTreeNode node) throws RemoteException{
@@ -60,6 +78,7 @@ public class MainWindow extends javax.swing.JFrame {
     	for(NavigTreeNode n : node.getChildNodes()){
     		GraphicalTreenode graphicalRepr=getGraphicalTreeNodes(n);
     		ret.add(graphicalRepr);
+    		
     	}
     	return ret;
     }
@@ -78,7 +97,8 @@ public class MainWindow extends javax.swing.JFrame {
     	//System.err.println("root "+root);
     	DefaultTreeModel arbreModele = new DefaultTreeModel(root);
         this.navigTree.setModel(arbreModele);
-        this.navigTree.addFocusListener(this.jTreeFocListen);
+        
+        
     }
 
     /** This method is called from within the constructor to
@@ -160,7 +180,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
     }
     private NetworkManager networkManager;
-    protected FocusListener jTreeFocListen;
+    protected TreeSelectionListener jTreeFocListen;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton disconnectButton;
     private javax.swing.JPanel mainPanel;

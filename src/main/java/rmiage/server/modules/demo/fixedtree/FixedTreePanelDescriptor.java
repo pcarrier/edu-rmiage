@@ -1,5 +1,6 @@
 package rmiage.server.modules.demo.fixedtree;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -14,14 +15,14 @@ public class FixedTreePanelDescriptor extends UnicastRemoteObject implements Pan
 	 */
 	private static final long serialVersionUID = 4240224812938104012L;
 	
-	protected Object data; 
+	protected Serializable data; 
 	
 	protected FixedTreePanelDescriptor() throws RemoteException {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public FixedTreePanelDescriptor(Object initialData) throws RemoteException{
+	public FixedTreePanelDescriptor(Serializable initialData) throws RemoteException{
 		this();
 		this.data=initialData;
 	}
@@ -30,7 +31,7 @@ public class FixedTreePanelDescriptor extends UnicastRemoteObject implements Pan
 		return (Class<Panel>) FixedTreePanel.class.asSubclass(Panel.class);
 	}
 	
-	public Object getInitialData(){
+	public Serializable getInitialData(){
 		return data;
 	}
 
