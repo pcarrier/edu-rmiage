@@ -62,14 +62,11 @@ public class SessionController extends UnicastRemoteObject
         	TreeModel tmp= (TreeModel) m.getTreeModel();
         	trees.add(tmp);
         	rmiage.common.interfaces.NavigTreeNode root = tmp.getRootNode();
-        	//System.err.println("Root  "+root);
             ((NavigTreeNode)res.getRootNode()).addNode(root);
             //On garde
-            //if(root!=null){
             	navigTreeNodeModule.put(root.getUUID(),m);
-            	System.err.println("Added module "+m);
-            	System.err.println("Associated  with"+root.getUUID());
-            //}
+            	
+            
         }
         return res;
     }
@@ -185,41 +182,6 @@ public class SessionController extends UnicastRemoteObject
     		}
     	}
     	return (PanelDescriptor) new EmptyPanel(); 
-    	//System.out.println(node);
-    	//System.out.println("Clefs : ");
-    	
-    	/*
-    	for (TreeModule r :navigTreeNodeModule.values()){
-    		System.out.println(r);
-    	}
-    	 
-    	if(navigTreeNodeModule==null){
-   		 System.err.println("########################################## navigTreeNodeModule NULL");
-   	 	}
-    	
-    	if(node==null){
-   		 System.err.println("########################################## NODE NULL");
-   	 	}
-   	 	*/
-    	//rmiage.common.interfaces.NavigTreeNode root = node.getRoot();
-    	//String rootUid =root.getRoot().getUUID();
-    	/*
-    	System.out.println("ROOT Name"+root.getName());
-    	System.out.println("ROOT UID"+rootUid);
-    	
-    	System.out.println("MY UID"+node.getUUID());
-    	*/
-    	/*
-    	 TreeModule t = navigTreeNodeModule.get(rootUid);
-    	 if(t==null){
-    		 System.err.println("########################################## MODULE NULL");
-    	 }
-    	PanelDescriptor ret =t.getPanel(node);
-    	if(ret==null){
-    		System.err.println("##########################################PanelDescriptor NULL");
-    	}
-    	*/
-    	//return ret;
     }
 
     @Override

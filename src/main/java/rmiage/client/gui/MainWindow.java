@@ -36,7 +36,7 @@ public class MainWindow extends javax.swing.JFrame {
               private void dumpInfo(TreeSelectionEvent e) throws RemoteException, InstantiationException, IllegalAccessException {
             	GraphicalTreenode o =(GraphicalTreenode) ((JTree)e.getSource()).getLastSelectedPathComponent();
                 NavigTreeNode n = o.getDataTreeNode(); 
-                System.out.println(n.getClass()+" "+n);
+                //System.out.println(n.getClass()+" "+n);
                 PanelDescriptor pd =(PanelDescriptor) networkManager.getSessionController().getNavigNodePanel(n);
                 
                 Panel pn = (Panel)pd.getPannelClass().newInstance();
