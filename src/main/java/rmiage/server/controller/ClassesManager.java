@@ -25,7 +25,6 @@ public class ClassesManager {
     /**
      * Creates a new Instance  
      * @param InstanceName
-     * @return TODO ? :)
      */
     public static Object createInstance(String name) {
         Object res = null;

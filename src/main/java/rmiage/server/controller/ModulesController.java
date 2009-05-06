@@ -63,6 +63,10 @@ public class ModulesController {
         return res;
     }
 
+    /**
+     * removes a sessionController
+     * @param sessionControler
+     */
     public void sessionFinished(SessionController sc) {
         modules.remove(sc);
     }

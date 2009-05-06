@@ -86,6 +86,10 @@ public class NetworkManager {
         new LoginWindow().setVisible(true);
     }
 
+    /**
+     * get the SessionController
+     * @return
+     */
     public SessionController getSessionController() {
         return sessionController;
     }
