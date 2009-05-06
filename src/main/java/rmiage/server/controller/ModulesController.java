@@ -78,7 +78,6 @@ public class ModulesController {
 	public void sendToControllers(SessionController sc, ClientMessage msg) {
 		if (msg.messageType == ClientMessage.Type.forModules) {
 			if (modules.containsKey(sc)) {
-
 				for (Module m : modules.get(sc)) {
 					m.processMessage(msg);
 				}

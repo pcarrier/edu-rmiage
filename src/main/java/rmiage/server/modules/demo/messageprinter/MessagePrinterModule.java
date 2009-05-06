@@ -7,6 +7,8 @@ public class MessagePrinterModule implements Module {
 
 	public void processMessage(ClientMessage msg) {
 		System.out.println("Recu message de type : "+msg.messageType);
+		System.out.println("Il contient les infos suivantes : ");
+		System.out.println(msg.information);
 	}
 
 }
