@@ -10,7 +10,7 @@ import rmiage.server.controller.SessionController;
  */
 public interface ModuleLoader {
 	/**
-	 * 
+	 * get an ArrayList of modules which the module depends.
 	 * @return The list of modules which the module depends.
 	 */
 	public ArrayList<Class<Module>> getDependencies();

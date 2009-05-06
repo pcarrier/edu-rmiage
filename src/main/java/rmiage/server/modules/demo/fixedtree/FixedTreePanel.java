@@ -9,20 +9,23 @@ import rmiage.common.interfaces.SessionController;
 
 public class FixedTreePanel extends Panel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 7907814623414196191L;
 
+	/**
+	 * close the treePanel
+	 */
 	@Override
 	public void close() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
+	/**
+	 * Initialize the treePanel
+	 */
 	@Override
 	public void initialize(Serializable initialData,     SessionController sc) {
-		String message = "Hey ! i'm on the "+ initialData+" place !";
+		String message = "Hey ! i'm "+initialData;
 		JLabel label = new JLabel(message);
 		this.add(label);
 	}
@@ -30,7 +33,7 @@ public class FixedTreePanel extends Panel {
 	@Override
 	public void receiveMessage(Serializable message) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

@@ -27,10 +27,17 @@ public class FixedTreePanelDescriptor extends UnicastRemoteObject implements Pan
 		this.data=initialData;
 	}
 	
+	/**
+	 * get the PanelClass
+	 */
 	public Class<Panel> getPannelClass() throws RemoteException {
 		return (Class<Panel>) FixedTreePanel.class.asSubclass(Panel.class);
 	}
 	
+	/**
+	 * get the initial data
+	 * @return data
+	 */
 	public Serializable getInitialData(){
 		return data;
 	}

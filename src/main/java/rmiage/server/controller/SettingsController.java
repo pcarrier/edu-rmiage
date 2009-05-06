@@ -48,7 +48,7 @@ public class SettingsController {
 	}
 
 	/**
-	 * 
+	 * get the rmiregistry port
 	 * @return The port for rmiregistry to use.
 	 */
 	public int getRmiPort() {
@@ -62,9 +62,9 @@ public class SettingsController {
 	}
 
 	/**
-	 * Return the ressource name to expose to clients
+	 * Return the resource name to expose to clients
 	 * 
-	 * @return The ressource name to expose to clients.
+	 * @return The resource name to expose to clients.
 	 */
 	public String getRessourceName() {
 		return (backend.getOption("RessourceName"));
