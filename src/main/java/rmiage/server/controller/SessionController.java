@@ -132,6 +132,13 @@ public class SessionController extends UnicastRemoteObject
         this.notifyAll();
     }
 
+    public void sendMessageToModules(Serializable[] serializable) throws RemoteException {
+        ClientMessage msg = new ClientMessage();
+        msg.messageType = ClientMessage.Type.forModules;
+        msg.information = serializable;
+        sendMessageToServer(msg);
+    }
+
     /**
      * Send a message from the server to the client
      * @param msg
