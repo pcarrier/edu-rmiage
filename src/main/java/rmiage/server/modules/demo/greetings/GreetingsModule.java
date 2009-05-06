@@ -24,7 +24,7 @@ public class GreetingsModule implements Module {
                 try {
                     Thread.sleep(new Integer(
                             sc.getMainController().getSettingsController().getOption("GreetingsDelay")));
-                    sc.sendSimplePopup(sc.get);
+                    sc.sendSimplePopup(sc.getIdentity());
                 } catch (RemoteException ex) {
                     throw new InternalError("Greetings were disturbed :(");
                 } catch (InterruptedException ex) {
