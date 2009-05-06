@@ -18,10 +18,18 @@ public class TreeModel  extends UnicastRemoteObject implements rmiage.common.int
 
 	protected NavigTreeNode rootNode;
 	
+	/**
+	 * get the rootNode
+	 * @return rootNode
+	 */
     public NavigTreeNode getRootNode() throws RemoteException {
     	return rootNode;
     }
 
+    /**
+     * set the rootNode
+     * @param rootNode
+     */
 	public void setRootNode(NavigTreeNode rootnode) throws RemoteException {
 		this.rootNode=rootnode;
 	}
