@@ -2,8 +2,6 @@ package rmiage.server.modules.demo.commontext;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import rmiage.common.interfaces.Panel;
 import rmiage.common.interfaces.SessionController;
 
@@ -12,7 +10,7 @@ public class CommonTextPanel extends Panel {
     private SessionController sc;
 
     /** Creates new form CommonTextPanel */
-    private CommonTextPanel() {
+    public CommonTextPanel() {
         initComponents();
     }
 
