@@ -1,6 +1,7 @@
 package rmiage.server.modules;
 
 import rmiage.common.interfaces.SessionController;
+import rmiage.common.messages.ClientMessage;
 
 public class BasicModule extends Object implements Module {
 
@@ -14,4 +15,9 @@ public class BasicModule extends Object implements Module {
         this();
         sessionController = sc;
     }
+
+	public void processMessage(ClientMessage msg) {
+		// TODO Auto-generated method stub
+		
+	}
 }

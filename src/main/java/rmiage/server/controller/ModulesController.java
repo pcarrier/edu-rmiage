@@ -6,6 +6,7 @@ import java.util.Hashtable;
 import java.util.List;
 
 import rmiage.app.server.MainController;
+import rmiage.common.messages.ClientMessage;
 import rmiage.server.modules.ModuleLoader;
 import rmiage.server.modules.Module;
 import rmiage.server.modules.TreeModule;
@@ -69,5 +70,14 @@ public class ModulesController {
      */
     public void sessionFinished(SessionController sc) {
         modules.remove(sc);
+    }
+    
+    
+    public void sendToControllers(SessionController sc, ClientMessage msg ){
+    	if(modules.containsKey(sc)){
+    		for (Module m :modules.get(sc)){
+    			m.processMessage(msg);
+    		}
+    	}
     }
 }

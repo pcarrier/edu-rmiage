@@ -15,6 +15,7 @@ import rmiage.server.modules.TreeModel;
 import rmiage.server.modules.TreeModule;
 import rmiage.server.modules.NavigTreeNode;
 import rmiage.server.modules.demo.fixedtree.EmptyPanel;
+import rmiage.server.modules.demo.fixedtree.EmptyPanelDescriptor;
 
 public class SessionController extends UnicastRemoteObject
         implements rmiage.common.interfaces.SessionController {
@@ -181,7 +182,7 @@ public class SessionController extends UnicastRemoteObject
     			return navigTreeNodeModule.get(t.getRootNode().getUUID()).getPanel(node);
     		}
     	}
-    	return (PanelDescriptor) new EmptyPanel(); 
+    	return (PanelDescriptor) new EmptyPanelDescriptor(); 
     }
 
     @Override
