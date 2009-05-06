@@ -7,6 +7,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+import java.util.List;
 import rmiage.app.server.MainController;
 import rmiage.common.interfaces.PanelDescriptor;
 import rmiage.common.messages.ClientMessage;
@@ -52,8 +53,8 @@ public class SessionController extends UnicastRemoteObject
      * get all current sessions
      * @return all sessions
      */
-    public static SessionController[] getCurrentSessions() {
-        return (SessionController[]) sessions.toArray();
+    public static List<SessionController> getCurrentSessions() {
+        return sessions;
     }
 
     /**

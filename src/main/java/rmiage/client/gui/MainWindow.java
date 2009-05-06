@@ -1,25 +1,18 @@
 package rmiage.client.gui;
 
-
-import java.awt.Component;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 
-import javax.swing.JPanel;
 import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultTreeModel;
 import rmiage.client.controller.NetworkManager;
 import rmiage.common.interfaces.PanelDescriptor;
+import rmiage.common.interfaces.SessionController;
 import rmiage.common.interfaces.TreeModel;
 import rmiage.common.interfaces.NavigTreeNode;
 import rmiage.common.interfaces.Panel;
-import rmiage.common.messages.ClientMessage;
-import rmiage.server.controller.SessionController;
-
 
 public class MainWindow extends javax.swing.JFrame {
 
@@ -27,6 +20,21 @@ public class MainWindow extends javax.swing.JFrame {
     protected MainWindow() {
         super();
         initComponents();
+        mainPanel = new Panel() {
+
+            @Override
+            public void close() {
+            }
+
+            @Override
+            public void initialize(Serializable initialData, SessionController sc) {
+            }
+
+            @Override
+            public void receiveMessage(Serializable message) {
+            }
+        };
+        splitPane.setRightComponent(mainPanel);
     }
 
     public MainWindow(NetworkManager nm) {
@@ -34,75 +42,70 @@ public class MainWindow extends javax.swing.JFrame {
         this.networkManager = nm;
         jTreeFocListen = new TreeSelectionListener() {
 
-              private void dumpInfo(TreeSelectionEvent e) throws RemoteException, InstantiationException, IllegalAccessException {
-            	GraphicalTreenode o =(GraphicalTreenode) ((JTree)e.getSource()).getLastSelectedPathComponent();
-                NavigTreeNode n = o.getDataTreeNode(); 
+            private void dumpInfo(TreeSelectionEvent e) throws RemoteException, InstantiationException, IllegalAccessException {
+                GraphicalTreenode o = (GraphicalTreenode) ((JTree) e.getSource()).getLastSelectedPathComponent();
+                NavigTreeNode n = o.getDataTreeNode();
                 //System.out.println(n.getClass()+" "+n);
-                PanelDescriptor pd =(PanelDescriptor) networkManager.getSessionController().getNavigNodePanel(n);
-                
-                Panel pn = (Panel)pd.getPannelClass().newInstance();
+                PanelDescriptor pd = (PanelDescriptor) networkManager.getSessionController().getNavigNodePanel(n);
+
+                Panel pn = (Panel) pd.getPannelClass().newInstance();
                 pn.initialize(pd.getInitialData(), networkManager.getSessionController());
-                
-                if(tmpTopPanel != null){
-                	mainPanel.remove(tmpTopPanel);
+
+                mainPanel = pn;
+                splitPane.setRightComponent(mainPanel);
+                splitPane.revalidate();
+                pack();
+
+            }
+
+            public void valueChanged(TreeSelectionEvent e) {
+                // TODO Auto-generated method stub
+                try {
+                    try {
+                        dumpInfo(e);
+                    } catch (InstantiationException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    } catch (IllegalAccessException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
+                } catch (RemoteException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
                 }
-                tmpTopPanel=pn;
-                mainPanel.add(tmpTopPanel);
-                
-                mainPanel.revalidate();              
-                
-              }
 
-			public void valueChanged(TreeSelectionEvent e) {
-				// TODO Auto-generated method stub
-				try {
-					try {
-						dumpInfo(e);
-					} catch (InstantiationException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (IllegalAccessException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				} catch (RemoteException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
-			}
-            };
-            
-            this.navigTree.addTreeSelectionListener(this.jTreeFocListen);
-    }
-    
-    public GraphicalTreenode getGraphicalTreeNodes(NavigTreeNode node) throws RemoteException{
-    	//System.err.println("Finding subnodes for "+node);
-    	GraphicalTreenode ret = new GraphicalTreenode(node);
-    	for(NavigTreeNode n : node.getChildNodes()){
-    		GraphicalTreenode graphicalRepr=getGraphicalTreeNodes(n);
-    		ret.add(graphicalRepr);
-    		
-    	}
-    	return ret;
+            }
+        };
+
+        this.navigTree.addTreeSelectionListener(this.jTreeFocListen);
     }
 
+    public GraphicalTreenode getGraphicalTreeNodes(NavigTreeNode node) throws RemoteException {
+        //System.err.println("Finding subnodes for "+node);
+        GraphicalTreenode ret = new GraphicalTreenode(node);
+        for (NavigTreeNode n : node.getChildNodes()) {
+            GraphicalTreenode graphicalRepr = getGraphicalTreeNodes(n);
+            ret.add(graphicalRepr);
+
+        }
+        return ret;
+    }
 
     public void sendMessageToPanel(Serializable serializable) {
-        ((Panel)mainPanel).receiveMessage(serializable);
+        mainPanel.receiveMessage(serializable);
     }
 
-
     public void updateTree(TreeModel tm) throws RemoteException {
-    	//System.err.println("UpdateTree "+tm);
-    	String nodename=tm.getRootNode().getName();
-    	//System.err.println("Nodename "+nodename);
-    	GraphicalTreenode root = getGraphicalTreeNodes(tm.getRootNode());
-    	//System.err.println("root "+root);
-    	DefaultTreeModel arbreModele = new DefaultTreeModel(root);
+        //System.err.println("UpdateTree "+tm);
+        String nodename = tm.getRootNode().getName();
+        //System.err.println("Nodename "+nodename);
+        GraphicalTreenode root = getGraphicalTreeNodes(tm.getRootNode());
+        //System.err.println("root "+root);
+        DefaultTreeModel arbreModele = new DefaultTreeModel(root);
         this.navigTree.setModel(arbreModele);
-        
-        
+
+
     }
 
     /** This method is called from within the constructor to
@@ -116,7 +119,6 @@ public class MainWindow extends javax.swing.JFrame {
         splitPane = new javax.swing.JSplitPane();
         navigScrollPane = new javax.swing.JScrollPane();
         navigTree = new javax.swing.JTree();
-        mainPanel = new javax.swing.JPanel();
         topPanel = new javax.swing.JPanel();
         searchIcon = new javax.swing.JLabel();
         searchField = new javax.swing.JTextField();
@@ -130,9 +132,6 @@ public class MainWindow extends javax.swing.JFrame {
         navigScrollPane.setViewportView(navigTree);
 
         splitPane.setLeftComponent(navigScrollPane);
-
-        mainPanel.setLayout(new java.awt.BorderLayout());
-        splitPane.setRightComponent(mainPanel);
 
         getContentPane().add(splitPane, java.awt.BorderLayout.CENTER);
 
@@ -187,13 +186,12 @@ public class MainWindow extends javax.swing.JFrame {
     protected TreeSelectionListener jTreeFocListen;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton disconnectButton;
-    private javax.swing.JPanel mainPanel;
     private javax.swing.JScrollPane navigScrollPane;
     private javax.swing.JTree navigTree;
     private javax.swing.JTextField searchField;
     private javax.swing.JLabel searchIcon;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel topPanel;
-    private javax.swing.JPanel tmpTopPanel;
     // End of variables declaration//GEN-END:variables
+    private Panel mainPanel;
 }
