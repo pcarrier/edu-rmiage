@@ -1,4 +1,4 @@
-package rmiage.server.modules.demo.fixedtree;
+package rmiage.server.modules;
 
 import java.io.Serializable;
 

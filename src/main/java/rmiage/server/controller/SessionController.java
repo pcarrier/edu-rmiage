@@ -14,7 +14,7 @@ import rmiage.common.messages.ServerMessage;
 import rmiage.server.modules.TreeModel;
 import rmiage.server.modules.TreeModule;
 import rmiage.server.modules.NavigTreeNode;
-import rmiage.server.modules.demo.fixedtree.EmptyPanel;
+import rmiage.server.modules.EmptyPanel;
 
 public class SessionController extends UnicastRemoteObject
         implements rmiage.common.interfaces.SessionController {
@@ -25,16 +25,16 @@ public class SessionController extends UnicastRemoteObject
     protected static ArrayList<SessionController> sessions =
             new ArrayList<SessionController>();
     protected ArrayList<TreeModel> trees;
-    
     //Garder une trace des module de chaque racine
     protected Hashtable<String, TreeModule> navigTreeNodeModule;
     protected MainController main;
+    protected Thread clientMessageThread;
 
     protected SessionController() throws RemoteException {
         super();
         sessions.add(this);
         navigTreeNodeModule = new Hashtable<String, TreeModule>();
-        trees=new ArrayList<TreeModel>();
+        trees = new ArrayList<TreeModel>();
     }
 
     protected SessionController(MainController mainController)
@@ -42,6 +42,8 @@ public class SessionController extends UnicastRemoteObject
         this();
         main = mainController;
         main.getModulesController().initializeModules(this);
+        clientMessageThread = new Thread(new ClientMessagesRunnable(this));
+        clientMessageThread.start();
     }
 
     /**
@@ -59,14 +61,14 @@ public class SessionController extends UnicastRemoteObject
         TreeModel res = new TreeModel();
         res.setRootNode(new NavigTreeNode("Navigation"));
         for (TreeModule m : main.getModulesController().getTreeModules(this)) {
-        	TreeModel tmp= (TreeModel) m.getTreeModel();
-        	trees.add(tmp);
-        	rmiage.common.interfaces.NavigTreeNode root = tmp.getRootNode();
-            ((NavigTreeNode)res.getRootNode()).addNode(root);
+            TreeModel tmp = (TreeModel) m.getTreeModel();
+            trees.add(tmp);
+            rmiage.common.interfaces.NavigTreeNode root = tmp.getRootNode();
+            ((NavigTreeNode) res.getRootNode()).addNode(root);
             //On garde
-            	navigTreeNodeModule.put(root.getUUID(),m);
-            	
-            
+            navigTreeNodeModule.put(root.getUUID(), m);
+
+
         }
         return res;
     }
@@ -167,25 +169,28 @@ public class SessionController extends UnicastRemoteObject
         sm.messageType = ServerMessage.Type.updateTree;
         sendMessageToClient(sm);
     }
-    
+
     /**
      * get a panel
      * @param node
      * @return
      * @throws RemoteException
      */
-
     public PanelDescriptor getNavigNodePanel(rmiage.common.interfaces.NavigTreeNode node) throws RemoteException {
-    	for (TreeModel t : trees){
-    		if (t.find( node)){
-    			return navigTreeNodeModule.get(t.getRootNode().getUUID()).getPanel(node);
-    		}
-    	}
-    	return (PanelDescriptor) new EmptyPanel(); 
+        for (TreeModel t : trees) {
+            if (t.find(node)) {
+                return navigTreeNodeModule.get(t.getRootNode().getUUID()).getPanel(node);
+            }
+        }
+        return (PanelDescriptor) new EmptyPanel();
     }
 
     @Override
     public void finalize() {
         main.getModulesController().sessionFinished(this);
+    }
+
+    void dispatchMessage(ClientMessage msg) {
+        main.getModulesController().sendToControllers(this, msg);
     }
 }
