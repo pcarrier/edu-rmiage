@@ -26,11 +26,12 @@ public class FixedTreeModule extends BasicModule implements TreeModule {
         for (int i = 0; i < 3; i++) {
         	 NavigTreeNode tmp =new NavigTreeNode("Child" + i);
             for (int j = 0; j < 3; j++) {
-            	NavigTreeNode tmp2 =new NavigTreeNode("SubChild" + j);
+            	NavigTreeNode tmp2 =new NavigTreeNode("SubChild" +i+"."+ j);
             	tmp.addNode(tmp2);
             }
         	 root.addNode(tmp);
         }
+        System.out.println("LE PARENT EDE ROOT EST :--------------------------->"+root.getParent());
     }
 
     public rmiage.common.interfaces.TreeModel getTreeModel() throws RemoteException {
@@ -39,21 +40,12 @@ public class FixedTreeModule extends BasicModule implements TreeModule {
         return ret;
     }
 
-    private int findNodeRank(rmiage.common.interfaces.NavigTreeNode  n) throws RemoteException{
-    	int i=0;
-    	boolean founded = false;
-    	for(rmiage.common.interfaces.NavigTreeNode subn : root.getChildNodes()){
-    		i++;
-    		if(subn.equals(n)){
-    			break; 
-    		}
-    	}
-    	return i;
-    }
+    
     public PanelDescriptor getPanel(rmiage.common.interfaces.NavigTreeNode node) throws RemoteException {
     	//Create initial data from the node for the descriptor.
-    	Object initalPanelData=findNodeRank(node);
+    	Object initalPanelData=node.getName();
     	FixedTreePanelDescriptor pannelDescriptor = new FixedTreePanelDescriptor((Serializable) initalPanelData);
         return pannelDescriptor;
     }
+    
 }

@@ -2,17 +2,15 @@ package rmiage.server.modules.demo.fixedtree;
 
 import java.io.Serializable;
 
-import javax.swing.JLabel;
-
 import rmiage.common.interfaces.Panel;
 import rmiage.common.interfaces.SessionController;
 
-public class FixedTreePanel extends Panel {
+public class EmptyPanel extends Panel{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 7907814623414196191L;
+	private static final long serialVersionUID = -8903051866666947619L;
 
 	@Override
 	public void close() {
@@ -21,10 +19,9 @@ public class FixedTreePanel extends Panel {
 	}
 
 	@Override
-	public void initialize(Serializable initialData,     SessionController sc) {
-		String message = "Hey ! i'm "+initialData;
-		JLabel label = new JLabel(message);
-		this.add(label);
+	public void initialize(Serializable initialData, SessionController sc) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
