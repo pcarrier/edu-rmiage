@@ -1,5 +1,6 @@
 package rmiage.server.security;
 
+import java.rmi.RemoteException;
 import rmiage.common.interfaces.SecurityController;
 import rmiage.common.security.Credential;
 
@@ -15,6 +16,14 @@ public class StandardSecurityController implements SecurityController {
 	 */
     public boolean checkCredentials(Credential c) {
         // TODO Auto-generated method stub
-        return false;
+        return true;
+    }
+
+    public String getIdentity(Credential credential) {
+        try {
+            return credential.asString();
+        } catch (RemoteException ex) {
+            throw new InternalError();
+        }
     }
 }

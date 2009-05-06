@@ -16,7 +16,6 @@ import rmiage.server.modules.TreeModel;
 import rmiage.server.modules.TreeModule;
 import rmiage.server.modules.NavigTreeNode;
 
-
 public class SessionController extends UnicastRemoteObject
         implements rmiage.common.interfaces.SessionController {
 
@@ -30,6 +29,7 @@ public class SessionController extends UnicastRemoteObject
     protected Hashtable<String, TreeModule> navigTreeNodeModule;
     protected MainController main;
     protected Thread clientMessageThread;
+    protected String identity;
 
     protected SessionController() throws RemoteException {
         super();
@@ -38,10 +38,11 @@ public class SessionController extends UnicastRemoteObject
         trees = new ArrayList<TreeModel>();
     }
 
-    protected SessionController(MainController mainController)
+    public SessionController(MainController mainController, String identity)
             throws RemoteException {
         this();
         main = mainController;
+        this.identity = identity;
         main.getModulesController().initializeModules(this);
         clientMessageThread = new Thread(new ClientMessagesRunnable(this));
         clientMessageThread.start();
@@ -148,6 +149,14 @@ public class SessionController extends UnicastRemoteObject
         this.notifyAll();
     }
 
+    public void sendMessageToPanel(Serializable serializable) throws RemoteException {
+        ServerMessage msg = new ServerMessage();
+        msg.messageType = ServerMessage.Type.toPanel;
+        msg.information = new Serializable[1];
+        msg.information[0] = serializable;
+        sendMessageToClient(msg);
+    }
+
     /**
      * sends un simple popup to the client
      * @param msg
@@ -179,13 +188,17 @@ public class SessionController extends UnicastRemoteObject
      */
     public PanelDescriptor getNavigNodePanel(rmiage.common.interfaces.NavigTreeNode node) throws RemoteException {
 
-    	for (TreeModel t : trees){
-    		if (t.find( node)){
-    			return navigTreeNodeModule.get(t.getRootNode().getUUID()).getPanel(node);
-    		}
-    	}
-    	return (PanelDescriptor) new EmptyPanelDescriptor(); 
+        for (TreeModel t : trees) {
+            if (t.find(node)) {
+                return navigTreeNodeModule.get(t.getRootNode().getUUID()).getPanel(node);
+            }
+        }
+        return (PanelDescriptor) new EmptyPanelDescriptor();
 
+    }
+
+    public MainController getMainController() {
+        return main;
     }
 
     @Override
@@ -195,5 +208,9 @@ public class SessionController extends UnicastRemoteObject
 
     void dispatchMessage(ClientMessage msg) {
         main.getModulesController().sendToControllers(this, msg);
+    }
+
+    public String getIdentity() {
+        return identity;
     }
 }

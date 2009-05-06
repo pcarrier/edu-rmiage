@@ -14,4 +14,6 @@ public interface Credential extends Remote {
      * @return whether it makes sense to send it to the server or not
      */
     public boolean checkValid() throws RemoteException;
+
+    public String asString() throws RemoteException;
 }
