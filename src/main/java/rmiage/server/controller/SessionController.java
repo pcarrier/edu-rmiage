@@ -16,7 +16,6 @@ import rmiage.server.modules.TreeModel;
 import rmiage.server.modules.TreeModule;
 import rmiage.server.modules.NavigTreeNode;
 
-
 public class SessionController extends UnicastRemoteObject
         implements rmiage.common.interfaces.SessionController {
 
@@ -150,6 +149,14 @@ public class SessionController extends UnicastRemoteObject
         this.notifyAll();
     }
 
+    public void sendMessageToPanel(Serializable serializable) throws RemoteException {
+        ServerMessage msg = new ServerMessage();
+        msg.messageType = ServerMessage.Type.toPanel;
+        msg.information = new Serializable[1];
+        msg.information[0] = serializable;
+        sendMessageToClient(msg);
+    }
+
     /**
      * sends un simple popup to the client
      * @param msg
@@ -181,12 +188,12 @@ public class SessionController extends UnicastRemoteObject
      */
     public PanelDescriptor getNavigNodePanel(rmiage.common.interfaces.NavigTreeNode node) throws RemoteException {
 
-    	for (TreeModel t : trees){
-    		if (t.find( node)){
-    			return navigTreeNodeModule.get(t.getRootNode().getUUID()).getPanel(node);
-    		}
-    	}
-    	return (PanelDescriptor) new EmptyPanelDescriptor(); 
+        for (TreeModel t : trees) {
+            if (t.find(node)) {
+                return navigTreeNodeModule.get(t.getRootNode().getUUID()).getPanel(node);
+            }
+        }
+        return (PanelDescriptor) new EmptyPanelDescriptor();
 
     }
 
