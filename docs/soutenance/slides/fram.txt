@@ -1,0 +1,27 @@
+Description du Framework
+
+Axés sur la modularité, la génerecité. 
+
+Architecture du Framework permet au client de pouvoir développer ces propre module afin d’avoir un produit finale qui répond a ces propres besoins,
+et cela grâce a la gestion de configuration qui est intégré a notre framework.
+  
+    Les controllers :   
+	
+ Des controllers sont disponible pour vérifier des credantials (login et mot de passe envoyé par le client).
+ 
+ Des controllers sont disponible pour permettent la transmission et la prise en charge des modification faites par le client.
+ 
+Les difficultés rencontré dans la réalisation du framework. 
+
+	Compréhension des attentes du client.
+
+	Utilisation de la techologie RMI.
+	
+        Mise en place des modules témoins.
+
+Les modules existant proposent et permettent:
+
+  De vérifier le bon fonctionnement du framework.
+  L'échangent de message entre utilisateurs.
+  La modification et la configuration ainsi l’ajout de nouveaux modules par le client finale.  
+
