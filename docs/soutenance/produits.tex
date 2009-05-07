@@ -19,7 +19,18 @@ Des fenêtres de \emph{popup} sont disponibles, et utilisables directement par l
 
 \subsubsection{Côté serveur} % (fold)
 \label{ssub:côté_serveur}
+Le serveur quand à lui consiste en une application "glue" des différents composant du framework développé.
 
+La configuration de cette application se fait via un gestionnaire de configuration, étendable par notre client à son grés.
+
+
+Ce gestionnaire de configuration sert dans un premier temps à instancier un controleur implémentant la couche réseau, ici le protocole RMI, via deux paramètres :
+\begin{itemize}
+ \item le nom de la ressource principale à exposer (adresse à laquelle le serveur est joignable)~;
+ \item l'object principal à exposer.
+\end{itemize}
+
+Une fois ce parametr
 
 % subsubsection côté_serveur (end)
 
