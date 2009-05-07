@@ -9,8 +9,9 @@ L’objectif de ce projet était de fournir une architecture logicielle qui perm
 
 Notre client recevra le framework, il pourra donc développer d’autre modules afin de le spécifier dépendamment de ces besoins.    
 
-\subsection{Contraintes}
-%TODO Ammener le RMI comme uen contrainte imposé par le client tout en refletant ces avantages.
+\subsection{Contraintes techniques}
 Les applications réparties classiques sont structurées autour d'un serveur délivrant aux parties clientes un choix de services spécifiques, l'ensemble de ces services est souvent limité à l'application ou un type d'applications.
 
-Cependant Java nous offre la technologie RMI qui offre la possibilité de communiquer entre le client et le serveur sans restriction du nombre de service a rendre, ni du type de l’application, cela veut dire que la partie serveur offre un large service pour une large variété d’application.
+Notre client souhaitait que l'implémentation du produit soit réalisée dans le langage Java, avec une couche d'appel de procédure à distance.
+
+Java nous offre la technologie RMI qui offre la possibilité de communiquer entre le client et le serveur sans restriction du nombre de service a rendre, ni du type de l’application. Ainsi, la partie serveur offre un large service pour une large variété d’application.
