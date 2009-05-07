@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="49cm" height="38cm" viewBox="-9 -7 49 38">
+  <polygon style="fill: #f37878" points="9.25,9.35 9.75,8.85 19.6501,8.85 19.6501,10.65 19.1501,11.15 9.25,11.15 9.25,9.35 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="9.25,9.35 9.75,8.85 19.6501,8.85 19.6501,10.65 19.1501,11.15 9.25,11.15 9.25,9.35 "/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="9.25" y1="9.35" x2="19.1501" y2="9.35"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="19.1501" y1="9.35" x2="19.6501" y2="8.85"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="19.1501" y1="9.35" x2="19.1501" y2="11.15"/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 2.285 cm; font-family: sans; font-style: normal; font-weight: normal" x="9.75" y="10.3925">Serveur</text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" x1="9.75" y1="10.5325" x2="12.035" y2="10.5325"/>
+  <polygon style="fill: #ffffff" points="-7.66,14.31 -7.16,13.81 1.65,13.81 1.65,15.61 1.15,16.11 -7.66,16.11 -7.66,14.31 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="-7.66,14.31 -7.16,13.81 1.65,13.81 1.65,15.61 1.15,16.11 -7.66,16.11 -7.66,14.31 "/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="-7.66" y1="14.31" x2="1.15" y2="14.31"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="1.15" y1="14.31" x2="1.65" y2="13.81"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="1.15" y1="14.31" x2="1.15" y2="16.11"/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 5.265 cm; font-family: sans; font-style: normal; font-weight: normal" x="-7.16" y="15.3525">SettingsController</text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" x1="-7.16" y1="15.4925" x2="-1.895" y2="15.4925"/>
+  <polygon style="fill: #ffffff" points="-7.685,22.26 -7.185,21.76 1.625,21.76 1.625,23.56 1.125,24.06 -7.685,24.06 -7.685,22.26 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="-7.685,22.26 -7.185,21.76 1.625,21.76 1.625,23.56 1.125,24.06 -7.685,24.06 -7.685,22.26 "/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="-7.685" y1="22.26" x2="1.125" y2="22.26"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="1.125" y1="22.26" x2="1.625" y2="21.76"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="1.125" y1="22.26" x2="1.125" y2="24.06"/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 2.495 cm; font-family: sans; font-style: normal; font-weight: normal" x="-7.185" y="23.3025">Backend</text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" x1="-7.185" y1="23.4425" x2="-4.69" y2="23.4425"/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="-3.255,16.1599 -3.255,17.9101 -3.28,17.9101 -3.28,21.4881 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="-3.68,20.7999 -3.28,21.5999 -2.88,20.7999 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 0 cm; font-family: monospace; font-style: normal; font-weight: normal" x="-3.2675" y="17.5101"></text>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="9.25,10.25 -3.255,10.25 -3.255,14.0864 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="-3.655,13.3982 -3.255,14.1982 -2.855,13.3982 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 0 cm; font-family: monospace; font-style: normal; font-weight: normal" x="2.9975" y="9.85"></text>
+  <rect style="fill: #ffffff" x="-8.825" y="27.8663" width="2.49051" height="2.19751"/>
+  <ellipse style="fill: #ffffff" cx="-7.57975" cy="30.0638" rx="1.24525" ry="0.366251"/>
+  <ellipse style="fill: #ffffff" cx="-7.57975" cy="27.8663" rx="1.24525" ry="0.366251"/>
+  <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" cx="-7.57975" cy="27.8663" rx="1.24525" ry="0.366251"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" d="M -6.33449 27.8663 L -6.33449,30.0638 C -6.33449,30.266 -6.89201,30.43 -7.57975,30.43 C -8.26748,30.43 -8.825,30.266 -8.825,30.0638 L -8.825,27.8663"/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 0 cm; font-family: sans; font-style: normal; font-weight: normal" x="-7.57975" y="30.83"></text>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="-3.28,24.06 -3.28,25.78 -7.57975,25.78 -7.57975,27.2764 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="-7.97975,26.5882 -7.57975,27.3882 -7.17975,26.5882 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 0 cm; font-family: monospace; font-style: normal; font-weight: normal" x="-5.42988" y="25.38"></text>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="-3.28,24.06 -3.28,26.2236 -3.37887,26.2236 -3.37887,28.1636 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="-3.77887,27.4754 -3.37887,28.2754 -2.97887,27.4754 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 0 cm; font-family: monospace; font-style: normal; font-weight: normal" x="-3.32944" y="25.8236"></text>
+  <rect style="fill: #ffffff" x="0.415" y="28.06" width="1.7" height="1.5"/>
+  <ellipse style="fill: #ffffff" cx="1.265" cy="29.56" rx="0.85" ry="0.25"/>
+  <ellipse style="fill: #ffffff" cx="1.265" cy="28.06" rx="0.85" ry="0.25"/>
+  <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" cx="1.265" cy="28.06" rx="0.85" ry="0.25"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" d="M 2.115 28.06 L 2.115,29.56 C 2.115,29.6981 1.73444,29.81 1.265,29.81 C 0.795558,29.81 0.415,29.6981 0.415,29.56 L 0.415,28.06"/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 0 cm; font-family: sans; font-style: normal; font-weight: normal" x="1.265" y="30.21"></text>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="-3.28,24.06 -3.28,25.935 1.265,25.935 1.265,27.5864 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="0.865,26.8982 1.265,27.6982 1.665,26.8982 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 0 cm; font-family: monospace; font-style: normal; font-weight: normal" x="-1.0075" y="25.535"></text>
+  <polygon style="fill: #ffffff" points="4.0501,1.85003 4.5501,1.35003 11.7251,1.35003 11.7251,3.95003 11.2251,4.45003 4.0501,4.45003 4.0501,1.85003 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="4.0501,1.85003 4.5501,1.35003 11.7251,1.35003 11.7251,3.95003 11.2251,4.45003 4.0501,4.45003 4.0501,1.85003 "/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="4.0501" y1="1.85003" x2="11.2251" y2="1.85003"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="11.2251" y1="1.85003" x2="11.7251" y2="1.35003"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="11.2251" y1="1.85003" x2="11.2251" y2="4.45003"/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 6.175 cm; font-family: sans; font-style: normal; font-weight: normal" x="4.5501" y="2.89253">ConnectionController</text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" x1="4.5501" y1="3.03253" x2="10.7251" y2="3.03253"/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="14.2001,8.79965 14.2001,6.62484 7.6376,6.62484 7.6376,4.67364 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="8.0376,5.36183 7.6376,4.56183 7.2376,5.36183 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 0 cm; font-family: monospace; font-style: normal; font-weight: normal" x="10.9189" y="6.22484"></text>
+  <polygon style="fill: #ffffff" points="4.8001,-5.59997 5.3001,-6.09997 10.7476,-6.09997 10.7476,-4.29997 10.2476,-3.79997 4.8001,-3.79997 4.8001,-5.59997 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="4.8001,-5.59997 5.3001,-6.09997 10.7476,-6.09997 10.7476,-4.29997 10.2476,-3.79997 4.8001,-3.79997 4.8001,-5.59997 "/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="4.8001" y1="-5.59997" x2="10.2476" y2="-5.59997"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="10.2476" y1="-5.59997" x2="10.7476" y2="-6.09997"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="10.2476" y1="-5.59997" x2="10.2476" y2="-3.79997"/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 4.4475 cm; font-family: sans; font-style: normal; font-weight: normal" x="5.3001" y="-4.55747">LoginController</text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" x1="5.3001" y1="-4.41747" x2="9.7476" y2="-4.41747"/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="7.6376,1.29958 7.6376,-1.2502 7.52385,-1.2502 7.52385,-3.57636 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="7.92385,-2.88817 7.52385,-3.68817 7.12385,-2.88817 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 0 cm; font-family: monospace; font-style: normal; font-weight: normal" x="7.58073" y="-1.6502"></text>
+  <polygon style="fill: #90ee90" points="-7.475,18.1516 1.225,18.1516 1.825,18.7516 1.825,19.8516 -7.475,19.8516 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="-7.475,18.1516 1.225,18.1516 1.825,18.7516 1.825,19.8516 -7.475,19.8516 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" points="1.225,18.1516 1.225,18.7516 1.825,18.7516 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 8.4 cm; font-family: monospace; font-style: normal; font-weight: normal" x="-7.125" y="19.3441">1.1) Récupère paramètres</text>
+  <polygon style="fill: #90ee90" points="5.105,-1.7832 9.255,-1.7832 9.855,-1.1832 9.855,-0.0832 5.105,-0.0832 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="5.105,-1.7832 9.255,-1.7832 9.855,-1.1832 9.855,-0.0832 5.105,-0.0832 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" points="9.255,-1.7832 9.255,-1.1832 9.855,-1.1832 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 3.85 cm; font-family: monospace; font-style: normal; font-weight: normal" x="5.455" y="-0.5907">4.1) Expose</text>
+  <polygon style="fill: #ffffff" points="11.075,19.3533 11.575,18.8533 17.8425,18.8533 17.8425,20.6533 17.3425,21.1533 11.075,21.1533 11.075,19.3533 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="11.075,19.3533 11.575,18.8533 17.8425,18.8533 17.8425,20.6533 17.3425,21.1533 11.075,21.1533 11.075,19.3533 "/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="11.075" y1="19.3533" x2="17.3425" y2="19.3533"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="17.3425" y1="19.3533" x2="17.8425" y2="18.8533"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="17.3425" y1="19.3533" x2="17.3425" y2="21.1533"/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 5.2675 cm; font-family: sans; font-style: normal; font-weight: normal" x="11.575" y="20.3958">SecurityController</text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" x1="11.575" y1="20.5358" x2="16.8425" y2="20.5358"/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="14.2001,11.2005 14.2001,15.0017 14.2087,15.0017 14.2087,18.8029 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 0 cm; font-family: monospace; font-style: normal; font-weight: normal" x="14.2044" y="14.6017"></text>
+  <polygon style="fill: #90ee90" points="11.565,14.1616 16.065,14.1616 16.665,14.7616 16.665,15.8616 11.565,15.8616 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="11.565,14.1616 16.065,14.1616 16.665,14.7616 16.665,15.8616 11.565,15.8616 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" points="16.065,14.1616 16.065,14.7616 16.665,14.7616 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 4.2 cm; font-family: monospace; font-style: normal; font-weight: normal" x="11.915" y="15.3541">2) Instancie</text>
+  <polygon style="fill: #90ee90" points="8.265,5.77132 12.765,5.77132 13.365,6.37132 13.365,7.47132 8.265,7.47132 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="8.265,5.77132 12.765,5.77132 13.365,6.37132 13.365,7.47132 8.265,7.47132 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" points="12.765,5.77132 12.765,6.37132 13.365,6.37132 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 4.2 cm; font-family: monospace; font-style: normal; font-weight: normal" x="8.615" y="6.96382">2) Instancie</text>
+  <polygon style="fill: #ffffff" points="27.725,2.26132 28.225,1.76132 34.22,1.76132 34.22,3.56132 33.72,4.06132 27.725,4.06132 27.725,2.26132 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="27.725,2.26132 28.225,1.76132 34.22,1.76132 34.22,3.56132 33.72,4.06132 27.725,4.06132 27.725,2.26132 "/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="27.725" y1="2.26132" x2="33.72" y2="2.26132"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="33.72" y1="2.26132" x2="34.22" y2="1.76132"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="33.72" y1="2.26132" x2="33.72" y2="4.06132"/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 4.995 cm; font-family: sans; font-style: normal; font-weight: normal" x="28.225" y="3.30382">ModuleController</text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" x1="28.225" y1="3.44382" x2="33.22" y2="3.44382"/>
+  <polygon style="fill: #ffffff" points="23.2951,17.4613 23.7951,16.9613 29.9026,16.9613 29.9026,18.7613 29.4026,19.2613 23.2951,19.2613 23.2951,17.4613 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="23.2951,17.4613 23.7951,16.9613 29.9026,16.9613 29.9026,18.7613 29.4026,19.2613 23.2951,19.2613 23.2951,17.4613 "/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="23.2951" y1="17.4613" x2="29.4026" y2="17.4613"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="29.4026" y1="17.4613" x2="29.9026" y2="16.9613"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="29.4026" y1="17.4613" x2="29.4026" y2="19.2613"/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 5.1075 cm; font-family: sans; font-style: normal; font-weight: normal" x="23.7951" y="18.5038">ModuleLoader XX</text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" x1="23.7951" y1="18.6438" x2="28.9026" y2="18.6438"/>
+  <polygon style="fill: #ffffff" points="32.3351,18.0213 32.8351,17.5213 39.4401,17.5213 39.4401,19.3213 38.9401,19.8213 32.3351,19.8213 32.3351,18.0213 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="32.3351,18.0213 32.8351,17.5213 39.4401,17.5213 39.4401,19.3213 38.9401,19.8213 32.3351,19.8213 32.3351,18.0213 "/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="32.3351" y1="18.0213" x2="38.9401" y2="18.0213"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="38.9401" y1="18.0213" x2="39.4401" y2="17.5213"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="38.9401" y1="18.0213" x2="38.9401" y2="19.8213"/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 5.0225 cm; font-family: sans; font-style: normal; font-weight: normal" x="32.8351" y="19.0638">ModuleLoader YY</text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" x1="32.8351" y1="19.2038" x2="37.8576" y2="19.2038"/>
+  <polygon style="fill: #ffffff" points="24.2951,25.15 24.7951,24.65 28.9026,24.65 28.9026,26.45 28.4026,26.95 24.2951,26.95 24.2951,25.15 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="24.2951,25.15 24.7951,24.65 28.9026,24.65 28.9026,26.45 28.4026,26.95 24.2951,26.95 24.2951,25.15 "/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="24.2951" y1="25.15" x2="28.4026" y2="25.15"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="28.4026" y1="25.15" x2="28.9026" y2="24.65"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="28.4026" y1="25.15" x2="28.4026" y2="26.95"/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 3.1075 cm; font-family: sans; font-style: normal; font-weight: normal" x="24.7951" y="26.1925">Module XX</text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" x1="24.7951" y1="26.3325" x2="27.9026" y2="26.3325"/>
+  <polygon style="fill: #ffffff" points="33.6451,25 34.1451,24.5 38.1676,24.5 38.1676,26.45 37.6676,26.95 33.6451,26.95 33.6451,25 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="33.6451,25 34.1451,24.5 38.1676,24.5 38.1676,26.45 37.6676,26.95 33.6451,26.95 33.6451,25 "/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="33.6451" y1="25" x2="37.6676" y2="25"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="37.6676" y1="25" x2="38.1676" y2="24.5"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" x1="37.6676" y1="25" x2="37.6676" y2="26.95"/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 3.0225 cm; font-family: sans; font-style: normal; font-weight: normal" x="34.1451" y="26.0425">Module YY</text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" x1="34.1451" y1="26.1825" x2="37.1676" y2="26.1825"/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="11.7754,3.15003 19.7502,3.15003 19.7502,3.16132 27.5014,3.16132 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="26.8132,3.56132 27.6132,3.16132 26.8132,2.76132 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 0 cm; font-family: monospace; font-style: normal; font-weight: normal" x="19.8502" y="2.75568"></text>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="30.7225,4.11178 30.7225,10.7865 26.3488,10.7865 26.3488,17.2377 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="25.9488,16.5495 26.3488,17.3495 26.7488,16.5495 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 0 cm; font-family: monospace; font-style: normal; font-weight: normal" x="28.5357" y="10.3865"></text>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="30.7225,4.11178 30.7225,10.7914 35.6376,10.7914 35.6376,17.2474 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="35.2376,16.5592 35.6376,17.3592 36.0376,16.5592 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 0 cm; font-family: monospace; font-style: normal; font-weight: normal" x="33.1801" y="10.3914"></text>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="26.3488,19.2613 26.3488,19.2613 26.3489,24.3761 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="25.9489,23.6879 26.3489,24.4879 26.7489,23.6879 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 0 cm; font-family: monospace; font-style: normal; font-weight: normal" x="26.4488" y="21.5305"></text>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="35.6376,19.8213 35.6376,22.1355 35.6563,22.1355 35.6563,24.226 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="35.2563,23.5378 35.6563,24.3378 36.0563,23.5378 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 0 cm; font-family: monospace; font-style: normal; font-weight: normal" x="35.647" y="21.7355"></text>
+  <polygon style="fill: #90ee90" points="-2.86,9.1579 1.64,9.1579 2.24,9.7579 2.24,10.8579 -2.86,10.8579 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="-2.86,9.1579 1.64,9.1579 2.24,9.7579 2.24,10.8579 -2.86,10.8579 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" points="1.64,9.1579 1.64,9.7579 2.24,9.7579 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 4.2 cm; font-family: monospace; font-style: normal; font-weight: normal" x="-2.51" y="10.3504">1) Instancie</text>
+  <polygon style="fill: #90ee90" points="17.5302,2.4079 22.0302,2.4079 22.6302,3.0079 22.6302,4.1079 17.5302,4.1079 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="17.5302,2.4079 22.0302,2.4079 22.6302,3.0079 22.6302,4.1079 17.5302,4.1079 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" points="22.0302,2.4079 22.0302,3.0079 22.6302,3.0079 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 4.2 cm; font-family: monospace; font-style: normal; font-weight: normal" x="17.8802" y="3.6004">3) Instancie</text>
+  <polygon style="fill: #90ee90" points="23.7802,20.6579 29.3302,20.6579 29.9302,21.2579 29.9302,22.3579 23.7802,22.3579 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="23.7802,20.6579 29.3302,20.6579 29.9302,21.2579 29.9302,22.3579 23.7802,22.3579 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" points="29.3302,20.6579 29.3302,21.2579 29.9302,21.2579 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 5.25 cm; font-family: monospace; font-style: normal; font-weight: normal" x="24.1302" y="21.8504">3.XX) Instancie</text>
+  <polygon style="fill: #90ee90" points="33.2702,20.7679 38.8202,20.7679 39.4202,21.3679 39.4202,22.4679 33.2702,22.4679 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="33.2702,20.7679 38.8202,20.7679 39.4202,21.3679 39.4202,22.4679 33.2702,22.4679 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" points="38.8202,20.7679 38.8202,21.3679 39.4202,21.3679 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 5.25 cm; font-family: monospace; font-style: normal; font-weight: normal" x="33.6202" y="21.9604">3.YY) Instancie</text>
+  <polygon style="fill: #90ee90" points="-6.685,25.0994 -0.085,25.0994 0.515,25.6994 0.515,26.7994 -6.685,26.7994 "/>
+  <polygon style="fill: none; fill-opacity:0; stroke-width: 0.1; stroke: #000000" points="-6.685,25.0994 -0.085,25.0994 0.515,25.6994 0.515,26.7994 -6.685,26.7994 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 0.05; stroke: #000000" points="-0.085,25.0994 -0.085,25.6994 0.515,25.6994 "/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 6.3 cm; font-family: monospace; font-style: normal; font-weight: normal" x="-6.335" y="26.2919">1.2) Acces données</text>
+  <path style="fill: #a5a585" d="M -1.77575 30.086 L -1.77793,30.058 L -1.78405,30.0305 L -1.79453,30.003 L -1.80895,29.9759 L -1.82686,29.9488 L -1.84913,29.9222 L -1.87534,29.896 L -1.90548,29.8702 L -1.93956,29.8449 L -1.97712,29.8208 L -2.01818,29.7968 L -2.0623,29.7732 L -2.11079,29.7509 L -2.1619,29.7295 L -2.21606,29.709 L -2.27372,29.6894 L -2.33356,29.671 L -2.39647,29.6535 L -2.46155,29.6374 L -2.5297,29.6221 L -2.59915,29.6077 L -2.67122,29.595 L -2.74505,29.5828 L -2.81974,29.5727 L -2.89662,29.564 L -2.97481,29.5566 L -3.05344,29.55 L -3.13338,29.5456 L -3.21375,29.5417 L -3.29456,29.5391 L -3.37537,29.5391 L -3.37537,29.5391 L -3.45662,29.5391 L -3.53743,29.5417 L -3.61781,29.5456 L -3.69775,29.55 L -3.77637,29.5566 L -3.85456,29.564 L -3.93101,29.5727 L -4.00614,29.5828 L -4.07996,29.595 L -4.15204,29.6077 L -4.22149,29.6221 L -4.2892,29.6374 L -4.35428,29.6535 L -4.41718,29.671 L -4.47746,29.6894 L -4.53512,29.709 L -4.58885,29.7295 L -4.6404,29.7509 L -4.68845,29.7732 L -4.733,29.7968 L -4.77406,29.8208 L -4.81163,29.8449 L -4.8457,29.8702 L -4.87584,29.896 L -4.90205,29.9222 L -4.92433,29.9488 L -4.94224,29.9759 L -4.95665,30.003 L -4.96714,30.0305 L -4.97282,30.058 L -4.975,30.086 L -4.975,30.086 L -4.97282,30.1139 L -4.96714,30.141 L -4.95665,30.169 L -4.94224,30.1961 L -4.92433,30.2231 L -4.90205,30.2498 L -4.87584,30.276 L -4.8457,30.3018 L -4.81163,30.3267 L -4.77406,30.3511 L -4.733,30.3752 L -4.68845,30.3987 L -4.6404,30.421 L -4.58885,30.4424 L -4.53512,30.463 L -4.47746,30.4826 L -4.41718,30.501 L -4.35428,30.5184 L -4.2892,30.5346 L -4.22149,30.5499 L -4.15204,30.5643 L -4.07996,30.577 L -4.00614,30.5888 L -3.93101,30.5992 L -3.85456,30.608 L -3.77637,30.6154 L -3.69775,30.6215 L -3.61781,30.6263 L -3.53743,30.6298 L -3.45662,30.6324 L -3.37537,30.6329 L -3.37537,30.6329 L -3.29456,30.6324 L -3.21375,30.6298 L -3.13338,30.6263 L -3.05344,30.6215 L -2.97481,30.6154 L -2.89662,30.608 L -2.81974,30.5992 L -2.74505,30.5888 L -2.67122,30.577 L -2.59915,30.5643 L -2.5297,30.5499 L -2.46155,30.5346 L -2.39647,30.5184 L -2.33356,30.501 L -2.27372,30.4826 L -2.21606,30.463 L -2.1619,30.4424 L -2.11079,30.421 L -2.0623,30.3987 L -2.01818,30.3752 L -1.97712,30.3511 L -1.93956,30.3267 L -1.90548,30.3018 L -1.87534,30.276 L -1.84913,30.2498 L -1.82686,30.2231 L -1.80895,30.1961 L -1.79453,30.169 L -1.78405,30.141 L -1.77793,30.1139 L -1.77575,30.086z"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 0.001; stroke: #494936" d="M -1.79453 30.0772 L -1.79672,30.0493 L -1.80239,30.0226 L -1.81244,29.9956 L -1.82642,29.9689 L -1.8452,29.9418 L -1.86792,29.9161 L -1.89282,29.8899 L -1.92339,29.8654 L -1.95703,29.8405 L -1.99416,29.816 L -2.03522,29.7929 L -2.07934,29.7697 L -2.12695,29.7479 L -2.17718,29.726 L -2.23222,29.7064 L -2.28945,29.6872 L -2.34929,29.6688 L -2.41132,29.6518 L -2.47597,29.6361 L -2.54324,29.6208 L -2.61313,29.6072 L -2.68433,29.5946 L -2.75771,29.5828 L -2.83197,29.5727 L -2.90798,29.564 L -2.98617,29.557 L -3.06436,29.55 L -3.14386,29.5461 L -3.22336,29.5426 L -3.30461,29.5404 L -3.38498,29.5391 L -3.38498,29.5391 L -3.46536,29.5404 L -3.54573,29.5426 L -3.62611,29.5461 L -3.70473,29.55 L -3.78336,29.557 L -3.86112,29.564 L -3.93756,29.5727 L -4.01225,29.5828 L -4.0852,29.5946 L -4.1564,29.6072 L -4.22629,29.6208 L -4.29356,29.6361 L -4.35778,29.6518 L -4.42068,29.6688 L -4.48096,29.6872 L -4.53775,29.7064 L -4.59191,29.726 L -4.64215,29.7479 L -4.6902,29.7697 L -4.73475,29.7929 L -4.77494,29.816 L -4.81207,29.8405 L -4.84658,29.8654 L -4.87628,29.8899 L -4.90205,29.9161 L -4.92433,29.9418 L -4.94268,29.9689 L -4.95709,29.9956 L -4.96714,30.0226 L -4.97282,30.0493 L -4.975,30.0772 L -4.975,30.0772 L -4.97282,30.1043 L -4.96714,30.131 L -4.95709,30.1585 L -4.94268,30.1851 L -4.92433,30.2118 L -4.90205,30.238 L -4.87628,30.2638 L -4.84658,30.2887 L -4.81207,30.3131 L -4.77494,30.338 L -4.73475,30.3616 L -4.6902,30.3839 L -4.64215,30.4062 L -4.59191,30.4276 L -4.53775,30.4477 L -4.48096,30.4669 L -4.42068,30.4848 L -4.35778,30.5023 L -4.29356,30.518 L -4.22629,30.5333 L -4.1564,30.5473 L -4.0852,30.5595 L -4.01225,30.5709 L -3.93756,30.5809 L -3.86112,30.5896 L -3.78336,30.5971 L -3.70473,30.6036 L -3.62611,30.608 L -3.54573,30.6115 L -3.46536,30.6137 L -3.38498,30.6145 L -3.38498,30.6145 L -3.30461,30.6137 L -3.22336,30.6115 L -3.14386,30.608 L -3.06436,30.6036 L -2.98617,30.5971 L -2.90798,30.5896 L -2.83197,30.5809 L -2.75771,30.5709 L -2.68433,30.5595 L -2.61313,30.5473 L -2.54324,30.5333 L -2.47597,30.518 L -2.41132,30.5023 L -2.34929,30.4848 L -2.28945,30.4669 L -2.23222,30.4477 L -2.17718,30.4276 L -2.12695,30.4062 L -2.07934,30.3839 L -2.03522,30.3616 L -1.99416,30.338 L -1.95703,30.3131 L -1.92339,30.2887 L -1.89282,30.2638 L -1.86792,30.238 L -1.8452,30.2118 L -1.82642,30.1851 L -1.81244,30.1585 L -1.80239,30.131 L -1.79672,30.1043 L -1.79453,30.0772"/>
+  <path style="fill: #a5a585" d="M -4.975 28.9437 L -4.975,30.0956 L -1.79453,30.0956 L -1.79453,28.9437 L -4.975,28.9437z"/>
+  <path style="fill: #c9c9b6" d="M -1.77575 28.9341 L -1.77793,28.9057 L -1.78405,28.8782 L -1.79453,28.8511 L -1.80895,28.824 L -1.82686,28.7965 L -1.84913,28.7699 L -1.87534,28.7432 L -1.90548,28.7183 L -1.93956,28.6934 L -1.97712,28.6681 L -2.01818,28.6449 L -2.0623,28.6213 L -2.11079,28.5986 L -2.1619,28.5777 L -2.21606,28.5571 L -2.27372,28.537 L -2.33356,28.5187 L -2.39647,28.5016 L -2.46155,28.485 L -2.5297,28.4698 L -2.59915,28.4558 L -2.67122,28.4431 L -2.74505,28.4313 L -2.81974,28.4208 L -2.89662,28.4121 L -2.97481,28.4047 L -3.05344,28.3986 L -3.13338,28.3938 L -3.21375,28.3898 L -3.29456,28.3876 L -3.37537,28.3872 L -3.37537,28.3872 L -3.45662,28.3876 L -3.53743,28.3898 L -3.61781,28.3938 L -3.69775,28.3986 L -3.77637,28.4047 L -3.85456,28.4121 L -3.93101,28.4208 L -4.00614,28.4313 L -4.07996,28.4431 L -4.15204,28.4558 L -4.22149,28.4698 L -4.2892,28.485 L -4.35428,28.5016 L -4.41718,28.5187 L -4.47746,28.537 L -4.53512,28.5571 L -4.58885,28.5777 L -4.6404,28.5986 L -4.68845,28.6213 L -4.733,28.6449 L -4.77406,28.6681 L -4.81163,28.6934 L -4.8457,28.7183 L -4.87584,28.7432 L -4.90205,28.7699 L -4.92433,28.7965 L -4.94224,28.824 L -4.95665,28.8511 L -4.96714,28.8782 L -4.97282,28.9057 L -4.975,28.9341 L -4.975,28.9341 L -4.97282,28.9616 L -4.96714,28.9896 L -4.95665,29.0162 L -4.94224,29.0442 L -4.92433,29.0708 L -4.90205,29.0979 L -4.87584,29.1241 L -4.8457,29.1494 L -4.81163,29.1748 L -4.77406,29.1992 L -4.733,29.2233 L -4.68845,29.2464 L -4.6404,29.2687 L -4.58885,29.2901 L -4.53512,29.3111 L -4.47746,29.3303 L -4.41718,29.3491 L -4.35428,29.3665 L -4.2892,29.3827 L -4.22149,29.398 L -4.15204,29.4124 L -4.07996,29.4246 L -4.00614,29.4369 L -3.93101,29.4469 L -3.85456,29.4557 L -3.77637,29.4635 L -3.69775,29.4692 L -3.61781,29.4744 L -3.53743,29.4779 L -3.45662,29.4801 L -3.37537,29.481 L -3.37537,29.481 L -3.29456,29.4801 L -3.21375,29.4779 L -3.13338,29.4744 L -3.05344,29.4692 L -2.97481,29.4635 L -2.89662,29.4557 L -2.81974,29.4469 L -2.74505,29.4369 L -2.67122,29.4246 L -2.59915,29.4124 L -2.5297,29.398 L -2.46155,29.3827 L -2.39647,29.3665 L -2.33356,29.3491 L -2.27372,29.3303 L -2.21606,29.3111 L -2.1619,29.2901 L -2.11079,29.2687 L -2.0623,29.2464 L -2.01818,29.2233 L -1.97712,29.1992 L -1.93956,29.1748 L -1.90548,29.1494 L -1.87534,29.1241 L -1.84913,29.0979 L -1.82686,29.0708 L -1.80895,29.0442 L -1.79453,29.0162 L -1.78405,28.9896 L -1.77793,28.9616 L -1.77575,28.9341z"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 0.001; stroke: #494936" d="M -1.79453 28.9254 L -1.79672,28.8974 L -1.80239,28.8708 L -1.81244,28.8441 L -1.82642,28.817 L -1.8452,28.7895 L -1.86792,28.7637 L -1.89282,28.7388 L -1.92339,28.7131 L -1.95703,28.6886 L -1.99416,28.6637 L -2.03522,28.641 L -2.07934,28.6178 L -2.12695,28.5956 L -2.17718,28.575 L -2.23222,28.5545 L -2.28945,28.5357 L -2.34929,28.5174 L -2.41132,28.4999 L -2.47597,28.4837 L -2.54324,28.4689 L -2.61313,28.4553 L -2.68433,28.4427 L -2.75771,28.4313 L -2.83197,28.4208 L -2.90798,28.4121 L -2.98617,28.4047 L -3.06436,28.3986 L -3.14386,28.3938 L -3.17051,28.3924 L -3.59946,28.3924 L -3.62611,28.3938 L -3.70473,28.3986 L -3.78336,28.4047 L -3.86112,28.4121 L -3.93756,28.4208 L -4.01225,28.4313 L -4.0852,28.4427 L -4.1564,28.4553 L -4.22629,28.4689 L -4.29356,28.4837 L -4.35778,28.4999 L -4.42068,28.5174 L -4.48096,28.5357 L -4.53775,28.5545 L -4.59191,28.575 L -4.64215,28.5956 L -4.6902,28.6178 L -4.73475,28.641 L -4.77494,28.6637 L -4.81207,28.6886 L -4.84658,28.7131 L -4.87628,28.7388 L -4.90205,28.7637 L -4.92433,28.7895 L -4.94268,28.817 L -4.95709,28.8441 L -4.96714,28.8708 L -4.97282,28.8974 L -4.975,28.9254 L -4.975,28.9254 L -4.97282,28.952 L -4.96714,28.9795 L -4.95709,29.0066 L -4.94268,29.0333 L -4.92433,29.0599 L -4.90205,29.0861 L -4.87628,29.1114 L -4.84658,29.1372 L -4.81207,29.1617 L -4.77494,29.1861 L -4.73475,29.2097 L -4.6902,29.232 L -4.64215,29.2538 L -4.59191,29.2757 L -4.53775,29.2958 L -4.48096,29.3146 L -4.42068,29.3325 L -4.35778,29.3499 L -4.29356,29.3657 L -4.22629,29.381 L -4.1564,29.3954 L -4.0852,29.4067 L -4.01225,29.419 L -3.93756,29.4286 L -3.86112,29.4377 L -3.78336,29.4456 L -3.70473,29.4517 L -3.62611,29.4565 L -3.54573,29.4596 L -3.46536,29.4613 L -3.38498,29.4626 L -3.38498,29.4626 L -3.30461,29.4613 L -3.22336,29.4596 L -3.14386,29.4565 L -3.06436,29.4517 L -2.98617,29.4456 L -2.90798,29.4377 L -2.83197,29.4286 L -2.75771,29.419 L -2.68433,29.4067 L -2.61313,29.3954 L -2.54324,29.381 L -2.47597,29.3657 L -2.41132,29.3499 L -2.34929,29.3325 L -2.28945,29.3146 L -2.23222,29.2958 L -2.17718,29.2757 L -2.12695,29.2538 L -2.07934,29.232 L -2.03522,29.2097 L -1.99416,29.1861 L -1.95703,29.1617 L -1.92339,29.1372 L -1.89282,29.1114 L -1.86792,29.0861 L -1.8452,29.0599 L -1.82642,29.0333 L -1.81244,29.0066 L -1.80239,28.9795 L -1.79672,28.952 L -1.79453,28.9254"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 0.001; stroke: #000000" d="M -4.975 28.9254 L -4.975,30.0764"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 0.001; stroke: #000000" d="M -1.79453 28.9254 L -1.79453,30.0764"/>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 1.6725 cm; font-family: sans; font-style: normal; font-weight: normal" x="-4.23699" y="30.2072">SGBD</text>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 1.9075 cm; font-family: sans; font-style: normal; font-weight: normal" x="-8.625" y="29.1">Fichier</text>
+  <text style="fill: #000000; font-size: 0.8 cm; length: 0.555 cm; font-family: sans; font-style: normal; font-weight: normal" x="0.915" y="29.21">...</text>
+</svg>
