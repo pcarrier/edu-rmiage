@@ -1,6 +1,27 @@
 \section{Produits}
 \subsection{Framework RMIAGE}
-\subsubsection{Idée générale}
-\subsubsection{Structure générale}
+
+\subsubsection{Côté client} % (fold)
+\label{ssub:côté_client}
+
+Les sources du client sont entièrement fournies au client pour lui permettre toute forme de modifications, notamment graphiques, liées à gestion des inscriptions ou aux informations d'identification utilisées pour la connexion.
+
+La fenêtre de connexion permet de saisir ces informations. À la demande de connexion, un gestionnaire de réseau est créé. En cas d'échec, un message est affiché dans la fenêtre connexion.
+
+Dans le cas contraire, le gestionnaire de réseau acquière un contrôleur de session auprès du serveur. Il initialise alors un fil d'exécution dont le rôle est de permettre au serveur de \emph{pusher} des messages à tout moment (pour les fournir au panneau par exemple) et une fenêtre principale. Cette fenêtre dispose d'éléments graphiques pour la recherche et la déconnection, pour l'instant inutilisés, d'un arbre de navigation transmis par le serveur et mis à jour sur demande du serveur. Un panneau de droite est initialisé.
+
+À chaque déplacement dans l'arbre de navigation, le client demande au serveur le panneau correspondant (classe et données) et le substitue au panneau jusqu'ici utilisé. Le précédent panneau peut effectuer des actions avant de restituer l'emplacement.
+
+Ces panneaux disposent d'un accès au contrôleur de session, et peuvent lui transmettre des messages.
+
+Des fenêtres de \emph{popup} sont disponibles, et utilisables directement par le serveur grâce à un type de message spécifique.
+% subsubsection côté_client (end)
+
+\subsubsection{Côté serveur} % (fold)
+\label{ssub:côté_serveur}
+
+
+% subsubsection côté_serveur (end)
+
 \paragraph{Application serveur}
 \paragraph{Application cliente}
