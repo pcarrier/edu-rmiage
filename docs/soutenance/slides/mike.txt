@@ -1,0 +1,9 @@
+
+NOTES
+
+Introduction : 
+	contexte (ent de dvt logiciel | srv appli, client lourd)
+	contraintes
+Conclusion : 
+	+ difficultées et leur apport
+	+ déroulement projet
