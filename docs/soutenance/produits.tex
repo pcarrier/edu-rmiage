@@ -3,7 +3,6 @@
 
 \subsubsection{Côté client} % (fold)
 \label{ssub:côté_client}
-
 Les sources du client sont entièrement fournies au client pour lui permettre toute forme de modifications, notamment graphiques, liées à gestion des inscriptions ou aux informations d'identification utilisées pour la connexion.
 
 La fenêtre de connexion permet de saisir ces informations. À la demande de connexion, un gestionnaire de réseau est créé. En cas d'échec, un message est affiché dans la fenêtre connexion.
@@ -19,20 +18,38 @@ Des fenêtres de \emph{popup} sont disponibles, et utilisables directement par l
 
 \subsubsection{Côté serveur} % (fold)
 \label{ssub:côté_serveur}
-Le serveur quand à lui consiste en une application "glue" des différents composant du framework développé.
+
+\begin{figure}[thbp]
+	\centering
+		\includegraphics[angle=90,scale=0.6]{../diagrammes/init_server.png}
+	\caption{Scénario d'initialisation du serveur}
+	\label{fig:init_server}
+\end{figure}
+
+\begin{figure}[thbp]
+	\centering
+		\includegraphics[scale=0.6]{../diagrammes/auth_client.png}
+	\caption{Scénario d'authentification d'un client}
+	\label{fig:auth_client}
+\end{figure}
+
+Le serveur, controlleur principal, quand à lui consiste en une application "glue" des différents composants du framework développé.
 
 La configuration de cette application se fait via un gestionnaire de configuration, étendable par notre client à son grés.
 
 
-Ce gestionnaire de configuration sert dans un premier temps à instancier un controleur implémentant la couche réseau, ici le protocole RMI, via deux paramètres :
+Ce gestionnaire de configuration sert dans un premier temps à instancier un controleur implémentant la couche réseau, ici le protocole RMI :
+Ce "NetworkController" peut récupérer à partir du controllleur principal deux paramètre nécessaires à son fonctionnement :
 \begin{itemize}
  \item le nom de la ressource principale à exposer (adresse à laquelle le serveur est joignable)~;
- \item l'object principal à exposer.
+ \item une instance de l'objet principal à exposer.
 \end{itemize}
+De même, il initialise un contolleur de module, chargé d'initialiser les différents modules via les chargeurs de modules paramétrés, récupérés via le gestionnaire de configuration.
 
-Une fois ce parametr
+Dans notre cas, l'objet principal est un "LoginController", permettant d'initialiser une nouvelle session avec le client si les informations fournies par le client sont validées par le gestionnaire d'identification, et retourne alors un controlleur de session permettant d'effectuer de faire appel 
 
+
+Le détail du scénario de l'initialisation du serveur est donnée fig.\ref{fig:init_server}, p.\pageref{fig:init_server}.
+
+De même, à titre d'exemple, le scénario de l'authentification d'un client est donné fig.\ref{fig:auth_client}, p.\pageref{fig:auth_client}. Note : le gestionnaire de session crée permet la communication avec les modules via le gestionnaire de connection. Cette partie est volontairement omise pour alléger le client.
 % subsubsection côté_serveur (end)
-
-\paragraph{Application serveur}
-\paragraph{Application cliente}

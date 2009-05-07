@@ -1,20 +1,31 @@
----
-Organisation
-	Repatition des taches
-		---
-		Définitions de grands rôles
-			+ Architecte
-			+ Chef de projet
-			+ Responsable qualité
-			+ Developpeur
-		---
-		Définition de grands Roles
-		img des 4 Grd roles
-		---
-		Repartition prévisionnelles :
-			img repartition previsionnelles
-		---
-		Repartition effective :
-			img repartition effective
 
-Répartition des rôle en fonctions
+Gestion de projet
+==================
+
+Repatition des taches
+-----------------------
+Définitions de grands rôles
++ Architecte
++ Chef de projet
++ Responsable qualité
++ Developpeur
+
+Définition de grands Roles
+---------------------------
+img des 4 Grd roles
+
+
+Repartition prévisionnelles :
+-----------------------------
+img repartition previsionnelles
+
+
+Repartition effective :
+-------------------------
+img repartition effective
+
+
+Charge de travail
+---------------------
+img GANTT
+
