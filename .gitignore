@@ -10,5 +10,4 @@ target/
 *.out
 *.backup
 *.synctex.gz
-*.pdf
 *.class

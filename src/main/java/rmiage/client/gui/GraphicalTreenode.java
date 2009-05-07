@@ -5,11 +5,11 @@ import java.rmi.RemoteException;
 import javax.swing.tree.DefaultMutableTreeNode;
 import rmiage.common.interfaces.NavigTreeNode;
 
-public class GraphicalTreenode extends DefaultMutableTreeNode{
+public class GraphicalTreeNode extends DefaultMutableTreeNode{
 
 	protected NavigTreeNode node;
 	
-	public GraphicalTreenode(NavigTreeNode node) throws RemoteException {
+	public GraphicalTreeNode(NavigTreeNode node) throws RemoteException {
 		super(node.getName());
 		this.node=node;
 	}

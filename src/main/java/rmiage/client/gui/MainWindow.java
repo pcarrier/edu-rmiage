@@ -43,7 +43,7 @@ public class MainWindow extends javax.swing.JFrame {
         jTreeFocListen = new TreeSelectionListener() {
 
             private void dumpInfo(TreeSelectionEvent e) throws RemoteException, InstantiationException, IllegalAccessException {
-                GraphicalTreenode o = (GraphicalTreenode) ((JTree) e.getSource()).getLastSelectedPathComponent();
+                GraphicalTreeNode o = (GraphicalTreeNode) ((JTree) e.getSource()).getLastSelectedPathComponent();
                 NavigTreeNode n = o.getDataTreeNode();
                 //System.out.println(n.getClass()+" "+n);
                 PanelDescriptor pd = (PanelDescriptor) networkManager.getSessionController().getNavigNodePanel(n);
@@ -81,11 +81,11 @@ public class MainWindow extends javax.swing.JFrame {
         this.navigTree.addTreeSelectionListener(this.jTreeFocListen);
     }
 
-    public GraphicalTreenode getGraphicalTreeNodes(NavigTreeNode node) throws RemoteException {
+    public GraphicalTreeNode getGraphicalTreeNodes(NavigTreeNode node) throws RemoteException {
         //System.err.println("Finding subnodes for "+node);
-        GraphicalTreenode ret = new GraphicalTreenode(node);
+        GraphicalTreeNode ret = new GraphicalTreeNode(node);
         for (NavigTreeNode n : node.getChildNodes()) {
-            GraphicalTreenode graphicalRepr = getGraphicalTreeNodes(n);
+            GraphicalTreeNode graphicalRepr = getGraphicalTreeNodes(n);
             ret.add(graphicalRepr);
 
         }
@@ -100,7 +100,7 @@ public class MainWindow extends javax.swing.JFrame {
         //System.err.println("UpdateTree "+tm);
         String nodename = tm.getRootNode().getName();
         //System.err.println("Nodename "+nodename);
-        GraphicalTreenode root = getGraphicalTreeNodes(tm.getRootNode());
+        GraphicalTreeNode root = getGraphicalTreeNodes(tm.getRootNode());
         //System.err.println("root "+root);
         DefaultTreeModel arbreModele = new DefaultTreeModel(root);
         this.navigTree.setModel(arbreModele);
